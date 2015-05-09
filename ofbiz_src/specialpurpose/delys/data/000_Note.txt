@@ -1,0 +1,44 @@
+Deleted:
+	DelysSecurityGroupDemoData.xml, da chuyen du lieu vao cac file khac
+	SalesPromotionDemoData.xml
+	TaxAuthorityData.xml
+--------------------------------------
+	ProductCatalogData.xml
+	ProductStoreData.xml
+	ProductStorePaymentSetting.xml
+	ProductStoreShipmentMeth.xml
+	ConfigPackingDemoData.xml
+	UomConversionDatedDemoData.xml
+	RoleTypeData.xml
+	PartyRoleData.xml
+	PersonData.xml
+	RoleTypeAttrData.xml
+	PartyRelationshipData.xml
+	PartyData.xml
+	PartyGroupData.xml
+	PartyContactMechData.xml
+	SecurityGroupData.xml
+	SecurityPermissionData.xml
+	SecurityGroupPermissionData.xml
+	UserLoginData.xml
+	UserSecurityGroupData.xml
+	OrderTypeData.xml
+	StatusItemData.xml
+	InvoiceItemType.xml
+	PaymentMethodTypeData.xml
+	UomData.xml
+	GeoData.xml
+	DelysTypeData.xml
+	SalesPromotionsData.xml
+	EmplLeaveTypeData.xml
+	ReturnData.xml
+	QuotaHeaderData.xml
+	FacilityTypeData.xml
+	FacilityData.xml
+	ProductPlanTypeData.xml
+	TargetTypeData.xml
+	TermTypeData.xml
+	
+Change data to files: ErpDemoData.xml, ErpSeedData.xml, 
+	DelysInventoryItemDemoData.xml, DelysPartyDemoData.xml, DelysProductDemoData.xml
+	

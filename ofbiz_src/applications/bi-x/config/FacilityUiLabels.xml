@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<property key="_facility_title">
+		<value xml:lang="en">FACILITY REPORT</value>
+		<value xml:lang="vi">BÁO CÁO KHO</value>
+	</property>
+	<property key="_facility_subtitle">
+		<value xml:lang="en">Olbius</value>
+		<value xml:lang="vi">OLBIUS</value>
+	</property>
+	<property key="_facility_facilityId">
+		<value xml:lang="en">FACILITY</value>
+		<value xml:lang="vi">KHO</value>
+	</property>
+	<property key="_facility_productId">
+		<value xml:lang="en">Product</value>
+		<value xml:lang="vi">Sản phẩm</value>
+	</property>
+	<property key="_facility_dateType">
+		<value xml:lang="en">Statistics</value>
+		<value xml:lang="vi">Thông kê</value>
+	</property>
+	<property key="_facility_olapType">
+		<value xml:lang="en">Report</value>
+		<value xml:lang="vi">Báo cáo</value>
+	</property>
+	<property key="_facility_fromDate">
+		<value xml:lang="en">From</value>
+		<value xml:lang="vi">Từ ngày</value>
+	</property>
+	<property key="_facility_thruDate">
+		<value xml:lang="en">To</value>
+		<value xml:lang="vi">Đến ngày</value>
+	</property>
+</resource>

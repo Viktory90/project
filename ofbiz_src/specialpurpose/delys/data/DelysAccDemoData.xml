@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <!-- GL journal for suspended transactions (failed post) -->
+    <GlJournal organizationPartyId="NPP_TUANMINH" glJournalId="NPP_ERROR_JOURNAL" glJournalName="Suspense transactions"/>
+	
+    <PartyAcctgPreference partyId="NPP_TUANMINH" taxFormId="US_IRS_1120" cogsMethodId="COGS_LIFO" baseCurrencyUomId="VND"
+        invoiceSeqCustMethId="INV_HOOK_ENF_SEQ" invoiceIdPrefix="NPPCI"
+        quoteIdPrefix="NPPCQ"
+        orderIdPrefix="NPPCO"
+        errorGlJournalId="NPP_ERROR_JOURNAL"/>
+		
+    <!-- Chart Of Accounts -->
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="100000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="110000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="111000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="111100" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="111900" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="112000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="120000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="125000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="121800" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="122000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="122100" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="122200" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="122300" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="122500" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="126000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="140000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="141000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="142000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="150000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="171000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="174000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="188000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="210000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="213000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="213200" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="213300" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="213500" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="214000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="215000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="216000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="221100" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="224000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="224100" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="224106" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="224140" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="224151" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="224153" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="224209" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="231000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="310000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="336000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="400000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="401000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="409000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="410000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="421000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="422000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="423000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="424000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="500000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="510000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="514000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="515000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="516100" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="600000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="601000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="601100" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="601200" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="601300" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="601400" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="602100" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="602200" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="603100" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="603200" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="604000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="605000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="625000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="649000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="650000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="675400" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="804000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="810000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="850000" fromDate="2001-01-01 00:00:00.0"/>
+    <GlAccountOrganization organizationPartyId="NPP_TUANMINH" glAccountId="900000" fromDate="2001-01-01 00:00:00.0"/>
+
+    <!-- Default mapping between account types and account ids -->
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="ACCOUNTS_RECEIVABLE" glAccountId="120000"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="ACCREC_UNAPPLIED" glAccountId="126000"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="INTRSTINC_RECEIVABLE" glAccountId="121800"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="INVENTORY_XFER_OUT" glAccountId="125000"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="INVENTORY_ACCOUNT" glAccountId="140000"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="RAWMAT_INVENTORY" glAccountId="141000"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="WIP_INVENTORY" glAccountId="142000"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="PREPAID_EXPENSES" glAccountId="150000"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="ACCOUNTS_PAYABLE" glAccountId="210000"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="CUSTOMER_CREDIT" glAccountId="213000"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="CUSTOMER_DEPOSIT" glAccountId="213300"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="UNINVOICED_SHIP_RCPT" glAccountId="214000"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="INVENTORY_XFER_IN" glAccountId="215000"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="ACCPAYABLE_UNAPPLIED" glAccountId="216000"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="COMMISSIONS_PAYABLE" glAccountId="221100"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="RETAINED_EARNINGS" glAccountId="336000"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="SALES_ACCOUNT" glAccountId="400000"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="COGS_ACCOUNT" glAccountId="500000"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="INV_ADJ_VAL" glAccountId="515000"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="OPERATING_EXPENSE" glAccountId="600000"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="PROFIT_LOSS_ACCOUNT" glAccountId="850000"/>
+    <GlAccountTypeDefault organizationPartyId="NPP_TUANMINH" glAccountTypeId="TAX_ACCOUNT" glAccountId="900000"/>
+</entity-engine-xml>

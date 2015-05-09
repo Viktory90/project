@@ -1,0 +1,72 @@
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<form class="form-horizontal" id="accRegister">
+			<div class="form-group">
+				<label
+					class="col-sm-4 col-xs-6 control-label no-padding-right no-padding-right blue"
+					for="level">Chọn cửa hàng ĐK (*)</label>
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+					<select  class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-options="obj.partyIdTo as obj.groupName for obj in customers" ng-model="customers.partyId">
+					</select>
+				</div>
+			</div>
+			<div ng-show="!check">
+			<div class="form-group">
+				<label
+					class="col-sm-4 col-xs-6 control-label no-padding-right no-padding-right blue"
+					for="level">Chọn CTTL (*)</label>
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+					<select class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-disabled="check" ng-options="obj.productPromoId as obj.promoName for obj in listAccumulate.content" ng-model="listAccumulate.productPromoId">
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-4 col-xs-6 control-label no-padding-right blue"
+					for="level">Chọn cấp độ</label>
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+					<select class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-disabled="check" ng-options="obj.ruleId as obj.ruleName for obj in listAccumulate.listRule" ng-model="listAccumulate.ruleId">
+					</select>
+				</div>
+			</div>
+			<div ng-show="listAccumulate.productPromoId">
+			<div class="form-group">
+				<label
+					class="col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label no-padding-right blue"
+					for="level">Mức thời hạn:</label>
+				<div class="col-lg-8 col-sm-8 col-md-8 col-xs-12 line-height-38">
+					<b ng-show="listAccumulate.ruleId">{{index.monthInterval}} tháng {{index.DayInterval - index.monthInterval*30}} ngày (Từ {{index.fromDate}} đến {{index.thruDate}})</b>
+					<!-- <b ng-show="!index.monthInterval"> Từ {{index.fromDate}} đến không thời hạn</b> -->
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label
+					class="col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label no-padding-right blue"
+					for="level">Mức doanh số</label>
+				<div class="col-lg-8 col-sm-8 col-md-8 col-xs-12 line-height-38">
+					<b >{{index.promoSalesTargets | currency}}</b>
+				</div>
+			</div>
+			<div class="form-group">
+				<label
+					class="col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label no-padding-right blue"
+					for="level">Thưởng tích lũy</label>
+				<div class="col-lg-8 col-sm-8 col-md-8 col-xs-12 line-height-38">
+					<b>{{index.quantity}} {{index.productName}}</b>
+				</div>
+			</div>
+			</div>
+			</div>
+			<div class="right" style="margin: 0">
+			<button class="btn btn-info btn-small" id="save_new_cus" ng-click="accumulateRegister()">
+				<i class="fa fa-send"></i>&nbsp; <span id="createNewCustomer_saveCus">Gửi
+					ĐK</span>
+			</button>
+			<button class="btn btn-small" data-last="Finish" id="cancel">
+				<i class="fa fa-times"></i>&nbsp; <span
+					id="createNewCustomer_return">Hủy</span>
+			</button>
+		</div>
+		</form>
+		
+</div>

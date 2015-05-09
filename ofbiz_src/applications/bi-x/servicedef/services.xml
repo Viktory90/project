@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	
+	<service name="initProductDimension" engine="java" location="com.olbius.datawarehouse.services.DimensionServices" invoke="initProductDimension">
+	</service>
+	
+	<service name="updateProductDimension" engine="java" location="com.olbius.datawarehouse.services.DimensionServices" invoke="updateProductDimension">
+	</service>
+	
+	<service name="initDateDimension" engine="java" location="com.olbius.datawarehouse.services.DimensionServices" invoke="initDateDimension">
+		<attribute name="fromDate" type="Timestamp" mode="IN" optional="false"/>
+        <attribute name="thruDate" type="Timestamp" mode="IN" optional="false"/>
+	</service>
+	
+	<service name="updateDateDimension" engine="java" location="com.olbius.datawarehouse.services.DimensionServices" invoke="updateDateDimension">
+	</service>
+	
+	<service name="initFacilityDimension" engine="java" location="com.olbius.datawarehouse.services.DimensionServices" invoke="initFacilityDimension">
+		
+	</service>
+	
+	<service name="updateFacilityDimension" engine="java" location="com.olbius.datawarehouse.services.DimensionServices" invoke="updateFacilityDimension">
+	</service>
+	
+	<service name="initPartyDimension" engine="java" location="com.olbius.datawarehouse.services.DimensionServices" invoke="initPartyDimension">
+		
+	</service>
+	
+	<service name="updatePartyDimension" engine="java" location="com.olbius.datawarehouse.services.DimensionServices" invoke="updatePartyDimension">
+	</service>
+	
+	<service name="initCurrencyDimension" engine="java" location="com.olbius.datawarehouse.services.DimensionServices" invoke="initCurrencyDimension">
+		
+	</service>
+	
+	<service name="updateCurrencyDimension" engine="java" location="com.olbius.datawarehouse.services.DimensionServices" invoke="updateCurrencyDimension">
+	</service>
+	
+	<service name="testSQL" engine="java" location="com.olbius.datawarehouse.services.DimensionServices" invoke="testSQL">
+	</service>
+	
+	<service name="facilityProductOlap" engine="java" location="com.olbius.datawarehouse.services.FacilityServices" invoke="facilityProduct">
+		<attribute name="facilityId" mode="IN" type="String" optional="true"/>
+		<attribute name="productId" type="String" mode="IN" optional="true"/>
+		<attribute name="olapType" type="String" mode="IN" optional="false"/>
+		<attribute name="dateType" type="String" mode="IN" optional="true"/>
+		<attribute name="geoId" type="String" mode="IN" optional="true"/>
+		<attribute name="geoType" type="String" mode="IN" optional="true"/>
+		<attribute name="fromDate" type="Timestamp" mode="IN" optional="false"/>
+        <attribute name="thruDate" type="Timestamp" mode="IN" optional="false"/>
+        <attribute name="yAxis" mode="OUT" type="Map"/>
+        <attribute name="xAxis" mode="OUT" type="List"/>
+	</service>
+	
+	<service name="inventoryLoad" engine="java" location="com.olbius.system.ProcessServices" invoke="inventoryLoad">
+	</service>
+	
+	<service name="facilityLoad" engine="java" location="com.olbius.system.ProcessServices" invoke="facilityLoad">
+	</service>
+	
+	<service name="getFacility" engine="java" location="com.olbius.datawarehouse.services.FacilityServices" invoke="getFacilityId">
+		<attribute name="facility" mode="OUT" type="List" optional="false"/>
+	</service>
+	
+	<service name="getProduct" engine="java" location="com.olbius.datawarehouse.services.FacilityServices" invoke="getProductId">
+		<attribute name="product" mode="OUT" type="List" optional="false"/>
+	</service>
+	
+	<service name="getGeoType" engine="java" location="com.olbius.datawarehouse.services.FacilityServices" invoke="getGeoType">
+		<attribute name="geoType" mode="OUT" type="List" optional="false"/>
+	</service>
+	
+	<service name="getGeo" engine="java" location="com.olbius.datawarehouse.services.FacilityServices" invoke="getGeoId">
+		<attribute name="geoType" mode="IN" type="String" optional="false"/>
+		<attribute name="geo" mode="OUT" type="List" optional="false"/>
+	</service>
+	
+	<service name="personBirthPartyOlap" engine="java" location="com.olbius.datawarehouse.services.PartyServices" invoke="personBirth">
+		<attribute name="group[]" mode="IN" type="List" optional="true"/>
+		<attribute name="gender" mode="IN" type="Boolean" optional="true"/>
+		<attribute name="yAxis" mode="OUT" type="Map"/>
+        <attribute name="xAxis" mode="OUT" type="List"/>
+	</service>
+	
+	<service name="genderPartyOlap" engine="java" location="com.olbius.datawarehouse.services.PartyServices" invoke="gender">
+		<attribute name="group[]" mode="IN" type="List" optional="true"/>
+		<attribute name="yAxis" mode="OUT" type="Map"/>
+        <attribute name="xAxis" mode="OUT" type="List"/>
+	</service>
+	
+	<service name="memberPartyOlap" engine="java" location="com.olbius.datawarehouse.services.PartyServices" invoke="member">
+		<attribute name="group[]" mode="IN" type="List" optional="false"/>
+		<attribute name="fromDate" type="Timestamp" mode="IN" optional="false"/>
+        <attribute name="thruDate" type="Timestamp" mode="IN" optional="false"/>
+        <attribute name="dateType" type="String" mode="IN" optional="true"/>
+        <attribute name="child" type="Boolean" mode="IN" optional="true"/>
+        <attribute name="cur" type="Boolean" mode="IN" optional="true"/>
+		<attribute name="yAxis" mode="OUT" type="Map"/>
+        <attribute name="xAxis" mode="OUT" type="List"/>
+	</service>
+	
+	<service name="personPartyOlap" engine="java" location="com.olbius.datawarehouse.services.PartyServices" invoke="personOlap">
+		<attribute name="group[]" mode="IN" type="List" optional="false"/>
+		<attribute name="fromDate" type="Timestamp" mode="IN" optional="false"/>
+        <attribute name="thruDate" type="Timestamp" mode="IN" optional="false"/>
+        <attribute name="dateType" type="String" mode="IN" optional="true"/>
+        <attribute name="child" type="Boolean" mode="IN" optional="true"/>
+        <attribute name="ft" type="Boolean" mode="IN" optional="false"/>
+		<attribute name="yAxis" mode="OUT" type="Map"/>
+        <attribute name="xAxis" mode="OUT" type="List"/>
+	</service>
+	
+	<service name="schoolPartyOlap" engine="java" location="com.olbius.datawarehouse.services.PartyServices" invoke="school">
+		<attribute name="group[]" mode="IN" type="List" optional="true"/>
+        <attribute name="type" type="String" mode="IN" optional="true"/>
+		<attribute name="yAxis" mode="OUT" type="Map"/>
+        <attribute name="xAxis" mode="OUT" type="List"/>
+	</service>
+	
+	<service name="positionPartyOlap" engine="java" location="com.olbius.datawarehouse.services.PartyServices" invoke="position">
+		<attribute name="group[]" mode="IN" type="List" optional="true"/>
+		<attribute name="child" type="Boolean" mode="IN" optional="true"/>
+		<attribute name="yAxis" mode="OUT" type="Map"/>
+        <attribute name="xAxis" mode="OUT" type="List"/>
+	</service>
+	
+	<service name="getAllPartyParent" engine="java" location="com.olbius.datawarehouse.services.PartyServices" invoke="getAllPartyParent">
+        <attribute name="parent" mode="OUT" type="List"/>
+	</service>
+	
+	<service name="getChildParty" engine="java" location="com.olbius.datawarehouse.services.PartyServices" invoke="getChildParty">
+		<attribute name="parent" mode="IN" type="String"/>
+        <attribute name="child" mode="OUT" type="List"/>
+	</service>
+</services>

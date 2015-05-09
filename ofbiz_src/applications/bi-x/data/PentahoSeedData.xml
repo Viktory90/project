@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-engine-xml>
+	<ServicesOlapLoad  serviceId="dim_currency" serviceNameTranform="createCurrencyDimension" serviceNameJob="runSynCurrencyDimensionJob" serviceNameJobDestroy="stopCurrencyDimensionJob" statusJob="Avaiable" tableType="table_dim" description="Tạo dữ liệu chiều tiền tệ"></ServicesOlapLoad>
+	<ServicesOlapLoad  serviceId="dim_date" serviceNameTranform="createDateDimension"  serviceNameJob="runSynDateDimensionJob" serviceNameJobDestroy="" tableType="table_dim" statusJob="Avaiable" description="Tạo dữ liệu chiều thời gian"></ServicesOlapLoad>
+	<ServicesOlapLoad  serviceId="dim_product" serviceNameTranform="createProductDimension"  serviceNameJob="runSynProductDimensionJob" serviceNameJobDestroy="stopProductDimensionJob" statusJob="Avaiable" tableType="table_dim" description="Tạo dữ liệu chiều sản phẩm"></ServicesOlapLoad>
+	<ServicesOlapLoad  serviceId="dim_promotion" serviceNameTranform="createPromotionDimension" serviceNameJob="runSynPromotionDimensionJob"  serviceNameJobDestroy="stopPromotionDimensionJob" statusJob="Avaiable" tableType="table_dim" description="Tạo dũ liệu chiều khuyến mại"></ServicesOlapLoad>
+	<ServicesOlapLoad  serviceId="fact_sales" serviceNameTranform="loadSalesOrderItemFact"  serviceNameJob="runSynSalesOrderItemFactJob" serviceNameJobDestroy="stopSalesOrderItemFactJob" statusJob="Avaiable" tableType="table_fact" description="Lấy dữ liệu Sales"></ServicesOlapLoad>
+</entity-engine-xml>

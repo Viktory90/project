@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods-v2.xsd">
+	<simple-method method-name="getListAllStoreNameByUserLogin">
+		<entity-condition entity-name="ProductStoreRoleDetail" filter-by-date="true" list="listAllStoreByUserLogin" distinct="true">
+       		<condition-list>
+       			<condition-expr field-name="partyId" from-field="userLogin.partyId"/>
+       			<condition-expr field-name="roleTypeId" value="MANAGER"/>
+       		</condition-list>
+       		<select-field field-name="productStoreId"/>
+       	</entity-condition>
+       	<set field="listAllStoreNameByUserLogin"/>
+       	<iterate entry="item" list="listAllStoreByUserLogin">
+       		<set field="listAllStoreNameByUserLoginItem" from-field="item.productStoreId"/>
+       		<field-to-list list="listAllStoreNameByUserLogin" field="listAllStoreNameByUserLoginItem"/>
+       	</iterate>
+       	<field-to-result field="listAllStoreNameByUserLogin" result-name="listAllStoreNameByUserLogin"/>
+	</simple-method>
+	<simple-method method-name="getListAllStoreByUserLogin">
+		<set field="sortField" from-field="parameters.sortField"/>
+		<if-not-empty field="sortField">
+			<entity-condition entity-name="ProductStoreRoleDetail" filter-by-date="true" list="listAllStoreByUserLogin" distinct="true">
+	       		<condition-list>
+	       			<condition-expr field-name="partyId" from-field="userLogin.partyId"/>
+	       			<condition-expr field-name="roleTypeId" value="MANAGER"/>
+	       		</condition-list>
+	       		<order-by field-name="${sortField}"/>
+	       	</entity-condition>
+	    <else>
+	    	<entity-condition entity-name="ProductStoreRoleDetail" filter-by-date="true" list="listAllStoreByUserLogin" distinct="true">
+	       		<condition-list>
+	       			<condition-expr field-name="partyId" from-field="userLogin.partyId"/>
+	       			<condition-expr field-name="roleTypeId" value="MANAGER"/>
+	       		</condition-list>
+	       	</entity-condition>
+	    </else>
+		</if-not-empty>
+       	<field-to-result field="listAllStoreByUserLogin" result-name="listAllStore"/>
+	</simple-method>
+	<!-- <simple-method method-name="getListAllStoreNameByUserLogin">
+		<if-empty field="parameters.viewSize">
+			<set field="viewSize" value="10"/>
+		<else>
+			<set field="viewSize" from-field="parameters.viewSize"/>
+		</else>
+		</if-empty>
+		<if-empty field="parameters.viewIndex">
+			<set field="viewIndex" value="1"/>
+		<else>
+			<set field="viewIndex" from-field="parameters.viewIndex"/>
+		</else>
+		</if-empty>
+		<entity-condition entity-name="ProductStoreRoleDetail" filter-by-date="true" list="listAllStoreByUserLogin" distinct="true">
+       		<condition-list>
+       			<condition-expr field-name="partyId" from-field="userLogin.partyId"/>
+       			<condition-expr field-name="roleTypeId" value="MANAGER"/>
+       		</condition-list>
+       		<select-field field-name="productStoreId"/>
+       		<limit-range size="${viewSize}" start="${viewIndex}"/>
+       	</entity-condition>
+       	<field-to-result field="listAllStoreByUserLogin" result-name="listAllStoreNameByUserLogin"/>
+       	<set field="listAllStoreNameByUserLogin"/>
+       	<iterate entry="item" list="listAllStoreByUserLogin">
+       		<set field="listAllStoreNameByUserLoginItem" from-field="item.productStoreId"/>
+       		<field-to-list list="listAllStoreNameByUserLogin" field="listAllStoreNameByUserLoginItem"/>
+       	</iterate>
+       	<field-to-result field="listAllStoreNameByUserLogin" result-name="listAllStoreNameByUserLogin"/>
+	</simple-method> -->
+</simple-methods>

@@ -1,0 +1,42 @@
+{
+    "colName": ["Xóa", "ID", "Tên SP", "SL", "Giá SP"],
+    "colModel": [{
+            "name": "act",
+            "index": "act",
+            "width": 10,
+            "sortable": false,
+            "align": "center"
+        }, {
+            "name": "productId",
+            "index": "productId",
+            "width" : 0,
+            "hidden": true,
+            "sortable": false,
+            "align": "center"
+        }, {
+            "name": "productName",
+            "index": "productName",
+            "width": 45,
+            "editable": false,
+            "sorttype": "string"
+        }, {
+            "name": "quantity",
+            "index": "quantity",
+            "width": 15,
+            "editable": true,
+            "sorttype": "string",
+            "edittype": "text",
+            "editoptions": {
+                "size": 10
+            },
+            "editrules": {
+                "number": true
+            }
+        }, {
+            "name": "pricePrice",
+            "index": "pricePrice",
+            "width": 30,
+            "editable": false,
+            "sorttype": "string"
+        }]
+}

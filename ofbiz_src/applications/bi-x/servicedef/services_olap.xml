@@ -1,0 +1,200 @@
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>Marketing Component Services</description>
+	<vendor>OFBiz</vendor>
+	<version>1.0</version>
+
+	<service name="jqxSalesOrderItemFact" engine="java"
+		location="com.olbius.olap.order.JqxServices" invoke="jqxSalesOrderItemFact"
+		auth="true">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="opts" mode="IN"
+			type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map"
+			optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT"
+			type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+	</service>
+	<service name="jqxBiSalesOrderProduct" engine="java"
+		location="com.olbius.olap.order.JqxServices" invoke="jqxBiSalesOrderProduct"
+		auth="true">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="opts" mode="IN"
+			type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map"
+			optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="request" mode="IN"
+			type="javax.servlet.http.HttpServletRequest" optional="true"></attribute>
+		<attribute name="TotalRows" mode="OUT" type="String"
+			optional="true"></attribute>
+	</service>
+	
+	<service name="getListDepartment" engine="java" location="com.olbius.olap.order.OlapServices" invoke="getListDepartment" auth="true">
+		<attribute name="chanelsales" mode="IN" type="String"></attribute>
+		<attribute name="departmentList" mode="OUT" type="java.util.List"></attribute>
+	</service>
+	
+	<service name="JQxSalesOrderMonthly" engine="java" location="com.olbius.olap.order.JqxServices" invoke="jqxSalesOrderMonthly">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="opts" mode="IN"
+			type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map"
+			optional="false"></attribute>
+		<attribute name="TotalRows" mode="OUT" type="String"
+			optional="true"></attribute>	
+		<attribute name="listIterator" mode="OUT" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="request" mode="IN"
+			type="javax.servlet.http.HttpServletRequest" optional="true"></attribute>
+	</service>
+	
+	<service name="JQxSalesOrderProducts" engine="java" location="com.olbius.olap.order.JqxServices" invoke="JQxSalesOrderProducts">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="opts" mode="IN"
+			type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map"
+			optional="false"></attribute>
+		<attribute name="TotalRows" mode="OUT" type="String"
+			optional="true"></attribute>	
+		<attribute name="listIterator" mode="OUT" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="request" mode="IN"
+			type="javax.servlet.http.HttpServletRequest" optional="true"></attribute>
+	</service>
+	
+	<service name="getDataChartProductOrder" engine="java" invoke="getDataChartProductOrder" location="com.olbius.olap.order.JqxServices" auth="true">
+		<attribute name="typeReport" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="typeTime" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="year" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="month" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="quarter" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="fromDate" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="thruDate" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="chanelSales" mode="OUT" type="java.util.List" optional="false"></attribute>
+		<attribute name="drillChanelSales" mode="OUT" type="java.util.List" optional="false"></attribute>
+	</service>
+	
+	
+	<service name="getDataReportTotalProducSalesMan" engine="java" invoke="getDataReportTotalProducSalesMan" location="com.olbius.olap.order.StaticSalesOrderItem" auth="true">
+		<attribute name="department" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="typeTime" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="year" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="month" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="quarter" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="fromDate" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="thruDate" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="result" mode="OUT" type="java.util.List" optional="false"></attribute>
+	</service>
+	
+	
+	<service name="jqxPromotionReport" engine="java" invoke="jqxPromotionReport" location="com.olbius.olap.order.PromotionServices" auth="true">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="opts" mode="IN"
+			type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map"
+			optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT"
+			type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+	</service>
+	
+	<service name="getAvaiableBudgetPromotion" engine="java" invoke="getAvaiableBudgetPromotion" location="com.olbius.olap.order.PromotionServices" auth="true">
+		<attribute name="promotionCode" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="chartpie" mode="OUT" type="java.util.List"></attribute>
+		<attribute name="extPromotionAmount" mode="OUT" type="java.math.BigDecimal"></attribute>
+		<attribute name="extNetAmount" mode="OUT" type="java.math.BigDecimal"></attribute>
+		<attribute name="dataColumLine" mode="OUT" type="java.util.List"></attribute>
+		<attribute name="year" mode="OUT" type="java.lang.Integer"></attribute>
+	</service>
+	
+	
+	<service name="createCurrencyDimension" engine="java" location="com.olbius.system.ProcessServices" invoke="createCurrencyDimension">
+	</service>
+	
+	<service name="createDateDimension" engine="java" location="com.olbius.system.ProcessServices" invoke="createDateDimension">
+	</service>
+	
+	<service name="createProductDimension" engine="java" location="com.olbius.system.ProcessServices" invoke="createProductDimension">
+	</service>
+	
+	<service name="createPromotionDimension" engine="java" location="com.olbius.system.ProcessServices" invoke="createPromotionDimension">
+	</service>
+	
+	<service name="loadSalesOrderItemFact" engine="java" location="com.olbius.system.ProcessServices" invoke="loadSalesOrderItemFact">
+	</service>
+	
+	<service name="runSynCurrencyDimensionJob" engine="java" location="com.olbius.system.ProcessServices" invoke="runSynCurrencyDimensionJob">
+		<attribute name="statusJob" mode="OUT" type="String" optional="false"></attribute>
+	</service>
+	
+	<service name="stopCurrencyDimensionJob" engine="java" location="com.olbius.system.ProcessServices" invoke="stopCurrencyDimensionJob">
+		<attribute name="statusJob" mode="OUT" type="String" optional="false"></attribute>
+	</service>
+	
+	<service name="runSynDateDimensionJob" engine="java" location="com.olbius.system.ProcessServices" invoke="runSynDateDimensionJob">
+	</service>
+	
+	<service name="runSynProductDimensionJob" engine="java" location="com.olbius.system.ProcessServices" invoke="runSynProductDimensionJob">
+		<attribute name="statusJob" mode="OUT" type="String" optional="false"></attribute>
+	</service>
+	
+	<service name="stopProductDimensionJob" engine="java" location="com.olbius.system.ProcessServices" invoke="stopProductDimensionJob">
+		<attribute name="statusJob" mode="OUT" type="String" optional="false"></attribute>
+	</service>
+	
+	<service name="runSynPromotionDimensionJob" engine="java" location="com.olbius.system.ProcessServices" invoke="runSynPromotionDimensionJob">
+		<attribute name="statusJob" mode="OUT" type="String" optional="false"></attribute>
+	</service>
+	
+	<service name="stopPromotionDimensionJob" engine="java" location="com.olbius.system.ProcessServices" invoke="stopPromotionDimensionJob">
+		<attribute name="statusJob" mode="OUT" type="String" optional="false"></attribute>
+	</service>
+	
+	<service name="runSynSalesOrderItemFactJob" engine="java" location="com.olbius.system.ProcessServices" invoke="runSynSalesOrderItemFactJob">
+		<attribute name="statusJob" mode="OUT" type="String" optional="false"></attribute>
+	</service>
+	
+	<service name="stopSalesOrderItemFactJob" engine="java" location="com.olbius.system.ProcessServices" invoke="stopSalesOrderItemFactJob">
+		<attribute name="statusJob" mode="OUT" type="String" optional="false"></attribute>
+	</service>
+	
+	<service name="OrderItemStaticWithRole" engine="java" location="com.olbius.olap.order.OrderItemStatic" invoke="OrderItemStaticWithRole">
+		<attribute name="result" mode="OUT" type="java.util.List" optional="false"></attribute>
+	</service>
+	
+	<service name="getDataSalesGrowth" engine="java" location="com.olbius.olap.order.OrderItemStatic" invoke="getDataSalesGrowth">
+		<attribute name="year_one" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="year_two" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="productId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="result" mode="OUT" type="java.util.List" optional="false"></attribute>
+		<attribute name="dataColumsQuan" mode="OUT" type="java.util.List" optional="false"></attribute>
+		<attribute name="dataColumsBill" mode="OUT" type="java.util.List" optional="false"></attribute>
+		
+	</service>
+	
+	<service name="getDataSalesGrowthOfDistributor" engine="java" location="com.olbius.olap.order.OrderItemStatic" invoke="getDataSalesGrowthOfDistributor">
+		<attribute name="year_one" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="year_two" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="listOne_1" mode="OUT" type="java.util.List" optional="false"></attribute>
+		<attribute name="listOne_2" mode="OUT" type="java.util.List" optional="false"></attribute>
+		<attribute name="listOne_3" mode="OUT" type="java.util.List" optional="false"></attribute>
+	</service>
+	
+</services>

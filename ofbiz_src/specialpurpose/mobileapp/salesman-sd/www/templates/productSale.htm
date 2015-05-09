@@ -1,0 +1,21 @@
+<div ng-repeat="pro in listPromotions">
+<div class="col-md-12 col-xs-12 " >
+	    <div class="widget-header widget-header-flat widget-header-small btn-default">
+	       		<span class="glyphicon glyphicon-star">&nbsp;{{pro.promoName}}</span>
+	    </div>	
+	    <div class="widget-body col-md-12 col-xs-12">
+	        <div class="widget-main">
+	        	<div class="col-xs-12 col-md-12">
+	        		<b><i class="glyphicon glyphicon-list-alt"></i>&nbsp;Chi tiết Khuyến mại:</b>
+	        	</div>
+	        	<div class="col-md-12 col-xs-12">
+	        		{{pro.ruleName}}
+	        	</div>
+	        	<div class="col-md-12 col-xs-12">
+	        		Thời gian khuyến mại : Từ <i>{{pro.fromDate}}</i> tới <i ng-show="listPromotions.thruDate">{{pro.thruDate}}</i><i ng-show="!listPromotions.thruDate">Không thời hạn</i>
+	        	</div>
+	        </div>
+    </div>
+    </div>
+<br></br>	
+</div>

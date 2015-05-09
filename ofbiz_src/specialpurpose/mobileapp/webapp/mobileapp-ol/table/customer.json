@@ -1,0 +1,21 @@
+{
+    "colName": ["ID", "Tên khách hàng", "Số tiền nợ"],
+    "colModel": [{
+            "name": "partyIdTo",
+            "index": "partyIdTo",
+            "width": 25,
+            "sorttype": "string",
+            "editable": true
+        }, {
+            "name": "groupName",
+            "index": "groupName",
+            "width": 50,
+            "editable": true,
+            "sorttype": "string"
+        }, {
+            "name": "totalPaid",
+            "index": "totalPaid",
+            "width": 30,
+            "editable": false
+        }]
+}

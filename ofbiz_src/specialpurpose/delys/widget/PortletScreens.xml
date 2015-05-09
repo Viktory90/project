@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="SalesAdminDashboard">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<screenlet>
+					<platform-specific>
+						<html><html-template location="component://bi-x/webapp/reports/libReportHightChart.ftl"/></html>
+					</platform-specific>
+				</screenlet>
+				<include-screen name="CommonReprortSalesYearly" location="component://bi-x/widget/ReportStatics/CommonSalesOrerItemStaticsScreens.xml"/>
+				<include-screen name="CommonTotalProductsSalesOfSalesMan" location="component://bi-x/widget/ReportStatics/CommonSalesOrerItemStaticsScreens.xml"/>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="LogisticsDashboard">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<screenlet title="${uiLabelMap.LogisticsDashboard}">
+					<include-screen name="facility-report" location="component://bi-x/widget/facilityReport.xml"/>
+				</screenlet>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="DefaultPortlet">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<screenlet title="${uiLabelMap.DefaultPortlet}">
+					<platform-specific><html><html-template location="component://delys/webapp/delys/logistics/statistics/defaultStatistics.ftl"/></html></platform-specific>
+				</screenlet>
+			</widgets>
+		</section>
+	</screen>
+</screens>

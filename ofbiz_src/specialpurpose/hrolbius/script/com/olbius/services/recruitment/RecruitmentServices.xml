@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods-v2.xsd">
+	<simple-method method-name="UpdateWorkTrialProposal">
+		<set-service-fields service-name="updateNtfIfExists" to-map="ctx" map="parameters"/>
+		<call-service service-name="updateNtfIfExists" in-map-name="ctx"></call-service>
+		<entity-one value-field="workTrialProposal" entity-name="WorkTrialProposal"></entity-one>
+		<set field="statusId" from-field="workTrialProposal.statusId"/>
+		<if-compare operator="equals" value="IWT_INIT" field="statusId">
+			<set-nonpk-fields value-field="workTrialProposal" map="parameters"/>
+			<store-value value-field="workTrialProposal"/>
+			<call-bsh>
+				import org.ofbiz.base.util.UtilProperties;
+				import org.ofbiz.service.ServiceUtil;
+				import org.ofbiz.base.util.UtilMisc;
+				import org.ofbiz.party.party.PartyHelper;
+				resource = "HrCommonUiLabels.xml";
+				ServiceUtil.returnSuccess(UtilProperties.getMessage(resource, "Successful", locale));
+			</call-bsh>
+			<else>
+				<entity-one value-field="statusItem" entity-name="StatusItem">
+					<field-map field-name="statusId" from-field="statusId"/>
+				</entity-one>
+				<call-bsh>
+					import org.ofbiz.base.util.UtilProperties;
+					import org.ofbiz.service.ServiceUtil;
+					import org.ofbiz.base.util.UtilMisc;
+					import org.ofbiz.party.party.PartyHelper;
+					resource = "RecruitmentUiLabels";
+					ServiceUtil.returnSuccess(UtilProperties.getMessage(resource, "StatusCurrentUpdateIsNotValid"", UtilMisc.toMap("statusDesc", statusItem.description), locale));
+				</call-bsh>
+			</else>	
+		</if-compare>
+	</simple-method>        
+	<simple-method method-name="getApplicantJobRequest">
+		<set field="jobRequestId" from-field="parameters.jobRequestId"/>
+		<entity-condition list="applicantList" entity-name=""></entity-condition>
+		<iterate entry="temp" list="applicantList">
+			<set field="partyName" value="${groovy: org.ofbiz.party.party.PartyHelper.getPartyName(delegator, temp.partyId, false)}"/>
+			<set field="applicant" value="${partyName}: ${temp.partyId}"/>
+            <field-to-list list="applicants" field="applicant"/>
+		</iterate>
+		<field-to-result field="applicants"/>
+	</simple-method>
+</simple-methods>        

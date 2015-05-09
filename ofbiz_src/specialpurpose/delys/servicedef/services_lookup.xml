@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>Delys Component Services</description>
+    <vendor>OFBiz</vendor>
+    <version>1.0</version>
+	
+	<service name="JQGetListCustomerOfDistributor" engine="java" invoke="jqListCustomerOfDistributor" 
+		location="com.olbius.delys.lookup.LookupServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="true"></attribute>
+   </service>
+   <service name="JQGetListCustomerGTOfCompany" engine="java" invoke="jqListCustomerGTOfCompany" 
+		location="com.olbius.delys.lookup.LookupServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="true"></attribute>
+   </service>
+   <service name="JQGetListProductSA" engine="java" invoke="jqListProduct" location="com.olbius.delys.lookup.LookupServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="true"></attribute>
+   </service>
+</services>

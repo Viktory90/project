@@ -1,0 +1,71 @@
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<div class="row-none" style="margin-bottom: 10px">
+			<div class="order-statistic">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="row" ng-if="iscurrent">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 center">
+								<h3 class="row-none default-color" style="margin-bottom: 10px">Cửa hàng {{currentCustomer.groupName}}</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-3 col-md-3 col-sm-5 col-xs-6">
+								<b class="default-color">Tổng số đơn hàng </b>
+							</div>
+							<div class="col-lg-9 col-md-9 col-sm-7 col-xs-6  default-color">
+								{{listOrder.size}} ({{FormatNumberBy3((listOrder.debtAmount + listOrder.payAmount), ",", ".")}}đ)
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="row">
+							<div class="col-lg-3 col-md-3 col-sm-5 col-xs-6">
+								<b class="default-color">Chưa thanh toán </b>
+							</div>
+							<div class="col-lg-9 col-md-9 col-sm-7 col-xs-6  default-color">
+								{{listOrder.debt}} ({{FormatNumberBy3(listOrder.debtAmount, ",", ".")}}đ)
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="row">
+							<div class="col-lg-3 col-md-3 col-sm-5 col-xs-6">
+								<b class="default-color">Đã thanh toán </b>
+							</div>
+							<div class="col-lg-9 col-md-9 col-sm-7 col-xs-6 default-color">
+								{{listOrder.pay}} ({{FormatNumberBy3(listOrder.payAmount, ",", ".")}}đ)
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<table class="table table-striped table-bordered table-hover">
+			<thead>
+				<tr>
+					<th class="center default-color">Mã ĐH</th>
+					<th class="center default-color">Tên KH</th>
+					<th class="center default-color">Số tiền</th>
+					<th class="center default-color">Trạng thái</th>
+					<th class="center default-color">NĐH</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="order in listOrder.content track by $index | filter:keyword" ng-click="onSelectRow(order.orderId)">
+					<td class="default-color">{{order.orderId}}</td>
+					<td class="default-color">{{order.groupName}}</td>
+					<td class="default-color">{{order.grandTotal}}</td>
+					<td class="default-color">{{order.status}}</td>
+					<td class="default-color">{{order.orderDate}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div id="bottom" class="center" ng-if="loading">
+	<i class="fa fa-refresh" id="refresh"></i>
+	<span class="default-color">Đang load thêm dữ liệu</span>
+</div>

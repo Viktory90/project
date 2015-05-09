@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+
+	<!-- Set demo product facility -->
+	
+	<ProductFacility productId="monte_vani_55g_4" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="monte_vani_55g_4" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="monte_schoko_55g_4" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="monte_schoko_55g_4" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="monte_vani_70g" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="monte_vani_70g" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="monte_schoko_70g" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="monte_schoko_70g" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="mg_mo_60g_4" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="mg_mo_60g_4" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="mg_dau_60g_4" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="mg_dau_60g_4" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="zottinos_mo_55g_4" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="zottinos_mo_55g_4" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="zottinos_dau_55g_4" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="zottinos_dau_55g_4" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="drink_vani_95ml" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="drink_vani_95ml" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="drink_vani_200ml" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="drink_vani_200ml" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="jumper_vani_57.5g_4" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="jumper_vani_57.5g_4" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="jogole_dao_chanhleo" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="jogole_dao_chanhleo" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="jogole_quarung_1" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="jogole_quarung_1" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="jogole_dau_1" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="jogole_dau_1" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="cheese_humberger_2" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="cheese_humberger_2" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="cheese_sandwich_2" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="cheese_sandwich_2" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="cheese_toast_2" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="cheese_toast_2" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="cheese_burger_120g" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="cheese_burger_120g" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="cheese_snack_100g" facilityId="mydinh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="cheese_snack_100g" facilityId="thanhxuan" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+	
+	<!-- Set InventoryItems for Facility: mydinh -->
+	<!-- 
+	<InventoryItem inventoryItemId="MD00001" facilityId="mydinh" locationSeqId="TLTLTLLL01" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-02-27 00:00:00.000" datetimeReceived="2014-11-27 16:45:07.000" 
+		productId="monte_vani_55g_4" ownerPartyId="company" currencyUomId="VND" unitCost="24.000" quantityOnHandTotal="1.000000" availableToPromiseTotal="1.000000"/>
+	<InventoryItem inventoryItemId="MD00002" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-04-27 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="monte_schoko_55g_4" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1500000" availableToPromiseTotal="1500000"/>
+	<InventoryItem inventoryItemId="MD00003" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-06-27 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="monte_vani_70g" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="MD00004" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-02-12 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="monte_schoko_70g" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1000000" availableToPromiseTotal="1000000"/>
+	<InventoryItem inventoryItemId="MD00005" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-04-15 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="mg_mo_60g_4" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1500000" availableToPromiseTotal="1500000"/>
+	<InventoryItem inventoryItemId="MD00006" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-06-18 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="mg_dau_60g_4" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="MD00007" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-01-17 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="zottinos_mo_55g_4" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1000000" availableToPromiseTotal="1000000"/>
+	<InventoryItem inventoryItemId="MD00008" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-03-20 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="zottinos_dau_55g_4" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1500000" availableToPromiseTotal="1500000"/>
+	<InventoryItem inventoryItemId="MD00009" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-05-21 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="drink_vani_95ml" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="MD00010" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-08-23 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="drink_vani_200ml" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1000000" availableToPromiseTotal="1000000"/>
+	<InventoryItem inventoryItemId="MD00011" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-07-22 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="jumper_vani_57.5g_4" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1500000" availableToPromiseTotal="1500000"/>
+	<InventoryItem inventoryItemId="MD00012" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-05-15 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="zottis_dao_mamxoi_1" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="MD00013" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-09-15 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="jogole_dao_chanhleo" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1000000" availableToPromiseTotal="1000000"/>
+	<InventoryItem inventoryItemId="MD00014" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-03-15 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="jogole_quarung_1" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1500000" availableToPromiseTotal="1500000"/>
+	<InventoryItem inventoryItemId="MD00015" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-01-15 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="jogole_dau_1" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="MD00016" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-02-17 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="cheese_humberger_2" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1000000" availableToPromiseTotal="1000000"/>
+	<InventoryItem inventoryItemId="MD00017" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-03-17 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="cheese_sandwich_2" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1500000" availableToPromiseTotal="1500000"/>
+	<InventoryItem inventoryItemId="MD00018" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-04-15 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="cheese_toast_2" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="MD00019" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-03-20 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="cheese_burger_120g" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="MD00020" facilityId="mydinh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-04-10 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="cheese_snack_100g" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+     
+    Set InventoryItems for Facility: thanhxuan
+    
+	<InventoryItem inventoryItemId="TX00001" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-02-27 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="monte_vani_55g_4" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1000000" availableToPromiseTotal="1000000"/>
+	<InventoryItem inventoryItemId="TX00002" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-04-27 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="monte_schoko_55g_4" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1500000" availableToPromiseTotal="1500000"/>
+	<InventoryItem inventoryItemId="TX00003" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-06-27 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="monte_vani_70g" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="TX00004" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-02-12 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="monte_schoko_70g" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1000000" availableToPromiseTotal="1000000"/>
+	<InventoryItem inventoryItemId="TX00005" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-04-15 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="mg_mo_60g_4" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1500000" availableToPromiseTotal="1500000"/>
+	<InventoryItem inventoryItemId="TX00006" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-06-18 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="mg_dau_60g_4" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="TX00007" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-01-17 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="zottinos_mo_55g_4" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1000000" availableToPromiseTotal="1000000"/>
+	<InventoryItem inventoryItemId="TX00008" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-03-20 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="zottinos_dau_55g_4" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1500000" availableToPromiseTotal="1500000"/>
+	<InventoryItem inventoryItemId="TX00009" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-05-21 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="drink_vani_95ml" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="TX00010" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-08-23 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="drink_vani_200ml" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1000000" availableToPromiseTotal="1000000"/>
+	<InventoryItem inventoryItemId="TX00011" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-07-22 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="jumper_vani_57.5g_4" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1500000" availableToPromiseTotal="1500000"/>
+	<InventoryItem inventoryItemId="TX00012" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-05-15 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="zottis_dao_mamxoi_1" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="TX00013" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-09-15 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="jogole_dao_chanhleo" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1000000" availableToPromiseTotal="1000000"/>
+	<InventoryItem inventoryItemId="TX00014" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-03-15 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="jogole_quarung_1" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1500000" availableToPromiseTotal="1500000"/>
+	<InventoryItem inventoryItemId="TX00015" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-01-15 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="jogole_dau_1" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="TX00016" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-02-17 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="cheese_humberger_2" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1000000" availableToPromiseTotal="1000000"/>
+	<InventoryItem inventoryItemId="TX00017" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-03-17 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="cheese_sandwich_2" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1500000" availableToPromiseTotal="1500000"/>
+	<InventoryItem inventoryItemId="TX00018" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-04-15 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="cheese_toast_2" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="TX00019" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-03-20 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="cheese_burger_120g" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="TX00020" facilityId="thanhxuan" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-04-10 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="cheese_snack_100g" ownerPartyId="company" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+     -->
+    
+    <ProductFacility productId="monte_vani_55g_4" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="monte_schoko_55g_4" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="monte_vani_70g" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="monte_schoko_70g" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="mg_mo_60g_4" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="mg_dau_60g_4" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="zottinos_mo_55g_4" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="zottinos_dau_55g_4" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="drink_vani_95ml" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="drink_vani_200ml" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="jumper_vani_57.5g_4" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="jogole_dao_chanhleo" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="jogole_quarung_1" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="jogole_dau_1" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="cheese_humberger_2" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="cheese_sandwich_2" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="cheese_toast_2" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="cheese_burger_120g" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+    <ProductFacility productId="cheese_snack_100g" facilityId="tuanminh" minimumStock="10" reorderQuantity="10" daysToShip=""/>
+	
+	<!-- Set InventoryItems for Facility: tuanminh-->
+	
+	<!-- <InventoryItem inventoryItemId="TM00001" facilityId="tuanminh" locationSeqId="TLTLTLLL01" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-02-27 00:00:00.000" datetimeReceived="2014-11-27 16:45:07.000" 
+		productId="monte_vani_55g_4" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="24.000" quantityOnHandTotal="1.000000" availableToPromiseTotal="1.000000"/>
+	<InventoryItem inventoryItemId="TM00002" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-04-27 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="monte_schoko_55g_4" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1500000" availableToPromiseTotal="1500000"/>
+	<InventoryItem inventoryItemId="TM00003" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-06-27 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="monte_vani_70g" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="TM00004" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-02-12 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="monte_schoko_70g" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1000000" availableToPromiseTotal="1000000"/>
+	<InventoryItem inventoryItemId="TM00005" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-04-15 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="mg_mo_60g_4" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1500000" availableToPromiseTotal="1500000"/>
+	<InventoryItem inventoryItemId="TM00006" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-06-18 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="mg_dau_60g_4" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="TM00007" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-01-17 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="zottinos_mo_55g_4" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1000000" availableToPromiseTotal="1000000"/>
+	<InventoryItem inventoryItemId="TM00008" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-03-20 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="zottinos_dau_55g_4" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1500000" availableToPromiseTotal="1500000"/>
+	<InventoryItem inventoryItemId="TM00009" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-05-21 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="drink_vani_95ml" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="TM00010" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-08-23 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="drink_vani_200ml" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1000000" availableToPromiseTotal="1000000"/>
+	<InventoryItem inventoryItemId="TM00011" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-07-22 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="jumper_vani_57.5g_4" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1500000" availableToPromiseTotal="1500000"/>
+	<InventoryItem inventoryItemId="TM00012" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-05-15 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="zottis_dao_mamxoi_1" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="TM00013" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-09-15 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="jogole_dao_chanhleo" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1000000" availableToPromiseTotal="1000000"/>
+	<InventoryItem inventoryItemId="TM00014" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-03-15 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="jogole_quarung_1" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1500000" availableToPromiseTotal="1500000"/>
+	<InventoryItem inventoryItemId="TM00015" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-01-15 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="jogole_dau_1" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="TM00016" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-02-17 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="cheese_humberger_2" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1000000" availableToPromiseTotal="1000000"/>
+	<InventoryItem inventoryItemId="TM00017" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-03-17 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="cheese_sandwich_2" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="1500000" availableToPromiseTotal="1500000"/>
+	<InventoryItem inventoryItemId="TM00018" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-04-15 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="cheese_toast_2" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="TM00019" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-03-20 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="cheese_burger_120g" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+    <InventoryItem inventoryItemId="TM00020" facilityId="tuanminh" locationSeqId="" inventoryItemTypeId="NON_SERIAL_INV_ITEM" expireDate="2015-04-10 00:00:00.000" datetimeReceived="2014-11-07 16:45:07.000"
+		productId="cheese_snack_100g" ownerPartyId="NPP_TUANMINH" currencyUomId="VND" unitCost="3500" quantityOnHandTotal="2000000" availableToPromiseTotal="2000000"/>
+		 -->
+</entity-engine-xml>

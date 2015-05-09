@@ -1,0 +1,113 @@
+<div id="content">
+	<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+		<li class="active" id="list1" style="width:50%">
+			<a href="infoCustomer" ng-click="changeFormCustomer()" data-toggle="tab">Ý kiến khách hàng</a>
+		</li>
+		<li id="list2" style="width:50%">
+			<a href="infoDt" data-toggle="tab" ng-click="changeForm()">Thông tin đối thủ</a>
+		</li>
+	</ul>
+	<div id="my-tab-content" class="tab-content">
+		<div class="tab-pane active " id="infoCustomer">
+			<div class="widget-box">
+				<div class="widget-body">
+					<div class="widget-main">
+						<form class="form-horizontal" id="InfoCustomerForm">
+							<div class="form-group">
+								<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+									<label class="control-label bolder blue">Tên khách hàng</label>
+								</div>
+								<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" >
+									<select class="form-control" ng-model="infoFBfromCustomer.customerName" id="selectCustomer"></select>
+									<!-- 						                        <input name="form-field-radio1" type="text" class="form-control" placeholder="Tên khách hàng..."/> 													 -->
+									<!-- 						                   	<select id="selectCustomer" class="form-control"  ng-options="obj.value as obj.text for obj in customers" ng-model="infoFBfromCustomer.customerName" > -->
+									<!-- 						                   	</select> -->
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+									<label class="control-label bolder blue">Ý kiến</label>
+								</div>
+								<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+									<textarea ng-model="infoFBfromCustomer.comment" id="form-field-11" placeholder="Ý kiến khách hàng..." class="form-control autosize-transition span4" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 50px;"></textarea>
+								</div>
+							</div>
+						</form>
+						<div class="form-actions" style="margin: 0">
+							<button class="btn btn-info btn-small" id="save_new_cus">
+								<i class="icon-ok"></i>
+								<i class="ace-icon fa fa-send"></i>
+								<span id="createNewCustomer_saveCus" ng-click="submitFbCustomer()">Gửi</span>
+							</button>
+							<button class="btn btn-small" data-last="Finish" id="cancel">
+								<i class="icon-undo bigger-110"></i>
+								<i class="ace-icon fa fa-ban"></i>
+								<span id="createNewCustomer_return">Hủy</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane " id="infoDt">
+			<div class="widget-box">
+				<div class="widget-body">
+					<div class="widget-main">
+						<form class="form-horizontal" id="formOpinion">
+							<div class="form-group">
+								<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+									<label class="control-label bolder blue">Tên đối thủ</label>
+								</div>
+								<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" >
+									<!-- 						                        <input name="form-field-radio1" type="text" class="form-control" placeholder="Tên đối thủ..."/> 													 -->
+									<select id="listOpponent"  class="form-control" ng-model="opponentInfo.opponentEventId"></select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+									<label class="control-label bolder blue">Chương trình khuyến mại của đối thủ</label>
+								</div>
+								<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" >
+									<textarea  ng-model="opponentInfo.promos" id="form-field-11" placeholder="Chương trình khuyến mại của đối thủ..." class="form-control autosize-transition span4" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 50px;"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+									<label class="control-label bolder blue">Thông tin khác</label>
+								</div>
+								<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" >
+									<textarea ng-model="opponentInfo.otherInfo" id="form-field-11" placeholder="Thông tin khác..." class="form-control autosize-transition span4" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 50px;"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+									<label class="control-label bolder blue">Ảnh đối thủ</label>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" >
+									<!-- <form name="folderForm">
+										<input type=file name="file">
+										<input type=text name="folderLocation">
+										<input type=button value="Get Folder" ng-click="getFolder()">
+									</form> -->
+								</div>
+							</div>
+						</form>
+						<div class="form-actions" style="margin: 0">
+							<button class="btn btn-info btn-small" id="save_new_cus" ng-click="submitInfoOpponent()">
+								<i class="icon-ok"></i>
+								<i class="ace-icon fa fa-send"></i>
+								<span id="createNewCustomer_saveCus">Gửi</span>
+							</button>
+							<button class="btn btn-small" data-last="Finish" id="cancel" ng-click="cancel()">
+								<i class="icon-undo bigger-110"></i>
+								<i class="ace-icon fa fa-ban"></i>
+								<span id="createNewCustomer_return">Hủy</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

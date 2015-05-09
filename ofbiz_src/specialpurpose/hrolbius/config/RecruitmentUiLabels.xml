@@ -1,0 +1,1690 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	
+	<property key="Extends">
+		<value xml:lang="en">Extends</value>
+		<value xml:lang="vi">Mở rộng</value>
+	</property>
+	<!-- ==========================Applicant======================================= -->
+	<property key="birthPlace">
+		<value xml:lang="en">Birth Place</value>
+		<value xml:lang="vi">Nơi sinh</value>
+	</property>	
+	
+	<property key="PrimaryEmailAddress">
+		<value xml:lang="en">Primary Email</value>
+		<value xml:lang="vi">Địa chỉ email chính</value>
+	</property>
+	
+	<property key="CreateJobRequest">
+		<value xml:lang="en">Create Job Request</value>
+		<value xml:lang="vi">Tạo mới yêu cầu tuyển dụng</value>
+	</property>
+	
+	<property key="Mô tả">
+		<value xml:lang="en">Description</value>
+		<value xml:lang="vi">Mô tả</value>
+	</property>
+	
+	<property key="JobRequestId">
+		<value xml:lang="en">Job Request Id</value>
+		<value xml:lang="vi">Mã yêu cầu tuyển dụng</value>
+	</property>
+	
+	<property key="PageTitleEditApplicant">
+		<value xml:lang="en">Create New Applicant</value>
+		<value xml:lang="vi">Tạo mới ứng viên</value>
+	</property>
+
+	<property key="Applicant">
+		<value xml:lang="en">Applicant</value>
+		<value xml:lang="vi">Ứng viên</value>
+	</property>
+
+	<property key="RecruitmentInformation">
+		<value xml:lang="en">Recruitment Information</value>
+		<value xml:lang="vi">Thông tin tuyển dụng</value>
+	</property>
+
+	<property key="ApplicantsFound">
+		<value xml:lang="en">Applicants Found</value>
+		<value xml:lang="vi">Các ứng viên được tìm thấy</value>
+	</property>
+
+	<property key="NoApplicantFound">
+		<value xml:lang="en">No Applicants Found</value>
+		<value xml:lang="vi">Không có ứng viên nào được tìm thấy</value>
+	</property>
+
+	<property key="FindApplicant">
+		<value xml:lang="en">Find Applicant</value>
+		<value xml:lang="vi">Tìm kiếm ứng viên</value>
+	</property>
+	<property key="NewApplicant">
+		<value xml:lang="en">Create New Applicant</value>
+		<value xml:lang="vi">Tạo mới ứng viên</value>
+	</property>
+	<!-- ==========================/Applicant======================================= -->
+	<!-- ==========================Internal Job Postiong=========================== -->
+
+	<property key="recruitment">
+		<value xml:lang="en">Recruitment</value>
+		<value xml:lang="vi">Tuyển dụng</value>
+	</property>
+	
+	<property key="JobRequisition">
+		<value xml:lang="en">Job Requisition</value>
+		<value xml:lang="vi">Yêu cầu tuyển dụng</value>
+	</property>
+	
+	<property key="internalJobPosting">
+		<value xml:lang="en">Internal Job Posting</value>
+		<value xml:lang="vi">Thông báo công việc nội bộ </value>
+	</property>
+
+	<property key="PageTitleFindInternalJobPosting">
+		<value xml:lang="en">Find Internal Job Posting</value>
+		<value xml:lang="vi">Tra cứu thông báo công việc nội bộ</value>
+	</property>
+
+	<property key="HROlbiusNewInternalJobPosting">
+		<value xml:lang="en">New Internal Job Posting</value>
+		<value xml:lang="vi">Thêm mới thông báo công việc nội bộ</value>
+	</property>
+
+	<property key="HROlbiusViewPermissionError">
+		<value xml:lang="en">No permission</value>
+		<value xml:lang="vi">Bạn không có quyền thao tác trên chức năng
+			này</value>
+	</property>
+
+	<property key="PageTitleEditInternalJobPosting">
+		<value xml:lang="en">Edit Internal Job Posting</value>
+		<value xml:lang="vi">Sửa thông báo công việc nội bộ</value>
+	</property>
+
+	<property key="HROlbiusIJP">
+		<value xml:lang="en">Internal Job Posting</value>
+		<value xml:lang="vi">Thông báo công việc nội bộ</value>
+	</property>
+
+	<!-- ==================================End of internal job posting========================= -->
+
+	<!-- ==================================Job interview======================================= -->
+	<property key="AddQuestion">
+		<value xml:lang="en">Add Question</value>
+		<value xml:lang="vi">Thêm câu hỏi</value>
+	</property>
+	<property key="jobInterview">
+		<value xml:lang="en">Job Interview</value>
+		<value xml:lang="vi">Phỏng vấn</value>
+	</property>
+
+	<property key="JobInterviewRating">
+		<value xml:lang="en">Job Interview Rating</value>
+		<value xml:lang="vi">Kết quả phỏng vấn</value>
+	</property>
+
+	<property key="EditJobInterviewRating">
+		<value xml:lang="en">Rating</value>
+		<value xml:lang="vi">Đánh giá</value>
+	</property>
+
+	<property key="AddInterviewee">
+		<value xml:lang="en">Add Interviewee</value>
+		<value xml:lang="vi">Thêm ứng viên</value>
+	</property>
+
+	<property key="AddInterviewer">
+		<value xml:lang="en">Add Interviewer</value>
+		<value xml:lang="vi">Thêm người phỏng vấn</value>
+	</property>
+
+	<property key="PageTitleFindJobInterviewDetails">
+		<value xml:lang="en">Find Interview Details</value>
+		<value xml:lang="vi">Tùy chọn tìm kiếm</value>
+	</property>
+
+	<property key="HROlbiusLookupApplicantPageTitle">
+		<value xml:lang="en">Look up Applicant</value>
+		<value xml:lang="vi">Tìm kiếm ứng viên phỏng vấn</value>
+	</property>
+
+	<property key="HROlbiusNewJobInterview">
+		<value xml:lang="en">New Job Interview</value>
+		<value xml:lang="vi">Thêm mới phỏng vấn</value>
+	</property>
+
+	<property key="HROlbiusViewPermissionError">
+		<value xml:lang="en">No Permission</value>
+		<value xml:lang="vi">Bạn không có quyền thao tác trên chức năng
+			này</value>
+	</property>
+
+	<property key="PageTitleEditJobInterview">
+		<value xml:lang="en">Edit Job Interview</value>
+		<value xml:lang="vi">Cập nhật phỏng vấn công việc</value>
+	</property>
+
+	<property key="PageTitleEditJobInterviewRating">
+		<value xml:lang="en">Edit Job Interview Rating</value>
+		<value xml:lang="vi">Đánh giá kết quả phỏng vấn</value>
+	</property>
+
+	<property key="HROlbiusEditJobInterview">
+		<value xml:lang="en">Edit Job Interview</value>
+		<value xml:lang="vi">Cập nhật phỏng vấn công việc</value>
+	</property>
+
+	<property key="JobInterviewQuestion">
+		<value xml:lang="en">Job Interview Question</value>
+		<value xml:lang="vi">Câu hỏi phỏng vấn</value>
+	</property>
+
+	<property key="PageTitleFindJobInterviewQuestionDetails">
+		<value xml:lang="en">Find Interview QuestionDetails</value>
+		<value xml:lang="vi">Tìm kiếm câu hỏi phỏng vấn</value>
+	</property>
+
+	<property key="NewQuestion">
+		<value xml:lang="en">New question</value>
+		<value xml:lang="vi">Tạo câu hỏi mới</value>
+	</property>
+
+	<property key="EditInterviewQuestion">
+		<value xml:lang="en">Edit interview question</value>
+		<value xml:lang="vi">Chỉnh sửa câu hỏi phỏng vấn  </value>
+	</property>
+	<property key="JobInterviewQuestion">
+		<value xml:lang="en">Job Interview Question</value>
+		<value xml:lang="vi">Câu hỏi phỏng vấn</value>
+	</property>
+
+	<property key="PageTitleFindJobInterviewQuestionDetails">
+		<value xml:lang="en">Find Interview QuestionDetails</value>
+		<value xml:lang="vi">Tìm kiếm câu hỏi phỏng vấn</value>
+	</property>
+
+	<property key="NewQuestion">
+		<value xml:lang="en">New question</value>
+		<value xml:lang="vi">Tạo câu hỏi mới</value>
+	</property>
+
+	<property key="EditInterviewQuestion">
+		<value xml:lang="en">Edit interview question</value>
+		<value xml:lang="vi">Chỉnh sửa câu hỏi phỏng vấn  </value>
+	</property>
+
+	<property key="InterviewQuestionType">
+		<value xml:lang="en">Interview Question Type</value>
+		<value xml:lang="vi">Kiểu câu hỏi phỏng vấn  </value>
+	</property>
+
+	<property key="HumanResAddJobInterviewQuestionType">
+		<value xml:lang="en">Add Job Interview Question Type</value>
+		<value xml:lang="vi">Thêm kiểu câu hỏi phỏng vấn  </value>
+	</property>
+
+	<property key="HumanResListJobInterviewQuestionType">
+		<value xml:lang="en">List Interview Question Type</value>
+		<value xml:lang="vi">Danh sách kiểu câu hỏi phỏng vấn  </value>
+	</property>
+
+	<!-- ==================================Approval============================================ -->
+	<property key="PageTitleFindApprovals">
+		<value xml:lang="en">Find Approvals</value>
+		<value xml:lang="vi">Tra cứu duyệt</value>
+	</property>
+
+	<property key="HROlbiusViewPermissionError">
+		<value xml:lang="en">No Permission</value>
+		<value xml:lang="vi">Bạn không có quyền thao tác trên chức năng
+			này</value>
+	</property>
+
+	<property key="Approval">
+		<value xml:lang="en">Approval</value>
+		<value xml:lang="vi">Duyệt</value>
+	</property>
+
+	<property key="HROlbiusEditApprovalStatus">
+		<value xml:lang="en">Edit Approval Status</value>
+		<value xml:lang="vi">Sửa đổi Trạng thái duyệt</value>
+	</property>
+
+	<property key="HROlbiusInternalJobPosting">
+		<value xml:lang="en">Internal Job Posting</value>
+		<value xml:lang="vi">Thông báo công việc nội bộ</value>
+	</property>
+	<!-- ==================================End of Approval===================================== -->
+	<!-- ==================================End of Job interview================================ -->
+	
+	<!-- ==================================Recruitment Plan==================================== -->
+	<property key="FindRecruitmentPlan">
+		<value xml:lang="en">Find Recruitment Plan</value>
+		<value xml:lang="vi">Tìm kiếm kế hoạch tuyển dụng</value>
+	</property>
+	
+	<property key="statusUserLogin">
+		<value xml:lang="en">Status UserLogin</value>
+		<value xml:lang="vi">Người tác động</value>
+	</property>
+	
+	<property key="reason">
+		<value xml:lang="en">Reason</value>
+		<value xml:lang="vi">Ghi chú</value>
+	</property>
+	
+	<property key="createDate">
+		<value xml:lang="en">Create Date</value>
+		<value xml:lang="vi">Ngày tác động</value>
+	</property>
+	
+	<property key="sheduleDate">
+		<value xml:lang="en">Shedule Date</value>
+		<value xml:lang="vi">Thời gian lên kế hoạch</value>
+	</property>
+
+	<property key="PageTitleFindAboveRecruitmentPlan">
+		<value xml:lang="en">Find Above Recruitment Plan</value>
+		<value xml:lang="vi">Tìm kiếm kế hoạch tuyển dụng ngoài định biên</value>
+	</property>
+	
+	<property key="FindAboveRecruitmentPlan">
+		<value xml:lang="en">Find Above Recruitment Plan</value>
+		<value xml:lang="vi">Tìm kiếm kế hoạch ngoài định biên</value>
+	</property>
+	
+	<property key="RecruitmentPlan">
+		<value xml:lang="en">Recruitment Plan</value>
+		<value xml:lang="vi">Kế hoạch tuyển dụng</value>
+	</property>
+	
+	<property key="FindRecruitmentPlan">
+		<value xml:lang="en">Find Recruitment Plan</value>
+		<value xml:lang="vi">Tìm kiếm kế hoạch tuyển dụng</value>
+	</property>
+	
+	<property key="CreateRecruitmentPlan">
+		<value xml:lang="en">Create Recruitment Plan</value>
+		<value xml:lang="vi">Lập kế hoạch tuyển dụng</value>
+	</property>
+	
+	<property key="CheckRecruitmentPlan">
+		<value xml:lang="en">Check Recruitment Plan</value>
+		<value xml:lang="vi">Kiểm tra kế hoạch tuyển dụng</value>
+	</property>
+	
+	<property key="ApproveRecruitmentPlan">
+		<value xml:lang="en">Approve Recruitment Plan</value>
+		<value xml:lang="vi">Phê duyệt kế hoạch tuyển dụng</value>
+	</property>
+	
+	<property key="ProposeRecruitmentPlan">
+		<value xml:lang="en">Propose Recruitment Plan</value>
+		<value xml:lang="vi">Đề xuất duyệt kế hoạch tuyển dụng</value>
+	</property>
+	
+	<property key="NewRecruitmentPlan">
+		<value xml:lang="en">New Recruitment Plan</value>
+		<value xml:lang="vi">Tạo mới kế hoạch tuyển dụng</value>
+	</property>
+	
+	<property key="PageTitleFindRecruitmentPlan">
+		<value xml:lang="en">Find Recruitment Plan</value>
+		<value xml:lang="vi">Tìm kiếm kế hoạch tuyển dụng</value>
+	</property>
+	
+	<property key="PageTitleListRecruitmentPlan">
+		<value xml:lang="en">List Recruitment Plan</value>
+		<value xml:lang="vi">Danh sách kế hoạch tuyển dụng</value>
+	</property>
+	
+	<property key="FirstMonth">
+		<value xml:lang="en">First Month</value>
+		<value xml:lang="vi">Tháng 1</value>
+	</property>
+	
+	<property key="SecondMonth">
+		<value xml:lang="en">Second Month</value>
+		<value xml:lang="vi">Tháng 2</value>
+	</property>
+	
+	<property key="ThirdMonth">
+		<value xml:lang="en">Third Month</value>
+		<value xml:lang="vi">Tháng 3</value>
+	</property>
+	
+	<property key="FourthMonth">
+		<value xml:lang="en">Four Month</value>
+		<value xml:lang="vi">Tháng 4</value>
+	</property>
+	
+	<property key="FifthMonth">
+		<value xml:lang="en">Fifth Month</value>
+		<value xml:lang="vi">Tháng 5</value>
+	</property>
+	<property key="SixthMonth">
+		<value xml:lang="en">Sixth Month</value>
+		<value xml:lang="vi">Tháng 6</value>
+	</property>
+	<property key="SeventhMonth">
+		<value xml:lang="en">Seventh Month</value>
+		<value xml:lang="vi">Tháng 7</value>
+	</property>
+	<property key="EighthMonth">
+		<value xml:lang="en">Eight Month</value>
+		<value xml:lang="vi">Tháng 8</value>
+	</property>
+	<property key="NinthMonth">
+		<value xml:lang="en">Ninth Month</value>
+		<value xml:lang="vi">Tháng 9</value>
+	</property>
+	<property key="TenthMonth">
+		<value xml:lang="en">Tenth Month</value>
+		<value xml:lang="vi">Tháng 10</value>
+	</property>
+	
+	<property key="EleventhMonth">
+		<value xml:lang="en">Eleventh Month</value>
+		<value xml:lang="vi">Tháng 11</value>
+	</property>
+	
+	<property key="TwelfthMonth">
+		<value xml:lang="en">Twelfth Month</value>
+		<value xml:lang="vi">Tháng 12</value>
+	</property>
+	
+	<property key="Year">
+		<value xml:lang="en">Year</value>
+		<value xml:lang="vi">Năm tuyển dụng</value>
+	</property>
+	
+	<property key="Department">
+		<value xml:lang="en">Department</value>
+		<value xml:lang="vi">Phòng ban</value>
+	</property>
+	
+	<property key="Position">
+		<value xml:lang="en">Position</value>
+		<value xml:lang="vi">Vị trí</value>
+	</property>
+	
+	<property key="Status">
+		<value xml:lang="en">Status</value>
+		<value xml:lang="vi">Trạng thái</value>
+	</property>
+	
+	<!-- ==================================/Recruitment Plan=================================== -->
+
+	<!-- ==================================Job Request========================================= -->
+	<property key="FindJobRequest">
+		<value xml:lang="en">Find Job Request</value>
+		<value xml:lang="vi">Tìm kiếm yêu cầu tuyển dụng</value>
+	</property>
+	
+	<property key="workLocation">
+		<value xml:lang="en">Work Location</value>
+		<value xml:lang="vi">Nơi làm việc</value>
+	</property>
+	
+	<property key="CheckJobRequest">
+		<value xml:lang="en">Check Job Request</value>
+		<value xml:lang="vi">Kiểm tra yêu cầu tuyển dụng</value>
+	</property>
+	
+	<property key="ApproveJobRequest">
+		<value xml:lang="en">Approve Job Request</value>
+		<value xml:lang="vi">Phê duyệt yêu cầu tuyển dụng</value>
+	</property>
+	
+	<property key="JobRequest">
+		<value xml:lang="en">Job Request</value>
+		<value xml:lang="vi">Yêu cầu tuyển dụng</value>
+	</property>
+	
+	<property key="FindJobRequest">
+		<value xml:lang="en">Find Job Request</value>
+		<value xml:lang="vi">Tìm kiếm yêu cầu tuyển dụng</value>
+	</property>
+	
+	<property key="PageTitleFindJobRequest">
+		<value xml:lang="en">Find Job Request</value>
+		<value xml:lang="vi">Tìm kiếm yêu cầu tuyển dụng</value>
+	</property>
+	
+	<property key="FromDate">
+		<value xml:lang="en">FromDate</value>
+		<value xml:lang="vi">Từ ngày</value>
+	</property>
+	
+	<property key="ThruDate">
+		<value xml:lang="en">ThruDate</value>
+		<value xml:lang="vi">Đến ngày</value>
+	</property>
+	
+	<property key="RecruitmentType">
+		<value xml:lang="en">Recruitment Type</value>
+		<value xml:lang="vi">Loại tuyển dụng</value>
+	</property>
+	
+	<property key="RecruitmentForm">
+		<value xml:lang="en">Recruitment Form</value>
+		<value xml:lang="vi">Hình thức tuyển dụng</value>
+	</property>
+	
+	<property key="InPlan">
+		<value xml:lang="en">In Plan</value>
+		<value xml:lang="vi">Trong kế hoạch</value>
+	</property>
+	
+	<property key="EditJobRequest">
+		<value xml:lang="en">Create Job Request</value>
+		<value xml:lang="vi">Tạo mới yêu cầu tuyển dụng</value>
+	</property>
+	
+	<property key="ResourceNumber">
+		<value xml:lang="en">Resource Number</value>
+		<value xml:lang="vi">Số lượng cần tuyển</value>
+	</property>
+	
+	<property key="RecruitmentCriteria">
+		<value xml:lang="en">Recruitment Criteria</value>
+		<value xml:lang="vi">Số lượng cần tuyển</value>
+	</property>
+	
+	<property key="JobDescription">
+		<value xml:lang="en">Job Description</value>
+		<value xml:lang="vi">Mô tả công việc</value>
+	</property>
+	
+	<property key="Criteria">
+		<value xml:lang="en">RecruitmentCriteria</value>
+		<value xml:lang="vi">Tiêu chí tuyển dụng</value>
+	</property>
+	
+	<property key="OtherRequirement">
+		<value xml:lang="en">Other Recruitment</value>
+		<value xml:lang="vi">Yêu cầu khác</value>
+	</property>
+	
+	<property key="PageTitleCheckJobRequest">
+		<value xml:lang="en">Check Job Request</value>
+		<value xml:lang="vi">Kiểm tra yêu cầu tuyển dụng</value>
+	</property>
+	
+	<property key="PageTitleApproveJobRequest">
+		<value xml:lang="en">Approve Job Request</value>
+		<value xml:lang="vi">Phê duyệt yêu cầu tuyển dụng</value>
+	</property>
+	
+	<property key="DeptName">
+		<value xml:lang="en">Dept Name</value>
+		<value xml:lang="vi">Phòng ban</value>
+	</property>
+	
+	<!-- ==================================/Job Request========================================= -->
+
+	<!-- ==================================Recruitment Test Plan============================================= -->
+	<property key="RecruitmentTestPlan">
+		<value xml:lang="en">Recruitment Test Plan</value>
+		<value xml:lang="vi">Kế hoạch kiểm tra đầu vào</value>
+	</property>
+	
+	<property key="RecruitmentTestType1">
+		<value xml:lang="en">Recruitment Test</value>
+		<value xml:lang="vi">Thi tuyển </value>
+	</property>
+	
+	<property key="RecruitmentTestType2">
+		<value xml:lang="en">First Recruitment Review</value>
+		<value xml:lang="vi">Phỏng vấn lần một </value>
+	</property>
+	
+	<property key="RecruitmentTestType3">
+		<value xml:lang="en">Second Recruitment Review</value>
+		<value xml:lang="vi">Phỏng vấn lần hai </value>
+	</property>
+	
+	<property key="RecruitmentTester">
+		<value xml:lang="en">Tester</value>
+		<value xml:lang="vi">Người kiểm tra </value>
+	</property>
+	
+	<property key="RecruitmentInterviewer">
+		<value xml:lang="en">Interviewer</value>
+		<value xml:lang="vi">Người phỏng vấn</value>
+	</property>
+	
+	<property key="EditRecruitmentTestPlan">
+		<value xml:lang="en">Create Recruitment Test Plan</value>
+		<value xml:lang="vi">Tạo mới kế hoạch kiểm tra</value>
+	</property>
+	
+	<property key="InitRecruitmentTestPlan">
+		<value xml:lang="en">Init Recruitment Test Plan</value>
+		<value xml:lang="vi">Khởi tạo kế hoạch kiểm tra</value>
+	</property>
+	
+	<property key="RecruitmentTestPlanId">
+		<value xml:lang="en">Recruitment Test Plan Id</value>
+		<value xml:lang="vi">Mã kế hoạch kiểm tra</value>
+	</property>
+	
+	<property key="Round1">
+		<value xml:lang="en">Round 1</value>
+		<value xml:lang="vi">Kiểm tra giấy</value>
+	</property>
+	
+	<property key="Round2">
+		<value xml:lang="en">Round 2</value>
+		<value xml:lang="vi">Phỏng vấn lần 1</value>
+	</property>
+	
+	<property key="Round3">
+		<value xml:lang="en">Round 3</value>
+		<value xml:lang="vi">Phỏng vấn lần 2</value>
+	</property>
+	
+	<property key="PageTitleFindRecruitmentTestPlan">
+		<value xml:lang="en">Find Recruitment Test Plan</value>
+		<value xml:lang="vi">Tìm kiếm kế hoạch kiểm tra</value>
+	</property>
+	
+	<property key="PageTitleFindRecruitmentTestPlan">
+		<value xml:lang="en">Find Recruitment Test Plan</value>
+		<value xml:lang="vi">Tìm kiếm kế hoạch kiểm tra</value>
+	</property>
+	
+	<property key="CreateNewRecruitmentTestPlan">
+		<value xml:lang="en">Create Recruitment Test Plan</value>
+		<value xml:lang="vi">Tạo mới kế hoạch kiểm tra</value>
+	</property>
+	
+	<property key="RateInterview">
+		<value xml:lang="en">Rate Interview</value>
+		<value xml:lang="vi">Đánh giá phỏng vấn</value>
+	</property>
+	
+	
+	<!-- ==================================/Recruitment Test Plan============================================= -->
+
+	<!-- =================================Applicant Selection======================================== -->
+	<property key="ApplicantSelection">
+		<value xml:lang="en">Applicant Selection</value>
+		<value xml:lang="vi">Lựa chọn ứng viên</value>
+	</property>
+	
+	<property key="RateApplicant">
+		<value xml:lang="en">Rate Exam</value>
+		<value xml:lang="vi">Chấm điểm mã kiểm tra</value>
+	</property>
+	
+	<property key="ApplicantId" >
+		<value xml:lang="en">Applicant Id</value>
+		<value xml:lang="vi">Mã ứng viên</value>
+	</property>
+	
+	<property key="Score">
+		<value xml:lang="en">Score</value>
+		<value xml:lang="vi">Điểm</value>
+	</property>
+	
+	<property key="Result">
+		<value xml:lang="en">Result</value>
+		<value xml:lang="vi">Kết quả</value>
+	</property>
+	
+	<property key="CommonRate">
+		<value xml:lang="en">Rate</value>
+		<value xml:lang="vi">Đánh giá</value>
+	</property> 
+	
+	<property key="Face">
+		<value xml:lang="en">Face</value>
+		<value xml:lang="vi">Ngoại hình, khuôn mặt</value>
+	</property>
+	
+	<property key="Figure">
+		<value xml:lang="en">Figure</value>
+		<value xml:lang="vi">Chiều cao, dáng người</value>
+	</property>
+	 
+	<property key="Voice">
+		<value xml:lang="en">Voice</value>
+		<value xml:lang="vi">Giọng nói</value>
+	</property>
+	
+	<property key="Communication">
+		<value xml:lang="en">Communication</value>
+		<value xml:lang="vi">Giao tiếp, ứng xử</value>
+	</property>
+	
+	<property key="Confidence">
+		<value xml:lang="en">Confidence</value>
+		<value xml:lang="vi">Thái độ tự tin</value>
+	</property>
+	
+	<property key="Circumstance">
+		<value xml:lang="en">Circumstance</value>
+		<value xml:lang="vi">Xử lý tình huống</value>
+	</property>
+	
+	<property key="Circumstance">
+		<value xml:lang="en">Circumstance</value>
+		<value xml:lang="vi">Xử lý tình huống</value>
+	</property>
+	
+	<property key="Agility">
+		<value xml:lang="en">Agility</value>
+		<value xml:lang="vi">Nhạy bén</value>
+	</property>
+	
+	<property key="Logic">
+		<value xml:lang="en">Logic</value>
+		<value xml:lang="vi">Tư duy logic</value>
+	</property>
+	
+	<property key="Answer">
+		<value xml:lang="en">Answer</value>
+		<value xml:lang="vi">Nội dung trả lời</value>
+	</property>
+	
+	<property key="Honest">
+		<value xml:lang="en">Honest</value>
+		<value xml:lang="vi">Tính trung thực</value>
+	</property>
+	
+	<property key="Experience">
+		<value xml:lang="en">Experience</value>
+		<value xml:lang="vi">Kinh nghiệm</value>
+	</property>
+	
+	<property key="Expertise">
+		<value xml:lang="en">Expertise</value>
+		<value xml:lang="vi">Kiến thức chuyên môn</value>
+	</property>
+	
+	<property key="WorkChangeId">
+		<value xml:lang="en">Work Change</value>
+		<value xml:lang="vi">Thay đổi công tác</value>
+	</property>
+	
+	<property key="UniCertificateId">
+		<value xml:lang="en">University Certificate</value>
+		<value xml:lang="vi">Bằng tốt nghiệp</value>
+	</property>
+	
+	<property key="ItCertificateId">
+		<value xml:lang="en">It Certificate</value>
+		<value xml:lang="vi">Chứng chỉ tin học</value>
+	</property>
+	
+	<property key="EngCertificateId">
+		<value xml:lang="en">English Certificate</value>
+		<value xml:lang="vi">Chứng chỉ tiếng anh</value>
+	</property>
+	
+	<property key="TeamWorkId">
+		<value xml:lang="en">Team Work</value>
+		<value xml:lang="vi">Khả năng làm việc nhóm</value>
+	</property>
+	
+	<property key="AloneWorkId">
+		<value xml:lang="en">Alone Work</value>
+		<value xml:lang="vi">Khả năng làm việc độc lập</value>
+	</property>
+	
+	<property key="ParentBackgroundId">
+		<value xml:lang="en">Parent Background</value>
+		<value xml:lang="vi">Cha mẹ</value>
+	</property>
+	
+	<property key="SiblingBackgroundId">
+		<value xml:lang="en">Sibling Background</value>
+		<value xml:lang="vi">Anh em</value>
+	</property>
+	
+	<property key="SpousesBackgroundId">
+		<value xml:lang="en">Spouse Background</value>
+		<value xml:lang="vi">Vợ chồng</value>
+	</property>
+	
+	<property key="ChildBackgroundId">
+		<value xml:lang="en">Child Background</value>
+		<value xml:lang="vi">Con cái</value>
+	</property>
+	
+	<property key="CurrentSal">
+		<value xml:lang="en">Current Salary</value>
+		<value xml:lang="vi">Lương hiện tại</value>
+	</property>
+	
+	<property key="ProposeSal">
+		<value xml:lang="en">Proposal Salary</value>
+		<value xml:lang="vi">Lương đề xuất</value>
+	</property>
+	
+	<property key="GenaralRate">
+		<value xml:lang="en">Genaral Rate</value>
+		<value xml:lang="vi">Đánh giá chung</value>
+	</property>
+	
+	<property key="Propose">
+		<value xml:lang="en">Propose</value>
+		<value xml:lang="vi">Đề xuất</value>
+	</property>
+	
+	<property key="ResultId">
+		<value xml:lang="en">Result</value>
+		<value xml:lang="vi">Kết quả</value>
+	</property>
+	
+	<property key="RateExam">
+		<value xml:lang="en">Rate Exam</value>
+		<value xml:lang="vi">Chấm điểm kiểm tra đầu vào</value>
+	</property>
+	 
+	<property key="RateExam">
+		<value xml:lang="en">Rate Exam</value>
+		<value xml:lang="vi">Chấm điểm kiểm tra đầu vào</value>
+	</property>
+	
+	<property key="PageTitleFindRecruitmentTest">
+		<value xml:lang="en">Find Recruitment Test Plan</value>
+		<value xml:lang="vi">Tìm kiếm kế hoạch kiểm tra</value>
+	</property>
+	
+	<property key="jobTestPlanId">
+		<value xml:lang="en">Recruitment Test Plan Id</value>
+		<value xml:lang="vi">Mã kế hoạch kiểm tra</value>
+	</property>
+	
+	<property key="RecruitmentTest">
+		<value xml:lang="en">Recruitment Test</value>
+		<value xml:lang="vi">Kiểm tra đầu vào</value>
+	</property>
+	
+	<property key="Tester">
+		<value xml:lang="en">Tester</value>
+		<value xml:lang="vi">Người kiểm tra</value>
+	</property>
+	
+	<property key="Interviewer">
+		<value xml:lang="en">Interviewer</value>
+		<value xml:lang="vi">Người phỏng vấn</value>
+	</property>
+	
+	<!-- =================================/Applicant Selection======================================== -->
+
+	<!-- ================================= Work Trial ================================================-->
+	<property key="WorkTrial">
+		<value xml:lang="en">Work Trial</value>
+		<value xml:lang="vi">Thử việc</value>
+	</property>
+	
+	<property key="LegalOrgId">
+		<value xml:lang="en">Legal Organiz</value>
+		<value xml:lang="vi">Thử việc</value>
+	</property>
+	
+	<property key="ProposeWorkTrial">
+		<value xml:lang="en">Propose Work Trial</value>
+		<value xml:lang="vi">Đề xuất thử việc</value>
+	</property>
+	
+	<property key="CreateNewWorkTrialProposal">
+		<value xml:lang="en">Create New Work Trial Proposal</value>
+		<value xml:lang="vi">Tạo đề xuất thử việc</value>
+	</property>
+	
+	<property key="TrailSalary">
+		<value xml:lang="en">Trial Salary</value>
+		<value xml:lang="vi">Lương thử việc</value>
+	</property>
+	
+	<property key="Allowance">
+		<value xml:lang="en">Allowance</value>
+		<value xml:lang="vi">Phụ cấp</value>
+	</property>
+	
+	<property key="TrailSalaryRate">
+		<value xml:lang="en">Trail Salary Rate</value>
+		<value xml:lang="vi">Tỉ lệ lương thử việc</value>
+	</property>
+	
+	<property key="PageTitleApproveWorkTrialProposal">
+		<value xml:lang="en">Approve Work Trial Proposal</value>
+		<value xml:lang="vi">Phê duyệt đề xuất thử việc</value>
+	</property>
+	
+	<property key="FindWorkTrialReport">
+		<value xml:lang="en">Find Work Trial Report</value>
+		<value xml:lang="vi">Tìm kiếm báo cáo thử việc</value>
+	</property>
+	
+	<property key="WorkTrialReport">
+		<value xml:lang="en">Work Trial Report</value>
+		<value xml:lang="vi">Báo cáo thử việc</value>
+	</property>
+	
+	<property key="FindWorkTrialProposal">
+		<value xml:lang="en">Find Work Trial Proposal</value>
+		<value xml:lang="vi">Tìm kiếm đề xuất thử việc</value>
+	</property>
+	
+	<property key="Salary">
+		<value xml:lang="en">Salary</value>
+		<value xml:lang="vi">Lương</value>
+	</property>
+	
+	<property key="trialTime">
+		<value xml:lang="en">Trial Time</value>
+		<value xml:lang="vi">Thời gian thử việc</value>
+	</property>
+	
+	<property key="WorkReport">
+		<value xml:lang="en">Work Report</value>
+		<value xml:lang="vi">Báo cáo tình hình thực hiện công việc</value>
+	</property>
+	
+	<property key="ProposeRecommendations">
+		<value xml:lang="en">Propose Recommendations</value>
+		<value xml:lang="vi">Đề xuất kiến nghị</value>
+	</property>
+	
+	<property key="EmployeeRating">
+		<value xml:lang="en">Employee Rating</value>
+		<value xml:lang="vi">Nhân viên tự đánh giá</value>
+	</property>
+	
+	<property key="LeaderRating">
+		<value xml:lang="en">Leader Rating</value>
+		<value xml:lang="vi">Đánh giá của lãnh đạo trực tiếp</value>
+	</property>
+
+	<property key="ProposeReceiveLeader">
+		<value xml:lang="en">Propose Receive Leader</value>
+		<value xml:lang="vi">Đề xuất tiếp nhận lãnh đạo trực tiếp</value>
+	</property>
+	
+	<property key="ProposeReceiveOfHR">
+		<value xml:lang="en">Propose Receive Of Human Resource Department</value>
+		<value xml:lang="vi">Đề xuất tiếp nhận của phòng HCNS</value>
+	</property>
+	
+	<property key="ReceiveOfficial">
+		<value xml:lang="en">Receive official</value>
+		<value xml:lang="vi">Tiếp nhận chính thức</value>
+	</property>
+	
+	<property key="ConfirmAddWorkTrialTime">
+		<value xml:lang="en">Confirm Additional Work Trial Time</value>
+		<value xml:lang="vi">Xác nhận thêm thời gian thử việc</value>
+	</property>
+	
+	<!-- ==================================Recruiment Pg============================================= -->
+	
+	<property key="RecruimentPg">
+		<value xml:lang="en">Recruiment Salesman/Pg</value>
+		<value xml:lang="vi">Tuyển dụng Salesman/PG</value>
+	</property>
+	
+	<property key="PGEmployeeProfile">
+		<value xml:lang="en">Salesman/PG Employee Profile </value>
+		<value xml:lang="vi">Hồ sơ nhân viên Salesman/PG</value>
+	</property>
+	
+	<property key="ProposeEmployeePg">
+		<value xml:lang="en">Propose Employee Salesman/PG</value>
+		<value xml:lang="vi">Đề xuất nhân viên Salesman/PG</value>
+	</property>
+	
+	<property key="PartyMiddName">
+		<value xml:lang="en">Middle Name</value>
+		<value xml:lang="vi">Tên đệm</value>
+	</property>
+	
+	<property key="ProbationFrom">
+		<value xml:lang="en">Probation From</value>
+		<value xml:lang="vi">Thử việc từ</value>
+	</property>
+	
+	<property key="PGAddress">
+		<value xml:lang="en">Address</value>
+		<value xml:lang="vi">Địa chỉ</value>
+	</property>
+	
+	<property key="Experience">
+		<value xml:lang="en">Experience</value>
+		<value xml:lang="vi">Kinh nghiệm</value>
+	</property>
+	<property key="IdNumber">
+		<value xml:lang="en">Id Number</value>
+		<value xml:lang="vi">Chứng minh thư</value>
+	</property>
+	<property key="PhoneNumber">
+		<value xml:lang="en">Phone Number</value>
+		<value xml:lang="vi">Số điện thoại</value>
+	</property>
+	<property key="CardId">
+		<value xml:lang="en">Card Id</value>
+		<value xml:lang="vi">Số tài khoản</value>
+	</property>
+	<property key="BankName">
+		<value xml:lang="en">Bank name</value>
+		<value xml:lang="vi">Tên ngân hàng</value>
+	</property>
+	<property key="BrandName">
+		<value xml:lang="en">Brand of Bank</value>
+		<value xml:lang="vi">Chi nhánh ngân hàng</value>
+	</property>
+	<property key="Size">
+		<value xml:lang="en">Size</value>
+		<value xml:lang="vi">Size đồng phục</value>
+	</property>
+	<property key="EmployeePGId">
+		<value xml:lang="en">Employee Salesman/PG Id</value>
+		<value xml:lang="vi">Id nhân viên Salesman/PG</value>
+	</property>
+	
+	<property key="AddNewEmployeePgProfile">
+		<value xml:lang="en">Add New Employee Salesman/Pg Profile</value>
+		<value xml:lang="vi">Thêm mới hồ sơ nhân viên Salesman/PG</value>
+	</property>
+	
+	<property key="ProposeEmployeePG">
+		<value xml:lang="en">Propose Employee Salesman/PG</value>
+		<value xml:lang="vi">Chọn ứng viên</value>
+	</property>
+	
+	<property key="Allowance">
+		<value xml:lang="en">Allowance</value>
+		<value xml:lang="vi">Trợ cấp</value>
+	</property>
+
+	<property key="RateSalaryWorkTrial">
+		<value xml:lang="en">Rate of Salary Work Trial</value>
+		<value xml:lang="vi">Tỉ lệ lương thử việc</value>
+	</property>
+	
+	<property key="TimeOfWorkTrial">
+		<value xml:lang="en">TimeOfWorkTrial</value>
+		<value xml:lang="vi">Thời gian thử việc</value>
+	</property>
+	
+	<property key="EmployeePGId">
+		<value xml:lang="en">Employee Salesman/PG Id</value>
+		<value xml:lang="vi">Mã nhân viên</value>
+	</property>
+	
+	<property key="CheckProposeSalemanPg">
+		<value xml:lang="en">Check Propose Salesman/PG</value>
+		<value xml:lang="vi">Kiểm tra đề xuất SaleMan/PG</value>
+	</property>
+	
+	<property key="noteOfPropose">
+		<value xml:lang="en">Note</value>
+		<value xml:lang="vi">Ghi chú</value>
+	</property>
+	
+	<property key="ProposeId">
+		<value xml:lang="en">Propose Id</value>
+		<value xml:lang="vi">Mã đề xuất</value>
+	</property>
+	
+	
+	<property key="NoteOfCheck">
+		<value xml:lang="en">Note Of Check</value>
+		<value xml:lang="vi">Ghi chú kiểm tra </value>
+	</property>
+	
+	<property key="ApproveProposeSaleManPG">
+		<value xml:lang="en">Approve Propose Salesman/PG</value>
+		<value xml:lang="vi">Duyệt đề xuất Saleman/PG</value>
+	</property>
+	
+	
+	<property key="NoteOfApprove">
+		<value xml:lang="en">Note Of Approve</value>
+		<value xml:lang="vi">Ghi chú phê duyệt</value>
+	</property>
+	
+	<property key="TrainingLevel">
+		<value xml:lang="en">Trainging Level</value>
+		<value xml:lang="vi">Trình độ đào tạo</value>
+	</property>
+	
+	<property key="ReportListEmployeePGSalesMan">
+		<value xml:lang="en">Report List PG/SalesMan</value>
+		<value xml:lang="vi">Báo cáo danh sách PG/Salesman</value>
+	</property>SendNotifyToHr
+	
+	<property key="SendNotifyToHr">
+		<value xml:lang="en">Send Report to Hroom</value>
+		<value xml:lang="vi">Gửi báo cáo cho phòng nhân sự</value>
+	</property>
+	
+	<property key="EmployeeManager">
+		<value xml:lang="en"> Manager Employee</value>
+		<value xml:lang="vi">Nhân viên giám sát</value>
+	</property>
+	<property key="CheckListEmployeePGSalesMan">
+		<value xml:lang="en">Confirm list PG/Salesman approved</value>
+		<value xml:lang="vi">Xác nhận DS Salesman/PG được tuyển</value>
+	</property>
+	<property key="ViewListCheckedPGSalesman">
+		<value xml:lang="en">View list employee PG/Salesman checked</value>
+		<value xml:lang="vi">Xem danh sách nhân viên đã kiểm tra</value>
+	</property>
+	
+	<!-- ==================================/Recruiment Pg============================================= -->
+	<!-- =================================Work Trial Report================================================== -->
+	<property key="CreateWorkTrialReport">
+		<value xml:lang="en">Create Work Trial Report</value>
+		<value xml:lang="vi">Tạo báo cáo thử việc</value>
+	</property>
+	
+	<property key="EduProcess">
+		<value xml:lang="en">Education Task</value>
+		<value xml:lang="vi">Công tác đào tạo</value>
+	</property>
+	
+	<property key="WorkResult">
+		<value xml:lang="en">Work Result</value>
+		<value xml:lang="vi">Kết quả thực hiện công việc</value>
+	</property>
+	
+	<property key="AdvAndDis">
+		<value xml:lang="en">Advantage And Disadvantage</value>
+		<value xml:lang="vi">Ưu nhược điểm</value>
+	</property>
+	
+	<property key="WorkOrientation">
+		<value xml:lang="en">Work Orientation</value>
+		<value xml:lang="vi">Phương hướng công tác</value>
+	</property>
+	
+	<property key="PolicyProposal">
+		<value xml:lang="en">Policy Proposal</value>
+		<value xml:lang="vi">Đề xuất về chính sách</value>
+	</property>
+	
+	<property key="EduProposal">
+		<value xml:lang="en">Education Proposal</value>
+		<value xml:lang="vi">Đề xuất nhu cầu đào tạo</value>
+	</property>
+	
+	<property key="WorkProposal">
+		<value xml:lang="en">Work Proposal</value>
+		<value xml:lang="vi">Đề xuất công việc</value>
+	</property>
+	
+	<property key="RuleCompliance">
+		<value xml:lang="en">Rule Complicance</value>
+		<value xml:lang="vi">Thực hiện nội quy, quy chế</value>
+	</property>
+	
+	<property key="ComplWorkRate">
+		<value xml:lang="en">Completed Work Rate</value>
+		<value xml:lang="vi">Mức độ hoàn thành công việc</value>
+	</property>
+	
+	<property key="InterCommunication">
+		<value xml:lang="en">Internal Communication</value>
+		<value xml:lang="vi">Giúp đỡ đồng nghiệp</value>
+	</property>
+	
+	<property key="LearningCapability">
+		<value xml:lang="en">Learning Capability</value>
+		<value xml:lang="vi">Khả năng học hỏi</value>
+	</property>
+	
+	<property key="ExterCommunication">
+		<value xml:lang="en">External Communication</value>
+		<value xml:lang="vi">Quan hệ đối ngoại</value>
+	</property>
+	
+	<property key="PageTitleRecruitmentHome">
+		<value xml:lang="en">Recruitment Home</value>
+		<value xml:lang="vi">Tuyển dụng nhân sự</value>
+	</property>
+	
+	<property key="AssignedTask">
+		<value xml:lang="en">Assigned Task</value>
+		<value xml:lang="vi">Công việc được giao</value>
+	</property>
+	
+	<property key="FutureEdu">
+		<value xml:lang="en">Future Education</value>
+		<value xml:lang="vi">Đào tạo trong tương lai</value>
+	</property>
+	
+	<property key="RequiredOther">
+		<value xml:lang="en">Other Requirement</value>
+		<value xml:lang="vi">Yêu cầu khác</value>
+	</property>
+	
+	<property key="RateHRMWorkTrial">
+		<value xml:lang="en">Rate HRM Work Trial</value>
+		<value xml:lang="vi">Đánh giá nhân viên thử việc</value>
+	</property>
+	
+	<property key="HRMWorkTrial">
+		<value xml:lang="en">HRM Work Trial</value>
+		<value xml:lang="vi">Nhân viên thử việc</value>
+	</property>	
+	
+	<property key="WorkTrialReportId">
+		<value xml:lang="en">Work Trial Report Id</value>
+		<value xml:lang="vi">Mã báo cáo thử việc</value>
+	</property>
+	
+	<property key="LeaderRatingResult">
+		<value xml:lang="en">Leader Rating Result</value>
+		<value xml:lang="vi">Đề xuất tiếp nhận</value>
+	</property>
+	
+	<property key="ListCompletedRecruitment">
+		<value xml:lang="en">List Completed Recruitment</value>
+		<value xml:lang="vi">Danh sách tuyển dụng hoàn thành</value>
+	</property>
+	
+	<property key="RateWorkTrial">
+		<value xml:lang="en">Rate Work Trial</value>
+		<value xml:lang="vi">Đánh giá thử việc</value>
+	</property>
+	
+	<property key="workTrialReportId">
+		<value xml:lang="en">Work Trial Report Id</value>
+		<value xml:lang="vi">Mã báo cáo thử việc</value>
+	</property>
+	
+	<property key="ExtTime">
+		<value xml:lang="en">Extend Time</value>
+		<value xml:lang="vi">Thêm thời gian thử việc</value>
+	</property>
+	
+	<property key="TrialTime">
+		<value xml:lang="en">Trial Time</value>
+		<value xml:lang="vi">Thời gian thử việc</value>
+	</property>
+	
+	<property key="RatingResult">
+		<value xml:lang="en">Rating Result</value>
+		<value xml:lang="vi">Kết quả đánh giá</value>
+	</property>
+	
+	<property key="ExtTimeConfirm">
+		<value xml:lang="en">Extend Time Confirm</value>
+		<value xml:lang="vi">Xác nhận thêm thời gian thử việc</value>
+	</property>
+	
+	<property key="PageTitleWorkTrialRateResult">
+		<value xml:lang="en">Work Trial Rate Result</value>
+		<value xml:lang="vi">Kết quả đánh giá thử việc</value>
+	</property>
+	
+	<property key="PageTitleRateWorkTrial">
+		<value xml:lang="en">Work Trial Rate</value>
+		<value xml:lang="vi">Đánh giá thử việc</value>
+	</property>
+	
+	<property key="ConfirmExtTimeResult">
+		<value xml:lang="en">Confirm Ext Time Result</value>
+		<value xml:lang="vi">Kết quả xác nhận thêm thời gian thử việc</value>
+	</property>
+	
+	<property key="result">
+		<value xml:lang="en">Result</value>
+		<value xml:lang="vi">Kết quả</value>
+	</property>
+	<!-- =================================/Work Trial Report================================================== -->
+	<property key="RecruitmentPlanResult">
+		<value xml:lang="en">Recruitment Plan Result approval</value>
+		<value xml:lang="vi">Kết quả xét duyệt KH tuyển dụng</value>
+	</property>
+	<property key="OverView">
+		<value xml:lang="en">Overview</value>
+		<value xml:lang="vi">Xem tóm tắt</value>
+	</property>
+	<property key="SkipThisStep">
+		<value xml:lang="en">Skip this step</value>
+		<value xml:lang="vi">Bỏ qua bước này</value>
+	</property>
+	<property key="CopyPrevStep">
+		<value xml:lang="en">Copy data in prev step</value>
+		<value xml:lang="vi">Sao chép dữ liệu từ bước trước</value>
+	</property>
+	<property key="ApprovalStatusIsInvalid">
+		<value xml:lang="en">Approval status is invalid</value>
+		<value xml:lang="vi">Trạng thái phê duyệt không hợp lệ</value>
+	</property>
+	
+	<property key="hrolbiusNoData">
+		<value xml:lang="en">Data is not Set up</value>
+		<value xml:lang="vi">Dữ liệu không được thiết lập</value>
+	</property>
+	<property key="ProposalSalesmanPgAfterChecked">
+		<value xml:lang="en">Proposal Salesman/PG after checked</value>
+		<value xml:lang="vi">Đề xuất Salesman/PG sau khi KT</value>
+	</property>
+	<property key="SalesmanPgList">
+		<value xml:lang="en">Salesman/PG applicant profile</value>
+		<value xml:lang="vi">Danh sách ứng viên Salesman/PG</value>
+	</property>
+	<property key="CreateNewProfileSalesmanPG">
+		<value xml:lang="en">Create new Salesman/PG applicant</value>
+		<value xml:lang="vi">Tạo mới nhân viên Salesman/PG</value>
+	</property>
+	<property key="CreateNewApplicantSalesmanPGJobRequest">
+		<value xml:lang="en">Create new Salesman/PG applicant fro job request</value>
+		<value xml:lang="vi">Tạo mới ứng viên Salesman/PG cho yêu cầu tuyển dụng</value>
+	</property>
+	<property key="FindSalemanPgProfile">
+		<value xml:lang="en">Find Salesman/PG profile</value>
+		<value xml:lang="vi">Tìm kiếm hồ sơ Salesman/PG</value>
+	</property>
+	<property key="EditEmployeePgProfile">
+		<value xml:lang="en">Salesman/PG profile recruitment</value>
+		<value xml:lang="vi">Hồ sơ tuyển dụng Salesman/PG</value>
+	</property>
+	<property key="WorkTrialProposalId">
+		<value xml:lang="en">Proposal Id</value>
+		<value xml:lang="vi">Mã đề xuất</value>
+	</property>
+	<property key="ListEmployeePGSalesMan">
+		<value xml:lang="en">List salesman/PG</value>
+		<value xml:lang="vi">Danh sách Salesman/PG</value>
+	</property>
+	<property key="NotFoundProposalSalesmanPG">
+		<value xml:lang="en">Can't not found proposal with code is ${workTrialProposalId}</value>
+		<value xml:lang="vi">Không thể tìm thấy đề xuất với mã là ${workTrialProposalId}</value>
+	</property>
+	<property key="StatusCurrentUpdateIsNotValid">
+		<value xml:lang="en">Can't not update when current status is ${statusDesc}</value>
+		<value xml:lang="vi">Không thể cập nhật khi trạng thái hiện tại là ${statusDesc}</value>
+	</property>
+	<property key="ErrorCreateNewSalesmanPG">
+		<value xml:lang="en">Error when create new salesman/PG</value>
+		<value xml:lang="vi">Xảy ra lỗi khi tạo mới Salesman/PG</value>
+	</property>
+	<property key="RecruitmentNotInPlan">
+		<value xml:lang="en">Unable to recruit more staff for exceeding recruitment plan </value>
+		<value xml:lang="vi">Không thể tuyển dụng thêm nhân viên vì đã vượt quá kế hoạch tuyển dụng</value>
+	</property>
+	<property key="UnableRecruitmentReplaceEmpl">
+		<value xml:lang="en">Unable to recruit replacement employee</value>
+		<value xml:lang="vi">Không thể tuyển thay thế nhân viên khi chưa có nhân viên nào nghỉ</value>
+	</property>
+	<property key="NewRecruitmentSalesmanPG">
+		<value xml:lang="en">Salesman/PG new recruitment in this month</value>
+		<value xml:lang="vi">DS Salesman/PG tuyển mới tháng này</value>
+	</property>
+	<property key="CreateNewSalesmanPG">
+		<value xml:lang="en">Create new salesman/PG</value>
+		<value xml:lang="vi">Tạo mới salesman/PG</value>
+	</property>
+	<property key="createEmployeeInfoSuccessful">
+		<value xml:lang="en">Create employee information successful</value>
+		<value xml:lang="vi">Tạo mới thành công thông tin nhân viên</value>
+	</property>
+	<property key="sendReportSuccessful">
+		<value xml:lang="en">Sent notify about report successfully</value>
+		<value xml:lang="vi">Đã gửi báo cáo thành công</value>
+	</property>
+	<property key="ErrorWhenSentReport">
+		<value xml:lang="en">Error occur when send report</value>
+		<value xml:lang="vi">Xảy ra lỗi khi gửi báo cáo</value>
+	</property>
+	<property key="NotifyResults">
+		<value xml:lang="en">Notify results</value>
+		<value xml:lang="vi">Thông báo kết quả</value>
+	</property>
+	<property key="SummaryListSalesmanPGInMonth">
+		<value xml:lang="en">Report list salesman/PG recruit in month</value>
+		<value xml:lang="vi">Báo cáo danh sách salesman/PG đã tuyển trong tháng</value>
+	</property>
+	<property key="ReportRecruitmentSalesmanPG">
+		<value xml:lang="en">Send report</value>
+		<value xml:lang="vi">Gửi báo cáo</value>
+	</property>
+	<property key="RecruitmentDisable">
+		<value xml:lang="en">Recruitment ${emplPositionType} have disable from date ${fromDate} to ${thruDate} because of ${reasons}</value>
+		<value xml:lang="vi">Tuyển dụng ${emplPositionType} đã bị vô hiệu hóa từ ngày ${fromDate} đến ngày ${thruDate} vì ${reasons}</value>
+	</property>
+	<property key="HRCommonReason">
+		<value xml:lang="en">Reasons</value>
+		<value xml:lang="vi">Lý do</value>
+	</property>
+	<property key="PartyIdApply">
+		<value xml:lang="en">Scope Apply</value>
+		<value xml:lang="vi">Phạm vi áp dụng</value>
+	</property>
+	<property key="CreateRecruitmentDisableSuccessful">
+		<value xml:lang="en">Create successful</value>
+		<value xml:lang="vi">Đã tạo thành công</value>
+	</property>
+
+	<property key="WarningRecruitmentDisable">
+		<value xml:lang="en">Warning recruitment disable</value>
+		<value xml:lang="vi">Cảnh báo không tuyển dụng</value>
+	</property>
+	<property key="HRCommonEducation">
+		<value xml:lang="en">Education</value>
+		<value xml:lang="vi">Quá trình đào tạo</value>
+	</property>
+	<property key="SecondarySchoolOrOtherType">
+		<value xml:lang="en">Secondary or other types of training</value>
+		<value xml:lang="vi"> Trung học hoặc các loại hình đào tạo khác</value>
+	</property>
+	<property key="SecondaryTechnicalOrVocational">
+		<value xml:lang="en">Secondary technical or vocational</value>
+		<value xml:lang="vi">Trung học kỹ thuật hoặc dạy nghề</value>
+	</property>
+	<property key="ifNotCollege">
+		<value xml:lang="en">if not College, University</value>
+		<value xml:lang="vi">Nếu không học đại học, cao đẳng</value>
+	</property>
+	<property key="HRSkillLever">
+		<value xml:lang="en">Level</value>
+		<value xml:lang="vi">Đánh giá</value>
+	</property>
+	<property key="SkillType">
+		<value xml:lang="en">Skill Type</value>
+		<value xml:lang="vi">Loại kỹ năng</value>
+	</property>
+	<property key="HRCommonPartySkill">
+		<value xml:lang="en">Skills</value>
+		<value xml:lang="vi">Các kỹ năng</value>
+	</property>
+	<property key="HRWorkingProcess">
+		<value xml:lang="en">Working Process</value>
+		<value xml:lang="vi">Quá trình làm việc</value>
+	</property>
+	<property key="AddPersonEducation">
+		<value xml:lang="en">Add education process</value>
+		<value xml:lang="vi">Thêm quá trình đào tạo</value>
+	</property>
+	<property key="AddWorkingProcess">
+		<value xml:lang="en">Add working process</value>
+		<value xml:lang="vi">Thêm quá trình làm việc</value>
+	</property>
+	<property key="NumberChildren">
+		<value xml:lang="en">Number of Children</value>
+		<value xml:lang="vi">Số con</value>
+	</property>
+	<property key="HRSpecialization">
+		<value xml:lang="en">Specialization</value>
+		<value xml:lang="vi">Chuyên ngành</value>
+	</property>
+	<property key="CompanyName">
+		<value xml:lang="en">Company Name</value>
+		<value xml:lang="vi">Tên công ty</value>
+	</property>
+	<property key="HRSalary">
+		<value xml:lang="en">Salary</value>
+		<value xml:lang="vi">Mức lương</value>
+	</property>
+	<property key="TerminationReason">
+		<value xml:lang="en">Termination Reason</value>
+		<value xml:lang="vi">Lý do nghỉ việc</value>
+	</property>
+	<property key="HRFamilyBackground">
+		<value xml:lang="en">Family Background</value>
+		<value xml:lang="vi">Thành phần gia đình</value>
+	</property>
+	<property key="HRRelationship">
+		<value xml:lang="en">Relationship</value>
+		<value xml:lang="vi">Quan hệ</value>
+	</property>
+	<property key="EmploymentAppSourceType">
+		<value xml:lang="en">Application source type</value>
+		<value xml:lang="vi">Nguồn thông tin tuyển dụng</value>
+	</property>
+	<property key="ExpectedSalary">
+		<value xml:lang="en">Expected Salary</value>
+		<value xml:lang="vi">Mức lương mong muốn</value>
+	</property>
+	<property key="ReferredByParty">
+		<value xml:lang="en">Referred By Person</value>
+		<value xml:lang="vi">Được giới thiệu bởi</value>
+	</property>
+	<property key="ErrorCreateEmplInfo">
+		<value xml:lang="en">Error occur when create employee information, please try again</value>
+		<value xml:lang="vi">Xảy ra lỗi khi tạo hồ sơ nhân viên, hãy thử lại!!!</value>
+	</property>
+	<property key="HrolbiusRequiredValueNumber">
+		<value xml:lang="en">Required value type number</value>
+		<value xml:lang="vi">Yêu cầu giá trị là số </value>
+	</property>
+	<property key="HrolbiusRequiredValue">
+		<value xml:lang="en">Required value greather than 0</value>
+		<value xml:lang="vi">Yêu cầu giá trị là số và lớn hơn 0</value>
+	</property>
+	<property key="HrolbiusRequiredValue1">
+		<value xml:lang="en">Required value smaller than 100</value>
+		<value xml:lang="vi">Yêu cầu giá trị là số và nhỏ hơn 100</value>
+	</property>
+	<property key="HrolbiusRequiredValueGreatherToDay">
+		<value xml:lang="en">Required value greather than today</value>
+		<value xml:lang="vi">Yêu cầu giá trị lớn hơn ngày hiện tại</value>
+	</property>
+	<property key="HrolbiusRequiredValueSmallerToDay">
+		<value xml:lang="en">Required value smaller than today</value>
+		<value xml:lang="vi">Yêu cầu giá trị nhỏ hơn ngày hiện tại</value>
+	</property>
+	<property key="HrolbiusRequiredValueGreatherFromDate">
+		<value xml:lang="en">Required value greather than from date</value>
+		<value xml:lang="vi">Yêu cầu giá trị lớn hơn ngày bắt đầu</value>
+	</property>
+	<property key="HrolbiusRequiredValueGreatherValue">
+		<value xml:lang="en">Required value greather than from value</value>
+		<value xml:lang="vi">Yêu cầu giá trị lớn hơn giá trị bắt đầu</value>
+	</property>
+	<property key="HrolbiusRequiredNotNull">
+		<value xml:lang="en">Required value</value>
+		<value xml:lang="vi">Trường bắt buộc</value>
+	</property>
+	
+	<property key="HrolbiusRequiredNotSpecialCharacter">
+		<value xml:lang="en">Required not special character</value>
+		<value xml:lang="vi">Yêu cầu trường không gồm kí tự đặc biệt</value>
+	</property>
+	
+	<property key="HrolbiusRequiredBirthDay">
+		<value xml:lang="en">Required value less than today</value>
+		<value xml:lang="vi">Ngày sinh phải trước ngày hiện tại</value>
+	</property>
+	<property key="HrolbiusRequiredPassPortDate">
+		<value xml:lang="en">Required value less than today</value>
+		<value xml:lang="vi">Ngày cấp phải trước ngày hiện tại</value>
+	</property>
+	
+	<property key="HrolbiusRequiredPassPortExpiryDate">
+		<value xml:lang="en">Required value great than pass port date</value>
+		<value xml:lang="vi">Hết hạn phải lớn hơn ngày cấp</value>
+	</property>
+	<property key="HrolbiusRequiredValueNumber">
+		<value xml:lang="en">Required input value is number</value>
+		<value xml:lang="vi">Yêu cầu nhập kiểu số</value>
+	</property>
+	
+	<property key="HrolbiusRequiredValueGreatherFromDateOrToday">
+		<value xml:lang="en">Required value greather than from date or today</value>
+		<value xml:lang="vi">Yêu cầu giá trị lớn hơn ngày bắt đầu hoặc hiện tại</value>
+	</property>
+
+	<!-- HUNGNC START EDIT -->
+	<property key="HRPurchaseInternally">
+		<value xml:lang="en">Purchase internally</value>
+		<value xml:lang="vi">Mua hàng nội bộ</value>
+	</property>
+	
+	<property key="HREditRequirement">
+		<value xml:lang="en">Requirement Information</value>
+    	<value xml:lang="vi">Thông tin yêu cầu</value>
+	</property>
+	
+	<property key="ProductListProduct">
+		<value xml:lang="en">List Product</value>
+    	<value xml:lang="vi">Danh sách sản phẩm</value>
+	</property>
+	
+	<property key="ProductAddProduct">
+        <value xml:lang="en">Add Product</value>
+        <value xml:lang="vi">Thêm Sản phẩm</value>
+    </property>
+    
+    <property key="HRCreateNew">
+        <value xml:lang="en">Create New</value>
+        <value xml:lang="vi">Tạo mới</value>
+    </property>
+    
+    <property key="productStore">
+		<value xml:lang="en">Product Store</value>
+    	<value xml:lang="vi">Cửa hàng</value>
+	</property>
+	
+	<property key="ProductStoreTo">
+		<value xml:lang="en">Product Store To</value>
+    	<value xml:lang="vi">Tới cửa hàng</value>
+	</property>
+	
+	<property key="ProductStoreFrom">
+		<value xml:lang="en">Product Store From</value>
+    	<value xml:lang="vi">Từ cửa hàng</value>
+	</property>
+	
+	<property key="facility">
+		<value xml:lang="en">Facility</value>
+    	<value xml:lang="vi">Kho hàng</value>
+	</property>
+	<property key="fixedAsset">
+		<value xml:lang="en">Fixed Asset</value>
+    	<value xml:lang="vi">Tài sản cố định</value>
+	</property>
+	
+	<property key="RequirementStartDate">
+		<value xml:lang="en">Requirement Start Date</value>
+    	<value xml:lang="vi">Ngày yêu cầu có hiệu lực</value>
+	</property>
+	
+	<property key="RequiredByDate">
+		<value xml:lang="en">Required By Date</value>
+    	<value xml:lang="vi">Ngày tạo yêu cầu</value>
+	</property>
+	
+	<property key="Requestor">
+		<value xml:lang="en">Requestor</value>
+    	<value xml:lang="vi">Người yêu cầu</value>
+	</property>
+	
+	<property key="FacilityTo">
+		<value xml:lang="en">To facility</value>
+    	<value xml:lang="vi">Tới kho</value>
+	</property>
+	
+	<property key="Receiver">
+		<value xml:lang="en">Receiver</value>
+    	<value xml:lang="vi">Người nhận</value>
+	</property>
+	
+	<property key="Customer">
+		<value xml:lang="en">Customer</value>
+    	<value xml:lang="vi">Khách hàng</value>
+	</property>
+	
+	<property key="reqItemSeqId">
+		<value xml:lang="en">Item sequence code</value>
+    	<value xml:lang="vi">Mã số thứ tự</value>
+	</property>
+	
+	<property key="Quantity">
+		<value xml:lang="en">Quantity</value>
+    	<value xml:lang="vi">Số lượng</value>
+	</property>
+	
+	<property key="QuantityUomId">
+		<value xml:lang="en">Quantity Uom</value>
+    	<value xml:lang="vi">Đơn vị số lượng</value>
+	</property>
+	
+	<property key="ExpirationDate">
+		<value xml:lang="en">Expiration Date</value>
+    	<value xml:lang="vi">Ngày hết hạn</value>
+	</property>
+	
+	<property key="createDate">
+		<value xml:lang="en">Create Date</value>
+    	<value xml:lang="vi">Ngày tạo</value>
+	</property>
+	
+	<property key="requirementId">
+		<value xml:lang="en">Requirement Id</value>
+    	<value xml:lang="vi">Mã yêu cầu</value>
+	</property>
+	
+	<property key="RequirementType">
+		<value xml:lang="en">Requirement Type</value>
+    	<value xml:lang="vi">Loại yêu cầu</value>
+	</property>
+	
+	<property key="FacilityFrom">
+		<value xml:lang="en">From facility</value>
+    	<value xml:lang="vi">Từ kho</value>
+	</property>
+	
+	<property key="OriginContactMech">
+		<value xml:lang="en">Origin Contact Mech</value>
+    	<value xml:lang="vi">Địa chỉ xuất phát</value>
+	</property>
+	<property key="DestinationContactMech">
+		<value xml:lang="en">Destination Contact Mech</value>
+    	<value xml:lang="vi">Địa chỉ đích</value>
+	</property>
+	
+	<property key="GiftRequirements">
+		<value xml:lang="en">Gift Requirements</value>
+    	<value xml:lang="vi">Xuất hàng biếu tặng</value>
+	</property>
+	
+	<property key="ListGiftRequirements">
+		<value xml:lang="en">List Gift Requirements</value>
+    	<value xml:lang="vi">Danh sách yêu cầu xuất hàng biếu tặng</value>
+	</property>
+	<!-- HUNGNC END EDIT -->
+	
+	<property key="ExamTesterIdListIsEmpty">
+		<value xml:lang="en">List Exam Tester Is Empty</value>
+    	<value xml:lang="vi">Danh sách ứng viên trống</value>
+	</property>
+	
+	<property key="FirstIntvTesterIdListIsEmpty">
+		<value xml:lang="en">List First Tester Is Empty</value>
+    	<value xml:lang="vi">Danh sách người kiểm tra lần đầu trống</value>
+	</property>
+	
+	<property key="SecondIntvTesterIdListIsEmpty">
+		<value xml:lang="en">List Second Tester Is Empty</value>
+    	<value xml:lang="vi">Danh sách người kiểm tra lần hai trống</value>
+	</property>
+	
+	
+	<property key="InputValueMustBeTimeValue">
+		<value xml:lang="en">Input Value Must Be Time Value</value>
+    	<value xml:lang="vi">Giá trị nhập vào phải thuộc miền giá trị thời gian</value>
+	</property>
+	
+	<property key="EndTimeWorkShift">
+		<value xml:lang="en">End time work shift must be great than start time</value>
+    	<value xml:lang="vi">Thời gian kết thúc ca làm việc phải sau thời gian bắt đầu</value>
+	</property>
+	
+	<property key="HROlbiusNoRecruitmentPlanFound">
+		<value xml:lang="en">No Recruitment Plan Found</value>
+    	<value xml:lang="vi">Không tìm thấy kế hoạch tuyển dụng</value>
+	</property>
+
+</resource>

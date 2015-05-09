@@ -1,0 +1,35 @@
+{
+	"data": [
+		{
+			"name": "ivid",
+			"type": "INTEGER",
+			"primary": "true",
+			"autoincrement" : "true"
+		}, {
+			"name": "productId",
+			"type": "TEXT"
+		}, {
+			"name": "quantity",
+			"type": "NUMBERIC"
+		}, {
+			"name": "orderId",
+			"type": "TEXT"
+		}, {
+			"name": "orderDate",
+			"type": "DATETIME"
+		}, {
+			"name": "lastCheck",
+			"type": "DATETIME"
+		}, {
+			"name": "lastSyn",
+			"type": "DATETIME"
+		}, {
+			"name": "sysStatus",
+			"type": "NUMERIC"
+		},{
+			"name" : "customerId",
+			"type" : "TEXT"
+		}
+	]
+}
+

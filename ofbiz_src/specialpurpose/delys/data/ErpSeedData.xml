@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	<RoleType roleTypeId="MAIN_ROLE" description="Main Role" hasTable="N" parentTypeId=""/>
+	<RoleType roleTypeId="ORGANIZATION_ROLE" description="Organization" hasTable="N" parentTypeId="MAIN_ROLE"/>
+	<RoleType roleTypeId="ORGANIZATION_UNIT" description="Organization Unit" hasTable="N" parentTypeId="ORGANIZATION_ROLE"/>
+	<RoleType roleTypeId="PARENT_ORGANIZATION" description="Parent Organization" hasTable="N" parentTypeId="ORGANIZATION_UNIT"/>
+	<RoleType roleTypeId="DEPARTMENT" description="Department" hasTable="N" parentTypeId="ORGANIZATION_UNIT"/>
+	<RoleType roleTypeId="CARRIER" description="Carrier" hasTable="N" parentTypeId="ORGANIZATION_ROLE"/>
+	<RoleType roleTypeId="_NA_" description="Not Applicable" hasTable="N" parentTypeId=""/>
+	<RoleType roleTypeId="INTERNAL_ORGANIZATIO" parentTypeId="ORGANIZATION_ROLE" description="Internal Organization" hasTable="Y"/>
+	<RoleType roleTypeId="EXTERNAL_ORGANIZATIO" parentTypeId="ORGANIZATION_ROLE" description="External Organization" hasTable="Y"/>
+	<RoleType roleTypeId="CUSTOMER_GROUP" description="Customer Group" hasTable="N" parentTypeId=""/>
+	<RoleType roleTypeId="PARENT_MEMBER" description="Parent Member" hasTable="N" parentTypeId=""/>
+	<RoleType roleTypeId="CHILD_MEMBER" description="Child Member" hasTable="N" parentTypeId=""/>
+	<RoleType roleTypeId="PERSON_ROLE" description="Person" hasTable="N" parentTypeId=""/>
+	<RoleType roleTypeId="EMPLOYEE" description="Employee" hasTable="N" parentTypeId="PERSON_ROLE"/>
+	<RoleType roleTypeId="MANAGER" description="Manager" hasTable="N" parentTypeId="EMPLOYEE"/>
+	<RoleType roleTypeId="RECEIVER" description="Receiver" hasTable="N" parentTypeId="EMPLOYEE"/>
+	<RoleType roleTypeId="REPRESENT_LEGAL" hasTable="N" description="Represent legal"/>
+	<RoleType roleTypeId="CORPORATION" parentTypeId = "ORGANIZATION_UNIT" hasTable = "N" description="Tổng công ty"/>
+	<RoleType roleTypeId="BUYER" parentTypeId="" hasTable="N" description="Buyer"/>
+	<RoleType roleTypeId="LOG_SPECIALIST" parentTypeId="PARTY_GROUP" hasTable="N" description="Logistics specialist"/>
+	
+	<Enumeration description="Quantity UomId" enumCode="QUANTITY_UOMID" enumId="PRIP_QUANTITY_UOMID" sequenceId="20" enumTypeId="PROD_PRICE_IN_PARAM"/>
+	
+	<!-- party type -->
+	<PartyType description="Person" hasTable="Y" parentTypeId="" partyTypeId="PERSON"/>
+	<PartyType description="Party Group" hasTable="Y" parentTypeId="" partyTypeId="PARTY_GROUP"/>
+	<PartyType description="Legal Organization" hasTable="N" parentTypeId="PARTY_GROUP" partyTypeId="LEGAL_ORGANIZATION"/>
+	
+	<PartyRelationshipType partyRelationshipTypeId="GROUP_ROLLUP" parentTypeId="" partyRelationshipName="Group Member" description="" hasTable="N" roleTypeIdValidFrom="" roleTypeIdValidTo=""/>
+	<PartyRelationshipType partyRelationshipTypeId="MANAGER" description="" hasTable="N" parentTypeId="" partyRelationshipName="Manager" roleTypeIdValidFrom="" roleTypeIdValidTo=""/>
+	<PartyRelationshipType partyRelationshipTypeId="EMPLOYMENT" description="" hasTable="Y" parentTypeId="" partyRelationshipName="Employee" roleTypeIdValidFrom="" roleTypeIdValidTo=""/>
+	<PartyRelationshipType partyRelationshipTypeId="REPRESENT_LEGAL" parentTypeId="" hasTable="N" partyRelationshipName="Represent legal" description="" roleTypeIdValidFrom="" roleTypeIdValidTo=""/>
+	<PartyRelationshipType partyRelationshipTypeId="CHILD" description="" hasTable="N" parentTypeId="" partyRelationshipName="Child" roleTypeIdValidFrom="" roleTypeIdValidTo=""/>
+	<PartyRelationshipType partyRelationshipTypeId="SALES_EMPLOYMENT" description="" hasTable="N" parentTypeId="" partyRelationshipName="Sales Employee" roleTypeIdValidFrom="" roleTypeIdValidTo=""/>
+    <PartyRelationshipType partyRelationshipTypeId="SALES_EMPLOYEE" description="" hasTable="N" parentTypeId="" partyRelationshipName="Sales Employee" roleTypeIdValidFrom="" roleTypeIdValidTo=""/>
+    <PartyRelationshipType partyRelationshipTypeId="CUSTOMER_REL" description="" hasTable="N" parentTypeId="" partyRelationshipName="Customer" roleTypeIdValidFrom="CUSTOMER" roleTypeIdValidTo=""/>
+    <PartyRelationshipType partyRelationshipTypeId="CUSTOMER" description="" hasTable="N" parentTypeId="" partyRelationshipName="Customer" roleTypeIdValidFrom="" roleTypeIdValidTo=""/>
+    <PartyRelationshipType partyRelationshipTypeId="LOG_SPECIALIST" description="" hasTable="N" parentTypeId="" partyRelationshipName="Customer" roleTypeIdValidFrom="" roleTypeIdValidTo=""/>
+    
+	<PaymentType description="Receipt" hasTable="N" parentTypeId="" paymentTypeId="RECEIPT"/>
+	<PaymentType description="Customer Payment" hasTable="N" parentTypeId="RECEIPT" paymentTypeId="CUSTOMER_PAYMENT"/> <!-- a payment FROM the customer -->
+	
+	<Geo geoId="VN" geoTypeId="COUNTY" geoName="VIETNAM" geoCode="VN" addreviation="VN"/>
+	<Geo abbreviation="VN-HN" geoCode="VN-HN" geoId="VN-HN" geoName="Hà Nội" geoTypeId="STATE"/>
+    <Geo abbreviation="VN-HCM" geoCode="VN-HCM" geoId="VN-HCM" geoName="Hồ Chí Minh" geoTypeId="STATE"/>
+    <GeoAssoc geoIdTo="VN-HCM" geoId="VNM" geoAssocTypeId="REGIONS"/>
+    <GeoAssoc geoIdTo="VN-HN" geoId="VNM" geoAssocTypeId="REGIONS"/>
+    <CountryAddressFormat geoId="VNM" geoAssocTypeId="REGIONS" requireStateProvinceId="" requirePostalCode="" postalCodeRegex="" hasPostalCodeExt="" requirePostalCodeExt="" addressFormat=""/>
+    
+    <!-- <Geo abbreviation="HN-HM" geoCode="HN-HM" geoId="HN-HM" geoName="Hoàng Mai" geoTypeId="DISTRICT"/>
+	<GeoAssoc geoId="VN-HN" geoIdTo="HN-HM" geoAssocTypeId="REGIONS"/>
+	<Geo abbreviation="HN-DD" geoCode="HN-DD" geoId="HN-DD" geoName="Đống Đa" geoTypeId="DISTRICT"/>
+	<GeoAssoc geoId="VN-HN" geoIdTo="HN-DD" geoAssocTypeId="REGIONS"/> -->
+	
+	<!-- Copy from application -->
+	<Enumeration description="External Payment (No Service)" enumCode="PAY_EXTERNAL" enumId="PRDS_PAY_EXTERNAL" sequenceId="07" enumTypeId="PRDS_PAYSVC"/>
+	<PaymentMethodType description="Cash On Delivery" paymentMethodTypeId="EXT_COD"/>
+	<PaymentMethodType description="Pay by salary" paymentMethodTypeId="PAY_BY_SALARY" defaultGlAccountId=""/>
+	<ContactMechType contactMechTypeId="POSTAL_ADDRESS" description="Postal Address" hasTable="Y" parentTypeId=""/>
+	<RoleType description="Tax Authority" hasTable="N" parentTypeId="ORGANIZATION_ROLE" roleTypeId="TAX_AUTHORITY"/>
+	<PaymentGatewayConfig paymentGatewayConfigId="PAYPAL_CONFIG" />
+  	<PaymentGatewayConfig paymentGatewayConfigId="WORLDPAY_CONFIG" />
+  	
+	<!-- Add product store group-->
+    <!-- <ProductStoreGroupType productStoreGroupTypeId="PSGT_AREA" description="Area cover"/> -->
+    <ProductStoreGroupType productStoreGroupTypeId="PSGT_AREA_CHANNEL" description="Channel Area cover"/>
+    
+    <!-- Add requirement type -->
+	<RequirementType requirementTypeId="DELIVERY_SALES_REQ" parentTypeId="" hasTable="N" description="Sales delivery requirement"/>
+	<RequirementType requirementTypeId="INTERNAL_SALES_REQ" parentTypeId="PRODUCT_REQUIREMENT" hasTable="N" description=""/>
+	<RequirementType requirementTypeId="CHANGE_DATE_REQ" parentTypeId="PRODUCT_REQUIREMENT" hasTable="N" description=""/>
+	<RequirementType requirementTypeId="MARKETING_REQ" parentTypeId="PRODUCT_REQUIREMENT" hasTable="N" description=""/>
+	<RequirementType requirementTypeId="GIFT_REQ" parentTypeId="PRODUCT_REQUIREMENT" hasTable="N" description=""/>
+	<RequirementType requirementTypeId="RECEIVE_REQ" parentTypeId="" hasTable="N" description=""/>
+	<RequirementType requirementTypeId="RECEIVE_PRODUCT_REQ" parentTypeId="RECEIVE_REQ" hasTable="N" description=""/>
+	<RequirementType requirementTypeId="RECEIVE_ORDER_REQ" parentTypeId="RECEIVE_REQ" hasTable="N" description=""/>
+	<RequirementType requirementTypeId="TRANSFER_REQ" parentTypeId="PRODUCT_REQUIREMENT" hasTable="N" description=""/>
+	<RequirementType requirementTypeId="RETURN_REQ" parentTypeId="" hasTable="N" description=""/>
+	<RequirementType requirementTypeId="RETURN_PRODDIS_REQ" parentTypeId="RETURN_REQ" hasTable="N" description="Return product requirement"/>
+	<RequirementType requirementTypeId="RETURN_PRODCOM_REQ" parentTypeId="RETURN_REQ" hasTable="N" description="Return product requirement company"/>
+	
+	<!-- Add new type Status: delivery requirement -->
+	<StatusType description="Delivery requirement" hasTable="N" parentTypeId="" statusTypeId="DVER_REQ_STATUS"/>
+	<StatusItem description="Created" sequenceId="01" statusCode="CREATED" statusId="DVER_REQ_CREATED" statusTypeId="DVER_REQ_STATUS"/> 
+	<StatusItem description="Processing" sequenceId="04" statusCode="PROCESSING" statusId="DVER_REQ_PROCESSING" statusTypeId="DVER_REQ_STATUS"/> 
+	<StatusItem description="Approved" sequenceId="05" statusCode="APPROVED" statusId="DVER_REQ_APPROVED" statusTypeId="DVER_REQ_STATUS"/> 
+	<StatusItem description="Sent" sequenceId="03" statusCode="SENT" statusId="DVER_REQ_SENT" statusTypeId="DVER_REQ_STATUS"/> 
+	<StatusItem description="Held" sequenceId="06" statusCode="HELD" statusId="DVER_REQ_HOLD" statusTypeId="DVER_REQ_STATUS"/> 
+	<StatusItem description="Completed" sequenceId="10" statusCode="COMPLETED" statusId="DVER_REQ_COMPLETED" statusTypeId="DVER_REQ_STATUS"/> 
+	<StatusItem description="Rejected" sequenceId="98" statusCode="REJECTED" statusId="DVER_REQ_REJECTED" statusTypeId="DVER_REQ_STATUS"/> 
+	<StatusItem description="Cancelled" sequenceId="99" statusCode="CANCELLED" statusId="DVER_REQ_CANCELLED" statusTypeId="DVER_REQ_STATUS"/> 
+	
+	<!-- Add order item association type -->
+	<OrderItemAssocType description="Pay promotion" hasTable="N" orderItemAssocTypeId="PAY_PROMO" parentTypeId=""/>
+	
+	<!-- Add new status for order item. ITEM_PROCESSING: order item is processing pay promotion -->
+	<StatusItem description="Processing" sequenceId="100" statusCode="PROCESSING" statusId="ITEM_PROCESSING" statusTypeId="ORDER_ITEM_STATUS"/>
+	<StatusValidChange condition="" statusId="ITEM_APPROVED" statusIdTo="ITEM_PROCESSING" transitionName="Process Item"/>
+	<StatusValidChange condition="" statusId="ITEM_PROCESSING" statusIdTo="ITEM_COMPLETED" transitionName="Complete Item"/>
+	
+	<!-- Sales IN, OUT -->
+	<SalesStatementType description="Sales In" hasTable="N" salesTypeId="SALES_IN" parentTypeId=""/>  
+	<SalesStatementType description="Sales Out" hasTable="N" salesTypeId="SALES_OUT" parentTypeId=""/>
+	<SalesStatementItemAssocType description="Child Sales Item" hasTable="N" salesItemAssocTypeId="ROLL_DOWN" parentTypeId=""/>
+	<StatusType description="Sales statement" hasTable="N" parentTypeId="" statusTypeId="SALES_SM_STATUS"/>
+	<StatusItem	statusId="SALES_SM_CREATED" statusTypeId="SALES_SM_STATUS" description="Created" statusCode="CREATED"/>
+	<StatusItem	statusId="SALES_SM_CANCELLED" statusTypeId="SALES_SM_STATUS" description="Canceled" statusCode="CANCELED"/>
+	<StatusItem	statusId="SALES_SM_ACCEPTED" statusTypeId="SALES_SM_STATUS" description="Accepted" statusCode="ACCEPTED"/>
+	<StatusItem	statusId="SALES_SM_PROCESSING" statusTypeId="SALES_SM_STATUS" description="Processing" statusCode="PROCESSING"/>
+	<StatusItem	statusId="SALES_SM_COMPLETED" statusTypeId="SALES_SM_STATUS" description="Completed" statusCode="COMPLETED"/>
+	
+	<!-- Sales Policy Award Status -->
+	<StatusType description="Sales policy" hasTable="N" parentTypeId="" statusTypeId="SALES_PL_STATUS"/>
+	<StatusItem	statusId="SALES_PL_CREATED" statusTypeId="SALES_PL_STATUS" description="Created" statusCode="CREATED"/>
+	<StatusItem	statusId="SALES_PL_CANCELLED" statusTypeId="SALES_PL_STATUS" description="Cancel" statusCode="CANCEL"/>
+	<StatusItem	statusId="SALES_PL_ACCEPTED" statusTypeId="SALES_PL_STATUS" description="Accept" statusCode="ACCEPTED"/>
+	<StatusItem	statusId="SALES_PL_PROCESSING" statusTypeId="SALES_PL_STATUS" description="Processing" statusCode="PROCESSING"/>
+	
+	<!-- Sales Policy Award -->
+	<EnumerationType enumTypeId="SALES_POLICY" description="Sales Policy Parent Enum Type" hasTable="N" parentTypeId=""/>  
+	<EnumerationType enumTypeId="SALES_PL_IN_PARAM" description="Sales Policy Input Parameter" hasTable="N" parentTypeId="SALES_POLICY"/>  
+	<EnumerationType enumTypeId="SALES_PL_COND" description="Sales Policy Condition" hasTable="N" parentTypeId="SALES_POLICY"/>  
+	<EnumerationType enumTypeId="SALES_PL_PCAPPL" description="Sales Policy Product/Category Application Type" hasTable="N" parentTypeId="SALES_POLICY"/>  
+	<EnumerationType enumTypeId="SALES_PL_ACTION" description="Sales Policy Action" hasTable="N" parentTypeId="SALES_POLICY"/>  
+	<EnumerationType enumTypeId="SALES_PL_IN_PARAM" description="Sales Policy Input Parameter" hasTable="N" parentTypeId="SALES_POLICY"/>
+	<EnumerationType enumTypeId="SALES_PL_PCAPPL" description="Sales Policy Product/Category Application Type" hasTable="N" parentTypeId="SALES_POLICY"/>
+	<Enumeration enumId="SPIP_PC_TURN_OVER" description="X% Turn over" enumCode="PC_TURN_OVER" sequenceId="01" enumTypeId="SALES_PL_IN_PARAM"/>
+	<Enumeration enumId="SPIP_TURN_OVER" description="Turn over" enumCode="TURN_OVER" sequenceId="02" enumTypeId="SALES_PL_IN_PARAM"/>
+	<Enumeration enumId="SPIP_PRODUCT_TOTAL" description="Total Amount of Product" enumCode="PRODUCT_TOTAL" sequenceId="03" enumTypeId="SALES_PL_IN_PARAM"/>
+	<Enumeration enumId="SPIP_PRODUCT_AMOUNT" description="X Amount of Product" enumCode="PRODUCT_AMOUNT" sequenceId="04" enumTypeId="SALES_PL_IN_PARAM"/>
+	<Enumeration enumId="SPIP_PRODUCT_QUANT" description="X Quantity of Product" enumCode="PRODUCT_QUANT" sequenceId="05" enumTypeId="SALES_PL_IN_PARAM"/>
+    <Enumeration enumId="SPIP_NEW_ACCT" description="Account Days Since Created" enumCode="NEW_ACCT" sequenceId="06" enumTypeId="SALES_PL_IN_PARAM"/>
+    <Enumeration enumId="SPIP_PARTY_ID" description="Party" enumCode="PARTY_ID" sequenceId="07" enumTypeId="SALES_PL_IN_PARAM"/>
+    <Enumeration enumId="SPIP_PARTY_GRP_MEM" description="Party Group Member" enumCode="PARTY_GROUP_MEMBER" sequenceId="08" enumTypeId="SALES_PL_IN_PARAM"/>
+    <Enumeration description="Is" enumCode="EQ" enumId="SPC_EQ" sequenceId="01" enumTypeId="SALES_PL_COND"/>
+    <Enumeration description="Is Not" enumCode="NEQ" enumId="SPC_NEQ" sequenceId="02" enumTypeId="SALES_PL_COND"/>
+    <Enumeration description="Is Less Than" enumCode="LT" enumId="SPC_LT" sequenceId="03" enumTypeId="SALES_PL_COND"/>
+    <Enumeration description="Is Less Than or Equal To" enumCode="LTE" enumId="SPC_LTE" sequenceId="04" enumTypeId="SALES_PL_COND"/>
+    <Enumeration description="Is Greater Than" enumCode="GT" enumId="SPC_GT" sequenceId="05" enumTypeId="SALES_PL_COND"/>
+    <Enumeration description="Is Greater Than or Equal To" enumCode="GTE" enumId="SPC_GTE" sequenceId="06" enumTypeId="SALES_PL_COND"/>
+    <Enumeration description="Include" enumCode="INCLUDE" enumId="SPPA_INCLUDE" sequenceId="01" enumTypeId="SALES_PL_PCAPPL"/>
+    <Enumeration description="Exclude" enumCode="EXCLUDE" enumId="SPPA_EXCLUDE" sequenceId="02" enumTypeId="SALES_PL_PCAPPL"/>
+    <Enumeration description="Always Include" enumCode="ALWAYS" enumId="SPPA_ALWAYS" sequenceId="03" enumTypeId="SALES_PL_PCAPPL"/>
+    <Enumeration description="Award" enumCode="AWD" enumId="POLICY_AWD" sequenceId="01" enumTypeId="SALES_PL_ACTION"/>
+	
+	<!-- Commission status -->
+	<StatusType statusTypeId="SALES_COMM_STATUS" description="Sales commission status"></StatusType>
+	<StatusItem statusId="SALES_COMM_CREATED" statusTypeId="SALES_COMM_STATUS" description="Created" sequenceId="01"></StatusItem>
+	<StatusItem statusId="SALES_COMM_ACCEPTED" statusTypeId="SALES_COMM_STATUS" description="Accepted" sequenceId="02"> </StatusItem>
+	<StatusItem statusId="SALES_COMM_CANCELED" statusTypeId="SALES_COMM_STATUS" description="Canceled" sequenceId="03"> </StatusItem>
+	<StatusItem statusId="SALES_COMM_PAID" statusTypeId="SALES_COMM_STATUS" description="Paid" sequenceId="04"></StatusItem>
+	<StatusItem statusId="SALES_COMM_UNPAID" statusTypeId="SALES_COMM_STATUS" description="UnPaid" sequenceId="05"></StatusItem>
+	
+	<Party partyId="_NA_" partyTypeId="PERSON"/>
+	<Person partyId="_NA_"/>
+	<PartyRole partyId="_NA_" roleTypeId="_NA_"/>
+	<PartyRole partyId="_NA_" roleTypeId="CARRIER"/>
+    
+ 	<QuantityBreak fromQuantity="0.0" quantityBreakId="9000" quantityBreakTypeId="SHIP_WEIGHT" thruQuantity="0.0"/>
+    <QuantityBreak fromQuantity="0.0" quantityBreakId="9001" quantityBreakTypeId="SHIP_WEIGHT" thruQuantity="0.0"/>
+    <QuantityBreak fromQuantity="0.0" quantityBreakId="9002" quantityBreakTypeId="SHIP_WEIGHT" thruQuantity="0.0"/>
+    <QuantityBreak fromQuantity="0.0" quantityBreakId="9003" quantityBreakTypeId="SHIP_WEIGHT" thruQuantity="0.0"/>
+    <QuantityBreak fromQuantity="0.0" quantityBreakId="9004" quantityBreakTypeId="SHIP_WEIGHT" thruQuantity="0.0"/>
+    <QuantityBreak fromQuantity="0.0" quantityBreakId="9005" quantityBreakTypeId="SHIP_WEIGHT" thruQuantity="0.0"/>
+    <QuantityBreak fromQuantity="0.0" quantityBreakId="9006" quantityBreakTypeId="SHIP_WEIGHT" thruQuantity="0.0"/>
+    
+	<ProductPriceType description="Invoice price GT" productPriceTypeId="INVOICE_PRICE_GT"/>
+	<ProductPriceType description="Invoice price MT" productPriceTypeId="INVOICE_PRICE_MT"/>
+	
+	<ProductPriceActionType description="The market price of distributor" productPriceActionTypeId="PRICE_MARKET"/>
+	<ProductPriceActionType description="Prices proposal for consumer" productPriceActionTypeId="PRICE_CONSUMER"/>
+	
+	<!-- Quotation status -->
+    <StatusType description="Quotation" hasTable="N" parentTypeId="" statusTypeId="QUOTATION_STATUS"/>
+    <StatusItem description="Created" sequenceId="01" statusCode="CREATED" statusId="QUOTATION_CREATED" statusTypeId="QUOTATION_STATUS"/>
+    <StatusItem description="NBD Accepted" sequenceId="02" statusCode="NBD_ACCEPTED" statusId="QUOTT_NBD_ACCEPTED" statusTypeId="QUOTATION_STATUS"/>
+    <StatusItem description="Accepted" sequenceId="02" statusCode="ACCEPTED" statusId="QUOTATION_ACCEPTED" statusTypeId="QUOTATION_STATUS"/>
+    <StatusItem description="Cancelled" sequenceId="03" statusCode="CANCELLED" statusId="QUOTATION_CANCELLED" statusTypeId="QUOTATION_STATUS"/>
+    <StatusValidChange condition="" statusId="QUOTATION_CREATED" statusIdTo="QUOTT_NBD_ACCEPTED" transitionName="Quotation is NBD accepted" />
+    <StatusValidChange condition="" statusId="QUOTT_NBD_ACCEPTED" statusIdTo="QUOTATION_ACCEPTED" transitionName="Quotation is accepted" />
+    <StatusValidChange condition="" statusId="QUOTATION_CREATED" statusIdTo="QUOTATION_CANCELLED" transitionName="Quotation is cancelled" />
+    <!-- Promotion settlement record status -->
+    <StatusType description="Promotion settlement record" hasTable="N" parentTypeId="" statusTypeId="SETTLE_RECD_STATUS"/>
+    <StatusItem description="Created" sequenceId="01" statusCode="CREATED" statusId="SETTLE_RECD_CREATED" statusTypeId="SETTLE_RECD_STATUS"/>
+    <!-- <StatusItem description="Accepted" sequenceId="02" statusCode="ACCEPTED" statusId="SETTLE_RECD_ACCEPTED" statusTypeId="SETTLE_RECD_STATUS"/>
+    <StatusItem description="Cancelled" sequenceId="03" statusCode="CANCELLED" statusId="SETTLE_RECD_CANCELLED" statusTypeId="SETTLE_RECD_STATUS"/> -->
+    <StatusType description="Promotion settlement item" hasTable="N" parentTypeId="" statusTypeId="SETTLE_ITEM_STATUS"/>
+    <StatusItem description="Pay" sequenceId="01" statusCode="PAY" statusId="SETTLE_ITEM_PAY" statusTypeId="SETTLE_ITEM_STATUS"/>
+	<StatusItem description="Not Pay" sequenceId="02" statusCode="NOT_PAY" statusId="SETTLE_ITEM_NOT_PAY" statusTypeId="SETTLE_ITEM_STATUS"/>
+	
+	<StatusType description="Promotion settlement group" hasTable="N" parentTypeId="" statusTypeId="SETTLE_GRP_STATUS"/>
+    <StatusItem description="Created" sequenceId="01" statusCode="CREATED" statusId="STLE_GRP_CREATED" statusTypeId="SETTLE_GRP_STATUS"/>
+    <StatusItem description="Processing" sequenceId="02" statusCode="PROCESSING" statusId="STLE_GRP_PROCESSING" statusTypeId="SETTLE_GRP_STATUS"/>
+	<StatusItem description="Completed" sequenceId="03" statusCode="COMPLETED" statusId="STLE_GRP_COMPLETED" statusTypeId="SETTLE_GRP_STATUS"/>
+	<StatusItem description="Canceled" sequenceId="04" statusCode="CANCELED" statusId="STLE_GRP_CANCELED" statusTypeId="SETTLE_GRP_STATUS"/>
+	
+	<StatusType description="Promotion settlement group item" hasTable="N" parentTypeId="" statusTypeId="SETTLE_GRPITM_STATUS"/>
+    <StatusItem description="Created" sequenceId="01" statusCode="CREATED" statusId="STLE_GRPIM_CREATED" statusTypeId="SETTLE_GRPITM_STATUS"/>
+	<StatusItem description="Accepted" sequenceId="02" statusCode="ACCEPTED" statusId="STLE_GRPIM_ACCEPTED" statusTypeId="SETTLE_GRPITM_STATUS"/>
+	<StatusItem description="Rejected" sequenceId="03" statusCode="REJECTED" statusId="STLE_GRPIM_REJECTED" statusTypeId="SETTLE_GRPITM_STATUS"/>
+	<StatusItem description="Completed" sequenceId="04" statusCode="COMPLETED" statusId="STLE_GRPIM_COMPLETED" statusTypeId="SETTLE_GRPITM_STATUS"/>
+	<StatusItem description="Processing" sequenceId="05" statusCode="PROCESSING" statusId="STLE_GRPI_PROCESSING" statusTypeId="SETTLE_GRPITM_STATUS"/>
+	
+	<Party partyId="VNM_TAX" partyTypeId="PARTY_GROUP"/>
+    <PartyGroup partyId="VNM_TAX" groupName="VIET NAM TAX"/>
+    <PartyRole partyId="VNM_TAX" roleTypeId="TAX_AUTHORITY"/>
+	
+	<BudgetType budgetTypeId="PROMO_BUDGET_DIS" hasTable="N" description="Promotion budget distributions" lastUpdatedStamp="2014-03-28 18:57:45.0" lastUpdatedTxStamp="2014-03-28 18:57:44.0" createdStamp="2014-03-28 18:57:45.0" createdTxStamp="2014-03-28 18:57:44.0"/>
+	<BudgetType budgetTypeId="PROMO_MINI_REVENUE" hasTable="N" description="Promotion minimum revenue" lastUpdatedStamp="2014-03-28 18:57:45.0" lastUpdatedTxStamp="2014-03-28 18:57:44.0" createdStamp="2014-03-28 18:57:45.0" createdTxStamp="2014-03-28 18:57:44.0"/> 	
+	
+	<AgreementType agreementTypeId="PROMOTION_AGREEMENT" description="Promotion Agreement" hasTable="N" parentTypeId=""/>
+	<AgreementType agreementTypeId="PROMO_EXHIBITED_AGRE" description="Exhibited Agreement" hasTable="N" parentTypeId="PROMOTION_AGREEMENT"/>
+	
+	<!-- set term for PROMO_EXHIBITED_TERM -->
+	<TermType termTypeId="PROMO_EXHIBITED_TERM" description="Điều khoản hợp đồng trưng bày" hasTable="N" parentTypeId=""/>
+	<TermType termTypeId="GENERAL_EXH_TERM" hasTable="N"  parentTypeId="PROMO_EXHIBITED_TERM" description="Điều khoản chung"/>
+	<TermType termTypeId="RIGHTS_RESP_EXH_TERM" hasTable="N" parentTypeId="PROMO_EXHIBITED_TERM" description="Quyền lợi và trách nhiệm"/>
+	<TermType termTypeId="RIGHTS_RRE_TERM" hasTable="N" parentTypeId="RIGHTS_RESP_EXH_TERM" description="Quyền lợi"/>
+	<TermType termTypeId="RESPONSIBLT_RRE_TERM" hasTable="N" parentTypeId="RIGHTS_RESP_EXH_TERM" description="Trách nhiệm"/>
+	<TermType termTypeId="PARTY_A_RESPPRE_TERM" hasTable="N" parentTypeId="RESPONSIBLT_RRE_TERM" description="Bên A"/>
+	<TermType termTypeId="PARTY_B_RESPPRE_TERM" hasTable="N" parentTypeId="RESPONSIBLT_RRE_TERM" description="Bên B"/>
+	<TermType termTypeId="PARTIES_RESPPRE_TERM" hasTable="N" parentTypeId="RESPONSIBLT_RRE_TERM" description="Hai bên"/>
+	
+	<!--param1: váng sữa & sữa chua các loại của công ty ZOTT, param2: 01 ngăn tủ -->
+	<TermTypeAttr termTypeId="GENERAL_EXH_TERM" attrName="defaultValue1" attrValue="Bên B đồng ý mua và trưng bày: Sản phẩm #[productListName] do công ty DELYS phân phối tại #[numberCooler]"/>
+	<TermTypeAttr termTypeId="GENERAL_EXH_TERM" attrName="defaultValue2" attrValue="Bên B phải duy trì trưng bày liên tục từ #[fromDate] đến #[thruDate]"/>
+	<TermTypeAttr termTypeId="RIGHTS_RRE_TERM" attrName="defaultValue1" attrValue="Bên B được tham gia chương trình tích lũy doanh số và được hưởng các chương trình khuyến mãi theo chương trình khuyến mãi mà công ty ban hành trong tháng, cũng như theo từng thời điểm"/>
+	<!-- <TermTypeAttr termTypeId="RIGHTS_RRE_TERM" attrName="defaultValue2" attrValue="${promoCondAction}"/> -->
+	<TermTypeAttr termTypeId="PARTY_A_RESPPRE_TERM" attrName="defaultValue1" attrValue="Bên A có trách nhiệm cung cấp, kịp thời và đầy đủ các sản phẩm #[productListName] mà Bên B có nhu cầu cần nhập và có trách nhiệm cung cấp đúng các chương trình mà công ty ban hành đối với khách hàng, cũng như đối với bên B"/>
+	<TermTypeAttr termTypeId="PARTY_A_RESPPRE_TERM" attrName="defaultValue2" attrValue="Bên A có trách nhiệm đi kiểm tra và chấm điểm bất kỳ thời điểm nào trong tháng, nếu thấy Bên B vi phạm các điều kiện sau, thì Bên A được quyền không thanh toán phần thưởng trưng bày bổ sung cho Bên B"/>
+	<TermTypeAttr termTypeId="PARTY_B_RESPPRE_TERM" attrName="defaultValue1" attrValue="Bên B phải nhập đủ lượng hàng để bán và duy trì trưng bày mà bên B đã đồng ý tham gia là: #[conditionSum]"/>
+	<TermTypeAttr termTypeId="PARTY_B_RESPPRE_TERM" attrName="defaultValue2" attrValue="Nếu bên B không nhập đủ hàng để duy trì trưng bày theo cơ cấu trên sẽ không nhận được phần thưởng trưng bày vào cuối tháng"/>
+	<TermTypeAttr termTypeId="PARTY_B_RESPPRE_TERM" attrName="defaultValue3" attrValue="Nếu bên B cam kết và đảm bảo trưng bày các SP của Bên A đẹp và trưng bày #[numberCooler] theo hình khối"/>
+	<TermTypeAttr termTypeId="PARTY_B_RESPPRE_TERM" attrName="defaultValue4" attrValue="Bên B phải luôn có tinh thần, trách nhiệm ưu tiên đối với các  sản phẩm của Công ty để sự hiện diện của SP Công ty được thể hiện hình ảnh đẹp trong tủ, không bị các sản phẩm của đối thủ làm ảnh hưởng đến hình ảnh của sản phẩm công ty"/>
+	<TermTypeAttr termTypeId="PARTY_B_RESPPRE_TERM" attrName="defaultValue5" attrValue="Nếu Bên B đạt được các nội dung và điều kiện như trên thì công ty DELYS sẽ thưởng trưng bày cho Bên B là: #[actionApply] sau khi kết thúc chương trình trưng bày như đã thỏa thuận"/>
+	<TermTypeAttr termTypeId="PARTIES_RESPPRE_TERM" attrName="defaultValue1" attrValue="Hai bên cùng thống nhất và ký nội dung thỏa thuận nêu trên"/>
+	
+	<!-- create new product promo type -->
+	<ProductPromoType productPromoTypeId="EXHIBITED" productPromoTypeGroupId="SALES_GT_CHANNEL" description="Exihibited promotion"/>
+	<ProductPromoType productPromoTypeId="ACCUMULATE" productPromoTypeGroupId="SALES_GT_CHANNEL"  description="Accumulate promotion"/>
+	<ProductPromoType productPromoTypeId="PROMOTION" productPromoTypeGroupId="SALES_GT_CHANNEL" description="Promotion by order"/>
+	<ProductPromoType productPromoTypeId="OTHER" productPromoTypeGroupId="SALES_GT_CHANNEL" description="Promotion other"/>
+	<!-- Note Payment Time: PAYMENT_BEFORE and PAYMENT_AFTER -->
+	<!-- status for register exhibited promotion -->
+	<StatusType statusTypeId="REG_PROMO_STTS" hasTable="N" description="Registered promo status"/>
+	<StatusItem	statusId="REG_PROMO_CREATED" statusCode="CREATED" description="Created" statusTypeId="REG_PROMO_STTS"/>
+	<StatusItem statusId="REGPR_SUP_ACCEPTED" statusCode="SUP_ACCEPTED" description="SUP Accepted" statusTypeId="REG_PROMO_STTS"/>
+	<StatusItem statusId="REGPR_ASM_ACCEPTED" statusCode="ASM_ACCEPTED" description="ASM Accepted" statusTypeId="REG_PROMO_STTS"/>
+	<StatusItem	statusId="REG_PROMO_ACCEPTED" statusCode="ACCEPTED" description="Accepted" statusTypeId="REG_PROMO_STTS"/>
+	<StatusItem	statusId="REG_PROMO_CANCELED" statusCode="CANCELED" description="Canceled" statusTypeId="REG_PROMO_STTS"/>
+	<!-- status for mark exhibited promotion -->
+	<StatusType statusTypeId="EXH_MARKING_STTS" hasTable="N" description="Exhibited marking status"/>
+	<StatusItem	statusId="EXH_NOT_MARKING" statusCode="NOT_MARKING" description="Not marking" statusTypeId="EXH_MARKING_STTS"/>
+	<StatusItem	statusId="EXH_PASS" statusCode="PASS" description="Passing" statusTypeId="EXH_MARKING_STTS"/>
+	<StatusItem	statusId="EXH_FAILED" statusCode="FAILED" description="Failed" statusTypeId="EXH_MARKING_STTS"/>
+	<!-- status for create promotions -->
+	<StatusType statusTypeId="PROMO_STATUS" hasTable="N" description="Promotion status"/>
+	<StatusItem	statusId="PROMO_CREATED" statusCode="CREATED" description="Created" statusTypeId="PROMO_STATUS"/>
+	<StatusItem	statusId="PROMO_CANCELLED" statusCode="CANCEL" description="Cancel" statusTypeId="PROMO_STATUS"/>
+	<StatusItem	statusId="PROMO_ACCEPTED" statusCode="ACCEPTED" description="Accept" statusTypeId="PROMO_STATUS"/>
+	<StatusItem	statusId="PROMO_PROCESSING" statusCode="PROCESSING" description="Processing" statusTypeId="PROMO_STATUS"/>
+	<ProductContentType productContentTypeId="EXH_MARK_IMG" hasTable="N" description="Image to marking exhibited of party"/>
+	
+	<StatusType statusTypeId="REQUIREMENT_STATUS" hasTable="N" description="REQUIREMENT status"/>
+	<StatusType statusTypeId="REQ_ITEM_STATUS" hasTable="N" description="REQUIREMENT ITEM status"/>
+	<StatusType statusTypeId="ORDER_RETURN_STTS" hasTable="N" description="Order Return Status For Customer Returns"/>
+	<StatusType statusTypeId="PORDER_RETURN_STTS" hasTable="N" description="Order Return Status For Supplier Returns"/>
+	<StatusType statusTypeId="PLAN_STATUS" hasTable="N" description="Status for import plan"/>
+	<StatusType statusTypeId="PLAN_ITEM_STATUS" hasTable="N" description="Status for import plan item"/>
+	<StatusType statusTypeId="LOT_STATUS" hasTable="N" description="Status for lot of product"/>
+	<!-- status item for import plan -->
+	<StatusItem description="Approved" statusCode="APPROVED" statusId="PLAN_APPROVED" statusTypeId="PLAN_STATUS"/>
+	<StatusItem description="ContCreated" statusCode="CONTCREATED" statusId="PLAN_CONTCREATED" statusTypeId="PLAN_STATUS"/>
+	<StatusItem description="Created" statusCode="CREATED" statusId="PLAN_CREATED" statusTypeId="PLAN_STATUS"/>
+	<StatusItem description="Ordered" statusCode="ORDERED" statusId="PLAN_ORDERED" statusTypeId="PLAN_STATUS"/>
+	<StatusItem description="Proposed" statusCode="PROPOSED" statusId="PLAN_PROPOSED" statusTypeId="PLAN_STATUS"/>
+	<StatusItem description="Rejected" statusCode="REJECTED" statusId="PLAN_REJECTED" statusTypeId="PLAN_STATUS"/>
+	<StatusItem description="Completed" statusCode="COMPLETED" statusId="PLAN_COMPLETED" statusTypeId="PLAN_STATUS"/>
+	<StatusItem description="Modified" statusCode="COMPLETED" statusId="PLAN_MODIFIED" statusTypeId="PLAN_STATUS"/>
+	<StatusItem description="Approved" statusCode="APPROVED" statusId="PLAN_ITEM_APPROVED" statusTypeId="PLAN_ITEM_STATUS"/>
+	<StatusItem description="Created" statusCode="CREATED" statusId="PLAN_ITEM_CREATED" statusTypeId="PLAN_ITEM_STATUS"/>
+	<StatusItem description="Completed" statusCode="COMPLETED" statusId="PLAN_ITEM_COMPLETED" statusTypeId="PLAN_ITEM_STATUS"/>
+	<StatusItem description="Cancelled" statusCode="CANCELLED" statusId="PLAN_ITEM_CANCELLED" statusTypeId="PLAN_ITEM_STATUS"/>
+	<!-- status item for product lot of plan -->
+	<StatusItem description="Approved" statusCode="APPROVED" statusId="LOT_APPROVED" statusTypeId="LOT_STATUS"/>
+	<StatusItem description="Created" statusCode="CREATED" statusId="LOT_CREATED" statusTypeId="LOT_STATUS"/>
+	<StatusItem description="Completed" statusCode="COMPLETED" statusId="LOT_COMPLETED" statusTypeId="LOT_STATUS"/>
+	<StatusItem description="Ordered" statusCode="ORDERED" statusId="LOT_ORDERED" statusTypeId="LOT_STATUS"/>
+	<!-- Status Item of requirement -->
+	<StatusItem description="Approved" statusCode="APPROVED" statusId="REQ_APPROVED" statusTypeId="REQUIREMENT_STATUS"/>
+	<StatusItem description="Created" statusCode="CREATED" statusId="REQ_CREATED" statusTypeId="REQUIREMENT_STATUS"/>
+	<StatusItem description="Ordered" statusCode="ORDERED" statusId="REQ_ORDERED" statusTypeId="REQUIREMENT_STATUS"/>
+	<StatusItem description="Proposed" statusCode="PROPOSED" statusId="REQ_PROPOSED" statusTypeId="REQUIREMENT_STATUS"/>
+	<StatusItem description="Rejected" statusCode="REJECTED" statusId="REQ_REJECTED" statusTypeId="REQUIREMENT_STATUS"/>
+	<StatusItem description="Completed" statusCode="COMPLETED" statusId="REQ_COMPLETED" statusTypeId="REQUIREMENT_STATUS"/>
+	<StatusItem description="Accepted" statusCode="ACCEPTED" statusId="REQ_ACCEPTED" statusTypeId="REQUIREMENT_STATUS"/>
+	<StatusItem description="In progress" statusCode="INPROGRESS" statusId="REQ_IN_PROGRESS" statusTypeId="REQUIREMENT_STATUS"/>
+	<StatusItem description="Approved" statusCode="APPROVED" statusId="REQ_ITEM_APPROVED" statusTypeId="REQ_ITEM_STATUS"/>
+	<StatusItem description="Created" statusCode="CREATED" statusId="REQ_ITEM_CREATED" statusTypeId="REQ_ITEM_STATUS"/>
+	<StatusItem description="Completed" statusCode="COMPLETED" statusId="REQ_ITEM_COMPLETED" statusTypeId="REQ_ITEM_STATUS"/>
+	<StatusItem description="Cancelled" statusCode="CANCELLED" statusId="REQ_ITEM_CANCELLED" statusTypeId="REQ_ITEM_STATUS"/>
+	<!-- Nha phan phoi chap nhan don hang va gan uy nhiem chi khi sup duyet, salesadmin duyet -->
+	
+	<!-- Status Item of return product requirement -->
+	<StatusType statusTypeId="RETURNP_REQ_STATUS" hasTable="N" description="Return product requirement status"/>
+	<StatusItem description="Created" statusCode="CREATED" statusId="RETURREQ_CREATED" statusTypeId="RETURNP_REQ_STATUS"/>
+	<StatusItem description="SUP Approved" statusCode="SUPAPPROVED" statusId="RETURREQ_SUPAPPROVED" statusTypeId="RETURNP_REQ_STATUS"/>
+	<StatusItem description="ASM Approved" statusCode="ASMAPPROVED" statusId="RETURREQ_ASMAPPROVED" statusTypeId="RETURNP_REQ_STATUS"/>
+	<StatusItem description="RSM Approved" statusCode="RSMAPPROVED" statusId="RETURREQ_RSMAPPROVED" statusTypeId="RETURNP_REQ_STATUS"/>
+	<StatusItem description="Approved" statusCode="APPROVED" statusId="RETURREQ_APPROVED" statusTypeId="RETURNP_REQ_STATUS"/>
+	<StatusItem description="Proposed" statusCode="PROPOSED" statusId="RETURREQ_PROPOSED" statusTypeId="RETURNP_REQ_STATUS"/>
+	<StatusItem description="Rejected" statusCode="REJECTED" statusId="RETURREQ_REJECTED" statusTypeId="RETURNP_REQ_STATUS"/>
+	<StatusItem description="Completed" statusCode="COMPLETED" statusId="RETURREQ_COMPLETED" statusTypeId="RETURNP_REQ_STATUS"/>
+	<StatusItem description="In progress" statusCode="INPROGRESS" statusId="RETURREQ_PROGRESS" statusTypeId="RETURNP_REQ_STATUS"/>
+	<!-- <StatusItem description="Ordered" statusCode="ORDERED" statusId="RETURREQ_ORDERED" statusTypeId="RETURNP_REQ_STATUS"/>
+	<StatusItem description="Approved" statusCode="APPROVED" statusId="RETURREQ_APPROVED" statusTypeId="RETURNP_REQ_STATUS"/>
+	<StatusItem description="Proposed" statusCode="PROPOSED" statusId="RETURREQ_PROPOSED" statusTypeId="RETURNP_REQ_STATUS"/>
+	<StatusItem description="Rejected" statusCode="REJECTED" statusId="RETURREQ__REJECTED" statusTypeId="RETURNP_REQ_STATUS"/>
+	<StatusItem description="Completed" statusCode="COMPLETED" statusId="RETURREQ_COMPLETED" statusTypeId="RETURNP_REQ_STATUS"/>
+	<StatusItem description="Accepted" statusCode="ACCEPTED" statusId="RETURREQ_ACCEPTED" statusTypeId="RETURNP_REQ_STATUS"/>
+	 -->
+	<!-- <StatusItem description="Approved" statusCode="APPROVED" statusId="REQ_ITEM_APPROVED" statusTypeId="REQ_ITEM_STATUS"/>
+	<StatusItem description="Created" statusCode="CREATED" statusId="REQ_ITEM_CREATED" statusTypeId="REQ_ITEM_STATUS"/>
+	<StatusItem description="Completed" statusCode="COMPLETED" statusId="REQ_ITEM_COMPLETED" statusTypeId="REQ_ITEM_STATUS"/>
+	<StatusItem description="Cancelled" statusCode="CANCELLED" statusId="REQ_ITEM_CANCELLED" statusTypeId="REQ_ITEM_STATUS"/> -->
+	
+	<!-- Status Item of return product requirement to company -->
+	<StatusType statusTypeId="RETURNCOM_REQ_STATUS" hasTable="N" description="Return product requirement status"/>
+	<StatusItem description="Created" statusCode="CREATED" statusId="REREQCOM_CREATED" statusTypeId="RETURNCOM_REQ_STATUS"/>
+	<StatusItem description="NPP Approved" statusCode="NPPAPPROVED" statusId="REREQCOM_NPPAPPROVED" statusTypeId="RETURNCOM_REQ_STATUS"/>
+	<StatusItem description="ASM Approved" statusCode="ASMAPPROVED" statusId="REREQCOM_ASMAPPROVED" statusTypeId="RETURNCOM_REQ_STATUS"/>
+	<StatusItem description="NBD Approved" statusCode="NBDAPPROVED" statusId="REREQCOM_NBDAPPROVED" statusTypeId="RETURNCOM_REQ_STATUS"/>
+	<StatusItem description="CEO Approved" statusCode="CEOAPPROVED" statusId="REREQCOM_CEOAPPROVED" statusTypeId="RETURNCOM_REQ_STATUS"/>
+	<StatusItem description="Approved" statusCode="APPROVED" statusId="REREQCOM_APPROVED" statusTypeId="RETURNCOM_REQ_STATUS"/>
+	<StatusItem description="Proposed" statusCode="PROPOSED" statusId="REREQCOM_PROPOSED" statusTypeId="RETURNCOM_REQ_STATUS"/>
+	<StatusItem description="Rejected" statusCode="REJECTED" statusId="REREQCOM_REJECTED" statusTypeId="RETURNCOM_REQ_STATUS"/>
+	<StatusItem description="Completed" statusCode="COMPLETED" statusId="REREQCOM_COMPLETED" statusTypeId="RETURNCOM_REQ_STATUS"/>
+	<StatusItem description="In progress" statusCode="INPROGRESS" statusId="REREQCOM_PROGRESS" statusTypeId="RETURNCOM_REQ_STATUS"/>
+	
+	<!--  StatusItem for delivery -->
+	<StatusType statusTypeId="DELIVERY_STATUS" hasTable="N" description="Delivery status"/>
+	<StatusItem description="Delivery created" statusCode="DLV_CREATED" statusId="DLV_CREATED" statusTypeId="DELIVERY_STATUS"/>
+	<StatusItem description="Delivery exported" statusCode="DLV_EXPORTED" statusId="DLV_EXPORTED" statusTypeId="DELIVERY_STATUS"/>
+	<StatusItem description="Delivery delivered" statusCode="DLV_DELIVERED" statusId="DLV_DELIVERED" statusTypeId="DELIVERY_STATUS"/>
+	<StatusItem description="Delivery approved" statusCode="DLV_APPROVED" statusId="DLV_CREATED" statusTypeId="DELIVERY_STATUS"/>
+	<StatusItem description="Delivery completed" statusCode="DLV_COMPLETED" statusId="DLV_COMPLETED" statusTypeId="DELIVERY_STATUS"/>
+	
+	<StatusItem description="Distributor Approved" sequenceId="150" statusCode="NPPAPPROVED" statusId="ORDER_NPPAPPROVED" statusTypeId="ORDER_STATUS"/>
+	<StatusItem description="Distributor Approved" sequenceId="150" statusCode="NPPAPPROVED" statusId="ITEM_NPPAPPROVED" statusTypeId="ORDER_ITEM_STATUS"/>
+	<StatusItem description="Sub Approved" sequenceId="150" statusCode="SUPAPPROVED" statusId="ORDER_SUPAPPROVED" statusTypeId="ORDER_STATUS"/>
+	<StatusItem description="Sub Approved" sequenceId="150" statusCode="SUPAPPROVED" statusId="ITEM_SUPAPPROVED" statusTypeId="ORDER_ITEM_STATUS"/>
+	<StatusItem description="SalesAdmin Approved" sequenceId="150" statusCode="SADAPPROVED" statusId="ORDER_SADAPPROVED" statusTypeId="ORDER_STATUS"/>
+	<StatusItem description="SalesAdmin Approved" sequenceId="150" statusCode="SADAPPROVED" statusId="ITEM_SADAPPROVED" statusTypeId="ORDER_ITEM_STATUS"/>
+	<StatusValidChange condition="" statusId="ORDER_CREATED" statusIdTo="ORDER_NPPAPPROVED" transitionName="Distributor Approve Order"/>
+	<StatusValidChange condition="" statusId="ORDER_PROCESSING" statusIdTo="ORDER_NPPAPPROVED" transitionName="Distributor Approve Order"/>
+	<StatusValidChange condition="" statusId="ORDER_SADAPPROVED" statusIdTo="ORDER_NPPAPPROVED" transitionName="Distributor Approve Order"/>
+	<StatusValidChange condition="" statusId="ORDER_NPPAPPROVED" statusIdTo="ORDER_SENT" transitionName="Send Order"/>
+	<StatusValidChange condition="" statusId="ORDER_NPPAPPROVED" statusIdTo="ORDER_PROCESSING" transitionName="Process Order"/>
+	<StatusValidChange condition="" statusId="ORDER_NPPAPPROVED" statusIdTo="ORDER_COMPLETED" transitionName="Complete Order"/>
+	<StatusValidChange condition="" statusId="ORDER_NPPAPPROVED" statusIdTo="ORDER_CANCELLED" transitionName="Cancel Order"/>
+	<StatusValidChange condition="" statusId="ORDER_NPPAPPROVED" statusIdTo="ORDER_HOLD" transitionName="Hold Order"/>
+	<StatusValidChange condition="" statusId="ORDER_NPPAPPROVED" statusIdTo="ORDER_APPROVED" transitionName="Hold Order"/>
+	<StatusValidChange condition="" statusId="ORDER_NPPAPPROVED" statusIdTo="ORDER_CREATED" transitionName="Rollback Order"/>
+	<StatusValidChange condition="" statusId="ITEM_NPPAPPROVED" statusIdTo="ITEM_COMPLETED" transitionName="Complete Item"/>
+	<StatusValidChange condition="" statusId="ITEM_NPPAPPROVED" statusIdTo="ITEM_CANCELLED" transitionName="Cancel Item"/>
+	<!-- Sub duyet, chap nhan don hang cua NPP tao -->
+	<StatusValidChange condition="" statusId="ORDER_CREATED" statusIdTo="ORDER_SUPAPPROVED" transitionName="Sup Approve Order"/>
+	<StatusValidChange condition="" statusId="ORDER_PROCESSING" statusIdTo="ORDER_SUPAPPROVED" transitionName="Sup Approve Order"/>
+	<StatusValidChange condition="" statusId="ORDER_SUPAPPROVED" statusIdTo="ORDER_SENT" transitionName="Send Order"/>
+	<StatusValidChange condition="" statusId="ORDER_SUPAPPROVED" statusIdTo="ORDER_PROCESSING" transitionName="Process Order"/>
+	<StatusValidChange condition="" statusId="ORDER_SUPAPPROVED" statusIdTo="ORDER_COMPLETED" transitionName="Complete Order"/>
+	<StatusValidChange condition="" statusId="ORDER_SUPAPPROVED" statusIdTo="ORDER_SADAPPROVED" transitionName="SalesAdmin Approve Order"/>
+	<StatusValidChange condition="" statusId="ORDER_SUPAPPROVED" statusIdTo="ORDER_CANCELLED" transitionName="Cancel Order"/>
+	<StatusValidChange condition="" statusId="ORDER_SUPAPPROVED" statusIdTo="ORDER_HOLD" transitionName="Hold Order"/>
+	<StatusValidChange condition="" statusId="ORDER_SUPAPPROVED" statusIdTo="ORDER_CREATED" transitionName="Rollback Order"/>
+	<StatusValidChange condition="" statusId="ITEM_SUPAPPROVED" statusIdTo="ITEM_COMPLETED" transitionName="Complete Item"/>
+	<StatusValidChange condition="" statusId="ITEM_SUPAPPROVED" statusIdTo="ITEM_CANCELLED" transitionName="Cancel Item"/>
+	<!-- SalesAdmin duyet, chap nhan don hang cua NPP tao, Sup da duyet -->
+	<StatusValidChange condition="" statusId="ORDER_CREATED" statusIdTo="ORDER_SADAPPROVED" transitionName="SalesAdmin Approve Order"/>
+	<StatusValidChange condition="" statusId="ORDER_PROCESSING" statusIdTo="ORDER_SADAPPROVED" transitionName="SalesAdmin Approve Order"/>
+	<StatusValidChange condition="" statusId="ORDER_SUPAPPROVED" statusIdTo="ORDER_SADAPPROVED" transitionName="SalesAdmin Approve Order"/>
+	<StatusValidChange condition="" statusId="ORDER_SADAPPROVED" statusIdTo="ORDER_SENT" transitionName="Send Order"/>
+	<StatusValidChange condition="" statusId="ORDER_SADAPPROVED" statusIdTo="ORDER_PROCESSING" transitionName="Process Order"/>
+	<StatusValidChange condition="" statusId="ORDER_SADAPPROVED" statusIdTo="ORDER_COMPLETED" transitionName="Complete Order"/>
+	<StatusValidChange condition="" statusId="ORDER_SADAPPROVED" statusIdTo="ORDER_CANCELLED" transitionName="Cancel Order"/>
+	<StatusValidChange condition="" statusId="ORDER_SADAPPROVED" statusIdTo="ORDER_HOLD" transitionName="Hold Order"/>
+	<StatusValidChange condition="" statusId="ORDER_SADAPPROVED" statusIdTo="ORDER_CREATED" transitionName="Rollback Order"/>
+	<StatusValidChange condition="" statusId="ITEM_SADAPPROVED" statusIdTo="ITEM_COMPLETED" transitionName="Complete Item"/>
+	<StatusValidChange condition="" statusId="ITEM_SADAPPROVED" statusIdTo="ITEM_CANCELLED" transitionName="Cancel Item"/>
+	
+	<StatusItem statusId="RETURN_ACCEPTED" statusTypeId="ORDER_RETURN_STTS" statusCode="ACCEPTED" sequenceId="02" description="Accepted"/>
+	<StatusItem statusId="RETURN_CANCELLED" statusTypeId="ORDER_RETURN_STTS" statusCode="CANCELLED" sequenceId="99" description="Cancelled"/>
+	<StatusItem statusId="RETURN_COMPLETED" statusTypeId="ORDER_RETURN_STTS" statusCode="COMPLETED" sequenceId="10" description="Completed"/>
+	<StatusItem statusId="RETURN_MAN_REFUND" statusTypeId="ORDER_RETURN_STTS" statusCode="MANUAL_REFUND" sequenceId="11" description="Manual Refund Required"/>
+	<StatusItem statusId="RETURN_RECEIVED" statusTypeId="ORDER_RETURN_STTS" statusCode="RECEIVED" sequenceId="03" description="Received"/>
+	<StatusItem statusId="RETURN_REQUESTED" statusTypeId="ORDER_RETURN_STTS" statusCode="REQUESTED" sequenceId="01" description="Requested"/>
+	<StatusItem statusId="SUP_RETURN_ACCEPTED" statusTypeId="PORDER_RETURN_STTS" statusCode="ACCEPTED" sequenceId="02" description="Accepted"/>
+	<StatusItem statusId="SUP_RETURN_CANCELLED" statusTypeId="PORDER_RETURN_STTS" statusCode="CANCELLED" sequenceId="99" description="Cancelled"/>
+	<StatusItem statusId="SUP_RETURN_COMPLETED" statusTypeId="PORDER_RETURN_STTS" statusCode="COMPLETED" sequenceId="10" description="Completed"/>
+	<StatusItem statusId="SUP_RETURN_REQUESTED" statusTypeId="PORDER_RETURN_STTS" statusCode="REQUESTED" sequenceId="01" description="Requested"/>
+	<StatusItem statusId="SUP_RETURN_SHIPPED" statusTypeId="PORDER_RETURN_STTS" statusCode="SHIPPED" sequenceId="03" description="Shipped"/>
+	<!-- Add Damaged Status InventoryItemID datnv -->
+	<StatusItem statusId="INV_NS_DAMAGED" statusTypeId="INV_NON_SER_STTS" statusCode="DAMAGED_NS" description="Damaged(Non-Serialized)"></StatusItem>
+	
+	<UomType uomTypeId="PRODUCT_PACKING" description="Product Packing" hasTable="N"/>
+	<UomType uomTypeId="SHIPMENT_PACKING" description="Shipment Packing" hasTable="N"/>
+	<Uom uomId="DELYS_HOP" uomTypeId="PRODUCT_PACKING" abbreviation="Hộp" description="Hộp"/>
+	<Uom uomId="DELYS_KHAY" uomTypeId="PRODUCT_PACKING" abbreviation="Khay" description="Khay"/>
+	<Uom uomId="DELYS_THUNG" uomTypeId="PRODUCT_PACKING" abbreviation="Thùng" description="Thùng"/>
+	<Uom uomId="DELYS_VI" uomTypeId="PRODUCT_PACKING" abbreviation="Vỉ" description="Vỉ"/>   
+	<Uom uomId="DELYS_HU" uomTypeId="PRODUCT_PACKING" abbreviation="Hũ (Cốc)" description="Hũ (Cốc)"/>
+	<Uom uomId="DELYS_LOC" uomTypeId="PRODUCT_PACKING" abbreviation="Lốc" description="Lốc"/>
+	<Uom uomId="DELYS_CHAI" uomTypeId="PRODUCT_PACKING" abbreviation="Chai" description="Chai"/>
+	<Uom uomId="DELYS_TUI" uomTypeId="PRODUCT_PACKING" abbreviation="Túi" description="Túi"/>
+	<!-- Uom for import -->
+	<Uom uomId="CONTAINER" uomTypeId="SHIPMENT_PACKING" abbreviation="" description="Container"/>
+	<Uom uomId="PALLET" uomTypeId="SHIPMENT_PACKING" abbreviation="" description="Pallet"/>
+	
+	<UomConversionDated uomId="CONTAINER" uomIdTo="PALLET" fromDate="2014-01-01 15:33:17" thruDate="" conversionFactor="33" customMethodId="" decimalScale="" roundingMode="" purposeEnumId=""/>
+	<!-- Leave seed data -->
+	<!-- <EmplLeaveType leaveTypeId="NGHI_OM" hasTable="N" description="Nghỉ ốm"/>
+	<EmplLeaveType leaveTypeId="NGHI_THAI_SAN" hasTable="N" description="Nghỉ thai sản"/>
+	<EmplLeaveType leaveTypeId="NGHI_PHEP" hasTable="N" description="Nghỉ Phép"/>
+	<EmplLeaveType leaveTypeId="NGHI_KHONG_LUONG" hasTable="N" description="Nghỉ không lương"/> -->
+	
+	<StatusItem description="Recorded" sequenceId="160" statusCode="RECORDED" statusId="ITEM_RECORDED" statusTypeId="ORDER_ITEM_STATUS"/>
+	
+	<ReturnType returnTypeId="RTN_CREDIT" description="Store Credit" sequenceId="01" />
+	<ReturnType returnTypeId="RTN_CSREPLACE" description="Cross-Ship Replacement" sequenceId="04" />
+	<ReturnType returnTypeId="RTN_REFUND" description="Refund" sequenceId="02" />
+	<ReturnType returnTypeId="RTN_REFUND_IMMEDIATE" description="Refund immediately" sequenceId="08" />
+	<ReturnType returnTypeId="RTN_RENTAL" description="Rental" sequenceId="09" />
+	<ReturnType returnTypeId="RTN_REPAIR_REPLACE" description="Repair Replacement" sequenceId="05" />
+	<ReturnType returnTypeId="RTN_REPLACE" description="Wait Replacement" sequenceId="03" />
+	<ReturnType returnTypeId="RTN_REPLACE_IMMEDIAT" description="Replace Immediately" sequenceId="07" />
+	<ReturnType returnTypeId="RTN_WAIT_REPLACE_RES" description="Wait Replacement Reserved" sequenceId="06" />
+
+	<ReturnReason returnReasonId="RTN_CHANGE_DATE" description="Change Date" sequenceId="08" />	
+	<ReturnReason returnReasonId="RTN_COD_REJECT" description="COD Payment Rejected" sequenceId="05" />
+	<ReturnReason returnReasonId="RTN_DEFECTIVE_ITEM" description="Defective Item" sequenceId="02" />
+	<ReturnReason returnReasonId="RTN_DIG_FILL_FAIL" description="Digital Fulfillment Failed" sequenceId="04" />
+	<ReturnReason returnReasonId="RTN_MISSHIP_ITEM" description="Mis-Shipped Item" sequenceId="03" />
+	<ReturnReason returnReasonId="RTN_NORMAL_RETURN" description="Normal Return" sequenceId="07" />
+	<ReturnReason returnReasonId="RTN_NOT_WANT" description="Did Not Want Item" sequenceId="01" />
+	<ReturnReason returnReasonId="RTN_SIZE_EXCHANGE" description="Size Exchange" sequenceId="06" />
+	<ReturnReason returnReasonId="RTN_P_ABOUTTO_EXPIRE" description="Product is about to expire" sequenceId="09" />
+	<ReturnReason returnReasonId="RTN_P_CONSUMPTI_DIFF" description="Consumption difficult product" sequenceId="10" />
+	
+	<QuotaType quotaTypeId="IMPORT_QUOTA" description="Import Quota" fromDate="" thruDate=""/>
+	<QuotaType quotaTypeId="EXPORT_QUOTA" description="Export Quota" fromDate="" thruDate=""/>
+	
+	<GroupPeriodType description="Fiscal accounting" groupPeriodTypeId="FISCAL_ACCOUNT" />
+	<GroupPeriodType description="Fiscal Sales" groupPeriodTypeId="FISCAL_SALES"/>
+	<GroupPeriodType description="Fiscal Import" groupPeriodTypeId="FISCAL_IMPORT"/>
+	<GroupPeriodType description="Fiscal Export" groupPeriodTypeId="FISCAL_EXPORT"/>
+	
+	<PeriodType description="Sales Quarter" periodTypeId="SALES_QUARTER" periodLength="3" uomId="TF_mon"/>
+    <PeriodType description="Sales Month" periodTypeId="SALES_MONTH" periodLength="1" uomId="TF_mon"/>
+	<PeriodType description="Sales Year" periodTypeId="SALES_YEAR" periodLength="1" uomId="TF_yr"/>
+	<PeriodType description="Sales Week" periodTypeId="SALES_WEEK" periodLength="1" uomId="TF_wk"/>
+	
+	<StatusType statusTypeId="RECEIPT_STATUS" hasTable="N" description="Receipt status"/>
+	<StatusItem	statusId="RECEIPT_CREATED" statusTypeId="RECEIPT_STATUS" description="Created" statusCode="CREATED" />
+	<StatusItem	statusId="RECEIPT_CANCELLED" statusTypeId="RECEIPT_STATUS" description="Cancelled" statusCode="CANCELLED" />
+	<StatusItem	statusId="RECEIPT_ACC_APPROVED" statusTypeId="RECEIPT_STATUS" description="Approved by Chief accountant" statusCode="APPROVED" />
+	<StatusItem	statusId="RECEIPT_CEO_APPROVED" statusTypeId="RECEIPT_STATUS" description="Approved by CEO" statusCode="APPROVED" />
+	<StatusItem	statusId="RECEIPT_DLV_ACCEPTED" statusTypeId="RECEIPT_STATUS" description="Accepted by deliverver" statusCode="ACCEPTED"/>
+	<StatusItem	statusId="RECEIPT_STK_ACCEPTED" statusTypeId="RECEIPT_STATUS" description="Accepted by storekeeper" statusCode="ACCEPTED"/>
+	<StatusItem	statusId="RECEIPT_QA_ACCEPTED" statusTypeId="RECEIPT_STATUS" description="Accepted by QA" statusCode="ACCEPTED"/>
+	<StatusItem	statusId="RECEIPT_INV_RECEIPT" statusTypeId="RECEIPT_STATUS" description="Receipt Inventory Item" statusCode="RECEIPT"/>
+	
+	<StatusType statusTypeId="AGREEMENT_STATUS" hasTable="N" description="Agreement status"/>
+	<StatusItem	statusId="AGREEMENT_CREATED" statusTypeId="AGREEMENT_STATUS" description="Created" statusCode="CREATED"/>
+	<StatusItem	statusId="AGREEMENT_APPROVED" statusTypeId="AGREEMENT_STATUS" description="Approved" statusCode="APPROVED" />
+	<StatusItem	statusId="AGREEMENT_COMPLETED" statusTypeId="AGREEMENT_STATUS" description="Completed" statusCode="COMPLETED" />
+	<StatusItem	statusId="AGREEMENT_CANCELLED" statusTypeId="AGREEMENT_STATUS" description="Cancelled" statusCode="CANCELLED"/>
+	<StatusItem	statusId="AGREEMENT_EXPIRED" statusTypeId="AGREEMENT_STATUS" description="Expired" statusCode="EXPIRED"/>
+	<StatusItem	statusId="AGREEMENT_PROCESSING" statusTypeId="AGREEMENT_STATUS" description="Processing" statusCode="PROCESSING"/>
+	<StatusItem	statusId="AGREEMENT_SENT" statusTypeId="AGREEMENT_STATUS" description="Sent to partners" statusCode="SENT"/>
+	
+	<ContainerType containerTypeId="STANDARD_CONTAINER" description="Container"/>
+	<ContainerType containerTypeId="OTHER_CONTAINER" description="other container"/>
+	
+	<OrderItemType orderItemTypeId="SAMPLING_ITEM" parentTypeId="" hasTable="N" description="Sampling Item"/>				<!-- Hang dung thu -->
+	<OrderItemType orderItemTypeId="CHANGE_DATE_ITEM" parentTypeId="" hasTable="N" description="Change date Item"/>			<!-- Hang doi date -->
+	<OrderItemType orderItemTypeId="CONSIGN_ORDER_ITEM" description="Consign Item" hasTable="N" parentTypeId=""/>			<!-- Hang ky gui -->
+	<OrderItemType orderItemTypeId="PAY_PROMO_ORDER_ITEM" description="Pay promo Item" hasTable="N" parentTypeId=""/>		<!-- Tra khuyen mai -->
+	<OrderItemType orderItemTypeId="PAY_EXHIBITED_ITEM" description="Pay exhibited promo Item" hasTable="N" parentTypeId=""/>	<!-- Tra trung bay -->
+	<OrderItemType orderItemTypeId="PAY_ACCUMULATE_ITEM" description="Pay accumulate promo Item" hasTable="N" parentTypeId=""/><!-- Tra tich luy -->
+	<OrderItemType orderItemTypeId="PAY_DESTROY_ORD_ITEM" description="Pay destroy Item" hasTable="N" parentTypeId=""/>		<!-- Tra hang huy -->
+	<OrderItemType orderItemTypeId="PAY_BROKEN_ORD_ITEM" description="Pay broken Item" hasTable="N" parentTypeId=""/>		<!-- Tra hang hong -->
+	<OrderItemType orderItemTypeId="PAY_DEFECT_ORD_ITEM" description="Pay defect Item" hasTable="N" parentTypeId=""/>		<!-- Tra hang loi -->
+	<OrderItemType orderItemTypeId="ADVAN_PROMO_ORD_ITEM" description="Advance Promo Item" hasTable="N" parentTypeId=""/>	<!-- Tam ung khuyen mai -->
+	
+	<SecurityPermission permissionId="IMPORT_ADMIN" description="ALL operations in the IMPORT role manager"/>
+    <SecurityGroupPermission groupId="IMPORT_ADMIN" permissionId="IMPORT_ADMIN"/>
+    
+	<!-- QA -->
+    <SecurityPermission permissionId="QA_ADMIN" description="ALL operations in the QA role manager"/>
+    <SecurityGroupPermission groupId="DELYS_QA" permissionId="QA_ADMIN"/>
+    <SecurityGroupPermission groupId="DELYS_QA" permissionId="DELYS_VIEW"/>
+   	<RoleTypeAttr roleTypeId="DELYS_QA" attrName="BusinessMenu" attrValue="DELYS_QA"/>
+	<RoleTypeAttr roleTypeId="DELYS_QA" attrName="BusinessHomePage" attrValue="qa"/>
+	<RoleTypeAttr roleTypeId="DELYS_QA" attrName="BusinessTitle" attrValue="QATitle"/>
+	
+	<SecurityPermission permissionId="IMPORT_ADMIN" description="ALL operations in the IMPORT role manager"/>
+    <SecurityGroupPermission groupId="IMPORT_ADMIN" permissionId="IMPORT_ADMIN"/>
+	
+	<SecurityPermission permissionId="QA_QUALITY_MANAGER" description="ALL operations in the QA quality role manager"/>
+    <SecurityGroupPermission groupId="QA_QUALITY_MANAGER" permissionId="QA_QUALITY_MANAGER"/>
+    <SecurityGroupPermission groupId="QA_QUALITY_MANAGER" permissionId="DELYS_VIEW"/>
+	<RoleTypeAttr roleTypeId="QA_QUALITY_MANAGER" attrName="BusinessMenu" attrValue="QA_QUALITY_MANAGER"/>
+	<RoleTypeAttr roleTypeId="QA_QUALITY_MANAGER" attrName="BusinessHomePage" attrValue="qaqualitymanager"/>
+	<RoleTypeAttr roleTypeId="QA_QUALITY_MANAGER" attrName="BusinessTitle" attrValue="QAQualityManagerTitle"/>
+	
+	<SecurityGroupPermission groupId="IMPORT_SPECIALIST" permissionId="DELYS_VIEW"/>
+	<SecurityGroupPermission groupId="IMPORT_SPECIALIST" permissionId="ACCOUNTING_CREATE"/>
+	<SecurityGroupPermission groupId="IMPORT_SPECIALIST" permissionId="ACCOUNTING_UPDATE"/>
+	<SecurityGroupPermission groupId="IMPORT_SPECIALIST" permissionId="ACCOUNTING_VIEW"/>
+	<SecurityGroupPermission groupId="IMPORT_SPECIALIST" permissionId="CATALOG_ADMIN"/>
+	<SecurityGroupPermission groupId="IMPORT_SPECIALIST" permissionId="ORDERMGR_ADMIN"/>
+	<SecurityGroupPermission groupId="IMPORT_SPECIALIST" permissionId="ACCTG_PREF_ADMIN"/>
+	<SecurityGroupPermission groupId="IMPORT_SPECIALIST" permissionId="ORDERMGR_ADMIN"/>
+	<SecurityGroupPermission groupId="IMPORT_SPECIALIST" permissionId="PARTYMGR_VIEW"/>
+	<SecurityGroupPermission groupId="IMPORT_SPECIALIST" permissionId="ORDERMGR_PURCHASE_UPDATE"/>
+	
+	<RoleTypeAttr roleTypeId="IMPORT_SPECIALIST" attrName="BusinessMenu" attrValue="IMPORT_SPECIALIST"/>
+	<RoleTypeAttr roleTypeId="IMPORT_SPECIALIST" attrName="BusinessHomePage" attrValue="importspecialist"/>
+	<RoleTypeAttr roleTypeId="IMPORT_SPECIALIST" attrName="BusinessTitle" attrValue="ImportSpecialistTitle"/>
+	
+	<EnumerationType description="Method channel Class" enumTypeId="METHOD_CHANNEL_CLASS" hasTable="N" parentTypeId=""/>
+	<EnumerationType description="Sales Method Channel" enumTypeId="SALES_METHOD_CHANNEL" hasTable="N" parentTypeId="METHOD_CHANNEL_CLASS"/>
+    <Enumeration description="MT Channel" enumCode="SALES_MT_CHANNEL" enumId="SALES_MT_CHANNEL" sequenceId="01" enumTypeId="SALES_METHOD_CHANNEL"/>
+    <Enumeration description="GT Channel" enumCode="SALES_GT_CHANNEL" enumId="SALES_GT_CHANNEL" sequenceId="02" enumTypeId="SALES_METHOD_CHANNEL"/>
+    
+    <EnumerationType description="Marketing Method Channel" enumTypeId="MKT_METHOD_CHANNEL" hasTable="N" parentTypeId="METHOD_CHANNEL_CLASS"/>
+    <Enumeration description="Sampling" enumCode="SAMPLING" enumId="MKT_SAMPLING" sequenceId="01" enumTypeId="MKT_METHOD_CHANNEL"/>
+	<Enumeration description="Gift" enumCode="GIFT" enumId="MKT_GIFT" sequenceId="02" enumTypeId="MKT_METHOD_CHANNEL"/>
+
+	<EnumerationType description="Logistics Method Channel" enumTypeId="LOG_METHOD_CHANNEL" hasTable="N" parentTypeId="METHOD_CHANNEL_CLASS"/>
+    <Enumeration description="Internal Sales Chanel" enumCode="SALES_INTERNAL" enumId="LOG_SALES_INTERNAL" sequenceId="01" enumTypeId="LOG_METHOD_CHANNEL"/>
+    <Enumeration description="Damaged Cancel Chanel" enumCode="DAMAGED_CANCEL" enumId="LOG_DAMAGED_CANCEL" sequenceId="03" enumTypeId="LOG_METHOD_CHANNEL"/>
+	<Enumeration description="Change Date Chanel" enumCode="CHANGE_DATE" enumId="LOG_CHANGE_DATE" sequenceId="04" enumTypeId="LOG_METHOD_CHANNEL"/>
+	
+	<EnumerationType description="Import Method Channel" enumTypeId="IMP_METHOD_CHANNEL" hasTable="N" parentTypeId="METHOD_CHANNEL_CLASS"/>
+    <Enumeration description="Purchase Import Chanel" enumCode="PURCHASE_IMPORT" enumId="PURCHASE_IMPORT" sequenceId="01" enumTypeId="IMP_METHOD_CHANNEL"/>
+    <Enumeration description="Purchase Domestics Chanel" enumCode="PURCHASE_DOMESTICS" enumId="PURCHASE_DOMESTICS" sequenceId="02" enumTypeId="IMP_METHOD_CHANNEL"/>
+	
+	<!-- Product Type -->
+	<ProductType productTypeId="MARKETING_POSM" parentTypeId="GOOD" isPhysical="Y" isDigital="N" hasTable="N" description="Marketing POSM" />
+	
+</entity-engine-xml>

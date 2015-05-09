@@ -1,0 +1,50 @@
+<div id="left" class="sidebar-nav snap-drawer snap-drawer-left" ng-controller="SidebarController">
+	<ul class="list-action">
+		<li class="action">
+			<div class="user">
+				<div class="user-avatar">
+					<img src="" ng-if="employee.avatar"/>
+					<img src="assets/avatars/avatar.png" ng-if="!employee.avatar"/>
+				</div>
+				<div class="user-name white-color">
+					{{employee.firstName + " " + employee.middleName + " " +
+					employee.lastName}}
+				</div>
+			</div>
+		</li>
+		<li class="action">
+			<a href="#/main" class="white-color"> 
+				<i class="c-icon fa fa-home white-color"></i>&nbsp;<span class="white-color">Màn hình chính</span> 
+			</a>
+		</li>
+		<li class="action">
+			<a href="#/store" class="white-color"> 
+				<i class="c-icon fa fa-list-ul white-color"></i>&nbsp;<span class="white-color">Chọn cửa hàng kiểm tồn</span> 
+			</a>
+		</li>
+		<li class="action">
+			<a href="#/sync" class="white-color"> 
+				<i class="c-icon fa fa-user white-color"></i>&nbsp;<span ng-click="getCustomerSQL()" class="white-color">Đồng bộ</span> 
+			</a>
+		</li>
+		<li class="action">
+			<a href="#/customer/create" class="white-color"> 
+				<i class="c-icon fa fa-user white-color"></i>&nbsp;<span class="white-color">Tạo khách hàng</span> 
+			</a>
+		</li>
+		<li class="action">
+			<a href="#/employee-leave" class="white-color"> 
+				<i class="c-icon fa fa-fighter-jet white-color"></i>&nbsp;<span class="white-color">Xin nghỉ phép</span> 
+			</a>
+		</li>
+		<li class="action">
+			<a href="javascript:void(0)" ng-click="logout()" class="white-color"> 
+				<i class="c-icon fa fa-power-off white-color"></i>&nbsp;<span class="white-color">Logout</span> 
+			</a>
+		</li>
+	</ul>
+	<div class="url-config">
+		<input ng-model="url" type="text" class="col-xs-12 col-sm-12" placeholder="Enter base url"/>
+		<button class="url-config-reload" ng-click="urlConfig()"><i class="c-icon fa fa-refresh"></i></button>
+	</div>
+</div>

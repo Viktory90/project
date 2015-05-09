@@ -1,0 +1,25 @@
+{
+    "colName": ["ID", "Tên SP", "Giá SP"],
+    "colModel": [{
+            "name": "productId",
+            "index": "productId",
+            "width": 30,
+            "sorttype": "int",
+            "editable": true
+        },
+        {
+            "name": "productName",
+            "index": "productName",
+            "width": 50,
+            "editable": true,
+            "sorttype": "string"
+        },
+        {
+            "name": "pricePrice",
+            "index": "pricePrice",
+            "width": 20,
+            "editable": true,
+            "sorttype": "string"
+        }
+    ]
+}

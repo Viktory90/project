@@ -1,0 +1,16 @@
+<div class="navbar navbar-default"  ng-controller="HeaderController">
+	<div class="navbar-container">
+		<div class="main-header-bt" ng-click="showLeftBar()">
+				<i class="fa fa-bars sidebar-logo white-color"></i>
+		</div>
+		<div class="nav-header">
+			<span class="header-title lg-header-title md-header-title sm-header-title xs-header-title">{{headerTitle}}</span>
+		</div>
+		<div class="search" ng-if="isFilterable">
+			<div class="search-icon" ng-click="showSearch(); focusInput=true"><i class="fa fa-search white-color"></i></div>
+			<div class="search-input">
+				<input class="search-input-text" type="search" ng-model="keyword"  ng-blur="removeSearch()" focus-me="focusInput" ng-enter="broadcast()"/>
+			</div>
+		</div>
+	</div>
+</div>

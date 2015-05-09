@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+	
+	<request-map uri="facilityProductOlap">
+		<security https="true" auth="true" />
+		<event type="service" invoke="facilityProductOlap" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="getFacility">
+		<security https="true" auth="true" />
+		<event type="service" invoke="getFacility" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="getProduct">
+		<security https="true" auth="true" />
+		<event type="service" invoke="getProduct" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="getGeoType">
+		<security https="true" auth="true" />
+		<event type="service" invoke="getGeoType" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="getGeo">
+		<security https="true" auth="true" />
+		<event type="service" invoke="getGeo" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="personBirth">
+		<security https="true" auth="true" />
+		<event type="service" invoke="personBirthPartyOlap" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="gender">
+		<security https="true" auth="true" />
+		<event type="service" invoke="genderPartyOlap" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="member">
+		<security https="true" auth="true" />
+		<event type="service" invoke="memberPartyOlap" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="personOlap">
+		<security https="true" auth="true" />
+		<event type="service" invoke="personPartyOlap" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="school">
+		<security https="true" auth="true" />
+		<event type="service" invoke="schoolPartyOlap" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="position">
+		<security https="true" auth="true" />
+		<event type="service" invoke="positionPartyOlap" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="getAllPartyParent">
+		<security https="true" auth="true" />
+		<event type="service" invoke="getAllPartyParent" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="getChildParty">
+		<security https="true" auth="true" />
+		<event type="service" invoke="getChildParty" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+</site-conf>

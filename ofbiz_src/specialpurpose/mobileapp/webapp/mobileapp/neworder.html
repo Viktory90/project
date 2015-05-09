@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Salesman - Tạo đơn hàng</title>
+<!-- delete this file -->
+<meta name="description"
+	content="Dynamic tables and grids using jqGrid plugin" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- basic styles -->
+
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+<!-- page specific plugin styles -->
+
+<link rel="stylesheet" href="assets/css/jquery-ui-1.10.3.full.min.css" />
+<link rel="stylesheet" href="assets/css/datepicker.css" />
+<link rel="stylesheet" href="assets/css/ui.jqgrid.css" />
+
+<!-- fonts -->
+
+<link rel="stylesheet" href="assets/css/ace-fonts.css" />
+
+<!-- ace styles -->
+
+<link rel="stylesheet" href="assets/css/ace.min.css" />
+<link rel="stylesheet" href="assets/css/ace-responsive.min.css" />
+<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+
+<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+<!-- inline styles related to this page -->
+
+<!-- ace settings handler -->
+
+<script src="assets/js/ace-extra.min.js"></script>
+</head>
+
+<body>
+	<span id="navbar"> </span>
+	<div id="test"></div>
+	<div class="main-container container-fluid">
+		<div class="main-content">
+			<div class="page-content">
+				<div class="page-header position-relative">
+					<h1>Tạo đơn hàng</h1>
+				</div>
+				<!-- /.page-header -->
+
+				<div class="row-fluid">
+					<div class="span2">
+						<label class="control-label" for="road">Chọn tuyến đường</label>
+					</div>
+					<div class="span8">
+						<div class="controls">
+							<select id="road" data-placeholder="Choose a road...">
+								<!-- <option value="">&nbsp;</option> -->
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="row-fluid">
+					<div class="span2">
+						<label class="control-label" for="customers">Chọn cửa hàng</label>
+					</div>
+					<div class="span8">
+						<div class="controls">
+							<select id="customers">
+								<option value="">&nbsp;</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="row-fluid">
+					<div class="span12">
+						<!-- PAGE CONTENT BEGINS -->
+
+						<table id="grid-table"></table>
+
+						<div id="grid-pager"></div>
+
+						<script type="text/javascript">
+							var $path_base = "/";//this will be used in gritter alerts containing images
+						</script>
+
+						<!-- PAGE CONTENT ENDS -->
+					</div>
+					<!-- /.span -->
+				</div>
+				<!-- /.row-fluid -->
+				<h4/>
+
+				<div class="row-fluid">
+					<button id="send" class="btn btn-small btn-primary radius-2">Gửi
+						đơn hàng</button>
+				</div>
+
+			</div>
+			<!-- /.page-content -->
+		</div>
+		<!-- /.main-content -->
+
+	</div>
+	<!-- /.main-container -->
+
+	<!-- basic scripts -->
+
+	<!--[if !IE]> -->
+
+	<script type="text/javascript">
+		window.jQuery
+				|| document
+						.write("<script src='assets/js/jquery-2.0.3.min.js'>"
+								+ "<"+"/script>");
+	</script>
+
+	<!-- <![endif]-->
+
+	<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+	<script type="text/javascript">
+		if ("ontouchend" in document)
+			document
+					.write("<script src='assets/js/jquery.mobile.custom.min.js'>"
+							+ "<"+"/script>");
+	</script>
+	<script src="assets/js/bootstrap.min.js"></script>
+
+	<!-- page specific plugin scripts -->
+
+	<script src="assets/js/date-time/bootstrap-datepicker.min.js"></script>
+	<script src="assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+	<script src="assets/js/jqGrid/i18n/grid.locale-en.js"></script>
+	<script src="assets/js/bootbox.min.js"></script>
+
+	<!-- ace scripts -->
+
+	<script src="assets/js/ace-elements.min.js"></script>
+	<script src="assets/js/ace.min.js"></script>
+
+	<!-- inline scripts related to this page -->
+
+	<script type="text/javascript">
+		jQuery(function($) {
+			lastsel2 = -1;
+
+			$.get("header.html", function(data) {
+				$('#navbar').html(data);
+			}, 'html').fail(function() {
+				console.log('arge', arguments)
+			});
+
+			$('#send').prop('disabled', false);
+			
+			var grid_selector = "#grid-table";
+			var pager_selector = "#grid-pager";
+
+			$("#road")
+					.on(
+							'change',
+							function() {
+								
+								var roads = JSON
+										.parse(localStorage.salesmanRoads).roads;
+								for ( var index in roads) {
+									var road = roads[index];
+									if (road.roadId == this.value) {
+										$('#customers').find('option').remove()
+												.end().append(
+														new Option("", ""));
+
+										for ( var item in road.customers) {
+											$("#customers")
+													.append(
+															new Option(
+																	road.customers[item].name,
+																	road.customers[item].customerId));
+										}
+									}
+
+								}
+
+							});
+
+			$("#send")
+					.click(
+							function() {
+								
+								$('#send').attr("disabled", true);
+								$('#send').text("Đang gửi đơn hàng.....");
+
+								localStorage.lastRoad = $("#road").val();
+
+								if (lastsel2 != -1) {
+									jQuery(grid_selector).jqGrid('saveRow',
+											lastsel2);
+								}
+
+								var data = jQuery(grid_selector).jqGrid(
+										'getGridParam', 'data');
+
+								var postData = {};
+								for ( var item in data) {
+									postData["productId_"
+											+ data[item].productId] = data[item].quanlity;
+								}
+
+								postData["customerId"] = $("#customers").val();
+
+								$.ajax({ // ajax call starts
+											url : localStorage.serverUrl
+													+ 'mobileservices/control/submitOrder', // JQuery loads serverside.php
+											crossDomain : true,
+											type : "POST",
+											data : postData,
+											dataType : 'json', // Choosing a JSON datatype
+											success : function(data) // Variable data contains the data we get from serverside
+											{
+												if (!data.orderId) {
+													alert
+													bootbox
+															.dialog(
+																	"Không thể tạo được đơn hàng. Hãy kiểm tra lại.",
+																	[ {
+																		"label" : "Đóng",
+																		"class" : "btn-small btn-primary",
+																	} ]);
+												} else {
+													var orders = [];
+													
+													if (localStorage.orders) {
+														orders = JSON.parse(localStorage.orders);
+													}
+													
+													postData.orderId = data.orderId;
+													postData.cusName = $("#customers option:selected").text();
+
+													orders.push(postData); 
+
+													localStorage.orders = JSON.stringify(orders); 
+													
+													
+													bootbox
+															.dialog(
+																	"Đẫ tạo được đơn hàng thành công với mã là: "
+																			+ data.orderId,
+																	[ {
+																		"label" : "Đóng",
+																		"class" : "btn-small btn-primary",
+																		callback : function() {
+																			location
+																					.reload();
+																		}
+																	} ]);
+
+												}
+												
+												$('#send').attr("disabled", false);
+												$('#send').text("Gửi đơn hàng");
+												
+											},
+											error : function(textStatus,
+													errorThrown) {
+												
+												bootbox
+														.dialog(
+																"Không thể gửi được đơn hàng",
+																[ {
+																	"label" : "Làm lại",
+																	"class" : "btn-small btn-primary"
+																}, {
+																	"label" : "Gửi sau",
+																	"class" : "btn-small btn-primary",
+																	callback : function() {
+																		var orders = [];
+																		if (localStorage.orders) {
+																			orders = JSON.parse(localStorage.orders);
+																		}
+																		
+																		postData.orderId = "Chưa gửi";
+																		postData.cusName = $("#customers option:selected").text();
+
+																		orders.push(postData); 
+
+																		localStorage.orders = JSON.stringify(orders); 
+																		
+																		
+																		location
+																				.reload();
+																	}
+																} ]);
+
+											}
+										});
+							});
+
+			//https://localhost:8443/mobileservices/control/getSalesmanRoads
+
+			$.ajax({ // ajax call starts
+				url : localStorage.serverUrl
+						+ 'mobileservices/control/getSalesmanRoads', // JQuery loads serverside.php
+				crossDomain : true,
+				type : "POST",
+				dataType : 'json', // Choosing a JSON datatype
+				success : function(data) // Variable data contains the data we get from serverside
+				{
+					localStorage.salesmanRoads = JSON.stringify(data);
+					for ( var item in data.roads) {
+						$("#road").append(
+								new Option(data.roads[item].name,
+										data.roads[item].roadId));
+					}
+
+					if (localStorage.lastRoad) {
+						$("#road").val(localStorage.lastRoad);
+						$("#road").change()
+					}
+
+				},
+				error : function(textStatus, errorThrown) {
+
+					var roads = JSON.parse(localStorage.salesmanRoads).roads;
+					for ( var item in roads) {
+						$("#road")
+								.append(
+										new Option(roads[item].name,
+												roads[item].roadId));
+					}
+
+					if (localStorage.lastRoad) {
+						$("#road").val(localStorage.lastRoad);
+						$("#road").change()
+					}
+
+				}
+			});
+
+			$.ajax({ // ajax call starts
+				url : localStorage.serverUrl
+						+ 'mobileservices/control/getProductList', // JQuery loads serverside.php
+				crossDomain : true,
+				type : "POST",
+				data : {
+					USERNAME : $('#userName').val(),
+					PASSWORD : $('#password').val()
+				}, // Send value of the clicked button
+				dataType : 'json', // Choosing a JSON datatype
+				success : function(data) // Variable data contains the data we get from serverside
+				{
+					var grid_data = data.products;
+
+					localStorage.products = JSON.stringify(data);
+					//$("#test").html(JSON.stringify(data.products));
+					fillGridData(grid_data, grid_selector, pager_selector);
+				},
+				error : function(textStatus, errorThrown) {
+					grid_data = JSON.parse(localStorage.products).products;
+					fillGridData(grid_data, grid_selector, pager_selector)
+				}
+			});
+
+			function fillGridData(grid_data, grid_selector, pager_selector) {
+				jQuery(grid_selector).jqGrid(
+						{
+							//direction: "rtl",
+							data : grid_data,
+							datatype : "local",
+							height : 160,
+							colNames : [ 'Tên sản phẩm', 'Số lượng' ],
+							colModel : [ {
+								name : 'productName',
+								index : 'productName',
+								width : 100,
+								editable : false,
+								sorttype : "string"
+							}, {
+								name : 'quanlity',
+								index : 'quanlity',
+								width : 40,
+								editable : true,
+								sorttype : "string",
+								edittype : 'select',
+								editoptions : {
+									value : {
+										0 : '0',
+										1 : '1',
+										2 : '2',
+										3 : '3',
+										4 : '4',
+										5 : '5',
+										6 : '6',
+										7 : '7',
+										8 : '8',
+										9 : '9',
+										10 : '10'
+									}
+								}
+							} ],
+
+							viewrecords : true,
+							rowNum : 4,
+							rowList : [ 4, 20 ],
+							pager : pager_selector,
+							altRows : true,
+							//toppager: true,
+
+							multiselect : false,
+							//multikey: "ctrlKey",
+							multiboxonly : true,
+
+							loadComplete : function() {
+								var table = this;
+								setTimeout(function() {
+									styleCheckbox(table);
+
+									updateActionIcons(table);
+									updatePagerIcons(table);
+									enableTooltips(table);
+								}, 0);
+
+							},
+
+							//editurl: $path_base+"/dummy.html",//nothing is saved
+							//caption: "jqGrid with inline editing",
+							autowidth : true,
+
+							onSelectRow : function(id) {
+								if (id && id !== lastsel2) {
+
+									if (lastsel2 != -1) {
+										jQuery(grid_selector).jqGrid('saveRow',
+												lastsel2);
+									}
+									jQuery(grid_selector).jqGrid('editRow', id,
+											true);
+									lastsel2 = id;
+								}
+							}
+
+						});
+			}
+
+			//enable search/filter toolbar
+			//jQuery(grid_selector).jqGrid('filterToolbar',{defaultSearch:true,stringResult:true})
+
+			//switch element when editing inline
+			function aceSwitch(cellvalue, options, cell) {
+				setTimeout(function() {
+					$(cell).find('input[type=checkbox]').wrap(
+							'<label class="inline" />').addClass(
+							'ace ace-switch ace-switch-5').after(
+							'<span class="lbl"></span>');
+				}, 0);
+			}
+			//enable datepicker
+			function pickDate(cellvalue, options, cell) {
+				setTimeout(function() {
+					$(cell).find('input[type=text]').datepicker({
+						format : 'yyyy-mm-dd',
+						autoclose : true
+					});
+				}, 0);
+			}
+
+			function beforeDeleteCallback(e) {
+				var form = $(e[0]);
+				if (form.data('styled'))
+					return false;
+
+				form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar')
+						.wrapInner('<div class="widget-header" />')
+				style_delete_form(form);
+
+				form.data('styled', true);
+			}
+
+			function beforeEditCallback(e) {
+				var form = $(e[0]);
+				form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar')
+						.wrapInner('<div class="widget-header" />')
+				style_edit_form(form);
+			}
+
+			//it causes some flicker when reloading or navigating grid
+			//it may be possible to have some custom formatter to do this as the grid is being created to prevent this
+			//or go back to default browser checkbox styles for the grid
+			function styleCheckbox(table) {
+				/**
+					$(table).find('input:checkbox').addClass('ace')
+					.wrap('<label />')
+					.after('<span class="lbl align-top" />')
+				
+				
+					$('.ui-jqgrid-labels th[id*="_cb"]:first-child')
+					.find('input.cbox[type=checkbox]').addClass('ace')
+					.wrap('<label />').after('<span class="lbl align-top" />');
+				 */
+			}
+
+			//unlike navButtons icons, action icons in rows seem to be hard-coded
+			//you can change them like this in here if you want
+			function updateActionIcons(table) {
+				/**
+				var replacement = 
+				{
+					'ui-icon-pencil' : 'icon-pencil blue',
+					'ui-icon-trash' : 'icon-trash red',
+					'ui-icon-disk' : 'icon-ok green',
+					'ui-icon-cancel' : 'icon-remove red'
+				};
+				$(table).find('.ui-pg-div span.ui-icon').each(function(){
+					var icon = $(this);
+					var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
+					if($class in replacement) icon.attr('class', 'ui-icon '+replacement[$class]);
+				})
+				 */
+			}
+
+			//replace icons with FontAwesome icons like above
+			function updatePagerIcons(table) {
+				var replacement = {
+					'ui-icon-seek-first' : 'icon-double-angle-left bigger-140',
+					'ui-icon-seek-prev' : 'icon-angle-left bigger-140',
+					'ui-icon-seek-next' : 'icon-angle-right bigger-140',
+					'ui-icon-seek-end' : 'icon-double-angle-right bigger-140'
+				};
+				$(
+						'.ui-pg-table:not(.navtable) > tbody > tr > .ui-pg-button > .ui-icon')
+						.each(
+								function() {
+									var icon = $(this);
+									var $class = $.trim(icon.attr('class')
+											.replace('ui-icon', ''));
+
+									if ($class in replacement)
+										icon.attr('class', 'ui-icon '
+												+ replacement[$class]);
+								})
+			}
+
+			function enableTooltips(table) {
+				$('.navtable .ui-pg-button').tooltip({
+					container : 'body'
+				});
+				$(table).find('.ui-pg-div').tooltip({
+					container : 'body'
+				});
+			}
+
+			//var selr = jQuery(grid_selector).jqGrid('getGridParam','selrow');
+
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<extend-entity entity-name="RequirementItem" >
+		<field name="reason" type="long-varchar"></field>
+		<field name="estimatedPrice" type="currency-amount"></field>
+		<field name="estimatedReceiveDate" type="date-time"></field>
+	</extend-entity>
+	<view-entity entity-name="RequirementItemAndProduct" package-name="org.ofbiz.delys" 
+		title="RequirementItem And Product">
+		<member-entity entity-alias="RT" entity-name="RequirementItem">
+		</member-entity>	
+		<member-entity entity-alias="PR" entity-name="Product"></member-entity>
+		<alias-all entity-alias="RT"></alias-all>
+		<alias-all entity-alias="PR"></alias-all>
+		<view-link rel-entity-alias="PR" entity-alias="RT">
+			<key-map field-name="productId" rel-field-name="productId"/>
+		</view-link>
+	</view-entity>
+</entitymodel>

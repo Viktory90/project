@@ -1,0 +1,144 @@
+<div ng-show="isValidDistance">
+	<div class="row" style="padding-bottom: 20px;">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<table
+			class="table table-striped table-bordered table-hover products">
+				<thead>
+					<tr>
+						<th class="center">Mã SP</th>
+						<th class="center">Tên SP</th>
+						<th class="center">Giá</th>
+						<th class="center">SL</th>
+					</tr>
+				</thead>
+				<tbody id="listProducts">
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<hr class="hr hr-10 hr-dotted" />
+	<div class="row  margin-bottom-10"
+	style="position: fixed; bottom: 0px; height: 55px; width: 100%;">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div class="pagination">
+				<button class="btn pagination-btn" ng-if="current > 1"
+				ng-click="previous()">
+					Previous
+				</button>
+				<span id="paginationNumber"></span>
+				<button class="btn pagination-btn" ng-if="total > 1"
+				ng-click="next()">
+					Next
+				</button>
+			</div>
+			<div class="right">
+				<button id="stateDialog" ng-click="vl()">openDialog</button>
+				<button class="btn btn-small btn-primary" data-toggle="modal"
+				data-target="#submitorder">
+					<i class="ace-icon fa fa-send"></i> Gửi đơn hàng
+				</button>
+				<button ng-click="viewOrder()" class="btn btn-small btn-primary">
+					<i class="ace-icon fa fa-book"></i> Xem đơn hàng
+				</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="submitorder" tabindex="-1" role="dialog"
+aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" style="background-color : #046740;">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title white-color" id="myModalLabel"><i class=" white-color fa fa-file-text-o"></i>&nbsp;Chi tiết đơn hàng</h4>
+			</div>
+			<div class="modal-body" id="modalBody">
+				<table
+				class="table table-striped table-bordered table-hover products">
+					<thead>
+						<tr>
+							<th class="center">Mã SP</th>
+							<th class="center">Tên SP</th>
+							<th class="center">Giá</th>
+							<th class="center">SL</th>
+						</tr>
+					</thead>
+					<tbody id="productOrderBody"></tbody>
+				</table>
+				<div ng-if="!checkPromo">
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 theme-color" id="notification">
+							{{notification}}
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align: right">
+							Tổng tiền : <b class="theme-color" >{{FormatNumberBy3(calculateTotalCost())}} đ</b>
+						</div>
+					</div>
+					<div class="row" >
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 theme-color" id="notification"></div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align: right">
+							<a style="text-decoration: line-through;color:black">Tổng tiền phải trả : <b>{{FormatNumberBy3(PaymentTotal)}} đ</b></a>
+						</div>
+					</div>
+				</div>
+				<div ng-show="checkPromo">
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 theme-color" id="notification">
+							{{notification}}
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align: right">
+							<a  style="text-decoration: line-through;color:black">Tổng tiền : <b id="TotalCost">{{FormatNumberBy3(calculateTotalCost())}} đ</b></a>
+						</div>
+					</div>
+					<div class="row" >
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 theme-color" id="notification"></div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align: right">
+							<a >Tổng tiền phải trả : <b class="theme-color">{{FormatNumberBy3(PaymentTotal)}} đ</b></a>
+						</div>
+					</div>
+					<div class="row" >
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align: left">
+							<b> Chi tiết các sản phẩm được khuyến mại  : </b>
+						</div>
+						<table class="table table-striped table-bordered table-hover products">
+							<thead>
+								<tr>
+									<th>Mã SP</th>
+									<th>Tên SP</th>
+									<th>SL</th>
+								</tr>
+							</thead>
+							<tbody id="GiftProduct"></tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clearPaymentTotal()">
+				<i class="glyphicon glyphicon-refresh"></i>&nbsp;Làm lại
+			</button>
+			<button type="button" class="btn btn-primary"
+			ng-click="submitOrder()" id="submitOrderBt">
+				<i class="glyphicon glyphicon-send"></i>&nbsp;Xác nhận
+			</button>
+		</div>
+	</div>
+</div>
+</div>
+<div ng-show="!isValidDistance">
+	<center>
+		<b class="red">Chỉ tạo được đơn hàng rong phạm vi 50m so với cửa
+		hàng mong muốn. Vui lòng chọn cửa hàng khác hoặc nhấn vào nút <span>"Reload"</span> </b>
+		<hr />
+		<button ng-click="reloadDistance()" class="btn">
+			<i class="glyphicon glyphicon-refresh"></i> Reload
+		</button>
+	</center>
+</div>

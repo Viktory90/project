@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>Entity of Delys Component</title>
+	<description>None</description>
+	<copyright></copyright>
+	<version></version>
+	<view-entity entity-name="PartyGroupByPartyRelationShipTypeView"
+		package-name="org.ofbiz.delys" title="Party Relationship by type View Entity">
+		<member-entity entity-alias="PG" entity-name="PartyGroup" />
+		<member-entity entity-alias="PR" entity-name="PartyRole" />
+		<alias-all entity-alias="PG" />
+		<alias-all entity-alias="PR" />
+		<view-link entity-alias="PG" rel-entity-alias="PR">
+			<key-map field-name="partyId" />
+		</view-link>
+	</view-entity>
+
+	<view-entity entity-name="CSMSaleManagerView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<alias name="partyIdTo" entity-alias="PR" field="partyIdTo" />
+		<alias name="partyIdFrom" entity-alias="PR" field="partyIdFrom" />
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom"
+					entity-alias="PR" operator="equals" value="MANAGER" />
+				<condition-expr field-name="roleTypeIdTo"
+					entity-alias="PR" operator="equals" value="DELYS_CSM" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+	<view-entity entity-name="RSMListView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="PG" entity-name="PartyGroup" />
+		<member-entity entity-alias="CSM" entity-name="CSMSaleManagerView" />
+		<alias name="partyId" entity-alias="PG" field="partyId" />
+		<alias name="groupName" entity-alias="PG" field="groupName" />
+		<alias name="partyIdFrom" entity-alias="CSM" field="partyIdFrom" />
+		<view-link rel-entity-alias="PR" entity-alias="PG">
+			<key-map rel-field-name="partyIdTo" field-name="partyId" />
+		</view-link>
+		<view-link rel-entity-alias="CSM" entity-alias="PR">
+			<key-map rel-field-name="partyIdTo" field-name="partyIdFrom" />
+		</view-link>
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom"
+					entity-alias="PR" operator="equals" value="DELYS_CSM" />
+				<condition-expr field-name="roleTypeIdTo"
+					entity-alias="PR" operator="equals" value="DELYS_RSM" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+	<view-entity entity-name="RSMSaleManagerView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<alias name="partyIdTo" entity-alias="PR" field="partyIdTo" />
+		<alias name="partyIdFrom" entity-alias="PR" field="partyIdFrom" />
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom"
+					entity-alias="PR" operator="equals" value="MANAGER" />
+				<condition-expr field-name="roleTypeIdTo"
+					entity-alias="PR" operator="equals" value="DELYS_RSM" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+	<view-entity entity-name="ASMListView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="PG" entity-name="PartyGroup" />
+		<member-entity entity-alias="RSM" entity-name="RSMSaleManagerView" />
+		<alias name="partyId" entity-alias="PG" field="partyId" />
+		<alias name="groupName" entity-alias="PG" field="groupName" />
+		<alias name="partyIdFrom" entity-alias="RSM" field="partyIdFrom" />
+		<view-link rel-entity-alias="PR" entity-alias="PG">
+			<key-map rel-field-name="partyIdTo" field-name="partyId" />
+		</view-link>
+		<view-link rel-entity-alias="RSM" entity-alias="PR">
+			<key-map rel-field-name="partyIdTo" field-name="partyIdFrom" />
+		</view-link>
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom"
+					entity-alias="PR" operator="equals" value="DELYS_RSM" />
+				<condition-expr field-name="roleTypeIdTo"
+					entity-alias="PR" operator="equals" value="DELYS_ASM" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+	<view-entity entity-name="ASMSaleManagerView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<alias name="partyIdTo" entity-alias="PR" field="partyIdTo" />
+		<alias name="partyIdFrom" entity-alias="PR" field="partyIdFrom" />
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom"
+					entity-alias="PR" operator="equals" value="MANAGER" />
+				<condition-expr field-name="roleTypeIdTo"
+					entity-alias="PR" operator="equals" value="DELYS_ASM" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+	<view-entity entity-name="RouteListView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="PG" entity-name="PartyGroup" />
+		<member-entity entity-alias="ASM" entity-name="ASMSaleManagerView" />
+		<alias name="partyId" entity-alias="PG" field="partyId" />
+		<alias name="groupName" entity-alias="PG" field="groupName" />
+		<alias name="partyIdFrom" entity-alias="ASM" field="partyIdFrom" />
+		<view-link rel-entity-alias="PR" entity-alias="PG">
+			<key-map rel-field-name="partyIdTo" field-name="partyId" />
+		</view-link>
+		<view-link rel-entity-alias="ASM" entity-alias="PR">
+			<key-map rel-field-name="partyIdTo" field-name="partyIdFrom" />
+		</view-link>
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom"
+					entity-alias="PR" operator="equals" value="DELYS_ASM" />
+				<condition-expr field-name="roleTypeIdTo"
+					entity-alias="PR" operator="equals" value="DELYS_ROUTE" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+	<view-entity entity-name="PartyGroupView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="PG" entity-name="PartyGroup" />
+		<alias name="partyId" entity-alias="PG" field="partyId" />
+		<alias name="groupName" entity-alias="PG" field="groupName" />
+		<alias name="roleTypeIdFrom" entity-alias="PR" field="roleTypeIdFrom" />
+		<alias name="roleTypeIdTo" entity-alias="PR" field="roleTypeIdTo" />
+		<alias name="partyIdFrom" entity-alias="PR" field="partyIdFrom" />
+		<view-link rel-entity-alias="PR" entity-alias="PG">
+			<key-map rel-field-name="partyIdTo" field-name="partyId" />
+		</view-link>
+	</view-entity>
+
+	<!-- filter customer level route -->
+	<view-entity entity-name="RouteView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<alias name="partyIdTo" entity-alias="PR" field="partyIdTo" />
+		<alias name="routeId" entity-alias="PR" field="partyIdFrom" />
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom" entity-alias="PR" operator="equals"
+					value="DELYS_ROUTE" />
+				<condition-expr field-name="roleTypeIdTo" entity-alias="PR" operator="equals"
+					value="CUSTOMER" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+	<view-entity entity-name="RouteCustomerView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="RV" entity-name="RouteView" />
+		<alias name="partyIdFrom" entity-alias="PR" field="partyIdFrom" />
+		<alias name="routeId" entity-alias="RV" field="routeId" />
+		<view-link rel-entity-alias="PR" entity-alias="RV">
+			<key-map field-name="partyIdTo" rel-field-name="partyIdTo" />
+		</view-link>
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom" entity-alias="PR" operator="equals"
+					value="MANAGER" />
+				<condition-expr field-name="roleTypeIdTo" entity-alias="PR" operator="equals"
+					value="CUSTOMER" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+	<view-entity entity-name="RouteCustomerDetailView"
+		package-name="">
+		<member-entity entity-alias="Per" entity-name="Person" />
+		<member-entity entity-alias="RCV" entity-name="RouteCustomerView" />
+		<alias-all entity-alias="Per" />
+		<alias name="routeId" entity-alias="RCV" field="routeId" />
+		<view-link entity-alias="Per" rel-entity-alias="RCV">
+			<key-map field-name="partyId" rel-field-name="partyIdFrom" />
+		</view-link>
+	</view-entity>
+
+	<!-- filter customer level asm -->
+	<view-entity entity-name="ASMView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<alias name="partyIdTo" entity-alias="PR" field="partyIdTo" />
+		<alias name="asmId" entity-alias="PR" field="partyIdFrom" />
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom" entity-alias="PR" operator="equals"
+					value="DELYS_ASM" />
+				<condition-expr field-name="roleTypeIdTo" entity-alias="PR" operator="equals"
+					value="DELYS_ROUTE" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+	<view-entity entity-name="ASMRouteView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="AV" entity-name="ASMView" />
+		<alias name="partyIdTo" entity-alias="PR" field="partyIdTo" />
+		<alias name="asmId" entity-alias="AV" field="asmId" />
+		<view-link entity-alias="PR" rel-entity-alias="AV">
+			<key-map field-name="partyIdFrom" rel-field-name="partyIdTo" />
+		</view-link>
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom" entity-alias="PR" operator="equals"
+					value="DELYS_ROUTE" />
+				<condition-expr field-name="roleTypeIdTo" entity-alias="PR" operator="equals"
+					value="CUSTOMER" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+	<view-entity entity-name="ASMRouteCustomerView"
+		package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="ARV" entity-name="ASMRouteView" />
+		<alias name="partyIdFrom" entity-alias="PR" field="partyIdFrom" />
+		<alias name="asmId" entity-alias="ARV" field="asmId" />
+		<view-link entity-alias="PR" rel-entity-alias="ARV">
+			<key-map field-name="partyIdTo" rel-field-name="partyIdTo" />
+		</view-link>
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom" entity-alias="PR" operator="equals"
+					value="MANAGER" />
+				<condition-expr field-name="roleTypeIdTo" entity-alias="PR" operator="equals"
+					value="CUSTOMER" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+	<view-entity entity-name="ASMRouteCustomerDetailView"
+		package-name="org.ofbiz.delys">
+		<member-entity entity-alias="Per" entity-name="Person" />
+		<member-entity entity-alias="ARCV" entity-name="ASMRouteCustomerView" />
+		<alias-all entity-alias="Per" />
+		<alias name="asmId" entity-alias="ARCV" field="asmId" />
+		<view-link entity-alias="Per" rel-entity-alias="ARCV">
+			<key-map field-name="partyId" rel-field-name="partyIdFrom" />
+		</view-link>
+	</view-entity>
+
+	<!-- filter customer level rsm -->
+	<view-entity entity-name="RSMView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<alias name="partyIdTo" entity-alias="PR" field="partyIdTo" />
+		<alias name="rsmId" entity-alias="PR" field="partyIdFrom" />
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom" entity-alias="PR" operator="equals"
+					value="DELYS_RSM" />
+				<condition-expr field-name="roleTypeIdTo" entity-alias="PR" operator="equals"
+					value="DELYS_ASM" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+	<view-entity entity-name="RSMASMView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="RV" entity-name="RSMView" />
+		<alias name="partyIdTo" entity-alias="PR" field="partyIdTo" />
+		<alias name="rsmId" entity-alias="RV" field="rsmId" />
+		<view-link entity-alias="PR" rel-entity-alias="RV">
+			<key-map field-name="partyIdFrom" rel-field-name="partyIdTo" />
+		</view-link>
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom" entity-alias="PR" operator="equals"
+					value="DELYS_ASM" />
+				<condition-expr field-name="roleTypeIdTo" entity-alias="PR" operator="equals"
+					value="DELYS_ROUTE" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+	<view-entity entity-name="RSMASMRouteView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="RAV" entity-name="RSMASMView" />
+		<alias name="partyIdTo" entity-alias="PR" field="partyIdTo" />
+		<alias name="rsmId" entity-alias="RAV" field="rsmId" />
+		<view-link entity-alias="PR" rel-entity-alias="RAV">
+			<key-map field-name="partyIdFrom" rel-field-name="partyIdTo" />
+		</view-link>
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom" entity-alias="PR" operator="equals"
+					value="DELYS_ROUTE" />
+				<condition-expr field-name="roleTypeIdTo" entity-alias="PR" operator="equals"
+					value="CUSTOMER" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+	<view-entity entity-name="RSMASMRouteCustomerView"
+		package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="RARV" entity-name="RSMASMRouteView" />
+		<alias name="partyIdFrom" entity-alias="PR" field="partyIdFrom" />
+		<alias name="rsmId" entity-alias="RARV" field="rsmId" />
+		<view-link entity-alias="PR" rel-entity-alias="RARV">
+			<key-map field-name="partyIdTo" rel-field-name="partyIdTo" />
+		</view-link>
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom" entity-alias="PR" operator="equals"
+					value="MANAGER" />
+				<condition-expr field-name="roleTypeIdTo" entity-alias="PR" operator="equals"
+					value="CUSTOMER" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+	<view-entity entity-name="RSMASMRouteCustomerDetailView"
+		package-name="org.ofbiz.delys">
+		<member-entity entity-alias="Per" entity-name="Person" />
+		<member-entity entity-alias="RARCV" entity-name="RSMASMRouteCustomerView" />
+		<alias-all entity-alias="Per" />
+		<alias name="rsmId" entity-alias="RARCV" field="rsmId" />
+		<view-link entity-alias="Per" rel-entity-alias="RARCV">
+			<key-map field-name="partyId" rel-field-name="partyIdFrom" />
+		</view-link>
+	</view-entity>
+
+	<!-- filter customer by all -->
+	<view-entity entity-name="CSMManagerALLView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<alias name="partyIdTo" entity-alias="PR" field="partyIdTo" />
+		<alias name="csmManagerId" entity-alias="PR" field="partyIdFrom" />
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom" entity-alias="PR" operator="equals"
+					value="MANAGER" />
+				<condition-expr field-name="roleTypeIdTo" entity-alias="PR" operator="equals"
+					value="DELYS_CSM" />
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+
+	<view-entity entity-name="RSMManagerALLView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="CMAV" entity-name="CSMManagerALLView"></member-entity>
+		<alias name="partyIdTo" entity-alias="PR" field="partyIdTo" />
+		<alias name="rsmManagerId" entity-alias="PR" field="partyIdFrom" />
+		<alias name="csmManagerId" entity-alias="CMAV" field="csmManagerId" />
+		<entity-condition>
+			<condition-list combine="or">
+				<condition-list >
+					<condition-expr field-name="roleTypeIdFrom"
+						entity-alias="PR" operator="equals" value="MANAGER" />
+					<condition-expr field-name="roleTypeIdTo" entity-alias="PR" operator="equals"
+						value="DELYS_RSM" />
+				</condition-list>
+				<condition-list>
+					<condition-expr field-name="roleTypeIdFrom"
+						entity-alias="PR" operator="equals" value="DELYS_CSM" />
+					<condition-expr field-name="roleTypeIdTo" operator="equals"
+						entity-alias="PR" value="DELYS_RSM" />
+					<condition-expr entity-alias="PR" field-name="partyIdFrom"
+						operator="equals" rel-entity-alias="CMAV" rel-field-name="partyIdTo" />
+				</condition-list>
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+	
+	<view-entity entity-name="ASMManagerALLView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="RMAV" entity-name="RSMManagerALLView"></member-entity>
+		<alias name="partyIdTo" entity-alias="PR" field="partyIdTo" />
+		<alias name="asmManagerId" entity-alias="PR" field="partyIdFrom" />
+		<alias name="rsmManagerId" entity-alias="RMAV" field="rsmManagerId" />
+		<alias name="csmManagerId" entity-alias="RMAV" field="csmManagerId" />
+		<entity-condition>
+			<condition-list combine="or">
+				<condition-list>
+					<condition-expr field-name="roleTypeIdFrom"
+						entity-alias="PR" operator="equals" value="MANAGER" />
+					<condition-expr field-name="roleTypeIdTo" operator="equals"
+						entity-alias="PR" value="DELYS_ASM" />
+				</condition-list>
+				<condition-list>
+					<condition-expr field-name="roleTypeIdFrom"
+						entity-alias="PR" operator="equals" value="DELYS_RSM" />
+					<condition-expr field-name="roleTypeIdTo" operator="equals"
+						entity-alias="PR" value="DELYS_ASM" />
+					<condition-expr entity-alias="PR" field-name="partyIdFrom"
+						operator="equals" rel-entity-alias="RMAV" rel-field-name="partyIdTo" />
+				</condition-list>
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+	
+	<view-entity entity-name="ASMRouteALLView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="AMAV" entity-name="ASMManagerALLView"></member-entity>
+		<alias name="partyIdTo" entity-alias="PR" field="partyIdTo" />
+		<alias name="asmManagerId" entity-alias="AMAV" field="asmManagerId" />
+		<alias name="rsmManagerId" entity-alias="AMAV" field="rsmManagerId" />
+		<alias name="csmManagerId" entity-alias="AMAV" field="csmManagerId" />
+		<view-link rel-entity-alias="AMAV" entity-alias="PR">
+			<key-map field-name="partyIdFrom" rel-field-name="partyIdTo"/>
+		</view-link>
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom" entity-alias="PR" operator="equals" value="DELYS_ASM"/>
+				<condition-expr field-name="roleTypeIdTo" entity-alias="PR" operator="equals" value="DELYS_ROUTE"/>
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+	
+	<view-entity entity-name="ASMRouteCustomerALLView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="ARAV" entity-name="ASMRouteALLView"></member-entity>
+		<alias name="partyIdTo" entity-alias="PR" field="partyIdTo" />
+		<alias name="asmManagerId" entity-alias="ARAV" field="asmManagerId" />
+		<alias name="rsmManagerId" entity-alias="ARAV" field="rsmManagerId" />
+		<alias name="csmManagerId" entity-alias="ARAV" field="csmManagerId" />
+		<view-link rel-entity-alias="ARAV" entity-alias="PR">
+			<key-map field-name="partyIdFrom" rel-field-name="partyIdTo"/>
+		</view-link>
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom" entity-alias="PR" operator="equals" value="DELYS_ROUTE"/>
+				<condition-expr field-name="roleTypeIdTo" entity-alias="PR" operator="equals" value="CUSTOMER"/>
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+	
+	<view-entity entity-name="CustomerManagerALLView" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		<member-entity entity-alias="ARCAV" entity-name="ASMRouteCustomerALLView"></member-entity>
+		<alias name="partyIdFrom" entity-alias="PR" field="partyIdFrom" />
+		<alias name="asmManagerId" entity-alias="ARCAV" field="asmManagerId" />
+		<alias name="rsmManagerId" entity-alias="ARCAV" field="rsmManagerId" />
+		<alias name="csmManagerId" entity-alias="ARCAV" field="csmManagerId" />
+		<view-link rel-entity-alias="ARCAV" entity-alias="PR">
+			<key-map field-name="partyIdTo" rel-field-name="partyIdTo"/>
+		</view-link>
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom" entity-alias="PR" operator="equals" value="MANAGER"/>
+				<condition-expr field-name="roleTypeIdTo" entity-alias="PR" operator="equals" value="CUSTOMER"/>
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+	
+	<view-entity entity-name="CustomerDetailALLView"
+		package-name="org.ofbiz.delys">
+		<member-entity entity-alias="Per" entity-name="Person" />
+		<member-entity entity-alias="CMAV" entity-name="CustomerManagerALLView" />
+		<alias-all entity-alias="Per" />
+		<alias name="asmManagerId" entity-alias="CMAV" field="asmManagerId" />
+		<alias name="rsmManagerId" entity-alias="CMAV" field="rsmManagerId" />
+		<alias name="csmManagerId" entity-alias="CMAV" field="csmManagerId" />
+		<view-link entity-alias="Per" rel-entity-alias="CMAV">
+			<key-map field-name="partyId" rel-field-name="partyIdFrom" />
+		</view-link>
+	</view-entity>
+	
+	<view-entity entity-name="ShipmentAndType" package-name="org.ofbiz.accounting.shipment">
+		<member-entity entity-alias="S" entity-name="Shipment" />
+		<member-entity entity-alias="ST" entity-name="ShipmentType" />
+		<alias-all entity-alias="S" />
+		<alias-all entity-alias="ST" />
+
+		<view-link entity-alias="S" rel-entity-alias="ST">
+			<key-map field-name="shipmentTypeId" />
+		</view-link>
+	</view-entity>
+	
+	<view-entity entity-name="PaymentAndPaymentGroup" package-name="org.ofbiz.accounting.payment">
+		<member-entity entity-alias="P" entity-name="Payment"/>
+		<member-entity entity-alias="PG" entity-name="PaymentGroupMember"/>
+		<alias-all entity-alias="P" />
+		<alias-all entity-alias="PG" />
+		<view-link entity-alias="P" rel-entity-alias="PG">
+			<key-map field-name="paymentId" />
+		</view-link>
+	</view-entity>
+	<view-entity entity-name="AcctgTransEntrySumsByAccount" package-name="org.ofbiz.accounting">
+		<member-entity entity-alias="ATEC" entity-name="AcctgTransEntry"/>
+		<member-entity entity-alias="ATED" entity-name="AcctgTransEntry"/>
+      	<member-entity entity-alias="ACT" entity-name="AcctgTrans"/>
+      	<alias entity-alias="ATEC" name="glAccountIdC" field="glAccountId" group-by="true"/>
+      	<alias entity-alias="ATED" name="glAccountIdD" field="glAccountId" group-by="true"/>
+      	<alias entity-alias="ATEC" name="debitCreditFlagC" field="debitCreditFlag" group-by="true"/>
+      	<alias entity-alias="ATED" name="debitCreditFlagD" field="debitCreditFlag" group-by="true"/>
+      	<alias entity-alias="ATEC" name="amount" function="sum"/>
+      	<alias entity-alias="ATEC" name="organizationPartyIdC" field="organizationPartyId" group-by="false"/>
+      	<alias entity-alias="ATED" name="organizationPartyIdD" field="organizationPartyId" group-by="false"/>
+      	<alias entity-alias="ACT" name="isPosted" group-by="false"/>
+      	<alias entity-alias="ACT" name="transactionDate" group-by="false"/>
+      	<alias entity-alias="ACT" name="acctgTransTypeId" group-by="false"/>
+      	<view-link entity-alias="ATEC" rel-entity-alias="ATED">
+        	<key-map field-name="acctgTransId" rel-field-name="acctgTransId"/>
+        </view-link>
+        <view-link entity-alias="ATED" rel-entity-alias="ACT">
+        	<key-map field-name="acctgTransId" rel-field-name="acctgTransId"/>
+        </view-link>
+      	<entity-condition>
+      		<condition-list>
+				<condition-expr field-name="debitCreditFlag" value="C" entity-alias="ATEC"/>      		
+				<condition-expr field-name="debitCreditFlag" value="D" entity-alias="ATED"/>      		
+      		</condition-list>
+      	</entity-condition>
+	</view-entity>
+	
+	<view-entity entity-name="FinAccountAndPaymentGroup" package-name="org.ofbiz.accounting.payment">
+		<member-entity entity-alias="PGMPF" entity-name="PmtGrpMembrPaymentAndFinAcctTrans"/>
+		<member-entity entity-alias="PG" entity-name="PaymentGroup"/>
+		<alias-all entity-alias="PGMPF" />
+		<alias-all entity-alias="PG" />
+		<view-link entity-alias="PGMPF" rel-entity-alias="PG">
+			<key-map field-name="paymentGroupId" />
+		</view-link>
+	</view-entity>	
+	
+	<view-entity entity-name="AcctgTransEntryCD"
+            package-name="org.ofbiz.accounting.ledger"
+            title="Get all Debit or Credit account">
+      <member-entity entity-alias="ATE" entity-name="AcctgTransEntry"/>
+      <member-entity entity-alias="ACT" entity-name="AcctgTrans"/>
+      <alias entity-alias="ATE" name="glAccountId"/>
+      <alias entity-alias="ACT" name="acctgTransTypeId"/>
+      <alias entity-alias="ATE" name="debitCreditFlag"/>
+      <alias entity-alias="ATE" name="organizationPartyId"/>
+      <alias entity-alias="ACT" name="isPosted"/>
+      <alias entity-alias="ACT" name="transactionDate"/>
+      <view-link entity-alias="ATE" rel-entity-alias="ACT">
+        <key-map field-name="acctgTransId"/>
+      </view-link>
+    </view-entity>
+	<view-entity entity-name="AcctgTransEntryParty"
+            package-name="org.ofbiz.accounting.ledger"
+            title="Get all party">
+      <member-entity entity-alias="ATE" entity-name="AcctgTransEntry"/>
+      <member-entity entity-alias="ACT" entity-name="AcctgTrans"/>
+      <alias entity-alias="ATE" name="partyId"/>
+      <alias entity-alias="ATE" name="glAccountId"/>
+      <alias entity-alias="ACT" name="acctgTransTypeId"/>
+      <alias entity-alias="ATE" name="debitCreditFlag"/>
+      <alias entity-alias="ATE" name="organizationPartyId"/>
+      <alias entity-alias="ACT" name="isPosted"/>
+      <alias entity-alias="ACT" name="transactionDate"/>
+      <view-link entity-alias="ATE" rel-entity-alias="ACT">
+        <key-map field-name="acctgTransId"/>
+      </view-link>
+    </view-entity>
+    <view-entity entity-name="AcctgTransEntrySumsByParties"
+            package-name="org.ofbiz.olbius.accounting.ledger"
+            title="Sum of AcctgTransEntry entity amounts grouped by glAccountId, debitCreditFlag">
+      <member-entity entity-alias="ATE" entity-name="AcctgTransEntry"/>
+      <member-entity entity-alias="ACT" entity-name="AcctgTrans"/>
+      <member-entity entity-alias="GLA" entity-name="GlAccount"/>
+      <alias entity-alias="ATE" name="glAccountId" group-by="true"/>
+      <alias entity-alias="ATE" name="partyId" group-by="false"/>
+      <alias entity-alias="GLA" name="glAccountTypeId" group-by="true"/>
+      <alias entity-alias="GLA" name="glAccountClassId" group-by="true"/>
+      <alias entity-alias="GLA" name="accountName" group-by="true"/>
+      <alias entity-alias="GLA" name="accountCode" group-by="true"/>
+      <alias entity-alias="ACT" name="glFiscalTypeId" group-by="true"/>
+      <alias entity-alias="ACT" name="acctgTransTypeId" group-by="false"/>
+      <alias entity-alias="ATE" name="debitCreditFlag" group-by="true"/>
+      <alias entity-alias="ATE" name="amount" function="sum"/>
+      <alias entity-alias="ATE" name="organizationPartyId" group-by="false"/>
+      <alias entity-alias="ACT" name="isPosted" group-by="false"/>
+      <alias entity-alias="ACT" name="transactionDate" group-by="false"/> <!-- so we can select the sum by date -->
+      <view-link entity-alias="ATE" rel-entity-alias="ACT">
+        <key-map field-name="acctgTransId"/>
+      </view-link>
+      <view-link entity-alias="ATE" rel-entity-alias="GLA">
+        <key-map field-name="glAccountId"/>
+      </view-link>
+    </view-entity>
+    <view-entity entity-name="AcctgTransEntrySumsByPartiesLimitDueDate"
+            package-name="org.ofbiz.olbius.accounting.ledger"
+            title="Sum of AcctgTransEntry entity amounts grouped by glAccountId, debitCreditFlag">
+      <member-entity entity-alias="ATE" entity-name="AcctgTransEntry"/>
+      <member-entity entity-alias="ACT" entity-name="AcctgTrans"/>
+      <member-entity entity-alias="GLA" entity-name="GlAccount"/>
+      <member-entity entity-alias="INV" entity-name="Invoice"/>
+      <alias entity-alias="ATE" name="glAccountId" group-by="true"/>
+      <alias entity-alias="ATE" name="partyId" group-by="false"/>
+      <alias entity-alias="GLA" name="glAccountTypeId" group-by="true"/>
+      <alias entity-alias="GLA" name="glAccountClassId" group-by="true"/>
+      <alias entity-alias="GLA" name="accountName" group-by="true"/>
+      <alias entity-alias="GLA" name="accountCode" group-by="true"/>
+      <alias entity-alias="ACT" name="glFiscalTypeId" group-by="true"/>
+      <alias entity-alias="ACT" name="acctgTransTypeId" group-by="false"/>
+      <alias entity-alias="ATE" name="debitCreditFlag" group-by="true"/>
+      <alias entity-alias="ATE" name="amount" function="sum"/>
+      <alias entity-alias="ATE" name="organizationPartyId" group-by="false"/>
+      <alias entity-alias="ACT" name="isPosted" group-by="false"/>
+      <alias entity-alias="ACT" name="transactionDate" group-by="false"/> <!-- so we can select the sum by date -->
+      <alias entity-alias="INV" name="dueDate" group-by="false"/> <!-- so we can select the sum by date -->
+      <view-link entity-alias="ATE" rel-entity-alias="ACT">
+        <key-map field-name="acctgTransId"/>
+      </view-link>
+      <view-link entity-alias="ATE" rel-entity-alias="GLA">
+        <key-map field-name="glAccountId"/>
+      </view-link>
+      <view-link entity-alias="ACT" rel-entity-alias="INV">
+        <key-map field-name="invoiceId"/>
+      </view-link>
+    </view-entity>
+    <view-entity entity-name="AcctgTransEntrySumsLimitDueDate"
+            package-name="org.ofbiz.accounting.ledger"
+            title="Sum of AcctgTransEntry entity amounts grouped by glAccountId, debitCreditFlag">
+      <member-entity entity-alias="ATE" entity-name="AcctgTransEntry"/>
+      <member-entity entity-alias="ACT" entity-name="AcctgTrans"/>
+      <member-entity entity-alias="GLA" entity-name="GlAccount"/>
+      <member-entity entity-alias="INV" entity-name="Invoice"/>
+      <alias entity-alias="ATE" name="glAccountId" group-by="true"/>
+      <alias entity-alias="GLA" name="glAccountTypeId" group-by="true"/>
+      <alias entity-alias="GLA" name="glAccountClassId" group-by="true"/>
+      <alias entity-alias="GLA" name="accountName" group-by="true"/>
+      <alias entity-alias="GLA" name="accountCode" group-by="true"/>
+      <alias entity-alias="ACT" name="glFiscalTypeId" group-by="true"/>
+      <alias entity-alias="ACT" name="acctgTransTypeId" group-by="false"/>
+      <alias entity-alias="ATE" name="debitCreditFlag" group-by="true"/>
+      <alias entity-alias="ATE" name="amount" function="sum"/>
+      <alias entity-alias="ATE" name="organizationPartyId" group-by="false"/>
+      <alias entity-alias="ACT" name="isPosted" group-by="false"/>
+      <alias entity-alias="ACT" name="transactionDate" group-by="false"/> <!-- so we can select the sum by date -->
+      <alias entity-alias="INV" name="dueDate" group-by="false"/> <!-- so we can select the sum by date -->
+      <view-link entity-alias="ATE" rel-entity-alias="ACT">
+        <key-map field-name="acctgTransId"/>
+      </view-link>
+      <view-link entity-alias="ATE" rel-entity-alias="GLA">
+        <key-map field-name="glAccountId"/>
+      </view-link>
+      <view-link entity-alias="ACT" rel-entity-alias="INV">
+        <key-map field-name="invoiceId"/>
+      </view-link>
+    </view-entity>
+    
+    <view-entity entity-name="DeliveryItemView" package-name="com.olbius.logistics.delivery">
+    	<member-entity entity-name="Delivery" entity-alias="D"></member-entity>
+    	<member-entity entity-name="DeliveryItem" entity-alias="DI"></member-entity>
+    	
+    	<alias-all entity-alias="DI" ></alias-all>
+    	<alias entity-alias="D" field="statusId" name="deliveryStatusId"></alias>
+    	<view-link entity-alias="D" rel-entity-alias="DI">
+    		<key-map field-name="deliveryId"></key-map>
+    	</view-link>
+    </view-entity>
+    
+    <view-entity entity-name="TransferDeliveryItemView" package-name="com.olbius.logistics.delivery">
+    	<member-entity entity-name="Delivery" entity-alias="D"></member-entity>
+    	<member-entity entity-name="DeliveryItem" entity-alias="DI"></member-entity>
+    	<member-entity entity-name="TransferItem" entity-alias="TI"></member-entity>
+    	<alias-all entity-alias="DI" ></alias-all>
+    	<alias entity-alias="D" field="statusId" name="deliveryStatusId"></alias>
+    	<alias entity-alias="D" field="originFacilityId" name="originFacilityId"></alias>
+    	<alias entity-alias="D" field="destFacilityId" name="destFacilityId"></alias>
+    	<alias entity-alias="D" field="originContactMechId" name="originContactMechId"></alias>
+    	<alias entity-alias="D" field="destContactMechId" name="destContactMechId"></alias>
+    	<alias entity-alias="D" field="createDate" name="createDate"></alias>
+    	<alias entity-alias="D" field="deliveryDate" name="deliveryDate"></alias>
+    	<alias entity-alias="TI" field="productId" name="productId"></alias>
+    	<alias entity-alias="TI" field="quantityUomId" name="quantityUomId"></alias>
+    	<alias entity-alias="TI" field="expireDate" name="expireDate"></alias>
+    	<view-link entity-alias="D" rel-entity-alias="DI">
+    		<key-map field-name="deliveryId"></key-map>
+    	</view-link>
+    	<view-link entity-alias="DI" rel-entity-alias="TI">
+    		<key-map field-name="fromTransferId" rel-field-name="transferId"></key-map>
+    		<key-map field-name="fromTransferItemSeqId" rel-field-name="transferItemSeqId"></key-map>
+    	</view-link>
+    </view-entity>   
+    
+	<view-entity entity-name="PaymentMethodAndPartyPaymentMethod" package-name="org.ofbiz.accounting.payment">
+		<member-entity entity-alias="PPM" entity-name="PartyPaymentMethod"/>
+		<member-entity entity-alias="PM" entity-name="PaymentMethod"/>
+		<alias-all entity-alias="PPM" />
+		<alias-all entity-alias="PM" />
+		<alias entity-alias="PPM" name="partyIdDis" field="partyId" />
+		<view-link entity-alias="PPM" rel-entity-alias="PM">
+			<key-map field-name="paymentMethodId" />
+		</view-link>
+	</view-entity>      
+	<view-entity entity-name="ShipmentItemDetail" package-name="org.ofbiz.shipment.shipment">
+		<member-entity entity-alias="SI" entity-name="ShipmentItem"/>
+		<member-entity entity-alias="SM" entity-name="Shipment"/>
+		<member-entity entity-alias="PR" entity-name="Product"/>
+		<alias-all entity-alias="SI" />
+		<alias-all entity-alias="PR" />
+		<alias entity-alias="SM" name="currencyUomId" field="currencyUomId" />
+		<alias entity-alias="SM" name="defaultWeightUomId" field="defaultWeightUomId" />
+		<view-link entity-alias="SI" rel-entity-alias="SM">
+			<key-map field-name="shipmentId" />
+		</view-link>
+		<view-link entity-alias="SI" rel-entity-alias="PR">
+			<key-map field-name="productId" />
+		</view-link>
+	</view-entity>
+	<view-entity entity-name="ShipmentPackageContentDetail" package-name="org.ofbiz.shipment.shipment">
+		<member-entity entity-alias="SPC" entity-name="ShipmentPackageContent"/>
+		<member-entity entity-alias="SMIT" entity-name="ShipmentItem"/>
+		<member-entity entity-alias="PR" entity-name="Product"/>
+		<alias-all entity-alias="SPC" />
+		<alias entity-alias="SMIT" name="productId" field="productId" />
+		<alias entity-alias="PR" name="quantityUomId" field="quantityUomId" />
+		<alias entity-alias="PR" name="weightUomId" field="weightUomId" />
+		<alias entity-alias="PR" name="productName" field="productName" />
+		<alias entity-alias="PR" name="weight" field="weight" />
+		<view-link entity-alias="SPC" rel-entity-alias="SMIT">
+			<key-map field-name="shipmentId" />
+			<key-map field-name="shipmentItemSeqId" />
+		</view-link>
+		<view-link entity-alias="SMIT" rel-entity-alias="PR">
+			<key-map field-name="productId"/>
+		</view-link>
+	</view-entity>
+	<view-entity entity-name="DeliveryEntryVehicleDetail" package-name="com.olbius.logistics.delivery">
+		<member-entity entity-alias="DE" entity-name="DeliveryEntry"/>
+		<member-entity entity-alias="DEV" entity-name="DeliveryEntryVehicle"/>
+		<member-entity entity-alias="VHC" entity-name="Vehicle"/>
+		<alias-all entity-alias="DEV" />
+		<alias-all entity-alias="DE" />
+		<alias-all entity-alias="VHC" />
+		<view-link entity-alias="DEV" rel-entity-alias="VHC">
+			<key-map field-name="vehicleId" />
+		</view-link>
+		<view-link entity-alias="DEV" rel-entity-alias="DE">
+			<key-map field-name="deliveryEntryId"/>
+		</view-link>
+	</view-entity>
+	<view-entity entity-name="DeliveryEntryPackageContentDetail" package-name="com.olbius.logistics.delivery">
+		<member-entity entity-alias="DEPC" entity-name="DeliveryEntryPackageContent"/>
+		<member-entity entity-alias="SMIT" entity-name="ShipmentItem"/>
+		<member-entity entity-alias="PR" entity-name="Product"/>
+		<alias-all entity-alias="DEPC" />
+		<alias entity-alias="SMIT" name="productId" field="productId" />
+		<alias entity-alias="PR" name="quantityUomId" field="quantityUomId" />
+		<alias entity-alias="PR" name="weightUomId" field="weightUomId" />
+		<alias entity-alias="PR" name="productName" field="productName" />
+		<alias entity-alias="PR" name="weight" field="weight" />
+		<view-link entity-alias="DEPC" rel-entity-alias="SMIT">
+			<key-map field-name="shipmentId" />
+			<key-map field-name="shipmentItemSeqId" />
+		</view-link>
+		<view-link entity-alias="SMIT" rel-entity-alias="PR">
+			<key-map field-name="productId"/>
+		</view-link>
+	</view-entity>
+</entitymodel>

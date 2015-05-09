@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Salesman - Xem đơn hàng</title>
+
+<meta name="description"
+	content="Dynamic tables and grids using jqGrid plugin" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- basic styles -->
+
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+<link rel="stylesheet" href="assets/css/bootstrap-editable.css" />
+
+<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+<!-- page specific plugin styles -->
+
+<link rel="stylesheet" href="assets/css/jquery-ui-1.10.3.full.min.css" />
+<link rel="stylesheet" href="assets/css/datepicker.css" />
+<link rel="stylesheet" href="assets/css/ui.jqgrid.css" />
+
+<!-- fonts -->
+
+<link rel="stylesheet" href="assets/css/ace-fonts.css" />
+
+<!-- ace styles -->
+
+<link rel="stylesheet" href="assets/css/ace.min.css" />
+<link rel="stylesheet" href="assets/css/ace-responsive.min.css" />
+<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+
+<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+<!-- inline styles related to this page -->
+
+<!-- ace settings handler -->
+
+<script src="assets/js/ace-extra.min.js"></script>
+</head>
+<body>
+	<span id="navbar"> </span>
+	<div class="main-container container-fluid">
+	<div id="test"></div>
+		<div class="main-container-inner">
+			<div class="sidebar" id="sidebar">
+			</div>
+			
+			<div class="main-content">
+				<div class="page-content">	
+					<div class="page-header">						
+						<h1>
+						<span id="viewCustomerInfo_customer" class="viewCustomerInfo_customer">Khách hàng</span>
+						<small>
+							<i class="icon-double-angle-right"></i>
+							<span id="viewCustomerInfo_cusInfo" class="viewCustomerInfo_cusInfo">Thông tin khách hàng</span>
+						</small>
+						</h1>
+					</div>
+					<div class="row-fluid">
+						<div class="span6">	
+							<div class="widget-box">
+								<div class="widget-header widget-header-flat widget-header-small">
+									<h5><i class="icon-signal"></i> 
+										<span id="viewCustomerInfo_ordersInfo" class="viewCustomerInfo_ordersInfo">Thông tin tổng hợp đơn hàng</span>
+									</h5>
+									<div class="widget-toolbar no-border">
+										<button class="btn btn-minier btn-primary dropdown-toggle" id='time_select' data-toggle="dropdown">
+											Tháng này
+											<i class="icon-angle-down icon-on-right"></i></button>
+										<ul class="dropdown-menu dropdown-info pull-right dropdown-caret">
+											<li id='liThisWeek'><a onclick="updateOrderInfo('thisWeek')" id="thisWeek">Tuần này</a></li>
+											<li id="liThisMonth" class="active"><a onclick="updateOrderInfo('thisMonth')" id="thisMonth">Tháng này</a></li>																						
+											<li id='liLastMonth'><a onclick="updateOrderInfo('lastMonth')" id="lastMonth">Tháng trước</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="widget-body">
+			 						<div class="widget-main">
+			 							<div id="order_info_of_customer">
+			 								<p class='alert alert-info'>Tổng số đơn hàng chưa thanh toán: 0 </p>		 						
+			 								<p class='alert alert-info'>Tổng số tiền chưa thanh toán: 0 VND </p>
+			 							</div>
+			 						</div>
+			 					</div>	
+							</div>
+						</div>
+						<div class="span6">
+							<div>
+								<div class="widget-header widget-header-flat widget-header-small">
+									<h5><span class="viewCustomerInfo_cusInfo">Thông tin khách hàng</span></h5>
+								</div>											 						
+		 							<div id="customer_info" class="well">
+		 								<h4><span id="viewCustomerInfo_cusName" class="viewCustomerInfo_cusName">Tên khách hàng</span>: </h4><span class='editable' id='groupName'></span>
+		 								<p></p>
+		 								<h4><span id="viewCustomerInfo_deliveryAddr" class="viewCustomerInfo_deliveryAddr">
+		 									Địa chỉ giao hàng</span>: 
+	 									</h4>
+	 									<span class='editable' id='address1'></span>, <span id="city" class='editable'></span>		 						
+		 							</div>			 									 						
+							</div>		
+						</div>
+					</div>
+					<div class="hr-dotted"></div>
+					<div class="row-fluid">
+						<div class="span6">
+							<div class="widget-box ">
+								<div class="widget-header widget-header-flat">
+									<h5><span id="viewCustomerInfo_numberProductOrdered" 
+												class="viewCustomerInfo_numberProductOrdered">
+										Số lượng sản phẩm khách hàng đặt</span></h5>								
+									<div class="widget-toolbar no-border">
+											<button class="btn btn-minier btn-primary dropdown-toggle" id="time_select_productQty" data-toggle="dropdown">Tháng này<i class="icon-angle-down icon-on-right"></i></button>
+											<ul class="dropdown-menu dropdown-info pull-right dropdown-caret">
+												<li id='liThisWeek_productQty'><a onclick="updateQtyProductInfo('thisWeek')" id="thisWeek_productQty">Tuần này</a></li>
+												<li id="liThisMonth_productQty" class="active"><a onclick="updateQtyProductInfo('thisMonth')" id="thisMonth_productQty">Tháng này</a></li>																						
+												<li id='liLastMonth_productQty'><a onclick="updateQtyProductInfo('lastMonth')" id="lastMonth_productQty">Tháng trước</a></li>
+											</ul>
+									</div>
+								</div>
+								<div class="widget-body">
+									<div class="widget-main no-padding">
+										<table id="table_product" class="table table-bordered table-striped">
+											<thead>
+												<tr>
+													<th><i class="icon-caret-right blue"></i>ProductId</th>
+													<th><i class="icon-caret-right blue"></i>
+														<span id="viewCustomerInfo_productName" class="viewCustomerInfo_productName">Tên sản phẩm</span></th>
+													<th><i class="icon-caret-right blue"></i>
+														<span id="viewCustomerInfo_productQty" class="viewCustomerInfo_productQty">Số lượng</span></th>
+												</tr>
+											</thead>
+											<tbody>
+												
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>	
+		</div>
+	</div>
+	</div>
+	<script type="text/javascript">
+		window.jQuery
+				|| document
+						.write("<script src='assets/js/jquery-2.0.3.min.js'>"
+								+ "<"+"/script>");
+	</script>
+
+	<!-- <![endif]-->
+
+	<!--[if IE]>
+		<script type="text/javascript">
+		 window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+		</script>
+		<![endif]-->
+
+	<script type="text/javascript">
+		if ("ontouchend" in document)
+			document
+					.write("<script src='assets/js/jquery.mobile.custom.min.js'>"
+							+ "<"+"/script>");
+	</script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	
+	<!-- page specific plugin scripts -->
+	<script type="text/javascript" src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+
+	<script type="text/javascript" src="assets/js/jquery.ui.touch-punch.min.js"></script>
+	<script src="assets/js/date-time/bootstrap-datepicker.min.js"></script>
+	<script src="assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+	<script src="assets/js/jqGrid/i18n/grid.locale-en.js"></script>
+	<script src="assets/js/bootbox.min.js"></script>
+	<script src="assets/js/x-editable/bootstrap-editable.min.js"></script>
+	<script src="assets/js/x-editable/ace-editable.min.js"></script>
+	<!-- ace scripts -->
+
+	<script src="assets/js/ace-elements.min.js"></script>
+	<script src="assets/js/ace.min.js"></script>
+	
+	<script src="assets/js/languages/language.js" type="text/javascript"></script>
+	
+	<script type="text/javascript">
+	
+	var languageObject = null;
+	var lang = null;
+	function language_select(language){
+		lang = language;
+		languageObject = changeLanguage('config/ViewCustomerInfo.json', lang);	
+	}
+	
+	jQuery(function($){
+		/* $.fn.editable.defaults.mode = 'inline';
+		$.fn.editableform.loading = "<div class='editableform-loading'><i class='light-blue icon-2x icon-spinner icon-spin'></i></div>";
+		$.fn.editableform.buttons = '<button type="submit" class="btn btn-info editable-submit"><i class="icon-ok icon-white"></i></button>'
+				+ '<button type="button" class="btn editable-cancel"><i class="icon-remove"></i></button>'; */
+		urlEditGroupName = localStorage.serverUrl + 'mobileservices/control/editGroupNameCus';
+		urlEditAddress1 = localStorage.serverUrl + 'mobileservices/control/updatePostalAddress';		
+		$.get("header.html", function(data) {
+			$('#navbar').html(data);
+		}, 'html').fail(function() {
+			console.log('arge', arguments)
+		});
+		
+		$.get("sidebar.html", function (data){
+	    	$('#sidebar').html(data);  
+	    }, 'html').fail(function(){
+	        console.log('arge', arguments)
+	    });	
+		if(localStorage.customerId){
+			getCusDetailInfo(localStorage.customerId);
+			updateOrderInfo("thisMonth");
+			updateQtyProductInfo("thisMonth");
+		}
+		
+		function getCusDetailInfo(customerId){
+			//alert(customerId);
+			$.ajax({
+				url: localStorage.serverUrl + 'mobileservices/control/customerInfoDetail',
+				crossDomain: true,
+				data:{
+					customerId : customerId
+				},
+				async: false,
+				dataType: 'json',
+				success: function(data){
+					//$("#test").html(JSON.stringify(data));
+					fillDataCusomter(data.cusDetailsInfo);
+				},
+				error: function(textStatus, errorThrown){
+					
+				}				
+			});		
+		}
+		function fillDataCusomter(data){				
+			/* for(var index in data.topProductQty){					
+				var productTr = "<tr><td>" + index + "</td><td>" + index+ "</td><td>" + data.topProductQty[index] +"</td></tr>";
+				$("#table_product").append(productTr);
+			}
+			$("#order_info_of_customer").append("<p class='alert alert-info'>Tổng số đơn hàng: "+ data["totalOfNumberOrders"] +"</p>")
+			$("#order_info_of_customer").append("<p class='alert alert-info'> Tổng số tiền: " + data.totalAmountOrders + "</p>"); */
+			var address1 = data.address1;
+			var address2 ="";
+			groupName = data.groupName;
+			localStorage.city = data.city;
+			localStorage.contactMechId = data.contactMechId;
+			localStorage.contactMechTypeId = data.contactMechTypeId;
+			localStorage.postalCode = data.postalCode;
+			localStorage.address1 = address1;
+			localStorage.groupName = groupName;
+			//$("#groupName").append(groupName);				
+			if(!jQuery.isEmptyObject(data.address2)){
+				address2 = "+ " + data.address2;
+				//$("#customer_info").append("<h4>Địa chỉ giao hàng 2:</h4><p>"+ address2 +"</p> ");
+			}
+			
+			//$("#address1").append(address1);
+			//$("#city").append(city);					
+		}
+		$("#groupName").editable({
+			type:'text',								
+			id: 'groupName',
+			value: localStorage.groupName,
+			name: 'groupName',				
+			url: urlEditGroupName,
+			send: 'always',	
+			params: function(params){
+				params.partyId = localStorage.customerId;
+				params.groupName = params.value;					
+				return params;
+			},
+			success: function(response, newValue){
+				getCusDetailInfo(localStorage.customerId);
+			},
+			error: function(errors){
+			   var msg = '';
+	            if(errors && errors.responseText) { //ajax error, errors = xhr object
+	               msg = errors.responseText;
+	            } else { //validation error (client-side or server-side)
+	               $.each(errors, function(k, v) { msg += k+": "+v+"<br>"; });
+	            } 
+				bootbox.dialog(
+				"Đã có lỗi sau đây xảy ra khi cập nhât: " + msg,
+				[ 
+				  {
+					"label" : "Đóng",
+					"class" : "btn-small btn-primary"
+				  } 
+				]);
+			}
+		});
+		$("#city").editable({
+			type: 'text',
+			id: 'city',
+			name: 'city',
+			send: 'always',
+			value: localStorage.city,
+			url: urlEditAddress1,
+			params: function(params){
+				params.partyId = localStorage.customerId;
+				params.address1 = localStorage.address1;
+				params.city = params.value;					
+				params.contactMechId = localStorage.contactMechId;
+				params.contactMechTypeId = localStorage.contactMechTypeId;
+				params.postalCode = localStorage.postalCode;
+				return params;
+			},
+			success: function(response, newValue){
+				//$("#test").html(JSON.stringify(response));
+				getCusDetailInfo(localStorage.customerId);
+			},
+			validate: function(value){
+				if($.trim(value) == '') {
+			        return 'Lỗi!!! Giá trị nhập vào không hợp lệ';
+			    }
+			},
+			error: function(errors){
+				var msg = '';
+	            if(errors && errors.responseText) { //ajax error, errors = xhr object
+	               msg = errors.responseText;
+	            } else { //validation error (client-side or server-side)
+	               $.each(errors, function(k, v) { msg += k+": "+v+"<br>"; });
+	            } 
+				bootbox.dialog(
+				"Đã có lỗi sau đây xảy ra khi cập nhât: " + msg,
+				[ {
+					"label" : "Đóng",
+					"class" : "btn-small btn-primary",
+				} ]);
+			}
+		});
+		
+		
+		$("#address1").editable({
+			type: 'text',
+			id: 'address1',
+			name: 'address1',
+			send: 'always',
+			value: localStorage.address1,
+			url: urlEditAddress1,
+			params: function(params){
+				params.partyId = localStorage.customerId;
+				params.address1 = params.value;
+				params.city = localStorage.city;					
+				params.contactMechId = localStorage.contactMechId;
+				params.contactMechTypeId = localStorage.contactMechTypeId;
+				params.postalCode = localStorage.postalCode;
+				return params;
+			},
+			success: function(response, newValue){
+				//$("#test").html(JSON.stringify(response));
+				getCusDetailInfo(localStorage.customerId);
+			},
+			validate: function(value){
+				if($.trim(value) == '') {
+			        return 'Lỗi!!! Giá trị nhập vào rỗng';
+			    }
+			},
+			error: function(errors){
+				var msg = '';
+	            if(errors && errors.responseText) { //ajax error, errors = xhr object
+	               msg = errors.responseText;
+	            } else { //validation error (client-side or server-side)
+	               $.each(errors, function(k, v) { msg += k+": "+v+"<br>"; });
+	            } 
+				bootbox.dialog(
+				"Đã có lỗi sau đây xảy ra khi cập nhât: " + msg,
+				[ {
+					"label" : "Đóng",
+					"class" : "btn-small btn-primary",
+				} ]);
+			}
+		});
+	});
+	function updateOrderInfo(time_select){
+		if(time_select == 'thisMonth'){
+			$("#time_select").text("Tháng này");
+			$("#liLastMonth").removeClass("active");
+			$("#liThisWeek").removeClass("active");
+			$("#liThisMonth").addClass("active");
+			/* $("a#thisMOnclick[onclick]").attr("onclick", "");
+			$("a#lastMOnclick[onclick]").attr("onclick", "updatePopuLarProduct(lastMonth)"); */
+		}else if(time_select == 'lastMonth'){
+			$("#time_select").text("Tháng trước");
+			$("#liThisWeek").removeClass("active");
+			$("#liThisMonth").removeClass("active");
+			$("#liLastMonth").addClass("active");
+			/* $("a#lastMOnclick[onclick]").attr("onclick", "");
+			$("a#thisMOnclick[onclick]").attr("onclick", "updatePopuLarProduct(thisMonth)"); */ 
+		}else if(time_select == 'thisWeek'){
+			$("#time_select").text("Tuần này");			
+			$("#liThisMonth").removeClass("active");
+			$("#liLastMonth").removeClass("active");
+			$("#liThisWeek").addClass("active");
+		}
+		$.ajax({
+			url:  localStorage.serverUrl  + 'mobileservices/control/updateCusOrder',
+			crossDomain: true,
+			data:{
+				customerId : localStorage.customerId,
+				time: time_select
+			},
+			async: false,
+			dataType: 'json',
+			success: function(data){
+				//$("#test").html(JSON.stringify(data));
+				fillCusOrder(data.cusOrderInfo);
+			},
+			error: function(textStatus, errorThrown){
+				
+			}
+		});
+	}
+	
+	function updateQtyProductInfo(time_select){
+		if(time_select == 'thisMonth'){
+			$("#time_select_productQty").text("Tháng này");
+			$("#liLastMonth_productQty").removeClass("active");
+			$("#liThisWeek_productQty").removeClass("active");
+			$("#liThisMonth_productQty").addClass("active");
+			/* $("a#thisMOnclick[onclick]").attr("onclick", "");
+			$("a#lastMOnclick[onclick]").attr("onclick", "updatePopuLarProduct(lastMonth)"); */
+		}else if(time_select == 'lastMonth'){
+			$("#time_select_productQty").text("Tháng trước");
+			$("#liThisWeek_productQty").removeClass("active");
+			$("#liThisMonth_productQty").removeClass("active");
+			$("#liLastMonth_productQty").addClass("active");
+			/* $("a#lastMOnclick[onclick]").attr("onclick", "");
+			$("a#thisMOnclick[onclick]").attr("onclick", "updatePopuLarProduct(thisMonth)"); */ 
+		}else if(time_select == 'thisWeek'){
+			$("#time_select_productQty").text("Tuần này");			
+			$("#liThisMonth_productQty").removeClass("active");
+			$("#liLastMonth_productQty").removeClass("active");
+			$("#liThisWeek_productQty").addClass("active");
+		}
+		$.ajax({
+			url:  localStorage.serverUrl  + 'mobileservices/control/updateProductQtyInfo',
+			crossDomain: true,
+			data:{
+				customerId : localStorage.customerId,
+				time: time_select
+			},
+			async: false,
+			dataType: 'json',
+			success: function(data){
+				//$("#test").html(JSON.stringify(data));
+				fillQtyProduct(data.cusQtyProductInfo);
+			},
+			error: function(textStatus, errorThrown){
+				
+			}
+		});
+	}
+	
+	function fillQtyProduct(data){
+		
+		$("#table_product > tbody").empty();
+		if(!jQuery.isEmptyObject(data.topProductQty)){
+			for(var index in data.topProductQty){					
+				var productTr = "<tr><td>" + index + "</td><td>" + index+ "</td><td>" + data.topProductQty[index] +"</td></tr>";
+				$("#table_product").append(productTr);
+			}	
+		}else{
+			//task : get number of tables'column for colspan
+			$("#table_product").append("<tr><td colspan='3'> Không có sản phẩm nào</td></tr>");
+		}
+		
+	}
+	
+	function fillCusOrder(data){
+		$("#order_info_of_customer").empty();
+		$("#order_info_of_customer").append("<p class='alert alert-info'>Tổng số đơn hàng: "+ data.totalOfNumberOrders +"</p>");
+		$("#order_info_of_customer").append("<p class='alert alert-info'> Tổng số tiền: " + data.totalAmountOrders + "</p>");
+	}
+	</script>
+</body>			

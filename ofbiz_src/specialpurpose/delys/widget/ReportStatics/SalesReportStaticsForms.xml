@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
+        
+     <form name="scheduleJob" type="single" target="scheduleService"
+        header-row-style="header-row" default-table-style="basic-table">
+        <field name="JOB_NAME" title="${uiLabelMap.WebtoolsJob}" required-field="true" title-style="asterisk"><text/></field>
+        <field name="SERVICE_NAME" title="${uiLabelMap.WebtoolsService}" ><hidden value="${parameters.service_name}"/></field>
+        <field name="SERVICE_NAME_SHOW" title="${uiLabelMap.WebtoolsService}" ><display also-hidden="true" default-value="${parameters.service_name}"/></field>
+        <field name="POOL_NAME" title="${uiLabelMap.WebtoolsPool}"><hidden value="pool"/></field>
+        <field name="SERVICE_TIME" title="${uiLabelMap.CommonStartDateTime}"><date-time/></field>
+        <field name="SERVICE_END_TIME" title="${uiLabelMap.CommonEndDateTime}"><date-time/></field>
+        <field name="SERVICE_FREQUENCY" title="${uiLabelMap.WebtoolsFrequency}">
+            <drop-down>
+                <option key="" description="${uiLabelMap.CommonNone}"/>
+                <option key="4" description="${uiLabelMap.CommonDaily}"/>
+                <option key="5" description="${uiLabelMap.CommonWeekly}"/>
+                <option key="6" description="${uiLabelMap.CommonMonthly}"/>
+                <option key="7" description="${uiLabelMap.CommonYearly}"/>
+                <option key="3" description="${uiLabelMap.CommonHourly}"/>
+                <option key="2" description="${uiLabelMap.CommonMinutely}"/>
+                <option key="1" description="${uiLabelMap.CommonSecondly}"/>
+            </drop-down>
+        </field>
+        <field name="SERVICE_INTERVAL" title="${uiLabelMap.WebtoolsInterval}" tooltip="${uiLabelMap.WebtoolsForUseWithFrequency}"><text/></field>
+        <field name="SERVICE_COUNT" title="${uiLabelMap.WebtoolsCount}" tooltip="${uiLabelMap.WebtoolsNumberOfTimeTheJobWillRun}"><hidden value="1"/></field>
+        <field name="SERVICE_MAXRETRY" title="${uiLabelMap.WebtoolsMaxRetry}" tooltip="${uiLabelMap.WebtoolsNumberOfJobRetry}"><text default-value="0"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-small btn-purple"><submit button-type="button" image-location="icon-ok"/></field>
+   	<sort-order>
+   		<field-group style="no-left-margin no-widget-header span6">
+   			<sort-field name="SERVICE_NAME_SHOW"/>
+   			<sort-field name="JOB_NAME"/>
+   			<sort-field name="SERVICE_TIME"/>
+   			<sort-field name="SERVICE_END_TIME"/>
+       	</field-group>
+       	<field-group style="no-widget-header span6">
+       		<sort-field name="SERVICE_FREQUENCY"/>
+       		<sort-field name="SERVICE_INTERVAL"/>
+       		<sort-field name="SERVICE_COUNT"/>
+       		<sort-field name="SERVICE_MAXRETRY"/>
+       	</field-group>
+        <field-group style="span12 align-center no-widget-header no-left-margin open-sans">
+        	<sort-field name="submitButton"/>
+        </field-group>
+   	</sort-order>
+   
+    </form>
+</forms>

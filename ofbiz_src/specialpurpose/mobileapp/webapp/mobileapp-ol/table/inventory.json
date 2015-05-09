@@ -1,0 +1,45 @@
+{
+    "colName": ["Xóa", "ID", "Tên SP", "SL", "HSD"],
+    "colModel": [{
+            "name": "act",
+            "index": "act",
+            "width": 10,
+            "sortable": false,
+            "align": "center"
+        }, {
+            "name": "productId",
+            "index": "productId",
+            "width": 0,
+            "hidden": true,
+            "sortable": false,
+            "align": "center"
+        }, {
+            "name": "productName",
+            "index": "productName",
+            "width": 50,
+            "editable": false,
+            "sorttype": "string"
+        }, {
+            "name": "quantity",
+            "index": "quantity",
+            "width": 15,
+            "editable": true,
+            "sorttype": "string",
+            "edittype": "text",
+            "editoptions": {
+                "size": 2,
+                "maxlength": 8,
+                "NullIfEmpty": true
+
+            },
+            "editrules": {
+                "number": true
+            }
+        }, {
+            "name": "expiry_date",
+            "index": "expiry_date",
+            "editable": true,
+            "sorttype": "date",
+            "width": 25
+        }]
+}

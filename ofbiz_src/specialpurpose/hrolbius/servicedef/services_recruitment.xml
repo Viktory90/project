@@ -1,0 +1,1179 @@
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<service name="createInternalJobPosting" engine="simple"
+		default-entity-name="EmploymentApp"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml"
+		invoke="createInternalJobPosting" auth="true">
+		<description>Create a New Internal Job Posting</description>
+		<permission-service service-name="hrGenericPermission"
+			main-action="CREATE" />
+		<auto-attributes mode="INOUT" entity-name="EmploymentApp"
+			include="pk" optional="true" />
+		<auto-attributes mode="IN" entity-name="EmploymentApp"
+			include="nonpk" optional="true" />
+		<override name="applyingPartyId" optional="false" />
+		<override name="approverPartyId" optional="false" />
+		<override name="jobRequisitionId" optional="false" />
+	</service>
+
+	<service name="updateInternalJobPosting" engine="simple"
+		default-entity-name="EmploymentApp"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml"
+		invoke="updateInternalJobPosting" auth="true">
+		<description>Update Internal Job Posting</description>
+		<permission-service service-name="hrGenericPermission"
+			main-action="UPDATE" />
+		<auto-attributes mode="IN" include="pk" optional="false" />
+		<auto-attributes mode="IN" include="nonpk" optional="true" />
+		<override name="applyingPartyId" optional="false" />
+		<override name="approverPartyId" optional="false" />
+		<override name="jobRequisitionId" optional="false" />
+	</service>
+
+	<service name="deleteInternalJobPosting" engine="simple"
+		default-entity-name="EmploymentApp"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml"
+		invoke="deleteInternalJobPosting" auth="true">
+		<description>Delete an Internal Job Posting</description>
+		<permission-service service-name="hrGenericPermission"
+			main-action="DELETE" />
+		<auto-attributes mode="IN" include="pk" optional="false" />
+	</service>
+
+	<service name="createJobInterview" engine="simple"
+		default-entity-name="JobInterview"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml"
+		invoke="createJobInterview" auth="true">
+		<description>Create Job Interview</description>
+		<auto-attributes mode="INOUT" entity-name="JobInterview"
+			include="pk" optional="true" />
+		<auto-attributes mode="IN" entity-name="JobInterview"
+			include="nonpk" optional="true" />
+		<override name="jobIntervieweePartyId" optional="false" />
+		<override name="jobRequisitionId" optional="false" />
+		<override name="jobInterviewerPartyId" optional="false" />
+	</service>
+
+	<service name="updateJobInterview" engine="simple"
+		default-entity-name="JobInterview"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml"
+		invoke="updateJobInterview" auth="true">
+		<description>Update Job Interview</description>
+		<permission-service service-name="humanResManagerPermission"
+			main-action="UPDATE" />
+		<auto-attributes mode="IN" include="pk" optional="false" />
+		<auto-attributes mode="IN" include="nonpk" optional="true" />
+		<override name="jobIntervieweePartyId" optional="false" />
+		<override name="jobRequisitionId" optional="false" />
+		<override name="jobInterviewTypeId" optional="false" />
+	</service>
+
+	<service name="deleteJobInterview" engine="simple"
+		default-entity-name="JobInterview"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml"
+		invoke="deleteJobInterview" auth="true">
+		<description>Delete Job Interview</description>
+		<permission-service service-name="humanResManagerPermission"
+			main-action="DELETE" />
+		<auto-attributes mode="IN" include="pk" optional="false" />
+	</service>
+
+	<service name="updateEmploymentApp" engine="simple"
+		default-entity-name="EmploymentApp"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml"
+		invoke="updateEmploymentApp" auth="true">
+		<description>Update an Employment Application</description>
+		<permission-service service-name="humanResManagerPermission"
+			main-action="UPDATE" />
+		<auto-attributes mode="IN" include="pk" optional="false" />
+		<auto-attributes mode="IN" include="nonpk" optional="true" />
+	</service>
+
+	<service name="deleteEmploymentApp" engine="simple"
+		default-entity-name="EmploymentApp"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml"
+		invoke="deleteEmploymentApp" auth="true">
+		<description>Delete an Employment Application</description>
+		<permission-service service-name="humanResManagerPermission"
+			main-action="DELETE" />
+		<auto-attributes mode="IN" include="pk" optional="false" />
+	</service>
+
+	<service name="createEmploymentApp" engine="simple"
+		default-entity-name="EmploymentApp"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml"
+		invoke="createEmploymentApp" auth="true">
+		<description>Create an Employment Application</description>
+		<permission-service service-name="humanResManagerPermission"
+			main-action="CREATE" />
+		<auto-attributes mode="INOUT" include="pk" optional="true" />
+		<auto-attributes mode="IN" include="nonpk" optional="true" />
+	</service>
+
+	<service name="createApplicant" engine="java" invoke="createApplicant"
+		location="com.olbius.recruitment.services.RecruitmentServices">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_APPLICANT" action="_CREATE" />
+		</required-permissions>
+		<auto-attributes mode="IN" entity-name="Person"
+			include="all" optional="true"></auto-attributes>
+		<!-- <auto-attributes mode="IN" entity-name="PostalAddress"
+			include="all" optional="true"></auto-attributes> -->
+			
+		<attribute name="firstName" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="lastName" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="jobRequestId" mode="IN" type="String"
+			optional="false"></attribute>
+		<override name="partyId" mode="INOUT" optional="true"></override>	
+		<!-- <attribute name="phone_mobile" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="phone_home" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="primaryEmailAddress" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="otherEmailAddress" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="address1_PermanentResidence" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="permanentResidence_countryGeoId" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="permanentResidence_stateProvinceGeoId" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="permanentResidence_districtGeoId" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="permanentResidence_wardGeoId" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="address1_CurrResidence" mode="IN" type="String" optional="false"></attribute>
+    	<attribute name="currResidence_countryGeoId" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="currResidence_stateProvinceGeoId" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="currResidence_districtGeoId" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="currResidence_wardGeoId" mode="IN" type="String" optional="true"></attribute> -->
+    	
+	</service>
+	
+	<service name="createPersonEducation" engine="java" invoke="createPersonEducation" 
+		location="com.olbius.recruitment.services.RecruitmentServices" auth="true">
+		<attribute name="partyId" mode="INOUT" type="String"></attribute>
+		<attribute name="schoolId" mode="INOUT" type="String"></attribute>
+		<attribute name="educationFromDate" mode="INOUT" type="java.sql.Timestamp"></attribute>
+		<attribute name="educationThruDate" mode="IN" type="java.sql.Timestamp"></attribute>
+		<attribute name="majorId" mode="INOUT" type="String"></attribute>
+		<attribute name="studyModeTypeId" mode="INOUT" type="String"></attribute>
+		<attribute name="degreeClassificationTypeId" mode="IN" type="String"></attribute>
+		<attribute name="educationSystemTypeId" mode="INOUT" type="String"></attribute>
+	</service>
+	<service name="createPersonWorkingProcess" engine="java" invoke="createPersonWorkingProcess"
+		location="com.olbius.recruitment.services.RecruitmentServices" auth="true">
+		<attribute name="partyId" mode="IN" type="String"></attribute>
+		<attribute name="workProcess_fromDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+		<attribute name="workProcess_thruDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+		<!-- <attribute name="orgId" mode="IN" type="String" optional="true"></attribute> -->
+		<!-- <attribute name="isCreateNewOrg" mode="IN" type="String" optional="true"></attribute> -->
+		<attribute name="companyName" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="emplPositionTypeIdWorkProcess" mode="IN" type="String"></attribute>
+		<attribute name="jobDescription" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="payroll" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="terminationReasonId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="rewardDiscrip" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="personWorkingProcessId" mode="OUT" type="String" optional="false"></attribute>
+	</service>
+	<service name="createPersonFamilyBackground" engine="java" invoke="createPersonFamilyBackground"
+		location="com.olbius.recruitment.services.RecruitmentServices" auth="true">
+		<attribute name="partyId" mode="IN" type="String"></attribute>
+		<attribute name="firstNameFamily" mode="IN" type="String"></attribute>
+		<attribute name="middleNameFamily" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="lastNameFamily" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="partyRelationshipTypeId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="birthDate" mode="IN" type="java.sql.Date" optional="true"></attribute>
+		<attribute name="occupation" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="placeWork" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="phoneNumber" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="emergencyContact" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="personFamilyId" mode="OUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="HRCreatePartySkill" engine="java" invoke="createPartySkill"
+		location="com.olbius.recruitment.services.RecruitmentServices" >
+		<attribute name="partyId" mode="IN" type="String"></attribute>
+		<attribute name="skillTypeId" mode="IN" type="String"></attribute>
+		<attribute name="skillLevelId" mode="IN" type="String"></attribute>	
+	</service>
+	<service name="createRecruitmentInfo" engine="java" invoke="createRecruitmentInfo"
+		location="com.olbius.recruitment.services.RecruitmentServices" auth="true" default-entity-name="Person">
+		<auto-attributes mode="IN" include="all" optional="true"></auto-attributes>
+		<attribute name="jobRequestId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="emplPositionTypeId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="recruitmentTypeId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="expectedSalary" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="employmentAppSourceTypeId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="referredByPartyId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="recruitment_fromDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+		<attribute name="description" mode="IN" type="String" optional="true"></attribute>
+		<override name="partyId" mode="INOUT" optional="true"></override>	
+	</service>
+	<service name="createInterviewee" engine="simple" invoke="createInterviewee"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml">
+		<description>Add a Interviewee</description>
+		<permission-service service-name="hrGenericPermission"
+			main-action="CREATE" />
+		<attribute name="jobInterviewId" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="partyId" mode="INOUT" type="String"
+			optional="false"></attribute>
+	</service>
+
+	<service name="createInterviewer" engine="simple" invoke="createInterviewer"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml">
+		<description>Add a Interviewer</description>
+		<permission-service service-name="hrGenericPermission"
+			main-action="CREATE" />
+		<auto-attributes mode="IN" entity-name="Interviewer"
+			include="all" optional="false"></auto-attributes>
+	</service>
+
+	<service name="inviteInterviewee" engine="java" invoke="inviteInterviewee"
+		location="com.olbius.recruitment.services.RecruitmentServices">
+		<description>Invite a Interviewee</description>
+		<permission-service service-name="hrGenericPermission"
+			main-action="VIEW" />
+		<attribute mode="IN" name="emailAddress" optional="false"
+			type="String" />
+	</service>
+
+	<service name="deleteInterviewee" engine="simple"
+		default-entity-name="Interviewee" invoke="deleteInterviewee"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml">
+		<description>Delete a Interviewee</description>
+		<permission-service service-name="hrGenericPermission"
+			main-action="DELETE" />
+		<auto-attributes mode="IN" optional="false" include="pk" />
+	</service>
+
+	<service name="deleteInterviewer" engine="simple"
+		default-entity-name="Interviewer" invoke="deleteInterviewer"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml">
+		<description>Delete a Interviewer</description>
+		<permission-service service-name="hrGenericPermission"
+			main-action="DELETE" />
+		<auto-attributes mode="IN" optional="false" include="pk" />
+	</service>
+
+	<service name="updateInterviewee" engine="simple"
+		default-entity-name="Interviewee" invoke="updateInterviewee"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml">
+		<description>Update a Interviewee</description>
+		<permission-service service-name="hrGenericPermission"
+			main-action="UPDATE" />
+		<auto-attributes mode="IN" optional="false" include="pk" />
+		<auto-attributes mode="IN" optional="false" include="nonpk"></auto-attributes>
+	</service>
+
+	<service name="updateInterviewQuestion" engine="simple"
+		default-entity-name="JobInterviewQuestion" invoke="updateInterviewQuestion"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml"
+		auth="true">
+		<description> Update Interview Question</description>
+		<permission-service service-name="hrGenericPermission"
+			main-action="UPDATE" />
+		<auto-attributes mode="IN" optional="false" include="pk" />
+		<auto-attributes mode="IN" optional="true" include="nonpk" />
+		<override name="questionTypeId" optional="false"></override>
+		<override name="content" optional="false"></override>
+	</service>
+
+	<service name="creatInterviewQuestion" engine="simple"
+		default-entity-name="JobInterviewQuestion" invoke="creatInterviewQuestion"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml"
+		auth="true">
+		<description>Create new question  </description>
+		<permission-service service-name="hrGenericPermission"
+			main-action="CREATE" />
+		<auto-attributes mode="INOUT" include="pk" optional="true"></auto-attributes>
+		<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+		<override name="questionType" optional="false"></override>
+		<override name="content" optional="false"></override>
+	</service>
+
+	<service name="deleteJobInterviewQuestion" engine="simple"
+		default-entity-name="JobInterviewQuestion" invoke="deleteJobInterviewQuestion"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml">
+		<description> Delete a Interview Question</description>
+		<permission-service service-name="hrGenericPermission"
+			main-action="DELETE" />
+		<auto-attributes mode="IN" optional="false" include="pk"></auto-attributes>
+	</service>
+
+	<service name="AddQuestionInterviewMap" engine="java"
+		invoke="AddQuestionInterviewMap" location="com.olbius.recruitment.services.RecruitmentServices">
+		<description> Add Question Interview Map</description>
+		<permission-service service-name="hrGenericPermission"
+			main-action="CREATE" />
+		<attribute name="jobInterviewId" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="questionId" mode="IN" type="String"
+			optional="false"></attribute>
+	</service>
+
+	<service name="createRecruitmentPlan" engine="java"
+		invoke="createRecruitmentPlan" location="com.olbius.recruitment.services.RecruitmentServices">
+		<description> Create Recruitment Plan</description>
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_RECRUITMENT_PLAN"
+				action="_CREATE" />
+		</required-permissions>
+		<auto-attributes mode="IN" entity-name="RecruitmentPlan"
+			include="all" optional="true"></auto-attributes>
+		<override name="emplPositionTypeId" optional="false"></override>
+	</service>
+
+	<service name="createRecruitmentPlanHeader" engine="java"
+		invoke="createRecruitmentPlanHeader" location="com.olbius.recruitment.services.RecruitmentServices">
+		<description> Create Recruitment Plan Header</description>
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_RECRUITMENT_PLAN" action="_CREATE" />
+		</required-permissions>
+		<auto-attributes mode="IN" entity-name="RecruitmentPlanHeader" include="all" optional="true"></auto-attributes>
+		<attribute name="reason" mode="IN" type="String" optional="true"></attribute>
+		<override name="partyId" mode="INOUT" />
+		<override name="year" mode="INOUT" />
+	</service>
+
+	<service name="getRecruitmentPlanDetail" engine="java" invoke="getRecruitmentPlanDetail" location="com.olbius.recruitment.services.RecruitmentServices">
+		<description>Get Recruitment Plan Detail</description>
+		<attribute name="partyId" mode="IN" type="String"/>
+		<attribute name="year" mode="IN" type="String"/>
+		<attribute name="listGenericValue" type="List" mode="OUT"/>
+	</service>
+
+	<service name="createOrUpdateRecruitmentPlan" engine="java" invoke="createOrUpdateRecruitmentPlan" location="com.olbius.recruitment.services.RecruitmentServices">
+		<description>Create Recruitment Plan if not exists Or Update if exists</description>
+		<auto-attributes entity-name="RecruitmentPlan" mode="IN" include="nonpk" optional="true"></auto-attributes>
+		<auto-attributes entity-name="RecruitmentPlan" mode="INOUT" include="pk"></auto-attributes>
+	</service>
+
+
+	<service name="checkRecruitmentPlan" engine="simple"
+		invoke="updateRecruitmentPlan" default-entity-name="RecruitmentPlan"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml">
+		<description> Check a Recruitment Plan</description>
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_RECRUITMENT_PLAN"
+				action="_CHECK" />
+		</required-permissions>
+		<auto-attributes mode="IN" entity-name="RecruitmentPlan"
+			include="pk" optional="false"></auto-attributes>
+		<auto-attributes mode="IN" entity-name="RecruitmentPlan"
+			include="nonpk" optional="true"></auto-attributes>
+		<attribute name="partyId" mode="OUT" type="String" optional="false"></attribute>
+	</service>
+
+	<service name="approveRecruitmentPlan" engine="simple"
+		invoke="updateRecruitmentPlan" default-entity-name="RecruitmentPlan" 
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml">
+		<description> Approve a Recruitment Plan</description>
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_RECRUITMENT_PLAN"
+				action="_APPR" />
+		</required-permissions>
+		<auto-attributes mode="IN" entity-name="RecruitmentPlan"
+			include="pk" optional="false"></auto-attributes>
+		<auto-attributes mode="IN" entity-name="RecruitmentPlan"
+			include="nonpk" optional="true"></auto-attributes>
+	</service>
+	
+	<service name="proposeRecruitmentPlan" invoke="proposeRecruitmentPlan"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml"
+		auth="true" engine="simple">
+		<description> Propose a Recruitment Plan</description>
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_RECRUITMENT_PLAN"
+				action="_PROPOSE" />
+		</required-permissions>
+		<auto-attributes mode="IN" entity-name="RecruitmentPlan"
+			include="pk" optional="false"></auto-attributes>
+		<auto-attributes mode="IN" entity-name="RecruitmentPlan"
+			include="nonpk" optional="true"></auto-attributes>
+	</service>
+	
+	<service name="createNtfToApprover" engine="java"
+		invoke="createNtfToApprover" 
+		location="com.olbius.recruitment.services.RecruitmentServices">
+		<attribute name="ntfIdClose" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="year" mode="IN" type="Long"></attribute>
+		<!-- <attribute name="statusId" mode="IN" type="String"></attribute>	 -->
+	</service>
+	
+	<service name="createJobRequest" engine="java" invoke="createJobRequest"
+		location="com.olbius.recruitment.services.JobRequestServices">
+		<description> Create a new job request</description>
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_JOB_REQUEST" action="_CREATE" />
+		</required-permissions>
+		<auto-attributes mode="IN" entity-name="JobRequest" include="all" optional="true"></auto-attributes>
+		<attribute name="listCriteria" mode="IN" type="List" optional="true"></attribute>
+		<override name="emplPositionTypeId" optional="false"></override>
+		<override name="fromDate" optional="false"></override>
+		<override name="resourceNumber" optional="false"></override>
+		<override name="jobDescription" allow-html="any"></override>
+		<override name="jobRequestId" mode="OUT" optional="false"></override>
+	</service>
+	
+	<service name="updateJobRequest" location="com.olbius.recruitment.services.JobRequestServices" 
+	engine="java" invoke="updateJobRequest" default-entity-name="JobRequest">
+    	<description> Update job request</description>
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_JOB_REQUEST" action="_UPDATE" />
+		</required-permissions>
+    	<auto-attributes mode="INOUT" include="pk" optional="true"></auto-attributes>
+    	<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+    </service>
+	
+	<service name="createRecruitmentTestPlan" engine="simple"
+		invoke="createRecruitmentTestPlan"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml"
+		auth="true">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_JOB_TEST_PLAN"
+				action="_CREATE" />
+		</required-permissions>
+		<attribute name="jobRequestId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="description" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="name" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="fromDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+		<attribute name="thruDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+		<attribute name="applicantIdList" mode="IN" type="List" optional="false"></attribute>
+		
+		<attribute name="examName" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="examTesterIdList" mode="IN" type="List" optional="true"></attribute>
+		<attribute name="examFromDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+		<attribute name="examThruDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+		<attribute name="examLocation" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="examDescription" mode="IN" type="String" optional="true"></attribute>
+		
+		<attribute name="firstIntvName" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="firstIntvTesterIdList" mode="IN" type="List" optional="true"></attribute>
+		<attribute name="firstIntvFromDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+		<attribute name="firstIntvThruDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+		<attribute name="firstIntvLocation" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="firstIntvDescription" mode="IN" type="String" optional="true"></attribute>
+		
+		<attribute name="secondIntvName" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="secondIntvTesterIdList" mode="IN" type="List" optional="true"></attribute>
+		<attribute name="secondIntvFromDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+		<attribute name="secondIntvThruDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+		<attribute name="secondIntvLocation" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="secondIntvDescription" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="skipCreateExam" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="skipCreateFirstIntv" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="skipCreateSecondIntv" mode="IN" type="String" optional="true"></attribute>
+	</service>
+
+	<service name="createRecruitmentExam" engine="simple"
+		invoke="createRecruitmentExam"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml"
+		auth="true">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_JOB_TEST_PLAN"
+				action="_CREATE" />
+		</required-permissions>
+		<attribute name="jobRequestId" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="contactMechId" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="recruitmentTestPlanId" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="description" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="name" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="estimatedStartDate" mode="IN" type="java.sql.Timestamp"
+			optional="true"></attribute>
+		<attribute name="estimatedCompletionDate" mode="IN" type="java.sql.Timestamp"
+			optional="true"></attribute>
+		<attribute name="sequenceNum" mode="IN" type="Long"
+			optional="true"></attribute>
+		<attribute name="applicantIdList" mode="IN" type="List"
+			optional="false"></attribute>
+		<attribute name="testerIdList" mode="IN" type="List"
+			optional="false"></attribute>
+	</service>
+
+	<service name="createRecruitmentFirstInterview" engine="simple"
+		invoke="createRecruitmentFirstInterview"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml"
+		auth="true">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_JOB_TEST_PLAN"
+				action="_CREATE" />
+		</required-permissions>
+		<attribute name="jobRequestId" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="contactMechId" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="recruitmentTestPlanId" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="description" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="name" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="estimatedStartDate" mode="IN" type="java.sql.Timestamp"
+			optional="true"></attribute>
+		<attribute name="createExam" mode="IN" type="Boolean"
+			optional="true"></attribute>
+		<attribute name="estimatedCompletionDate" mode="IN" type="java.sql.Timestamp"
+			optional="true"></attribute>
+		<attribute name="applicantIdList" mode="IN" type="List"
+			optional="false"></attribute>
+		<attribute name="sequenceNum" mode="IN" type="Long"
+			optional="true"></attribute>
+		<attribute name="testerIdList" mode="IN" type="List"
+			optional="false"></attribute>
+	</service>
+
+	<service name="createRecruitmentSecondInterview" engine="simple"
+		invoke="createRecruitmentSecondInterview"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml"
+		auth="true">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_JOB_TEST_PLAN"
+				action="_CREATE" />
+		</required-permissions>
+		<attribute name="jobRequestId" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="contactMechId" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="recruitmentTestPlanId" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="description" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="name" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="estimatedStartDate" mode="IN" type="java.sql.Timestamp"
+			optional="true"></attribute>
+		<attribute name="createExam" mode="IN" type="Boolean"
+			optional="true"></attribute>
+		<attribute name="createFirstIntv" mode="IN" type="Boolean"
+			optional="true"></attribute>
+		<attribute name="estimatedCompletionDate" mode="IN" type="java.sql.Timestamp"
+			optional="true"></attribute>
+		<attribute name="sequenceNum" mode="IN" type="Long"
+			optional="true"></attribute>
+		<attribute name="applicantIdList" mode="IN" type="List"
+			optional="false"></attribute>
+		<attribute name="testerIdList" mode="IN" type="List"
+			optional="false"></attribute>
+	</service>
+
+	<service name="rateExam" engine="java" invoke="rateExam"
+		location="com.olbius.recruitment.services.RecruitmentServices" auth="true">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_APPLICANT_SEL"
+				action="_RATE" />
+		</required-permissions>
+		<attribute name="partyId" mode="IN" type="String"></attribute>
+		<attribute name="workEffortId" mode="IN" type="String"></attribute>
+		<attribute name="fromDate" mode="IN" type="java.sql.Timestamp"></attribute>
+		<attribute name="roleTypeId" mode="IN" type="String"></attribute>
+		<attribute name="parentWorkEffortId" mode="IN" type="String"></attribute>
+		<attribute name="parentFromDate" mode="IN" type="java.sql.Timestamp"></attribute>
+		<attribute name="parentRoleTypeId" mode="IN" type="String"></attribute>
+		<attribute name="score" mode="IN" type="Long" optional="true"></attribute>
+		<attribute name="resultId" mode="IN" type="String"></attribute>
+	</service>
+
+	<service name="rateFirstInterview" engine="java" invoke="rateFirstInterview"
+		location="com.olbius.recruitment.services.RecruitmentServices" auth="true">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_APPLICANT_SEL"
+				action="_RATE" />
+		</required-permissions>
+		<auto-attributes mode="IN" entity-name="RecruitmentInterviewResult"
+			optional="true">
+			<exclude field-name="recruitmentTestResultId" />
+		</auto-attributes>
+		<attribute name="partyId" mode="IN" type="String"></attribute>
+		<attribute name="workEffortId" mode="IN" type="String"></attribute>
+		<attribute name="fromDate" mode="IN" type="java.sql.Timestamp"></attribute>
+		<attribute name="roleTypeId" mode="IN" type="String"></attribute>
+		<attribute name="parentWorkEffortId" mode="IN" type="String"></attribute>
+		<attribute name="parentFromDate" mode="IN" type="java.sql.Timestamp"></attribute>
+		<attribute name="parentRoleTypeId" mode="IN" type="String"></attribute>
+		<attribute name="resultId" mode="IN" type="String"></attribute>
+	</service>
+	
+	<service name="rateSecondInterview" engine="java" invoke="rateSecondInterview"
+		location="com.olbius.recruitment.services.RecruitmentServices" auth="true">
+		<implements service="rateFirstInterview"/>
+	</service>
+
+	<service name="getApplicantJobRequest" engine="simple" invoke="getApplicantJobRequest"
+		location="component://hrolbius/script/com/olbius/services/recruitment/RecruitmentServices.xml">
+		<attribute name="jobRequestId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="applicants" mode="IN" type="java.util.List" optional="true"></attribute>
+	</service>
+
+	<service name="createWorkTrialProposal" engine="java"
+		invoke="createWorkTrialProposal" location="com.olbius.recruitment.services.RecruitmentServices"
+		auth="true">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_WORK_TRIAL_PROPOSAL"
+				action="_CREATE" />
+		</required-permissions>
+		<auto-attributes mode="IN" entity-name="WorkTrialProposal"
+			include="all" optional="true">
+			<exclude field-name="workTrialId" />
+		</auto-attributes>
+		<attribute mode="IN" name="workEffortId" type="String" optional="false" />
+		<attribute mode="IN" type="List" name="applicantIdList"
+			optional="false" />
+		<attribute name="targetLink" mode="OUT" type="String"
+			optional="true"></attribute>
+		<attribute name="action" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="dateTime" mode="OUT" type="Timestamp"
+			optional="true"></attribute>
+		<attribute name="state" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="header" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="notiToId" mode="OUT" type="String"
+			optional="true"></attribute>
+	</service>
+
+	<service name="approveWorkTrialProposal" engine="java"
+		invoke="approveWorkTrialProposal" location="com.olbius.recruitment.services.RecruitmentServices"
+		auth="true">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_WORK_TRIAL_PROPOSAL"
+				action="_APPR" />
+		</required-permissions>
+		<auto-attributes mode="IN" entity-name="WorkTrialProposal"
+			include="all" optional="true">
+		</auto-attributes>
+		<attribute name="ntfId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="applicantList" mode="IN" type="List"/>		
+		<override name="workTrialId" optional="false"></override>
+	</service>
+
+	<service name="createWorkTrialReport" engine="java"
+		invoke="createWorkTrialReport" location="com.olbius.recruitment.services.RecruitmentServices"
+		auth="true">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_TRIAL_REPORT"
+				action="_CREATE" />
+		</required-permissions>
+		<attribute name="partyId" mode="IN" type="String" optional="true" />
+		<attribute name="eduProcess" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="workResult" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="advAndDis" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="workOrientation" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="policyProposal" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="eduProposal" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="workProposal" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="ruleComplianceSeft" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="complWorkRateSeft" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="interCommunicationSeft" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="learningCapabilitySeft" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="exterCommunicationSeft" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="targetLink" mode="OUT" type="String"
+			optional="true"></attribute>
+		<attribute name="action" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="dateTime" mode="OUT" type="Timestamp"
+			optional="true"></attribute>
+		<attribute name="state" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="header" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="notiToId" mode="OUT" type="String"
+			optional="true"></attribute>
+	</service>
+
+	<service name="rateLeaderWorkTrial" engine="java"
+		invoke="rateLeaderWorkTrial" location="com.olbius.recruitment.services.RecruitmentServices"
+		auth="true">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_WORK_TRIAL" action="_RATE" />
+		</required-permissions>
+		<attribute name="workTrialReportId" mode="IN" type="String"
+			optional="true" />
+		<attribute name="partyId" mode="IN" type="String" optional="true" />
+		<attribute name="partyIdFrom" mode="IN" type="String" optional="true" />
+		<attribute name="ruleComplianceLeader" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="complWorkRateLeader" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="interCommunicationLeader" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="learningCapabilityLeader" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="exterCommunicationLeader" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="assignedTask" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="futureEdu" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="requiredOther" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="extTime" mode="IN" type="Long"
+			optional="true"></attribute>
+		<attribute name="resultId" mode="INOUT" type="String"
+			optional="true"></attribute>
+		<attribute name="targetLink" mode="OUT" type="String"
+			optional="true"></attribute>
+		<attribute name="action" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="dateTime" mode="OUT" type="Timestamp"
+			optional="true"></attribute>
+		<attribute name="state" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="header" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="notiToId" mode="OUT" type="String"
+			optional="true"></attribute>
+		<attribute name="ntfId" mode="IN" type="String" optional="true"></attribute>
+	</service>
+
+	<service name="rateHRMWorkTrial" engine="java" invoke="rateHRMWorkTrial"
+		location="com.olbius.recruitment.services.RecruitmentServices" auth="true">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_WORK_TRIAL" action="_RATE" />
+		</required-permissions>
+		<attribute name="partyId" mode="IN" type="String" optional="true" />
+		<attribute name="partyIdFrom" mode="IN" type="String" optional="true" />
+		<attribute name="workTrialReportId" mode="IN" type="String"
+			optional="true" />
+		<attribute name="resultId" mode="INOUT" type="String"
+			optional="true"></attribute>
+		<attribute name="extTime" mode="IN" type="Long"
+			optional="true"></attribute>
+		<attribute name="targetLink" mode="OUT" type="String"
+			optional="true"></attribute>
+		<attribute name="action" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="dateTime" mode="OUT" type="Timestamp"
+			optional="true"></attribute>
+		<attribute name="state" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="header" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="notiToId" mode="OUT" type="String"
+			optional="true"></attribute>
+		<attribute name="ntfId" mode="IN" type="String" optional="true"></attribute>
+	</service>
+
+	<service name="rateCEOWorkTrial" engine="java" invoke="rateCEOWorkTrial"
+		location="com.olbius.recruitment.services.RecruitmentServices" auth="true">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_WORK_TRIAL" action="_RATE" />
+		</required-permissions>
+		<attribute name="partyId" mode="IN" type="String" optional="true" />
+		<attribute name="partyIdFrom" mode="IN" type="String" optional="true" />
+		<attribute name="workTrialReportId" mode="IN" type="String"
+			optional="true" />
+		<attribute name="resultId" mode="INOUT" type="String"
+			optional="true"></attribute>
+		<attribute name="extTime" mode="IN" type="Long"
+			optional="true"></attribute>
+		<attribute name="ntfId" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	
+	<!-- <service name="createSalesmanPGApplicant" engine="java" invoke="createSalesmanPGApplicant"
+		location="com.olbius.recruitment.RecruimentEmployeePg" auth="true">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_SALESMANPG" action="_CREATE" />
+		</required-permissions>
+		<auto-attributes mode="IN" entity-name="Person"
+			include="pk" optional="true" />
+		<auto-attributes mode="IN" entity-name="Person"
+			include="nonpk" optional="true" />
+		<attribute name="phoneNumber" mode="IN" type="String" optional="true" />
+		<attribute name="bankAcountNumberCurr" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="bankIdCurr" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="bankBrandIdCurr" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="bankAcountNumber" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="bankId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="bankBrandId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="emplPositionId" mode="INOUT" type="String" optional="false"></attribute>
+		<attribute name="emplPositionTypeId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="address" mode="IN" type="String" optional="true" />
+		<attribute name="jobRequestId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="city" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="countryGeoId" mode="INOUT" type="String"
+			optional="true"></attribute>
+		<attribute name="applyingPartyId" mode="OUT" type="String" optional="false" />
+		<attribute name="idPhone" mode="OUT" type="String" optional="true" />
+		<attribute name="idAddress" mode="OUT" type="String" optional="true" />
+		
+		<attribute name="applicationId" mode="OUT" type="String" optional="true"></attribute>
+	</service> -->
+	
+	<service name="createSalesmanPG" engine="java" invoke="createSalesmanPG"
+		location="com.olbius.recruitment.RecruimentEmployeePg" auth="true">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_SALESMANPG" action="_CREATE" />
+		</required-permissions>
+		<auto-attributes mode="IN" entity-name="Person"
+			include="pk" optional="true" />
+		<auto-attributes mode="IN" entity-name="Person"
+			include="nonpk" optional="true" />
+		<attribute name="recruitmentTypeId" mode="IN" type="String"></attribute>		
+		<attribute name="emplPositionTypeId" mode="IN" type="String"></attribute>
+		<attribute name="fromDate" mode="IN" type="Timestamp"></attribute>
+		<attribute name="orgId" mode="IN" type="String"></attribute>
+		<attribute name="partyId" mode="OUT" type="String" optional="true"></attribute>
+	</service>
+	
+	<service name="approvalRecruitmentSalesmanPG" engine="java" invoke="approvalRecruitmentSalesmanPG"
+		location="com.olbius.recruitment.RecruimentEmployeePg" auth="true" default-entity-name="Employment">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_SALESMANPG" action="_UPDATE" />
+		</required-permissions>
+		<auto-attributes mode="IN" include="pk" optional="false"></auto-attributes>
+		<auto-attributes mode="IN" include="pk" optional="false" entity-name="EmplPosition"></auto-attributes>
+		<attribute name="statusId" mode="IN" type="String" optional="true"></attribute>
+		<!-- <attribute name="recruitmentTypeId" mode="IN" type="String"></attribute> -->
+	</service>
+	
+	
+	<service name="createNtfSalesmanPG" engine="java" invoke="createNtfSalesmanPG"
+		location="com.olbius.recruitment.RecruimentEmployeePg" auth="true">
+		<attribute name="partyIdFrom" mode="IN" type="String"></attribute>
+		<attribute name="partyIdTo" mode="IN" type="String"></attribute>	
+	</service>
+	
+	<service name="sendReportRecruitSalesmanPG" engine="java" invoke="sendReportRecruitSalesmanPG"
+		location="com.olbius.recruitment.RecruimentEmployeePg" auth="true">
+	</service>
+	
+	<service name="createRecruitmentDisable" engine="java" invoke="createRecruitmentDisable"
+		location="com.olbius.recruitment.RecruimentEmployeePg" default-entity-name="RecruitmentDisable">
+		<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+		<auto-attributes mode="OUT" include="pk" optional="false"></auto-attributes>
+		<attribute name="partyIds" mode="IN" type="java.util.List"></attribute>
+		<attribute name="reasons" mode="IN" type="String" optional="true"></attribute>
+		<override name="fromDate" optional="false"></override>
+		<override name="emplPositionTypeId" optional="false"></override>
+		<override name="recruitmentTypeId" optional="false"></override>
+	</service>
+	
+	<service name="updateEmployeePG" engine="java" invoke="updateEmployeePG"
+		location="com.olbius.recruitment.RecruimentEmployeePg" auth="true">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_SALESMANPG" action="_UPDATE" />
+		</required-permissions>
+		<auto-attributes mode="IN" entity-name="Person"
+			include="all" optional="true" />
+		<attribute name="workTrialProposalId" mode="INOUT" type="String" optional="false"></attribute>
+		<attribute name="bankAcountNumberCurr" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="bankIdCurr" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="bankBrandIdCurr" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="bankAcountNumber" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="bankId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="bankBrandId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="emplPositionTypeId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="phoneNumber" mode="IN" type="String"
+			optional="true" />
+		<attribute name="city" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="countryGeoId" mode="INOUT" type="String"
+			optional="true"></attribute>
+		<attribute name="address" mode="IN" type="String" optional="true" />
+		<attribute name="partyId" mode="INOUT" type="String"
+			optional="false" />
+		<attribute name="telContactmechId" mode="IN" type="String" optional="true" />
+		<attribute name="postalAddressContactmechId" mode="IN" type="String" optional="true" />
+	</service>
+
+	<service name="UpdateWorkTrialProposal" engine="simple" invoke="UpdateWorkTrialProposal"
+		default-entity-name="WorkTrialProposal" location="component://hrolbius/script/com/olbius/services/recruitment/RecruitmentServices.xml">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_SALESMANPG" action="_UPDATE" />
+		</required-permissions>
+		<auto-attributes mode="IN" include="pk" optional="false"></auto-attributes>
+		<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>	
+		<attribute name="ntfId" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	
+	<!-- <service name="createProposePg" engine="java" default-entity-name="WorkTrialProposal" 
+		invoke="createProposeSalesmanPG"
+		location="com.olbius.recruitment.RecruimentEmployeePg" auth="true">
+		<description>create Propose PG </description>
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_SALESMANPG" action="_CREATE" />
+		</required-permissions>
+		<auto-attributes mode="INOUT" include="pk" optional="true" />
+		<auto-attributes  mode="IN" include="nonpk" optional="true" />		
+		<attribute name="targetLink" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="action" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="dateTime" mode="OUT" type="Timestamp"
+			optional="true"></attribute>
+		<attribute name="state" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="header" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="notiToId" mode="OUT" type="String"
+			optional="true"></attribute>
+		<attribute name="newStatusId" mode="IN" type="String" optional="false"></attribute>	
+		<override name="applicationId" mode="INOUT" type="String" optional="false"></override>			
+	</service> -->
+	
+	<!-- <service name="createNtfSalesmanPgRecruitment" engine="java" invoke="createNtfSalesmanPgRecruitment" 
+		location="com.olbius.recruitment.RecruimentEmployeePg" auth="true">
+		<attribute name="workTrialProposalId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="statusId" mode="IN" type="String"></attribute>
+	</service> -->
+	
+	<!-- <service name="createSalesmanPgInOrg" engine="java" invoke="createSalesmanPgInOrg" auth="true"
+		location="com.olbius.recruitment.RecruimentEmployeePg" default-entity-name="WorkTrialProposal">
+		<auto-attributes mode="IN" include="pk" optional="false"></auto-attributes>
+		<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+		<override name="workingPartyId" optional="false"></override>
+		<override name="emplPositionTypeId" optional="false"></override>	
+	</service> -->
+	
+	<service name="reportSalesmanPgRecruitment" engine="java" invoke="reportSalesmanPgRecruitment" auth="true"
+		location="com.olbius.recruitment.RecruimentEmployeePg">
+		
+	</service>
+	<!-- <service name="createSalemanPGWorkTrial" engine="java" invoke="createSalemanPGWorkTrial" 
+		location="com.olbius.recruitment.RecruimentEmployeePg" default-entity-name="EmploymentApp">
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_SALESMANPG" action="_UPDATE" />
+		</required-permissions>
+		<attribute name="applicationId" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="newStatusId" mode="IN" type="String"
+			optional="false"></attribute>
+		<auto-attributes mode="IN" include="pk" optional="false" entity-name="WorkTrialProposal"></auto-attributes>
+	</service> -->
+	
+	<!-- <service name="updateApproveSalePg" engine="java"
+		default-entity-name="ProposeEmployeePg" invoke="updateApproveSalePg"
+		location="com.olbius.recruitment.RecruimentEmployeePg" auth="true">
+		<description>update after approve propose</description>
+		<required-permissions join-type="AND">
+			<check-permission permission="HR_SALESMANPG" action="_UPDATE" />
+		</required-permissions>
+		<attribute name="proposeId" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="statusId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="noteOfApprove" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="emplPositionTypeId" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="partyId" mode="IN" type="String" optional="false"></attribute>
+	</service> -->
+
+	<service name="getBankBrandName" engine="java" invoke="getBankBrandName"
+		location="com.olbius.recruitment.RecruimentEmployeePg">
+		<attribute name="bankId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="listBankBrandName" mode="OUT" type="java.util.List"
+			optional="true"></attribute>
+	</service>
+
+	<service name="sendNotifyToHr" engine="java" invoke="sendNotifyToHr"
+		location="com.olbius.recruitment.RecruimentEmployeePg">
+	</service>
+
+	<service name="checkedReportListApproved" engine="java"
+		invoke="checkedReportListApproved" location="com.olbius.recruitment.RecruimentEmployeePg"
+		auth="true">
+		<attribute name="proposeId" mode="IN" type="String" />
+		<attribute name="check" mode="IN" type="String" optional="true"></attribute>
+	</service>
+
+	<service name="getCityName" engine="java" invoke="getCityName"
+		location="com.olbius.recruitment.RecruimentEmployeePg">
+		<attribute name="countryGeoId" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="listCityName" mode="OUT" type="java.util.List"
+			optional="true"></attribute>
+	</service>
+	
+	<service name="assignApplicantToRecruitmentTest" invoke="assignApplicantToRecruitmentTest"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml"
+		auth="true" engine="simple">
+		<implements service="assignPartyToWorkEffort"/>
+		<attribute name="sendTo" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="authPass" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="authUser" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="sendFrom" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="description" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="subject" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="emplPositionType" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="address" mode="OUT" type="String" optional="true"></attribute>
+		<override name="thruDate" mode="INOUT"></override>
+		<override name="partyId" mode="INOUT" optional="true"></override>
+		<override name="workEffortId" mode="INOUT" optional="true"></override>
+	</service>
+	
+	<service name="assignTesterToRecruitmentTest" invoke="assignTesterToRecruitmentTest"
+		location="component://hrolbius/script/com/olbius/services/CommonServices.xml"
+		auth="true" engine="simple">
+		<implements service="assignPartyToWorkEffort"/>
+		<attribute name="sendTo" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="authPass" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="authUser" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="sendFrom" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="noteInfo" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="description" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="subject" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="emplPositionType" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="address" mode="OUT" type="String" optional="true"></attribute>
+		<override name="thruDate" mode="INOUT"></override>
+		<override name="partyId" mode="INOUT" optional="true"></override>
+		<override name="workEffortId" mode="INOUT" optional="true"></override>
+	</service>
+	
+	<service name="confirmExtTime" invoke="confirmExtTime"
+		location="com.olbius.recruitment.services.RecruitmentServices"
+		auth="true" engine="java">
+		<attribute name="extTimeConfirm" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="extTime" mode="IN" type="Long" optional="true"></attribute>
+		<attribute name="partyId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="partyIdFrom" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="fromDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+		<attribute name="workTrialReportId" mode="INOUT" type="String"
+			optional="true" />
+		<attribute name="ntfId" mode="IN" type="String"
+			optional="true" />
+	</service>
+	
+
+	<service name="setNotifiForRecruiment" engine="simple" invoke="setNotifiForRecruiment" location="component://hrolbius/script/com/olbius/services/CommonServices.xml" auth="true">
+		<attribute name="ntfId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="partyId" mode="IN" type="String" optional="false"></attribute>
+	</service>
+	
+	<service name="createNotificationForPersonResquest" engine="simple" invoke="createNotificationForPersonResquest" location="component://hrolbius/script/com/olbius/services/CommonServices.xml" auth="true">
+		<attribute name="targetLink" mode="IN" type="String"></attribute>
+		<attribute name="jobRequestId" mode="IN" type="String"></attribute>
+		<attribute name="action" mode="IN" type="String"></attribute>
+		<attribute name="dateTime" mode="IN" type="java.sql.Timestamp"></attribute>
+	</service>
+	
+	<service name="createEmploymentDirect" engine="simple" invoke="createEmploymentDirect" location="component://hrolbius/script/com/olbius/services/CommonServices.xml">
+		<auto-attributes mode="IN" entity-name="Employment" include="pk" optional="false"></auto-attributes>
+		<auto-attributes mode="IN" entity-name="Employment" include="nonpk" optional="true"></auto-attributes>
+		<override type="Timestamp" entity-name="Employment"  mode="IN" name="fromDate" optional="true"/>
+	</service>
+
+	<!-- HUNGNC START EDIT -->
+	<service name="updateRequirementInHR" engine="java" location="com.olbius.recruitment.services.RecruitmentServices" invoke="updateRequirementInHR" auth="true" default-entity-name="Requirement">
+    	<description>create new requirement</description>
+    	<auto-attributes mode="INOUT" include="all" optional="true"></auto-attributes>
+    	<attribute name="requirementId" mode="INOUT" type="String" optional="true"></attribute>
+    	<attribute name="facilityTo" mode="INOUT" type="String" optional="true"></attribute>
+    	<attribute name="productStoreIdTo" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="originContactMechId" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="destContactMechId" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="currencyUomId" mode="INOUT" type="String" optional="true"></attribute>
+    	<attribute name="receiverParty" mode="INOUT" type="String" optional="true"></attribute>
+    	<attribute name="customerParty" mode="INOUT" type="String" optional="true"></attribute>
+    	<attribute name="requestor" mode="INOUT" type="String" optional="true"></attribute>
+    	<attribute name="selectedSubMenuItem" mode="OUT" type="String" optional="true"></attribute>
+    </service>
+    <service name="getFacilities" engine="java" location="com.olbius.recruitment.services.RecruitmentServices" invoke="getFacilities" auth="true" default-entity-name="ProductStore">
+    	<attribute name="productStoreId" mode="INOUT" type="String" optional="true"></attribute>
+    	<attribute name="productStoreIdTo" mode="INOUT" type="String" optional="true"></attribute>
+    	<attribute name="facilityId" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="facilityIdTo" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="contactMechPurposeTypeIdFrom" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="contactMechPurposeTypeIdTo" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="listFacilities" mode="OUT" type="List" optional="true"></attribute>
+    	<attribute name="listFacilitiesTo" mode="OUT" type="List" optional="true"></attribute>
+    	<attribute name="listContactMechsFrom" mode="OUT" type="List" optional="true"></attribute>
+    	<attribute name="listContactMechsTo" mode="OUT" type="List" optional="true"></attribute>
+    </service>
+    <service name="getFacilitiesByStore" engine="java" location="com.olbius.recruitment.services.RecruitmentServices" invoke="getFacilitiesByStore" auth="true" default-entity-name="ProductStore">
+    	<attribute name="productStoreId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="facilityId" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="listFacilities" mode="OUT" type="List" optional="true"></attribute>
+    </service>
+    <!-- HUNGNC END EDIT -->
+    
+    <service name="getInfoPersonFamily" engine="java" location="com.olbius.recruitment.services.RecruitmentServices" invoke="getInfoPersonFamily" auth="true">
+    	<attribute name="personFamilyBackgroundId" mode="IN" type="String" optional="false"></attribute>
+    	<attribute name="listperson" mode="OUT" type="List" optional="true"></attribute>
+    </service>
+    
+    <service name="EditFamilyBackground" engine="java" invoke="EditFamilyBackground"
+		location="com.olbius.recruitment.services.RecruitmentServices" auth="true">
+		<attribute name="idTr" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="contactMechId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="personFamilyBackgroundId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="xfirstNameFamily" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="xmiddleNameFamily" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="xlastNameFamily" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="xpartyRelationshipTypeId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="xbirthDate" mode="IN" type="java.sql.Date" optional="true"></attribute>
+		<attribute name="xoccupation" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="xplaceWork" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="xphoneNumber" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="xemergencyContact" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="result" mode="OUT" type="List"></attribute>
+	</service>
+	
+	<service name="deletePersonEducation" engine="java" invoke="deletePersonEducation" location="com.olbius.recruitment.services.RecruitmentServices" auth="true">
+		<auto-attributes mode="IN" entity-name="PersonEducation" include="pk" optional="false"></auto-attributes>
+		<attribute name="idTr" mode="INOUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="deleteWorkingProcess" engine="java" invoke="deleteWorkingProcess" location="com.olbius.recruitment.services.RecruitmentServices"  auth="true">
+		<attribute name="personWorkingProcessId" mode="IN" type="String" optional="false"></attribute>
+	</service>
+	
+	<service name="editPersonWorkingProcess" engine="java" invoke="editPersonWorkingProcess"
+		location="com.olbius.recruitment.services.RecruitmentServices" auth="true">
+		<attribute name="xworkProcess_fromDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+		<attribute name="xworkProcess_thruDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+		<attribute name="xcompanyName" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="xemplPositionTypeIdWorkProcess" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="xjobDescription" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="xpayroll" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="xterminationReasonId" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="xrewardDiscrip" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="personWorkingProcessId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="processIdTr" mode="INOUT" type="String" optional="true"></attribute>
+		<attribute name="xFromDate" mode="OUT" type="java.lang.Long" optional="true"></attribute>
+		<attribute name="xThruDate" mode="OUT" type="java.lang.Long" optional="true"></attribute>
+	</service>
+	
+	<!-- Jqx Recruitment -->
+	<service name="JQGetListRecruitmentPlan" engine="java" invoke="jqGetListRecruitmentPlan" location="com.olbius.recruitment.services.JQRecruitmentPlanServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListRecruitmentPlanHeader" engine="java" invoke="jqGetListRecruitmentPlanHeader" location="com.olbius.recruitment.services.JQRecruitmentPlanServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListRecruitmentPlanProposal" engine="java" invoke="jqGetListRecruitmentPlanProposal" location="com.olbius.recruitment.services.JQRecruitmentPlanServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListJobRequest" engine="java" invoke="jqGetListJobRequest" location="com.olbius.recruitment.services.JQJobRequestServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListApplicant" engine="java" invoke="jqGetListApplicant" location="com.olbius.recruitment.services.JQApplicantServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListRecruitmentCriteria" engine="java" invoke="jqGetListRecruitmentCriteria" location="com.olbius.recruitment.services.JQJobRequestServices">
+		<attribute name="jobRequestId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="listGenericValue" mode="OUT" type="List" optional="false"></attribute>
+   </service>
+	<!-- /Jqx Recruitment -->
+
+	<!-- Recruitment Plan -->
+	<service name="updateRecruitmentPlanHeader" engine="java" invoke="updateRecruitmentPlanHeader" location="com.olbius.recruitment.services.RecruitmentServices"  auth="true">
+		<auto-attributes entity-name="RecruitmentPlanHeader" include="pk" mode="IN"></auto-attributes>
+		<auto-attributes entity-name="RecruitmentPlanHeader" include="nonpk" mode="IN" optional="true"></auto-attributes>
+		<attribute name="reason" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	<!-- /Recruitment Plan -->
+</services>

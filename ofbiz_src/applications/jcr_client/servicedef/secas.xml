@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<service-eca xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/service-eca.xsd">
+
+
+	<!-- <eca service="jackrabbitAddEntry" event="in-validate">
+		<action service="jackrabbitRemoteLogin" mode="sync" />
+	</eca>
+	<eca service="jackrabbitAddEntry" event="return" run-on-error="true">
+		<action service="jackrabbitRemoteLogout" mode="sync" />
+	</eca>
+
+	<eca service="jackrabbitRemoveEntry" event="in-validate">
+		<action service="jackrabbitRemoteLogin" mode="sync" />
+	</eca>
+	<eca service="jackrabbitRemoveEntry" event="return" run-on-error="true">
+		<action service="jackrabbitRemoteLogout" mode="sync" />
+	</eca>
+
+	<eca service="jackrabbitGetEntry" event="in-validate">
+		<action service="jackrabbitRemoteLogin" mode="sync" />
+	</eca>
+	<eca service="jackrabbitGetEntry" event="return" run-on-error="true">
+		<action service="jackrabbitRemoteLogout" mode="sync" />
+	</eca> -->
+
+	<!-- eca data -->
+
+	<eca service="jackrabbitCreateFolder" event="in-validate">
+		<action service="jackrabbitRemoteLogin" mode="sync" />
+	</eca>
+	<eca service="jackrabbitCreateFolder" event="return" run-on-error="true">
+		<action service="jackrabbitRemoteLogout" mode="sync" />
+	</eca>
+
+	<eca service="jackrabbitDeleteNode" event="in-validate">
+		<action service="jackrabbitRemoteLogin" mode="sync" />
+	</eca>
+	<eca service="jackrabbitDeleteNode" event="return" run-on-error="true">
+		<action service="jackrabbitRemoteLogout" mode="sync" />
+	</eca>
+
+	<eca service="jackrabbitUploadFile" event="in-validate">
+		<action service="jackrabbitRemoteLogin" mode="sync" />
+	</eca>
+	<eca service="jackrabbitUploadFile" event="return" run-on-error="true">
+		<action service="jackrabbitRemoteLogout" mode="sync" />
+	</eca>
+	
+	<!-- <eca service="jackrabbitUploadText" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitUploadText" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca> -->
+
+	<eca service="jackrabbitRenameNode" event="in-validate">
+		<action service="jackrabbitRemoteLogin" mode="sync" />
+	</eca>
+	<eca service="jackrabbitRenameNode" event="return" run-on-error="true">
+		<action service="jackrabbitRemoteLogout" mode="sync" />
+	</eca>
+
+	<eca service="jackrabbitCopyNode" event="in-validate">
+		<action service="jackrabbitRemoteLogin" mode="sync" />
+	</eca>
+	<eca service="jackrabbitCopyNode" event="return" run-on-error="true">
+		<action service="jackrabbitRemoteLogout" mode="sync" />
+	</eca>
+
+	<eca service="jackrabbitMoveNode" event="in-validate">
+		<action service="jackrabbitRemoteLogin" mode="sync" />
+	</eca>
+	<eca service="jackrabbitMoveNode" event="return" run-on-error="true">
+		<action service="jackrabbitRemoteLogout" mode="sync" />
+	</eca>
+
+	<eca service="jackrabbitGetChildNode" event="in-validate">
+		<action service="jackrabbitRemoteLogin" mode="sync" />
+	</eca>
+	<eca service="jackrabbitGetChildNode" event="return" run-on-error="true">
+		<action service="jackrabbitRemoteLogout" mode="sync" />
+	</eca>
+
+<!-- 	<eca service="jackrabbitSearchByName" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitSearchByName" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca>
+    
+    <eca service="jackrabbitUpdateVersionFile" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitUpdateVersionFile" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca>
+    
+    <eca service="jackrabbitGetAllVersion" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitGetAllVersion" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca>
+    
+    <eca service="jackrabbitGetVersion" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitGetVersion" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca>
+    
+    <eca service="jackrabbitSearchBySql" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitSearchBySql" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca>
+    
+    <eca service="jackrabbitPrivateNode" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitPrivateNode" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca>
+    
+    <eca service="jackrabbitPublicNode" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitPublicNode" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca> -->
+    
+    <eca service="jackrabbitScaleImageService" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitScaleImageService" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca>
+    
+    <eca service="jackrabbitGetNodeTypeProperties" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitGetNodeTypeProperties" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca>
+    
+    <!-- <eca service="jackrabbitGetNodeType" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitGetNodeType" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca>
+    
+    <eca service="jackrabbitUpdatePropertyNodeType" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitUpdatePropertyNodeType" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca>
+    
+    <eca service="jackrabbitRegisterNodeType" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitRegisterNodeType" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca>
+
+    <eca service="jackrabbitAddPropertyNodeType" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitAddPropertyNodeType" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca>
+    
+    <eca service="jackrabbitRemovePropertyNodeType" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitRemovePropertyNodeType" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca>
+    
+    <eca service="jackrabbitRegisterNameSpace" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitRegisterNameSpace" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca>
+    
+    <eca service="jackrabbitUploadFileProperties" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitUploadFileProperties" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca>
+    
+    <eca service="jackrabbitGetNodeProperties" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitGetNodeProperties" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca> -->
+    
+    <eca service="jackrabbitGetChildItem" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitGetChildItem" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca>
+    
+    <!-- <eca service="jackrabbitUpdateVersionFileProperties" event="in-validate">
+        <action service="jackrabbitRemoteLogin" mode="sync" />
+    </eca>
+    <eca service="jackrabbitUpdateVersionFileProperties" event="return" run-on-error="true">
+        <action service="jackrabbitRemoteLogout" mode="sync" />
+    </eca> -->
+</service-eca>

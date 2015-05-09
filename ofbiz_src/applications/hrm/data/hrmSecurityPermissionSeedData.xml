@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the hrm Component." permissionId="OFBTOOLS,HUMANRES_VIEW"/>
+    <SecurityPermission description="Create operations in the hrm Component." permissionId="OFBTOOLS,HUMANRES_CREATE"/>
+    <SecurityPermission description="Update operations in the hrm Component." permissionId="OFBTOOLS,HUMANRES_UPDATE"/>
+    <SecurityPermission description="Delete operations in the hrm Component." permissionId="OFBTOOLS,HUMANRES_DELETE"/>
+    <SecurityPermission description="ALL operations in the hrm Component." permissionId="OFBTOOLS,HUMANRES_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="OFBTOOLS,HUMANRES_ADMIN"/>
+
+</entity-engine-xml>

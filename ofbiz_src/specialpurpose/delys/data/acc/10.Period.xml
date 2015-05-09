@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>    
+    <CustomTimePeriod organizationPartyId="company" customTimePeriodId="6010" periodTypeId="FISCAL_YEAR" fromDate="2015-01-01" thruDate="2015-12-31" isClosed="N" periodNum="1" periodName="2015"/>
+</entity-engine-xml>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Lịch làm việc - Ace Admin</title>
+
+		<meta name="description" content="with draggable and editable events" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- basic styles -->
+
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+
+		<link rel="stylesheet" href="assets/css/fullcalendar.css" />
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="assets/css/ace-fonts.css" />
+
+		<!-- ace styles -->
+
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-responsive.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/custom/loading.css">
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+
+		<script src="assets/js/ace-extra.min.js"></script>
+	</head>
+
+	<body>
+		<span id="navbar"> </span>
+
+		<div class="main-container container-fluid">
+			<div id="sidebar" class="sidebar"></div>
+			<div class="main-content">
+				<div class="page-content">
+					<div class="row-fluid">
+						<div class="span12">
+							<!-- PAGE CONTENT BEGINS -->
+							<div class="row-fluid">
+								<div class="span9">
+									<div class="space"></div>
+									<div id="calendar">
+										<div id="loading">								
+												<i class="icon-spinner icon-spin orange bigger-250" id="loading_image"></i>														
+										</div>
+									</div>
+								</div>
+
+								
+							</div>
+
+							<!-- PAGE CONTENT ENDS -->
+						</div><!-- /.span -->
+					</div><!-- /.row-fluid -->
+				</div><!-- /.page-content -->
+
+			</div><!-- /.main-content -->
+		</div><!-- /.main-container -->
+
+		<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
+			<i class="icon-double-angle-up icon-only bigger-110"></i>
+		</a>
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="assets/js/bootstrap.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<script src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="assets/js/fullcalendar.min.js"></script>
+		<script src="assets/js/bootbox.min.js"></script>
+
+		<!-- ace scripts -->
+
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+
+		<script type="text/javascript">
+			jQuery(function($) {
+				$.get("header.html", function(data) {
+					$('#navbar').html(data);
+				}, 'html').fail(function() {
+					console.log('arge', arguments)
+				});
+				$.get("sidebar.html", function (data) {
+		        	$('#sidebar').html(data);  
+		        }, 'html').fail(function(){
+		            console.log('arge', arguments)
+		        });
+/* initialize the external events
+	-----------------------------------------------------------------*/
+		//console.log
+		$('#external-events div.external-event').each(function() {
+	
+			// create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+			// it doesn't need to have a start or end
+			var eventObject = {
+				title: $.trim($(this).text()) // use the element's text as the event title
+			};
+	
+			// store the Event Object in the DOM element so we can get to it later
+			$(this).data('eventObject', eventObject);
+	
+			// make the event draggable using jQuery UI
+			$(this).draggable({
+				zIndex: 999,
+				revert: true,      // will cause the event to go back to its
+				revertDuration: 0  //  original position after the drag
+			});
+			
+		});	
+		/* initialize the calendar
+		-----------------------------------------------------------------*/
+	
+		/* var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear(); */
+	    
+		var partyId = "";
+		var calendar = $('#calendar').fullCalendar({
+			buttonText: {
+				prev: '<i class="icon-chevron-left"></i>',
+				next: '<i class="icon-chevron-right"></i>'
+			},
+			//defaultView: 'agendaDay',
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},	
+			loading: function(isLoading, view ){
+				if(!isLoading){
+					$("#loading").hide();
+				}
+			},
+			events: function(start, end, callback){
+				//console.log('events begin');
+				$.ajax({
+					url: localStorage.serverUrl + 'mobileservices/control/getCalEventByMonth',
+					crossDomain: true,
+					data: {
+						period: 'month',
+						start: start.getTime()
+					},
+					dataType: 'json',
+					success: function(data){
+						localStorage.calEventByMonth = JSON.stringify(data);
+						events = fillDataCalendar(data);
+						partyId = data.partyId;
+						callback(events);
+					}, 
+					error: function(textStatus, errorThrown){
+						data = JSON.parse(localStorage.calEventByMonth);
+						events = fillDataCalendar(data);
+						partyId = data.partyId;
+						callback(events);
+					}
+					});				
+			},
+			editable: true,
+			droppable: true, // this allows things to be dropped onto the calendar !!!
+			drop: function(date, allDay) { // this function is called when something is dropped		
+				// retrieve the dropped element's stored Event Object
+				var originalEventObject = $(this).data('eventObject');
+				var $extraEventClass = $(this).attr('data-class');
+
+				// we need to copy it, so that multiple events don't have a reference to the same object
+				var copiedEventObject = $.extend({}, originalEventObject);
+				
+				// assign it the date that was reported
+				copiedEventObject.start = date;
+				copiedEventObject.allDay = allDay;
+				if($extraEventClass) copiedEventObject['className'] = [$extraEventClass];
+				
+				// render the event on the calendar
+				// the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+				$('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+				
+				// is the "remove after drop" checkbox checked?
+				if ($('#drop-remove').is(':checked')) {
+					// if so, remove the element from the "Draggable Events" list
+					$(this).remove();
+				}
+				
+			},
+			selectable: true,
+			selectHelper: true,
+			select: function(start, end, allDay) {
+				//console.log(start+ " " + end + allDay);
+				bootbox.prompt("Tạo sự kiện mới:", function(title) {
+					if (title) {
+						/* calendar.fullCalendar('renderEvent',
+							{
+								title: title,
+								start: start,
+								end: end,
+								allDay: allDay
+							},
+							true // make the event "stick"
+						); */
+						estimatedStartDate = new Date(start);
+						estimatedCompletionDate = new Date(end);
+						if(allDay){
+							completionHours = '23';
+							completionMinutues = '59';
+						}else{
+							completionHours = estimatedCompletionDate.getHours();
+							completionMinutes = estimatedCompletionDate.getMinutes();
+						}
+						
+						estimatedStartDate_c_date_i18n = estimatedStartDate.getFullYear()+ "-" + 
+														 ("0" + (estimatedStartDate.getMonth() + 1)).slice(-2)+ "-" +
+														 ("0" + estimatedStartDate.getDate()).slice(-2);
+						
+						
+						estimatedCompletionDate_c_date_i18n = estimatedCompletionDate.getFullYear()+ "-" + 
+															 ("0" + (estimatedCompletionDate.getMonth() + 1)).slice(-2)+ "-" +
+															 ("0" + estimatedCompletionDate.getDate()).slice(-2);
+						workEffortName = title;
+						$("#loading").show();
+						$.ajax({
+							url: localStorage.serverUrl + 'mobileservices/control/createWorkEffortAndPartyAssign',
+							crossDomain: true,
+							type: 'POST',
+							data:{
+								partyId: partyId,								
+								roleTypeId: 'CAL_OWNER',
+								statusId: 'PRTYASGN_ASSIGNED',
+								workEffortName: workEffortName,
+								description: workEffortName,
+								workEffortTypeId: 'AVAILABLE',
+								currentStatusId: 'CAL_TENTATIVE',
+								scopeEnumId: 'WES_PRIVATE',
+								estimatedStartDate: estimatedStartDate_c_date_i18n + " " + estimatedStartDate.getHours() +":" + estimatedStartDate.getMinutes() + ":00",
+								estimatedCompletionDate: estimatedCompletionDate_c_date_i18n + " " + completionHours + ":" + completionMinutes + ":00"																																
+							},
+							dataType: 'json',
+							success: function(data){
+								//fillDataCalendar(data, calendar);
+								if(!data.workEffortId){
+									bootbox.dialog("Có lỗi khi tạo sự kiện mới! Hãy thử lại",
+													[{
+														'label': "<i class='icon-remove'></i> Đóng",
+														'class': "btn-small btn-primary"
+													}]);
+								}
+							}, 
+							error: function(textStatus, errorThrown){
+								
+							},
+							complete: function(jqXHR, textStatus){
+								calendar.fullCalendar('refetchEvents');			
+							}
+						});
+					}
+				});
+				calendar.fullCalendar('unselect');			
+			},
+			eventClick: function(calEvent, jsEvent, view) {	
+				var form = $("<form class='form-inline'><label>Đổi tên sự kiện&nbsp;</label></form>");
+				form.append("<input autocomplete=off type=text value='" + calEvent.title + "' /> ");
+				form.append("<button type='submit' class='btn btn-small btn-success'><i class='icon-ok'></i> Save</button>");
+				
+				var div = bootbox.dialog(form,
+					[{
+						"label" : "<i class='icon-trash'></i> Xóa sự kiện",
+						"class" : "btn-small btn-danger",
+						"callback": function() {
+							$("#loading").show();
+							$.ajax({
+								url: localStorage.serverUrl + 'mobileservices/control/updateWorkEffort',
+								crossDomain: true,
+								type: 'POST',							
+								data:{
+									workEffortId: calEvent._id,
+									currentStatusId: 'CAL_CANCELLED'
+								},
+								dataType: 'json',
+								success: function(data){
+									//fillDataCalendar(data, calendar);																
+								}, 
+								error: function(textStatus, errorThrown){
+									
+								},
+								complete: function(jqXHR, textStatus){
+									calendar.fullCalendar('refetchEvents');			
+								}
+							});
+							/* calendar.fullCalendar('removeEvents' , function(ev){
+								return (ev._id == calEvent._id);
+							}); */
+						}
+					},
+					{
+						"label" : "<i class='icon-remove'></i> Close",
+						"class" : "btn-small"
+					}],	
+					{
+						// prompts need a few extra options
+						"onEscape": function(){div.modal("hide");}
+					});
+				
+				form.on('submit', function(){
+					newTitle = form.find("input[type=text]").val();
+					if(newTitle){
+						$("#loading").show();
+						//calEvent.title = form.find("input[type=text]").val();	
+						startDate = calEvent._start.getFullYear() +  "-" + 
+									 ("0" + (calEvent._start.getMonth() + 1)).slice(-2)+ "-" +
+									 ("0" + calEvent._start.getDate()).slice(-2) + " " 
+									 + calEvent._start.getHours() + ":" + calEvent._start.getMinutes() + ":00";
+						endDate = calEvent._end.getFullYear() +  "-" + 
+									 ("0" + (calEvent._end.getMonth() + 1)).slice(-2)+ "-" +
+									 ("0" + calEvent._end.getDate()).slice(-2) + " " 
+									 + calEvent._end.getHours() +":" + calEvent._end.getMinutes() + ":00";
+						workEffortId = calEvent._id;
+						$.ajax({
+						 	url: localStorage.serverUrl + 'mobileservices/control/updateWorkEffort',
+							crossDomain: true,
+							type: 'POST',							
+							data:{
+								partyId: partyId,			
+								workEffortId: workEffortId,  														
+								workEffortName: newTitle,
+								description: newTitle,
+								workEffortTypeId: 'AVAILABLE',
+								currentStatusId: 'CAL_TENTATIVE',
+								scopeEnumId: 'WES_PRIVATE',
+								estimatedStartDate: startDate,
+								estimatedCompletionDate: endDate
+							},
+							dataType: 'json',
+							success: function(data){
+								//fillDataCalendar(data, calendar);																
+							}, 
+							error: function(textStatus, errorThrown){
+								
+							},
+							complete: function(jqXHR, textStatus){
+								calendar.fullCalendar('refetchEvents');			
+							}
+						 });
+					}					
+					//calendar.fullCalendar('updateEvent', calEvent);
+										
+					div.modal("hide");
+					return false;
+				});
+				
+			},
+			eventResize: function(event, delta, revertFunc){
+				startDate = formatDateUtils(event._start) + event._start.getHours() + ":" + event._start.getMinutes() + ":00";
+				endDate = formatDateUtils(event._end);
+				if(event.allDay){
+					endDate += "23:59:00";
+				}else{
+					endDate += event._end.getHours() + ":" + event._end.getMinutes() + ":00";
+				}
+				$("#loading").show();
+				$.ajax({
+				 	url: localStorage.serverUrl + 'mobileservices/control/updateWorkEffort',
+					crossDomain: true,
+					type: 'POST',							
+					data:{
+						partyId: partyId,			
+						workEffortId: event._id,  														
+						workEffortName: event.title,
+						description: event.title,
+						workEffortTypeId: 'AVAILABLE',
+						currentStatusId: 'CAL_TENTATIVE',
+						scopeEnumId: 'WES_PRIVATE',
+						estimatedStartDate: startDate,
+						estimatedCompletionDate: endDate
+					},
+					dataType: 'json',
+					success: function(data){
+						//fillDataCalendar(data, calendar);																
+					}, 
+					error: function(textStatus, errorThrown){
+						
+					},
+					complete: function(jqXHR, textStatus){
+						calendar.fullCalendar('refetchEvents');			
+					}
+				 });
+			}, 
+			eventDrop: function(event, delta, revertFunc){
+				startDate = formatDateUtils(event._start) + event._start.getHours() + ":" + event._start.getMinutes() + ":00";
+				endDate = formatDateUtils(event._end);
+				if(event.allDay){
+					endDate += "23:59:00";
+				}else{
+					endDate += event._end.getHours() + ":" + event._end.getMinutes() + ":00";
+				}
+				$("#loading").show();
+				$.ajax({
+				 	url: localStorage.serverUrl + 'mobileservices/control/updateWorkEffort',
+					crossDomain: true,
+					type: 'POST',							
+					data:{
+						partyId: partyId,			
+						workEffortId: event._id,  														
+						workEffortName: event.title,
+						description: event.title,
+						workEffortTypeId: 'AVAILABLE',
+						currentStatusId: 'CAL_TENTATIVE',
+						scopeEnumId: 'WES_PRIVATE',
+						estimatedStartDate: startDate,
+						estimatedCompletionDate: endDate
+					},
+					dataType: 'json',
+					success: function(data){
+						//fillDataCalendar(data, calendar);																
+					}, 
+					error: function(textStatus, errorThrown){
+						
+					},
+					complete: function(jqXHR, textStatus){
+						calendar.fullCalendar('refetchEvents');			
+					}
+				 });
+			}
+		});
+		
+		/* $.ajax({
+			url: localStorage.serverUrl + 'mobileservices/control/getCalEventByMonth',
+			crossDomain: true,
+			data: {
+				period: 'month'
+			},
+			dataType: 'json',
+			success: function(data){
+				fillDataCalendar(data, calendar);
+			}, 
+			error: function(textStatus, errorThrown){				
+			}
+			});*/
+		}); 
+			
+		function formatDateUtils(date){
+			 var df = date.getFullYear() +  "-" + 
+					 ("0" + (date.getMonth() + 1)).slice(-2)+ "-" +
+					 ("0" + date.getDate()).slice(-2) + " ";					 
+			 return df;
+		}
+			
+		function fillDataCalendar(data){
+			var events = new Array();				
+			//var calendarEventsDay = data.calendarEventsDay;												
+			var calendarEventsMonth = data.calendarEventsMonth.periods;													
+			for(var workEffortId in calendarEventsMonth){					
+				var newEvent = new Object();
+				newEvent.title = calendarEventsMonth[workEffortId].workEffortName;
+				newEvent.start = new Date(calendarEventsMonth[workEffortId].startedDate.time);
+				newEvent.end = new Date(calendarEventsMonth[workEffortId].completionDate.time);
+				newEvent.allDay = isAllDay(newEvent.start, newEvent.end);
+				if(newEvent.allDay){
+					newEvent.className = 'label-success';
+				}
+				newEvent._id = calendarEventsMonth[workEffortId].workEffortId; 
+				events.push(newEvent);				
+			}							
+			return events;
+			//console.log(new Date(data.calendarEventsDay.period_10020['10020'].startedDate.time));
+		}
+		
+		function isAllDay(startedDate, completionDate){
+			startDateHours = startedDate.getHours();
+			startDateMinute = startedDate.getMinutes();
+			completionDateHours = completionDate.getHours();
+			completionDate = completionDate.getMinutes();			
+			if(startDateHours == 0 && startDateMinute == 0 && completionDateHours == 23 && completionDate == 59){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		</script>
+	</body>
+</html>

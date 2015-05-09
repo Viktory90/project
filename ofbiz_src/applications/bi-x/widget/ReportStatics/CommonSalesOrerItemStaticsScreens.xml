@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- These forms are for generating printed documents, such as invoices, bills, statements, etc. -->
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	<screen name="CommonSalesOrderStatic">
+		 <section>
+    		<widgets>
+					<screenlet title="${uiLabelMap.BiOlbiusProductDimension}">
+ 						<platform-specific>
+ 							<html>
+ 								<html-template location="component://bi-x/webapp/reports/ProductSalesOrderReport.ftl"/>
+ 							</html>
+ 						</platform-specific>
+ 					</screenlet>
+    		</widgets>
+    	</section>
+	</screen>
+
+	<screen name="CommonReportSalesOrderMonthly">
+			<section>
+	    		<actions>
+<!-- 	    			<set field="dependentForm" value="getInforDepartment" /> -->
+<!-- 					<set field="paramKey" value="chanelsales" /> -->
+<!-- 					<set field="mainId" value="chanelsales" /> -->
+<!-- 					<set field="dependentId" value="department" /> -->
+<!-- 					<set field="requestName" value="getListDepartment" /> -->
+<!-- 					<set field="responseName" value="departmentList" /> -->
+<!-- 					<set field="dependentKeyName" value="partyId" /> -->
+<!-- 					<set field="descName" value="groupName" /> -->
+<!-- 					<set field="selectedDependentOption"  -->
+<!-- 						default-value="_none_" /> -->
+					<script location="component://bi-x/webapp/action/com/olbius/getDepartmentForSalesOrderMonth.groovy"/>
+	    			<set field="currentDateTime" value="${groovy: java.util.Calendar.getInstance()}" type="Object"/>
+	    			<entity-condition list="productList" entity-name="ProductDimension">
+	    				<select-field field-name="productId">
+	    					<order-by field-name="productId"/>
+	    				</select-field>
+	    				<select-field field-name="internalName"/>
+	    			</entity-condition>
+	    		</actions>
+    		<widgets>
+  					<screenlet title="${uiLabelMap.ReportSalesOrderMonthly}">
+  						<platform-specific>
+  							<html>
+  								<html-template location="component://bi-x/webapp/reports/IncludeDropdownValuesJs.ftl"/>
+<!--   								<html-template location="component://common/webcommon/includes/setDependentDropdownValuesJs.ftl" /> -->
+  								<html-template location="component://bi-x/webapp/reports/ReportSalesOrderMonthly.ftl"/>
+  							</html>
+  						</platform-specific>
+  					</screenlet>
+    		</widgets>
+    	</section>
+	</screen>
+	
+	<screen name="CommonReprortSalesYearly">
+		<section>
+    		<actions>
+                <set field="dependentForm" value="SearchSalesMan" />
+                <set field="paramKey" value="chanelsales" />
+                <set field="mainId" value="chanelsales" />
+                <set field="dependentId" value="department" />
+                <set field="requestName" value="getListDepartment" />
+                <set field="responseName" value="departmentList" />
+                <set field="dependentKeyName" value="partyId" />
+                <set field="descName" value="groupName" />
+                <set field="selectedDependentOption"
+                     default-value="_none_" />
+                <set field="currentDateTime" value="${groovy: java.util.Calendar.getInstance()}" type="Object"/>
+                <entity-condition list="productList" entity-name="ProductDimension">
+                    <select-field field-name="productId">
+                        <order-by field-name="productId"/>
+                    </select-field>
+                    <select-field field-name="internalName"/>
+                </entity-condition>
+    		</actions>
+    		<widgets>
+   					<screenlet title="${uiLabelMap.ReprortSalesManYearly}">
+   						<platform-specific>
+   							<html>
+   								<html-template location="component://bi-x/webapp/reports/IncludeDropdownValuesJs.ftl"/>
+                                <html-template location="component://common/webcommon/includes/setDependentDropdownValuesJs.ftl" />
+   								<html-template location="component://bi-x/webapp/reports/ReportSalesOrderYearly.ftl"/>
+   							</html>
+   						</platform-specific>
+   					</screenlet>
+    		</widgets>
+    	</section>
+	</screen>
+	
+	<screen name="CommonReprortSalesIn">
+		<section>
+    		<actions>
+                <set field="dependentForm" value="SearchSalesMan" />
+                <set field="paramKey" value="chanelsales" />
+                <set field="mainId" value="chanelsales" />
+                <set field="dependentId" value="department" />
+                <set field="requestName" value="getListDepartment" />
+                <set field="responseName" value="departmentList" />
+                <set field="dependentKeyName" value="partyId" />
+                <set field="descName" value="groupName" />
+                <set field="selectedDependentOption"
+                     default-value="_none_" />
+                <set field="currentDateTime" value="${groovy: java.util.Calendar.getInstance()}" type="Object"/>
+                <entity-condition list="productList" entity-name="ProductDimension">
+                    <select-field field-name="productId">
+                        <order-by field-name="productId"/>
+                    </select-field>
+                    <select-field field-name="internalName"/>
+                </entity-condition>
+                <set field="layoutSettings.javaScripts[]" value="/aceadmin/assets/js/fuelux/fuelux.spinner.min.js" global="true"/>
+    		</actions>
+    		<widgets>
+  					<screenlet title="${uiLabelMap.ReprortSalesIn}" id="treeGridSaleMonthly">
+  						<platform-specific>
+  							<html>
+  								<html-template location="component://bi-x/webapp/reports/IncludeDropdownValuesJs.ftl"/>
+  								<html-template location="component://bi-x/webapp/reports/reportSalesIn.ftl"/>
+  							</html>
+  						</platform-specific>
+  					</screenlet>
+    		</widgets>
+    	</section>
+	</screen>
+	
+	<screen name="CommonReportSalesOrderProducts">
+		<section>
+			<actions>
+				<set field="currentDateTime" value="${groovy: java.util.Calendar.getInstance()}" type="Object"/>
+			</actions>
+			<widgets>
+				<screenlet title="${uiLabelMap.ProductStatic}">
+					<platform-specific>
+						<html>
+							<html-template location="component://bi-x/webapp/reports/IncludeDropdownValuesJs.ftl"/>
+							<html-template location="component://bi-x/webapp/reports/reportSalesOrderProducts.ftl"/>
+						</html>
+					</platform-specific>
+				</screenlet>
+			</widgets>				
+		</section>
+	</screen>
+	
+	<screen name="CommonPieChartSalesOrderProducts">
+		<section>
+			<actions>
+				<property-map map-name="uiLabelMap" resource="OrderItemSalesUiLabels"/>
+				<set field="currentDateTime" value="${groovy: java.util.Calendar.getInstance()}" type="Object"/>
+			</actions>
+			<widgets>
+				<screenlet title="${uiLabelMap.ProductStatic}">
+					<platform-specific>
+						<html>
+							<html-template location="component://bi-x/webapp/reports/IncludeDropdownValuesJs.ftl"/>
+							<html-template location="component://bi-x/webapp/reports/pieChartSalesOrderGtMt.ftl"/>
+						</html>
+					</platform-specific>
+				</screenlet>
+			</widgets>
+			
+		</section>
+	</screen>
+	
+	<screen name="CommonTotalProductsSalesOfSalesMan">
+		<section>
+			<actions>
+				<property-map map-name="uiLabelMap" resource="OrderItemSalesUiLabels"/>
+                <set field="dependentForm" value="SearchSalesMan2" />
+                <set field="paramKey" value="chanelsales" />
+                <set field="mainId" value="chanelsales" />
+                <set field="dependentId" value="department" />
+                <set field="requestName" value="getListDepartment" />
+                <set field="responseName" value="departmentList" />
+                <set field="dependentKeyName" value="partyId" />
+                <set field="descName" value="groupName" />
+                <set field="selectedDependentOption"
+                     default-value="_none_" />
+                <set field="currentDateTime" value="${groovy: java.util.Calendar.getInstance()}" type="Object"/>
+    		</actions>
+    		<widgets>
+   					<screenlet title="${uiLabelMap.ReprortSalesManYearly}">
+   						<platform-specific>
+   							<html>
+   								<html-template location="component://bi-x/webapp/reports/IncludeDropdownValuesJs.ftl"/>
+                                <html-template location="component://common/webcommon/includes/setDependentDropdownValuesJs.ftl" />
+   								<html-template location="component://bi-x/webapp/reports/totalSalesProductOfSalesman.ftl"/>
+   							</html>
+   						</platform-specific>
+   					</screenlet>
+    		</widgets>
+		</section>
+	</screen>
+	
+	<screen name="CommonReportProductPromotion">
+		<section>
+			<actions>
+				<property-map map-name="uiLabelMap" resource="OrderItemSalesUiLabels"/>
+				<set field="currentDateTime" value="${groovy: java.util.Calendar.getInstance()}" type="Object"/>
+			</actions>
+			<widgets>
+				<screenlet title="${uiLabelMap.ProductStatic}">
+					<platform-specific>
+						<html>
+							<html-template location="component://bi-x/webapp/reports/IncludeDropdownValuesJs.ftl"/>
+							<html-template location="component://bi-x/webapp/reports/reportProductPromotion.ftl"/>
+						</html>
+					</platform-specific>
+				</screenlet>
+			</widgets>
+			
+		</section>
+	</screen>
+	
+	<screen name="CommonViewReportProductPromotion">
+		<section>
+			<actions>
+				<set field="productPromoId" from-field="parameters.productPromoId"/>
+				<property-map map-name="uiLabelMap" resource="OrderItemSalesUiLabels"/>
+				<entity-condition list="productPromo" entity-name="PromotionAndDate">
+					<condition-expr field-name="productPromoId" from-field="productPromoId"/>
+				</entity-condition>
+				
+				<entity-condition list="promoRoleTypeApply" entity-name="PromotionRoleTypeApplyAndPromoCode">
+					<condition-expr field-name="productPromoId" from-field="productPromoId"/>
+				</entity-condition>
+				
+				 <entity-condition entity-name="ProductPromoRule" list="productPromoRules">
+                    <condition-expr field-name="productPromoId" from-field="productPromoId"/>
+                    <order-by field-name="ruleName"/>
+                </entity-condition>
+			</actions>
+			<widgets>
+				<screenlet title="${uiLabelMap.ProductStatic}">
+					<platform-specific>
+						<html>
+							<html-template location="component://bi-x/webapp/reports/IncludeDropdownValuesJs.ftl"/>
+							<html-template location="component://bi-x/webapp/reports/viewReportPromotion.ftl"/>
+						</html>
+					</platform-specific>
+				</screenlet>
+			</widgets>
+			
+		</section>
+	</screen>
+	
+	<screen name="CommonReportOrderItemWithRole">
+		<section>
+			<actions>
+				<property-map map-name="uiLabelMap" resource="OrderItemSalesUiLabels"/>
+				<set field="currentDateTime" value="${groovy: java.util.Calendar.getInstance()}" type="Object"/>
+			</actions>
+			<widgets>
+				<screenlet title="${uiLabelMap.ProductStatic}">
+					<platform-specific>
+						<html>
+							<html-template location="component://bi-x/webapp/reports/IncludeDropdownValuesJs.ftl"/>
+							<html-template location="component://bi-x/webapp/reports/ReportOrderItemWithRole.ftl"/>
+						</html>
+					</platform-specific>
+				</screenlet>
+			</widgets>
+			
+		</section>
+	</screen>
+	
+	<screen name="CommonReportSalesGrowth">
+		<section>
+			<actions>
+				<script location="component://bi-x/webapp/action/com/olbius/getListProduct.groovy"/>
+				<property-map map-name="uiLabelMap" resource="OrderItemSalesUiLabels"/>
+				<set field="currentDateTime" value="${groovy: java.util.Calendar.getInstance()}" type="Object"/>
+			</actions>
+			<widgets>
+				<screenlet title="${uiLabelMap.reportSalesGrowth}">
+					<platform-specific>
+						<html>
+							<html-template location="component://bi-x/webapp/reports/IncludeDropdownValuesJs.ftl"/>
+							<html-template location="component://bi-x/webapp/reports/reportSalesGrowth.ftl"/>
+						</html>
+					</platform-specific>
+				</screenlet>
+			</widgets>
+			
+		</section>
+	</screen>
+	
+	<screen name="CommonReportSalesGrowthOfDistributor">
+		<section>
+			<actions>
+				<entity-condition list="productList" entity-name="ProductDimension">
+                    <select-field field-name="productId">
+                        <order-by field-name="productId"/>
+                    </select-field>
+                    <select-field field-name="internalName"/>
+                </entity-condition>
+				<property-map map-name="uiLabelMap" resource="OrderItemSalesUiLabels"/>
+				<set field="currentDateTime" value="${groovy: java.util.Calendar.getInstance()}" type="Object"/>
+			</actions>
+			<widgets>
+				<screenlet title="${uiLabelMap.reportSalesGrowth}">
+					<platform-specific>
+						<html>
+							<html-template location="component://bi-x/webapp/reports/IncludeDropdownValuesJs.ftl"/>
+							<html-template location="component://bi-x/webapp/reports/reportSalesGrowthOfDistributor.ftl"/>
+						</html>
+					</platform-specific>
+				</screenlet>
+			</widgets>
+			
+		</section>
+	</screen>
+	
+	
+	<screen name="CommonReportSalesTarget">
+		<section>
+			<actions>
+				<script location="component://bi-x/webapp/action/com/olbius/getListProduct.groovy"/>
+				<property-map map-name="uiLabelMap" resource="OrderItemSalesUiLabels"/>
+				<set field="currentDateTime" value="${groovy: java.util.Calendar.getInstance()}" type="Object"/>
+			</actions>
+			<widgets>
+				<screenlet title="${uiLabelMap.reportSalesGrowth}">
+					<platform-specific>
+						<html>
+							<html-template location="component://bi-x/webapp/reports/IncludeDropdownValuesJs.ftl"/>
+							<html-template location="component://bi-x/webapp/reports/reportSalesGrowth.ftl"/>
+						</html>
+					</platform-specific>
+				</screenlet>
+			</widgets>
+			
+		</section>
+	</screen>
+</screens>

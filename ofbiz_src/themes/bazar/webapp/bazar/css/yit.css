@@ -1,0 +1,284 @@
+body {
+    margin-top: 0px;
+}
+
+#banner {
+	position:fixed; 
+	top:0; 
+	width:100%; 
+	height: 60px;
+	background: url('../images/background.jpg') repeat-x;
+    z-index: 100000;
+	
+	-webkit-box-shadow:0 2px 1px rgba(0, 0, 0, 0.32); 
+	-moz-box-shadow:0 2px 1px rgba(0, 0, 0, 0.32); 
+	box-shadow:0 2px 1px rgba(0, 0, 0, 0.32); 
+}
+
+#banner, #banner p, #banner li, #banner a {
+    font-family: "Open Sans", Verdana, sans-serif !important;
+}
+
+body.admin-bar #banner {
+    top: 28px;
+}
+
+#banner .container {
+	width: 980px;
+	margin: 0 auto;
+	text-align:center;
+}
+
+#banner #logo {
+	display: block;
+	width: 135px;
+	height: 60px;
+	overflow: hidden;
+	line-height: 9999em;
+	background: url('../images/logo.png') no-repeat left center;
+	margin: 0;
+    padding: 0;
+	float: left;
+}
+
+
+#banner #links {
+	position: relative;	
+	float: right;
+    margin: 0;
+    list-style: none;
+}
+#banner #links > li, #banner #themeswitcher {
+	float: left; 
+	line-height: 60px;
+	position: relative;
+}
+#banner #links li > a, #banner #themeswitcher {
+	font-size: 14.61px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #ccc;
+	
+	text-shadow: #000 2px 2px 5px;
+}
+#banner #links li > a:hover {
+	color: #fff
+}
+
+#banner #themeswitcher {
+	display: inline-block;
+	float: none;
+}
+#banner #themeswitcher > a {
+	display: block;
+	width: 170px;
+	height: 60px;
+	overflow: hidden;
+	background: url('../images/switcher.png') no-repeat left center;
+	float: left;
+	line-height: 60px;
+	text-align: left;
+	padding-left: 27px;
+	color: white;
+	font-size: 13px;
+	position: relative;
+	z-index: 1;
+	text-decoration: none;
+}
+#banner #themeswitcher > a.opened { color: white; }
+
+#banner #details > a, #banner #purchase > a, #banner #downloads > a {
+	display: block;
+	background: url('../images/detail.png') no-repeat left -60px;
+	padding-left: 50px;
+    height: 60px;
+    line-height: 60px;
+	margin-left: 50px;
+}
+
+#banner #purchase > a {
+    background: url('../images/buy.png') no-repeat left -60px;
+}
+
+#banner #downloads > a {
+    background: url('../images/download.png') no-repeat left -60px;
+}
+
+#banner #details > a:hover, #banner #purchase > a:hover { background-position-y: 0 }
+
+#banner #themes {
+	display: none;
+	position: absolute;
+	top: 42px;
+	background: #2B2B2B;
+	left: 9px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	width: 176px;
+    margin: 0;
+    list-style: none;
+	
+	-webkit-border-radius: 0 0 10px 10px;
+	-moz-border-radius: 0 0 10px 10px;
+	border-radius: 0 0 10px 10px;
+	
+	-webkit-box-shadow: 3px 3px 10px rgba(0, 0, 0, .35), -3px -3px 10px rgba(0, 0, 0, .35);
+	-moz-box-shadow: 3px 3px 10px rgba(0, 0, 0, .35), -3px -3px 10px rgba(0, 0, 0, .35);
+	box-shadow: 3px 3px 10px rgba(0, 0, 0, .35), -3px -3px 10px rgba(0, 0, 0, .35);
+}
+#banner #themes li {
+	text-align: left;
+	padding-left: 18px;
+	line-height: normal;
+	float: left;
+	width: 158px;
+}
+#banner #themes li a {
+	padding: 10px 0;
+	color: #999;
+	border-bottom: 1px solid #535353;
+	display: block;
+	float: left;
+	width: 140px;
+	font-size: 13px;
+	font-weight: 600;
+	text-decoration: none;
+}
+#banner #themes li:hover {
+	/* background: #556b00; */
+}
+#banner #themes li:hover a, #banner #themes li a.current { color: white }
+#banner #themes li:last-child a { border-bottom: none; }
+
+#banner #banner a img { border:0; }
+#banner #iframe { margin:60px 0 -2px; }
+#banner .close-link { 
+	display: block;
+	width: 28px;
+	height: 26px;
+	position: absolute;
+	right: 18px;
+	top: 50%;
+	margin-top: -13px;
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+	background: url('../images/close_yit.png') top left no-repeat;
+}          
+#banner .close-link:hover { background-position: bottom left; }
+
+.tip-twitter {
+    z-index: 1000000;
+}
+
+
+#banner #themeswitcher {
+    left: 0;
+    margin: 0 auto;
+    right: 0;
+    width: 170px;
+}
+
+#wpadminbar {
+    z-index: 999999;
+}
+
+
+
+
+
+
+@media (min-width: 1200px) {
+    #banner .container {
+		width: 1200px;
+	}
+
+    #banner #themeswitcher {
+        margin-left: 0px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+
+    #banner .container {
+		width: 764px;
+	}
+    #banner #details > a, #banner #purchase > a { margin-left: 20px; }
+}
+
+@media (max-width: 767px) {
+    #banner .container { width: 100% }
+    #banner #links { padding-right: 55px }
+    #banner #details > a, #banner #purchase > a {
+		margin-left: 0px;
+		width: 0px;
+		overflow: hidden;
+		line-height: 9999em;
+	}
+}
+
+@media (min-width: 1201px) and (max-width: 1300px) {
+    #banner #links { padding-right: 55px }
+}
+@media (min-width: 980px) and (max-width: 1089px) {
+    #banner #links { padding-right: 55px }
+}
+@media (min-width: 768px) and (max-width: 877px) {
+    #banner #links { padding-right: 55px }
+    #banner #details > a, #banner #purchase > a {
+		margin-left: 0px;
+		width: 0px;
+		overflow: hidden;
+		line-height: 9999em;
+	}
+}
+@media (max-width: 560px) {
+    #banner #logo { display:none }
+    #banner #themeswitcher { left: 0 !important }
+
+    #banner #links {
+		position: absolute;
+		right: 0
+	}
+}
+@media (max-width: 480px) {
+    #banner #banner { display: none }
+    #banner #iframe { margin-top: 0; }
+}
+
+
+/* THEME FIXES */
+body.samarcanda #header {
+    top: 60px;
+}
+body.topbar-fixed.suerte {
+    margin-top: 99px;
+}
+body.topbar-fixed.suerte #topbar {
+    top: 60px;
+}
+body.topbar-fixed.admin-bar.suerte #topbar {
+    top: 88px;
+}
+body .style-picker {
+    z-index: 999999;
+}
+
+@media (max-width: 767px) {
+    #banner { display: none; }
+    body { margin-top:0; }
+
+    /* THEME FIXES */
+    body.samarcanda #header {
+        top: 0px;
+    }
+    body.topbar-fixed.suerte {
+        margin-top: 39px;
+    }
+    body.topbar-fixed.suerte #topbar {
+        top: 0px;
+    }
+    body.topbar-fixed.admin-bar.suerte #topbar {
+        top: 28px;
+    }
+}

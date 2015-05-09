@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	<RoleType roleTypeId="DELYS_ROLE" hasTable="N" description="Delys-Admin"/>
+	<RoleType roleTypeId="DELYS_ADMIN" hasTable="N" description="Delys-Admin"/>
+	<RoleType roleTypeId="DELYS_ROUTE" hasTable="N" description="Delys-Tuyến đường"/>
+	<RoleType roleTypeId="DELYS_DISTRIBUTOR" parentTypeId="DELYS_ROLE" hasTable="N" description="Nhà phân phối"/>
+	<RoleType roleTypeId="DELYS_CEO" parentTypeId="" hasTable="N" description="Delys-Admin Ceo"/>
+	<RoleType roleTypeId="DELYS_NBD" parentTypeId="" hasTable="N" description="National Business Director"/>
+	<RoleType roleTypeId="DELYS_ASSISTANT" parentTypeId="" hasTable="N" description="Assistant"/>
+	<RoleType roleTypeId="DELYS_CSM" parentTypeId="DELYS_ROLE" hasTable="N" description="Delys-CSM"/>
+	<RoleType roleTypeId="DELYS_CSM_GT" parentTypeId="DELYS_CSM" hasTable="N" description="DELYS CSM GT"/>
+	<RoleType roleTypeId="DELYS_CSM_MT" parentTypeId="DELYS_CSM" hasTable="N" description="DELYS CSM MT"/>
+	<RoleType roleTypeId="DELYS_RSM" parentTypeId="DELYS_ROLE" hasTable="N" description="Delys-RSM"/>
+	<RoleType roleTypeId="DELYS_RSM_GT" parentTypeId="DELYS_RSM" hasTable="N" description="Delys-RSM GT"/>
+	<RoleType roleTypeId="DELYS_RSM_MT" parentTypeId="DELYS_RSM" hasTable="N" description="Delys-RSM MT"/>
+	<RoleType roleTypeId="DELYS_ASM" parentTypeId="DELYS_ROLE" hasTable="N" description="Delys-ASM"/>
+	<RoleType roleTypeId="DELYS_ASM_GT" parentTypeId="DELYS_ASM" hasTable="N" description="Delys-ASM GT"/>
+	<RoleType roleTypeId="DELYS_ASM_MT" parentTypeId="DELYS_ASM" hasTable="N" description="Delys-ASM MT"/>
+	<RoleType roleTypeId="DELYS_SALESADMIN" parentTypeId="DELYS_ROLE" hasTable="N" description="Delys-Admin"/>
+	<RoleType roleTypeId="DELYS_SALESADMIN_GT" parentTypeId="DELYS_SALESADMIN" hasTable="N" description="Delys-Admin GT"/>
+	<RoleType roleTypeId="DELYS_SALESADMIN_MT" parentTypeId="DELYS_SALESADMIN" hasTable="N" description="Delys-Admin MT"/>
+	<RoleType roleTypeId="DELYS_SALESSUP" parentTypeId="DELYS_ROLE" hasTable="N" description="Delys-Sales Sup"/>
+	<RoleType roleTypeId="DELYS_SALESSUP_GT" parentTypeId="DELYS_SALESSUP" hasTable="N" description="Delys-Sales Sup GT"/>
+	<RoleType roleTypeId="DELYS_SALESSUP_MT" parentTypeId="DELYS_SALESSUP" hasTable="N" description="Delys-Sales Sup MT"/>
+	<RoleType roleTypeId="DELYS_SALESMAN" parentTypeId="DELYS_ROLE" hasTable="N" description="Delys-Salesman"/>
+	<RoleType roleTypeId="DELYS_SALESMAN_GT" parentTypeId="DELYS_SALESMAN" hasTable="N" description="Delys-Salesman GT"/>
+	<RoleType roleTypeId="DELYS_SALESMAN_MT" parentTypeId="DELYS_SALESMAN" hasTable="N" description="Delys-Salesman MT"/>
+	<RoleType roleTypeId="DELYS_CUSTOMER" parentTypeId="DELYS_ROLE" hasTable="N" description="Delys-Khách hàng"/>
+	<RoleType roleTypeId="DELYS_SUPPLIER" parentTypeId="DELYS_ROLE" hasTable="N" description="Delys-Nhà cung cấp"/>
+	<RoleType roleTypeId="DELYS_CUSTOMER_GT" parentTypeId="DELYS_CUSTOMER" hasTable="N" description="Delys-Khách hàng GT"/>
+	<RoleType roleTypeId="DELYS_CUSTOMER_MT" parentTypeId="DELYS_CUSTOMER" hasTable="N" description="Delys-Khách hàng MT"/>
+	<RoleType roleTypeId="DELYS_MARKETING" hasTable="N" description="Delys-Marketing"/>
+	<RoleType roleTypeId="DELYS_MARKETING_GT" parentTypeId="DELYS_MARKETING" hasTable="N" description="Delys-Marketing GT"/>
+	<RoleType roleTypeId="DELYS_MARKETING_MT" parentTypeId="DELYS_MARKETING" hasTable="N" description="Delys-Marketing MT"/>
+	<RoleType roleTypeId="DELYS_ACCOUNTANTS" hasTable="N" description="Delys-Accounting"/>
+	<RoleType roleTypeId="SHIP_TO_CUSTOMER" description="Ship-To Customer" hasTable="N" parentTypeId="CUSTOMER"/>
+	<RoleType roleTypeId="SALES_ADMIN" description="Sales Admin" hasTable="N" parentTypeId=""/>
+	<RoleType roleTypeId="SALESADMIN_MANAGER" parentTypeId="DELYS_SALESADMIN" hasTable="N" description="SalesAdmin Manager"/>
+	<RoleType roleTypeId="MT_SCHOOL" parentTypeId="DELYS_CUSTOMER_MT" hasTable="N" description="Delys-Trường học MT"/>
+	<RoleType roleTypeId="MT_HOSPITAL" parentTypeId="DELYS_CUSTOMER_MT" hasTable="N" description="Delys-Bệnh viện MT"/>
+	<RoleType roleTypeId="MT_CANTEEN_HOSPITAL" parentTypeId="DELYS_CUSTOMER_MT" hasTable="N" description="Delys-Căng tin bệnh viện MT"/>
+	<RoleType roleTypeId="MT_BIG_SUPERMARKET" parentTypeId="DELYS_CUSTOMER_MT" hasTable="N" description="Delys-Siêu thị lớn MT"/>
+	<RoleType roleTypeId="MT_SMALL_SUPERMARKET" parentTypeId="DELYS_CUSTOMER_MT" hasTable="N" description="Delys-Siêu thị nhỏ lẻ MT"/>
+	
+	<RoleType roleTypeId="ACCT_DEPT" hasTable="N" description="Accounting department"/>
+	<RoleType roleTypeId="MARKETING_DEPT" hasTable="N" description="marketing department"/>
+	<RoleType roleTypeId="INVENTORY_TRANSFER" hasTable="N" description="Inventory transfer"/>
+	
+	<RoleTypeGroup roleTypeGroupId="SALES_ROLE" description="Sales role all"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE" roleTypeId="DELYS_DISTRIBUTOR" fromDate="2014-03-21 00:00:00.0" sequenceNum="1"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE" roleTypeId="DELYS_CSM" fromDate="2014-03-21 00:00:00.0" sequenceNum="2"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE" roleTypeId="DELYS_RSM" fromDate="2014-03-21 00:00:00.0" sequenceNum="3"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE" roleTypeId="DELYS_ASM" fromDate="2014-03-21 00:00:00.0" sequenceNum="4"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE" roleTypeId="DELYS_SALESADMIN" fromDate="2014-03-21 00:00:00.0" sequenceNum="5"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE" roleTypeId="DELYS_SALESSUP" fromDate="2014-03-21 00:00:00.0" sequenceNum="6"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE" roleTypeId="DELYS_SALESMAN" fromDate="2014-03-21 00:00:00.0" sequenceNum="7"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE" roleTypeId="DELYS_CUSTOMER" fromDate="2014-03-21 00:00:00.0" sequenceNum="8"/>
+	<RoleTypeGroup roleTypeGroupId="SALES_ROLE_GT" description="Sales role GT"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE_GT" roleTypeId="DELYS_DISTRIBUTOR" fromDate="2014-03-21 00:00:00.0" sequenceNum="1"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE_GT" roleTypeId="DELYS_CSM_GT" fromDate="2014-03-21 00:00:00.0" sequenceNum="2"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE_GT" roleTypeId="DELYS_RSM_GT" fromDate="2014-03-21 00:00:00.0" sequenceNum="3"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE_GT" roleTypeId="DELYS_ASM_GT" fromDate="2014-03-21 00:00:00.0" sequenceNum="4"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE_GT" roleTypeId="DELYS_SALESADMIN_GT" fromDate="2014-03-21 00:00:00.0" sequenceNum="5"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE_GT" roleTypeId="DELYS_SALESSUP_GT" fromDate="2014-03-21 00:00:00.0" sequenceNum="6"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE_GT" roleTypeId="DELYS_SALESMAN_GT" fromDate="2014-03-21 00:00:00.0" sequenceNum="7"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE_GT" roleTypeId="DELYS_CUSTOMER_GT" fromDate="2014-03-21 00:00:00.0" sequenceNum="8"/>
+	<RoleTypeGroup roleTypeGroupId="SALES_ROLE_MT" description="Sales role MT"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE_MT" roleTypeId="DELYS_CSM_MT" fromDate="2014-03-21 00:00:00.0" sequenceNum="1"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE_MT" roleTypeId="DELYS_RSM_MT" fromDate="2014-03-21 00:00:00.0" sequenceNum="2"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE_MT" roleTypeId="DELYS_ASM_MT" fromDate="2014-03-21 00:00:00.0" sequenceNum="3"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE_MT" roleTypeId="DELYS_SALESADMIN_MT" fromDate="2014-03-21 00:00:00.0" sequenceNum="4"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE_MT" roleTypeId="DELYS_SALESSUP_MT" fromDate="2014-03-21 00:00:00.0" sequenceNum="5"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE_MT" roleTypeId="DELYS_SALESMAN_MT" fromDate="2014-03-21 00:00:00.0" sequenceNum="6"/>
+	<RoleTypeGroupMember roleTypeGroupId="SALES_ROLE_MT" roleTypeId="DELYS_CUSTOMER_MT" fromDate="2014-03-21 00:00:00.0" sequenceNum="7"/>
+	
+	<SecurityGroup groupId="DELYS_SALESADMIN_GT" description="Delys sales admin GT"/>
+	<SecurityGroup groupId="DELYS_ADMIN" description="Delys admin"/>
+	
+	<SecurityGroup groupId="DELYS_EMPLOYEE" description="Employee of Delys"/>
+	<SecurityGroup groupId="DELYS_ACCOUNTANTS" description="Accountants"/>
+	<SecurityGroup groupId="DELYS_SALESADMIN_GT" description="Sales Admin GT"/>
+	<SecurityGroup groupId="DELYS_SALESADMIN_MT" description="Sales Admin MT"/>
+	<SecurityGroup groupId="DELYS_SALESMAN_GT" description="Salesman GT"/>
+    <SecurityGroup groupId="DELYS_SALESMAN_MT" description="Salesman MT"/>
+    <SecurityGroup groupId="DELYS_SALESSUP_GT" description="Salessup GT"/>
+    <SecurityGroup groupId="DELYS_SALESSUP_MT" description="Salessup MT"/>
+    <SecurityGroup groupId="DELYS_DISTRIBUTOR" description="Distributor"/>
+    <SecurityGroup groupId="DELYS_DIRECTOR" description="Director of Delys"/>
+    <SecurityGroup groupId="DELYS_HR" description="HR Admin of Delys"/>
+	<SecurityGroup groupId="SALESADMIN_MANAGER" description="SalesAdmin Manager"/>
+	<SecurityGroup groupId="DELYS_CEO" description="Chief Executive Officer"/>
+	<SecurityGroup groupId="DELYS_NBD" description="National Business Director"/>
+	<SecurityGroup groupId="DELYS_CSM_GT" description="Channel Sales Manager GT"/>
+	<SecurityGroup groupId="DELYS_CSM_MT" description="Channel Sales Manager MT"/>
+	<SecurityGroup groupId="DELYS_RSM_GT" description="Region Sales Manager GT"/>
+	<SecurityGroup groupId="DELYS_RSM_MT" description="Region Sales Manager MT"/>
+	<SecurityGroup groupId="DELYS_ASM_GT" description="Area Sales Manager GT"/>
+	<SecurityGroup groupId="DELYS_ASM_MT" description="Area Sales Manager MT"/>
+	<SecurityGroup groupId="CSM" description="CSM"/>
+	<SecurityGroup groupId="RSM" description="RSM"/>
+	<SecurityGroup groupId="ASM" description="ASM"/>
+	<SecurityGroup groupId="EMPLOYEE" description="ASM"/>
+	
+	
+	<!-- Menu left side bar by userLogin -->
+	<RoleTypeAttr roleTypeId="DELYS_CEO" attrName="BusinessMenu" attrValue="DELYS_CEO"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_CEO" attrName="BusinessHomePage" attrValue="delysCeo"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_CEO" attrName="BusinessTitle" attrValue="delysCeoTitle"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_SALESADMIN_GT" attrName="BusinessMenu" attrValue="DELYS_SALESADMIN_GT"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_SALESADMIN_GT" attrName="BusinessHomePage" attrValue="salesAdmin"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_SALESADMIN_GT" attrName="BusinessTitle" attrValue="salesAdminTitle"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_SALESSUP_GT" attrName="BusinessMenu" attrValue="DELYS_SALESSUP_GT"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_SALESSUP_GT" attrName="BusinessHomePage" attrValue="salesSupGT"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_SALESSUP_GT" attrName="BusinessTitle" attrValue="salesSupTitle"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_ASM_GT" attrName="BusinessMenu" attrValue="DELYS_ASM_GT"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_ASM_GT" attrName="BusinessHomePage" attrValue="salesManager"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_ASM_GT" attrName="BusinessTitle" attrValue="salesManagerTitle"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_ACCOUNTANTS" attrName="BusinessMenu" attrValue="DELYS_ACCOUNTANTS"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_ACCOUNTANTS" attrName="BusinessHomePage" attrValue="findOrderAcc"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_ACCOUNTANTS" attrName="BusinessTitle" attrValue="accountingManangerTitle"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_DISTRIBUTOR" attrName="BusinessMenu" attrValue="DELYS_DISTRIBUTOR"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_DISTRIBUTOR" attrName="BusinessHomePage" attrValue="distributor"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_DISTRIBUTOR" attrName="BusinessTitle" attrValue="distributorTitle"/>
+	<RoleTypeAttr roleTypeId="IMPORT_ADMIN" attrName="BusinessMenu" attrValue="IMPORT_ADMIN"/>
+	<RoleTypeAttr roleTypeId="IMPORT_ADMIN" attrName="BusinessHomePage" attrValue="import"/>
+	<RoleTypeAttr roleTypeId="IMPORT_ADMIN" attrName="BusinessTitle" attrValue="Import Management System"/>
+	<RoleTypeAttr roleTypeId="DELYS_SALESADMIN_MT" attrName="BusinessMenu" attrValue="DELYS_SALESADMIN_MT"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_SALESADMIN_MT" attrName="BusinessHomePage" attrValue="salesAdminMT"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_SALESADMIN_MT" attrName="BusinessTitle" attrValue="salesAdminTitle"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_SALESSUP_MT" attrName="BusinessMenu" attrValue="DELYS_SALESSUP_MT"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_SALESSUP_MT" attrName="BusinessHomePage" attrValue="findOrderDis"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_SALESSUP_MT" attrName="BusinessTitle" attrValue="salesSupTitle"/>
+ 	<RoleTypeAttr roleTypeId="SALESADMIN_MANAGER" attrName="BusinessMenu" attrValue="SALESADMIN_MANAGER"/>
+ 	<RoleTypeAttr roleTypeId="SALESADMIN_MANAGER" attrName="BusinessHomePage" attrValue="salesAdminManager"/>
+ 	<RoleTypeAttr roleTypeId="SALESADMIN_MANAGER" attrName="BusinessTitle" attrValue="salesAdminManagerTitle"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_ASM_MT" attrName="BusinessMenu" attrValue="DELYS_ASM_MT"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_ASM_MT" attrName="BusinessHomePage" attrValue="salesManagerMT"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_ASM_MT" attrName="BusinessTitle" attrValue="salesManagerTitle"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_RSM_GT" attrName="BusinessMenu" attrValue="DELYS_RSM_GT"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_RSM_GT" attrName="BusinessHomePage" attrValue="salesRsmGT"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_RSM_GT" attrName="BusinessTitle" attrValue="salesManagerTitle"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_RSM_MT" attrName="BusinessMenu" attrValue="DELYS_RSM_MT"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_RSM_MT" attrName="BusinessHomePage" attrValue="salesRsmMT"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_RSM_MT" attrName="BusinessTitle" attrValue="salesManagerTitle"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_CSM_GT" attrName="BusinessMenu" attrValue="DELYS_CSM_GT"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_CSM_GT" attrName="BusinessHomePage" attrValue="salesCsmGT"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_CSM_GT" attrName="BusinessTitle" attrValue="salesManagerTitle"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_CSM_MT" attrName="BusinessMenu" attrValue="DELYS_CSM_MT"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_CSM_MT" attrName="BusinessHomePage" attrValue="salesCsmMT"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_CSM_MT" attrName="BusinessTitle" attrValue="salesManagerTitle"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_NBD" attrName="BusinessMenu" attrValue="DELYS_NBD"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_NBD" attrName="BusinessHomePage" attrValue="salesNbd"/>
+ 	<RoleTypeAttr roleTypeId="DELYS_NBD" attrName="BusinessTitle" attrValue="salesManagerTitle"/>
+	
+	<SecurityPermission permissionId="DELYS_VIEW" description="Base permission to view delys component"/>
+	<SecurityPermission permissionId="DELYS_CREATE" description="Base permission to create delys component"/>
+	<SecurityPermission permissionId="DELYS_UPDATE" description="Base permission to update delys component"/>
+	<SecurityPermission permissionId="DELYS_DELETE" description="Base permission to delete delys component"/>
+	<SecurityPermission permissionId="DELYS_ADMIN" description="Base permission to admin delys component"/>
+	<SecurityPermission permissionId="DELYS_ORDER_LIST" description="Order List"/>
+	<SecurityPermission permissionId="DELYS_ORDER_VIEW" description="Order View"/>
+	<SecurityPermission permissionId="DELYS_ORDER_GT_CREATE" description="Create GT Order"/>
+	<SecurityPermission permissionId="DELYS_ORDER_GT_UPDATE" description="Update GT Order"/>
+	<SecurityPermission permissionId="DELYS_ORDER_GT_APPROVAL" description="Approval GT Order"/>
+	<SecurityPermission permissionId="DELYS_ORDER_GT_ATTACHDOC" description="Attach document to GT Order"/>
+	<SecurityPermission permissionId="DELYS_ORDER_MT_CREATE" description="Create MT Order"/>
+	<SecurityPermission permissionId="DELYS_ORDER_MT_UPDATE" description="Update MT Order"/>
+	<SecurityPermission permissionId="DELYS_ORDER_MT_APPROVAL" description="Approval MT Order"/>
+	<SecurityPermission permissionId="DELYS_ORDER_MT_ATTACHDOC" description="Attach document to MT Order"/>
+	<SecurityPermission permissionId="DELYS_QUOTATION_VIEW" description="View operations in the Quotation manager"/>
+	<SecurityPermission permissionId="DELYS_QUOTATION_CREATE" description="Create operations in the Quotation manager"/>
+	<SecurityPermission permissionId="DELYS_QUOTATION_UPDATE" description="Update operations in the Quotation manager"/>
+	<SecurityPermission permissionId="DELYS_QUOTATION_DELETE" description="Delete operations in the Quotation manager"/>
+	<SecurityPermission permissionId="DELYS_QUOTATION_APPROVE" description="Approve operations in the Quotation manager"/>
+	<SecurityPermission permissionId="QUOTT_NBD_APPROVE" description="First Approve operations in the Quotation manager"/>
+	<SecurityPermission permissionId="DELYS_QUOTATION_ADMIN" description="ALL operations in the Quotation manager"/>
+	<SecurityPermission permissionId="DELYS_QUOTATION_MAINT" description="Quotation maint"/>
+	<SecurityPermission permissionId="DELYS_QUOTATION_MAINT_ADMIN" description="ALL Quotation maint"/>
+	<SecurityPermission permissionId="QUOTATION_CUST_VIEW" description="View operations in the Quotation role customer manager"/>
+	<SecurityPermission permissionId="QUOTATION_THRUDATE" description="Update thruDate operations in the Quotation manager"/>
+	<SecurityPermission permissionId="PERIOD_MAINT" description="Period maint"/>
+	<SecurityPermission permissionId="SALESMGR_INOUT_VIEW" description="View operations in the Sales in out Report manager"/>
+	<SecurityPermission permissionId="SALESMGR_INOUT_CREATE" description="Create operations in the Sales in out Report manager"/>
+	<SecurityPermission permissionId="SALESMGR_INOUT_UPDATE" description="Update operations in the Sales in out Report manager"/>
+	<SecurityPermission permissionId="SALESMGR_INOUT_DELETE" description="Delete operations in the Sales in out Report manager"/>
+	<SecurityPermission permissionId="SALESMGR_INOUT_ADMIN" description="ALL operations in the Sales in out Report manager"/>
+	<SecurityPermission permissionId="SALES_POLICY_VIEW" description="View operations in the Sales policy manager"/>
+	<SecurityPermission permissionId="SALES_POLICY_CREATE" description="Create operations in the Sales policy manager"/>
+	<SecurityPermission permissionId="SALES_POLICY_UPDATE" description="Update operations in the Sales policy manager"/>
+	<SecurityPermission permissionId="SALES_POLICY_DELETE" description="Delete operations in the Sales policy manager"/>
+	<SecurityPermission permissionId="SALES_POLICY_ADMIN" description="ALL operations in the Sales policy manager"/>
+	<SecurityPermission permissionId="DELYS_ORDER_VIEW" description="View operations in the Delys order manager"/>
+	<SecurityPermission permissionId="DELYS_ORDER_CREATE" description="Create operations in the Delys order manager"/>
+	<SecurityPermission permissionId="DELYS_ORDER_UPDATE" description="Update operations in the Delys order manager"/>
+	<SecurityPermission permissionId="DELYS_ORDER_DELETE" description="Delete operations in the Delys order manager"/>
+	<SecurityPermission permissionId="DELYS_ORDER_PROCESS" description="Process operations in the Delys order manager"/>
+	<SecurityPermission permissionId="DELYS_ORDER_HOLD" description="Hold operations in the Delys order manager"/>
+	<SecurityPermission permissionId="DELYS_ORDER_PRINT" description="Print operations in the Delys order manager"/>
+	<SecurityPermission permissionId="DELYS_ORDER_CANCEL" description="Cancel operations in the Delys order manager"/>
+	<SecurityPermission permissionId="DELYS_ORDER_APPROVE" description="Approve operations in the Delys order manager"/>
+	<SecurityPermission permissionId="DELYS_ORDER_REJECT" description="Reject operations in the Delys order manager"/>
+	<SecurityPermission permissionId="DELYS_ORDER_COMPLETE" description="Complete operations in the Delys order manager"/>
+	<SecurityPermission permissionId="DELYS_ORDER_RECEIVE" description="Receive operations in the Delys order manager"/>
+	<SecurityPermission permissionId="DELYS_ORDER_ADMIN" description="ALL operations in the Delys order manager"/>
+	<SecurityPermission permissionId="DELYS_CSM_CREATE" description="Permission to create a CSM"/>
+    <SecurityPermission permissionId="DELYS_RSM_CREATE" description="Permission to create a RSM"/>
+    <SecurityPermission permissionId="DELYS_ASM_CREATE" description="Permission to create an ASM"/>
+    <SecurityPermission permissionId="DELYS_ACCOUNTS_VIEW" description="Permission to view an account"/>
+    <SecurityPermission permissionId="DELYS_ACCOUNTS_CREATE" description="Permission to create an account"/>
+    <SecurityPermission permissionId="DELYS_LEAVE_APPROVAL" description="Approve leave"/>
+    <SecurityPermission permissionId="DELYS_LEAVE_VIEW" description="View leave"/>
+	<SecurityPermission permissionId="DELYS_LEAVE_Create" description="Create leave"/>
+	<SecurityPermission permissionId="DELYS_HR_VIEW" description="Base permission to view HR component"/>
+	<SecurityPermission permissionId="DELYS_HR_CREATE" description="Base permission to create HR component"/>
+	<SecurityPermission permissionId="DELYS_HR_UPDATE" description="Base permission to update HR component"/>
+	<SecurityPermission permissionId="DELYS_HR_DELETE" description="Base permission to delete HR component"/>
+	<SecurityPermission permissionId="DELYS_HR_ADMIN" description="Base permission to admin HR component"/>
+	<SecurityPermission permissionId="INVENTORY_ITEM_VIEW" description="View inventory item"/>
+	<SecurityPermission permissionId="INVENTORY_ITEM_CREATE" description="Create inventory item"/>
+	<SecurityPermission permissionId="INVENTORY_ITEM_DELETE" description="Delete ivnentory item"/>
+	<SecurityPermission permissionId="INVENTORY_ITEM_ADMIN" description="ALL inventory item"/>
+	<SecurityPermission permissionId="DELYS_PROMOS_VIEW" description="View operations in the Promotion manager"/>
+	<SecurityPermission permissionId="DELYS_PROMOS_CREATE" description="Create operations in the Promotion manager"/>
+	<SecurityPermission permissionId="DELYS_PROMOS_UPDATE" description="Update operations in the Promotion manager"/>
+	<SecurityPermission permissionId="DELYS_PROMOS_DELETE" description="Delete operations in the Promotion manager"/>
+	<SecurityPermission permissionId="DELYS_PROMOS_ADMIN" description="ALL operations in the Promotion manager"/>
+	<SecurityPermission permissionId="ORDERPUR_DIS_CREATE" description="Create operations in the Purchase order manager"/>
+	<SecurityPermission permissionId="ORDERSAL_DIS_CREATE" description="Create operations in the Sales order manager"/>
+	<SecurityPermission permissionId="CATALOG_PRICE_MAINT" description="Catalog price maint"/>
+	<SecurityPermission permissionId="MOBILESERVICES_ADMIN" description="ALL mobile services"/>
+	<SecurityPermission permissionId="WORKEFFORTMGR_ROLE_ADMIN" description="ALL work effort manager role"/>
+	<SecurityPermission permissionId="INVENTORY_ITEM_VIEW" description="View operations in the Inventory Item manager"/>
+	<SecurityPermission permissionId="INVENTORY_ITEM_CREATE" description="Create operations in the Inventory Item manager"/>
+	<SecurityPermission permissionId="INVENTORY_ITEM_UPDATE" description="Update operations in the Inventory Item manager"/>
+	<SecurityPermission permissionId="INVENTORY_ITEM_DELETE" description="Delete operations in the Inventory Item manager"/>
+	<SecurityPermission permissionId="INVENTORY_ITEM_ADMIN" description="ALL operations in the Inventory Item manager"/>
+	<SecurityPermission permissionId="FACILITY_ROLE_CREATE" description="Create operations in the Facility role manager"/>
+	<SecurityPermission permissionId="FACILITY_ROLE_UPDATE" description="Update operations in the Facility role manager"/>
+	<SecurityPermission permissionId="FACILITY_ROLE_DELETE" description="Delete operations in the Facility role manager"/>
+	<SecurityPermission permissionId="FACILITY_ROLE_ADMIN" description="ALL operations in the Facility role manager"/>
+	
+	<SecurityPermission permissionId="DELYS_LOG_VIEW" description="View operations in the delys logistics module"/>
+	<SecurityPermission permissionId="DELYS_LOG_ADMIN" description="ALL operations in the delys logistics module"/>
+	
+	<SecurityPermission permissionId="PSETTLE_ROLE_VIEW" description="View operations in the Promotion settlement role manager"/>
+	<SecurityPermission permissionId="PSETTLE_ROLE_CREATE" description="Create operations in the Promotion settlement role manager"/>
+	<SecurityPermission permissionId="PSETTLE_ROLE_UPDATE" description="Update operations in the Promotion settlement role manager"/>
+	<!-- <SecurityPermission permissionId="PSETTLE_ROLE_DELETE" description="Delete operations in the Promotion settlement role manager"/>
+	<SecurityPermission permissionId="PSETTLE_ROLE_ADMIN" description="ALL operations in the Promotion settlement role manager"/> -->
+	<SecurityPermission permissionId="REGPROMO_ROLE_VIEW" description="View operations in the Register promotion role manager"/>
+	<SecurityPermission permissionId="REGPROMO_ROLE_CREATE" description="Create operations in the Register promotion role manager"/>
+	<SecurityPermission permissionId="REGPROMO_ROLE_UPDATE" description="Update operations in the Register promotion role manager"/>
+	<SecurityPermission permissionId="REGPROMO_ROLE_APPROVE" description="Approve operations in the Register promotion role manager"/>
+	<SecurityPermission permissionId="REGPROMO_SUP_APPROVE" description="Supervisor Approve operations in the Register promotion role manager"/>
+	<SecurityPermission permissionId="REGPROMO_ASM_APPROVE" description="Area super manager Approve operations in the Register promotion role manager"/>
+	<SecurityPermission permissionId="MARKEXH_ROLE_VIEW" description="View operations in the Mark exhibited role manager"/>
+	<SecurityPermission permissionId="MARKEXH_ROLE_CREATE" description="Create operations in the Mark exhibited role manager"/>
+	<SecurityPermission permissionId="MARKEXH_ROLE_UPDATE" description="Update operations in the Mark exhibited role manager"/>
+	<SecurityPermission permissionId="MARKEXH_ROLE_APPROVE" description="Approve operations in the Mark exhibited role manager"/>
+	<SecurityPermission permissionId="MARKEXH_ROLE_MARK" description="Mark operations in the Mark exhibited role manager"/>
+	<SecurityPermission permissionId="AGREPROMO_ROLE_VIEW" description="View operations in the Promotion agreement role manager"/>
+	<SecurityPermission permissionId="AGREPROMO_ROLE_CREATE" description="Create operations in the Promotion agreement role manager"/>
+	<SecurityPermission permissionId="AGREPROMO_ROLE_UPDATE" description="Update operations in the Promotion agreement role manager"/>
+	<SecurityPermission permissionId="AGREPROMO_ROLE_APPROVE" description="Approve operations in the Promotion agreement role manager"/>
+	<SecurityPermission permissionId="AGREEMENT_VIEW" description="View operations in the Promotion agreement role manager"/>
+	<SecurityPermission permissionId="AGREEMENT_CREATE" description="Create operations in the Promotion agreement role manager"/>
+	<SecurityPermission permissionId="AGREEMENT_UPDATE" description="Update operations in the Promotion agreement role manager"/>
+	<SecurityPermission permissionId="AGREEMENT_DELETE" description="Delete operations in the Promotion agreement role manager"/>
+	<SecurityPermission permissionId="AGREEMENT_ADMIN" description="ALL operations in the Promotion agreement role manager"/>
+	<SecurityPermission permissionId="AGREEMENT_ROLE_VIEW" description="View operations in the Promotion agreement role manager"/>
+	<SecurityPermission permissionId="AGREEMENT_ROLE_CREATE" description="Create operations in the Promotion agreement role manager"/>
+	<SecurityPermission permissionId="AGREEMENT_ROLE_UPDATE" description="Update operations in the Promotion agreement role manager"/>
+	<SecurityPermission permissionId="AGREEMENT_ROLE_DELETE" description="Delete operations in the Promotion agreement role manager"/>
+	<SecurityPermission permissionId="RETURNREQ_ROLE_VIEW" description="View operations in the return requirement role manager"/>
+	<SecurityPermission permissionId="RETURNREQ_ROLE_CREATE" description="Create operations in the return requirement role manager"/>
+	<SecurityPermission permissionId="RETURNREQ_ROLE_UPDATE" description="Update operations in the return requirement role manager"/>
+	<SecurityPermission permissionId="RETURNREQ_ROLE_DELETE" description="Delete operations in the return requirement role manager"/>
+	<SecurityPermission permissionId="RETURNORD_LOOSE_ROLE_VIEW" description="View operations in the return order loose role manager"/>
+	<SecurityPermission permissionId="RETURNORD_LOOSE_ROLE_CREATE" description="Create operations in the return order loose role manager"/>
+	<SecurityPermission permissionId="RETURNORD_LOOSE_ROLE_UPDATE" description="Update operations in the return order loose role manager"/>
+	<SecurityPermission permissionId="RETURNORD_LOOSE_ROLE_DELETE" description="Delete operations in the return order loose role manager"/>
+	<SecurityPermission permissionId="RETURNORD_ROLE_VIEW" description="View operations in the return order role manager"/>
+	<SecurityPermission permissionId="RETURNORD_ROLE_CREATE" description="Create operations in the return order role manager"/>
+	<SecurityPermission permissionId="RETURNORD_ROLE_UPDATE" description="Update operations in the return order role manager"/>
+	<SecurityPermission permissionId="RETURNORD_ROLE_DELETE" description="Delete operations in the return order role manager"/>
+	<SecurityPermission permissionId="REREQCOM_ROLE_VIEW" description="View operations in the return requirement to company role manager"/>
+	<SecurityPermission permissionId="REREQCOM_ROLE_CREATE" description="Create operations in the return requirement to company role manager"/>
+	<SecurityPermission permissionId="REREQCOM_ROLE_UPDATE" description="Update operations in the return requirement to company role manager"/>
+	<SecurityPermission permissionId="REREQCOM_ROLE_DELETE" description="Delete operations in the return requirement to company role manager"/>
+	<SecurityPermission permissionId="RECEIVE_REREQCOM_ROLE_VIEW" description="View operations in the return requirement to company role manager"/>
+	<SecurityPermission permissionId="RECEIVE_REREQCOM_ROLE_CREATE" description="Create operations receive product in the return requirement to company role manager"/>
+	<SecurityPermission permissionId="RECEIVE_REREQCOM_ROLE_UPDATE" description="Update operations receive product in the return requirement to company role manager"/>
+	<SecurityPermission permissionId="RECEIVE_REREQCOM_ROLE_DELETE" description="Delete operations receive product in the return requirement to company role manager"/>
+	<SecurityPermission permissionId="UPDATE_PRODAVG_VIEW" description="View operations in the return requirement to company role manager"/>
+	<SecurityPermission permissionId="UPDATE_PRODAVG_CREATE" description="Create operations in the update product avgerage cost role manager"/>
+	<SecurityPermission permissionId="UPDATE_PRODAVG_UPDATE" description="Update operations in the update product avgerage cost role manager"/>
+	<SecurityPermission permissionId="UPDATE_PRODAVG_DELETE" description="Delete operations in the update product avgerage cost role manager"/>
+	
+	<SecurityPermission permissionId="PARTYDIST_ADMIN" description="ALL operations in the Party distributor manager"/>
+	<SecurityPermission permissionId="PARTYDIST_VIEW" description="View operations in the Party distributor manager"/>
+	<SecurityPermission permissionId="PARTYDIST_CREATE" description="Create operations in the Party distributor manager"/>
+	<SecurityPermission permissionId="PARTYDIST_UPDATE" description="Update operations in the Party distributor manager"/>
+	<SecurityPermission permissionId="PARTYDIST_DELETE" description="Delete operations in the Party distributor manager"/>
+	<SecurityPermission permissionId="PARTYDIST_ROLE_ADMIN" description="ALL operations in the Party distributor role manager"/>
+	<SecurityPermission permissionId="PARTYDIST_ROLE_VIEW" description="View operations in the Party distributor role manager"/>
+	<SecurityPermission permissionId="PARTYDIST_ROLE_CREATE" description="Create operations in the Party distributor role manager"/>
+	<SecurityPermission permissionId="PARTYDIST_ROLE_UPDATE" description="Update operations in the Party distributor role manager"/>
+	<SecurityPermission permissionId="PARTYDIST_ROLE_DELETE" description="Delete operations in the Party distributor role manager"/>
+	<SecurityPermission permissionId="PARTYSALESMAN_ADMIN" description="ALL operations in the Party salesman manager"/>
+	<SecurityPermission permissionId="PARTYSALESMAN_VIEW" description="View operations in the Party salesman manager"/>
+	<SecurityPermission permissionId="PARTYSALESMAN_CREATE" description="Create operations in the Party salesman manager"/>
+	<SecurityPermission permissionId="PARTYSALESMAN_UPDATE" description="Update operations in the Party salesman manager"/>
+	<SecurityPermission permissionId="PARTYSALESMAN_DELETE" description="Delete operations in the Party salesman manager"/>
+	<SecurityPermission permissionId="PARTYSALESMAN_ROLE_ADMIN" description="ALL operations in the Party salesman role manager"/>
+	<SecurityPermission permissionId="PARTYSALESMAN_ROLE_VIEW" description="View operations in the Party salesman role manager"/>
+	<SecurityPermission permissionId="PARTYSALESMAN_ROLE_CREATE" description="Create operations in the Party salesman role manager"/>
+	<SecurityPermission permissionId="PARTYSALESMAN_ROLE_UPDATE" description="Update operations in the Party salesman role manager"/>
+	<SecurityPermission permissionId="PARTYSALESMAN_ROLE_DELETE" description="Delete operations in the Party salesman role manager"/>
+	
+	<SecurityPermission permissionId="PRODUCT_AVGCOST_UPDATE" description="Update operations in the product avgerage cost role manager"/>
+	<SecurityPermission permissionId="PARTYACC_PREF_VIEW" description="View operations in the party accounting preference role manager"/>
+	<SecurityPermission permissionId="ACCTGTRANS_ENTRIES_CREATE" description="Create operations in the accouting transaction entries role manager"/>
+	<SecurityPermission permissionId="ACCTGTRANS_ENTRIES_UPDATE" description="Update operations in the accouting transaction entries role manager"/>
+	<SecurityPermission permissionId="BASIC_GLEDGER_UPDATE" description="Update operations in the basic global ledger role manager"/>
+	
+	<!-- Security Group Permission -->
+	<SecurityGroupPermission groupId="SUPER" permissionId="DELYS_ADMIN"/>
+	<SecurityGroupPermission groupId="SUPER" permissionId="DELYS_PROMOS_ADMIN"/>
+	<SecurityGroupPermission groupId="DELYS_ADMIN" permissionId="DELYS_ADMIN"/>
+    <SecurityGroupPermission groupId="DELYS_ADMIN" permissionId="PARTYMGR_ADMIN"/>
+    <SecurityGroupPermission groupId="DELYS_ADMIN" permissionId="DELYS_CSM_CREATE"/>
+    <SecurityGroupPermission groupId="DELYS_ADMIN" permissionId="DELYS_RSM_CREATE"/>
+    <SecurityGroupPermission groupId="DELYS_ADMIN" permissionId="DELYS_ASM_CREATE"/>
+    <SecurityGroupPermission groupId="DELYS_ADMIN" permissionId="DELYS_ACCOUNTS_CREATE"/>
+    <SecurityGroupPermission groupId="DELYS_ADMIN" permissionId="DELYS_ACCOUNTS_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="ORDERMGR_ADMIN"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="ORDERMGR_PURCHASE_ADMIN"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="PARTYMGR_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="PERIOD_MAINT"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="ACCTG_PREF_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="ACCTG_PREF_ADMIN"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="ACCTG_FX_UPDATE"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="ACCTG_ATX_ADMIN"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="ACCOUNTING_CREATE"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="ACCOUNTING_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="ACCOUNTING_UPDATE"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="ACCOUNTING_DELETE"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="ACCOUNTING_ROLE_UPDATE"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="CATALOG_CREATE"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="CATALOG_PRICE_MAINT"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="PAY_INFO_ADMIN"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="DELYS_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="DELYS_ACCOUNTS_CREATE"/>
+    <SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="DELYS_ACCOUNTS_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="DELYS_ORDER_LIST"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="DELYS_ORDER_APPROVE"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="DELYS_ORDER_RECEIVE"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="DELYS_QUOTATION_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_ACCOUNTANTS" permissionId="PSETTLE_ROLE_UPDATE"/>
+	
+	<SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_QUOTATION_VIEW"/>
+    <!-- <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_QUOTATION_ADMIN"/> -->
+    <!-- <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_QUOTATION_MAINT"/> --><!-- SalesAdmin -->
+    <!-- <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_QUOTATION_MAINT_ADMIN"/> -->
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="CATALOG_UPDATE"/>				<!-- Quotation (price rule) -->
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="CATALOG_PRICE_MAINT"/>			<!-- Quotation (price rule) -->
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="CATALOG_ADMIN"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="PERIOD_MAINT"/>				<!-- Custom time period -->
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="SALESMGR_INOUT_ADMIN"/>		<!-- SalesAdmin -->
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="SALESMGR_INOUT_CREATE"/>		<!-- SalesAdmin -->
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="SALES_POLICY_ADMIN"/>			<!-- SalesAdmin -->
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="PROD_STORE_VIEW"/>			
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_ORDER_CREATE"/>			<!-- SalesAdmin -->
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_ORDER_PROCESS"/>			<!-- SalesAdmin -->
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_ORDER_VIEW"/>			<!-- SalesAdmin -->
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_ORDER_HOLD"/>			<!-- SalesAdmin -->
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_ORDER_PRINT"/>			<!-- SalesAdmin -->
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_ORDER_CANCEL"/>			<!-- SalesAdmin, Accounting -->
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_ORDER_REJECT"/>			<!-- SalesAdmin, Accounting -->
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="ORDERMGR_ADMIN"/>				<!-- SalesAdmin -->
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="ORDERMGR_PURCHASE_ADMIN"/>		<!-- Purchase order -->
+    <!-- <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_ORDER_APPROVE"/> --><!-- Accounting -->
+    <!-- <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_ORDER_RECEIVE"/> --><!-- Accounting, receive money -->
+    <!-- <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_ORDER_COMPLETE"/> --><!-- Logistic -->
+	<!-- <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="FACILITY_ADMIN"/> -->		<!-- Logistic, quick ship product in order -->
+	<!-- <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="ACCTG_PREF_VIEW"/> -->	<!-- Accounting, NA, Quick ship. ACCTG_PREF_ADMIN-->
+	<!-- <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="ACCTG_ATX_ADMIN"/> -->	<!-- Accounting, NA, Quick ship. ACCTG_ATX_ADMIN-->
+	<!-- <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="ACCOUNTING_CREATE"/> -->	<!-- Accounting -->
+	<!-- <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="ACCOUNTING_UPDATE"/> -->	<!-- Accounting, NA, Quick ship. ACCOUNTING_ADMIN -->
+	<!-- <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="PAY_INFO_ADMIN"/> -->		<!-- Accounting, NA -->
+	<!-- Removed ACCOUNTING_ADMIN, ACCOUNTING_UPDATE, ACCTG_ATX_ADMIN, ACCTG_PREF_ADMIN, PAY_INFO_ADMIN -->
+	<SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_ORDER_GT_CREATE"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="ORDERMGR_UPDATE"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="PARTYMGR_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="CATALOG_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="PARTYMGR_PCM_UPDATE"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="PARTYMGR_PCM_DELETE"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_ORDER_LIST"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_PROMOS_APPROVE"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_PROMOS_ADMIN"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_PROMOS_CREATE"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="PSETTLE_ROLE_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="DELYS_PROMOS_DELETE"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="REGPROMO_ROLE_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="REGPROMO_ROLE_APPROVE"/>
+	<SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="AGREPROMO_ROLE_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="AGREPROMO_ROLE_CREATE"/>
+	<SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="AGREEMENT_ROLE_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="AGREEMENT_ROLE_CREATE"/>
+	<SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="AGREEMENT_ROLE_UPDATE"/>
+	<SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="AGREEMENT_ROLE_DELETE"/>
+	<SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="REREQCOM_ROLE_UPDATE"/>
+	<SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="REREQCOM_ROLE_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="RETURNORD_ROLE_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="RETURNORD_LOOSE_ROLE_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="RETURNORD_LOOSE_ROLE_CREATE"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="RETURNORD_LOOSE_ROLE_UPDATE"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="MARKEXH_ROLE_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="PARTYDIST_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="PARTYSALESMAN_VIEW"/>
+    <!-- Test: nhan hang tu npp ve kho cong ty 
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="RECEIVE_REREQCOM_ROLE_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="RECEIVE_REREQCOM_ROLE_CREATE"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="PRODUCT_AVGCOST_UPDATE"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="PARTYACC_PREF_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="ACCTGTRANS_ENTRIES_CREATE"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="ACCTGTRANS_ENTRIES_UPDATE"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="BASIC_GLEDGER_UPDATE"/>
+    
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="ACCTG_PREF_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="ACCTG_ATX_ADMIN"/>
+	<SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="ACCOUNTING_CREATE"/>
+	<SecurityGroupPermission groupId="DELYS_SALESADMIN_GT" permissionId="ACCOUNTING_UPDATE"/>
+	
+	Test: logspecialist chuyen nhanh toan bo don hang
+	<SecurityGroupPermission groupId="LOG_SPECIALIST" permissionId="ORDERMGR_UPDATE"/>
+	<SecurityGroupPermission groupId="LOG_SPECIALIST" permissionId="FACILITY_CREATE"/>
+	<SecurityGroupPermission groupId="LOG_SPECIALIST" permissionId="FACILITY_UPDATE"/>
+	<SecurityGroupPermission groupId="LOG_SPECIALIST" permissionId="ORDERMGR_CREATE"/>
+	<SecurityGroupPermission groupId="LOG_SPECIALIST" permissionId="ACCTG_PREF_VIEW"/>
+	<SecurityGroupPermission groupId="LOG_SPECIALIST" permissionId="ACCTG_ATX_CREATE"/>
+	<SecurityGroupPermission groupId="LOG_SPECIALIST" permissionId="ACCOUNTING_UPDATE"/>
+	<SecurityGroupPermission groupId="LOG_SPECIALIST" permissionId="ACCTG_ATX_UPDATE"/>
+	<SecurityGroupPermission groupId="LOG_SPECIALIST" permissionId="PAY_INFO_CREATE"/>
+     -->
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_MT" permissionId="DELYS_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_SALESADMIN_MT" permissionId="DELYS_ORDER_MT_CREATE"/>
+    <SecurityGroupPermission groupId="DELYS_SALESMAN_GT" permissionId="DELYS_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_SALESMAN_GT" permissionId="ORDERMGR_CREATE"/>
+    <SecurityGroupPermission groupId="DELYS_SALESMAN_GT" permissionId="ORDERMGR_ADMIN"/>
+    <SecurityGroupPermission groupId="DELYS_SALESMAN_GT" permissionId="PAY_INFO_ADMIN"/>
+    <SecurityGroupPermission groupId="DELYS_SALESMAN_GT" permissionId="ACCTG_ATX_ADMIN"/>
+   	<SecurityGroupPermission groupId="DELYS_SALESMAN_GT" permissionId="MOBILESERVICES_ADMIN"/>
+	<SecurityGroupPermission groupId="DELYS_SALESMAN_GT" permissionId="DELYS_ORDER_LIST"/>
+	<SecurityGroupPermission groupId="DELYS_SALESMAN_GT" permissionId="DELYS_LEAVE_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESMAN_MT" permissionId="DELYS_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESMAN_MT" permissionId="PARTYMGR_ADMIN"/>
+	<SecurityGroupPermission groupId="DELYS_SALESMAN_MT" permissionId="DELYS_LEAVE_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESMAN_MT" permissionId="DELYS_HR_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_GT" permissionId="DELYS_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_GT" permissionId="ORDERMGR_ADMIN"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_GT" permissionId="ORDERMGR_UPDATE"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_GT" permissionId="DELYS_ORDER_LIST"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_GT" permissionId="DELYS_HR_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_GT" permissionId="DELYS_LEAVE_APPROVAL"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_GT" permissionId="DELYS_QUOTATION_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_GT" permissionId="REGPROMO_ROLE_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_GT" permissionId="REGPROMO_SUP_APPROVE"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_GT" permissionId="MARKEXH_ROLE_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_GT" permissionId="MARKEXH_ROLE_MARK"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_GT" permissionId="RETURNORD_ROLE_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_GT" permissionId="RETURNREQ_ROLE_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_GT" permissionId="RETURNREQ_ROLE_CREATE"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_GT" permissionId="RETURNREQ_ROLE_UPDATE"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_GT" permissionId="REREQCOM_ROLE_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_MT" permissionId="DELYS_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_MT" permissionId="DELYS_LEAVE_APPROVAL"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_MT" permissionId="DELYS_HR_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_SALESSUP_MT" permissionId="DELYS_QUOTATION_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="DELYS_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="CATALOG_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="ORDERMGR_ADMIN"/>
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="DELYS_ORDER_LIST"/>
+    <!-- <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="DELYS_ORDER_APPROVE"/> -->
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="CONTENTMGR_UPDATE"/>
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="CONTENTMGR_ADMIN"/>
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="CONTENTMGR_ROLE_CREATE"/>
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="ORDERPUR_DIS_CREATE"/>
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="ORDERSAL_DIS_CREATE"/>
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="QUOTATION_CUST_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="RETURNREQ_ROLE_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="RETURNREQ_ROLE_CREATE"/>
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="RETURNORD_LOOSE_ROLE_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="RETURNORD_LOOSE_ROLE_CREATE"/>
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="RETURNORD_LOOSE_ROLE_UPDATE"/>
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="RETURNORD_ROLE_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="FACILITY_ROLE_UPDATE"/>
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="REREQCOM_ROLE_UPDATE"/>
+    <SecurityGroupPermission groupId="DELYS_DISTRIBUTOR" permissionId="REREQCOM_ROLE_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_CEO" permissionId="DELYS_QUOTATION_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_CEO" permissionId="DELYS_QUOTATION_APPROVE"/>
+	<SecurityGroupPermission groupId="DELYS_CEO" permissionId="DELYS_QUOTATION_UPDATE"/>
+    <SecurityGroupPermission groupId="DELYS_CEO" permissionId="DELYS_ADMIN"/>
+    <SecurityGroupPermission groupId="SALESADMIN_MANAGER" permissionId="DELYS_ADMIN"/>
+    <SecurityGroupPermission groupId="SALESADMIN_MANAGER" permissionId="DELYS_QUOTATION_VIEW"/>
+    <SecurityGroupPermission groupId="SALESADMIN_MANAGER" permissionId="DELYS_QUOTATION_UPDATE"/>
+    <SecurityGroupPermission groupId="SALESADMIN_MANAGER" permissionId="DELYS_QUOTATION_CREATE"/>
+    <SecurityGroupPermission groupId="SALESADMIN_MANAGER" permissionId="DELYS_QUOTATION_DELETE"/>
+    <SecurityGroupPermission groupId="SALESADMIN_MANAGER" permissionId="QUOTATION_THRUDATE"/>
+    <SecurityGroupPermission groupId="SALESADMIN_MANAGER" permissionId="PARTYMGR_ADMIN"/>
+	<SecurityGroupPermission groupId="SALESADMIN_MANAGER" permissionId="PARTYDIST_ADMIN"/>
+	<SecurityGroupPermission groupId="SALESADMIN_MANAGER" permissionId="PARTYSALESMAN_ADMIN"/>
+	<SecurityGroupPermission groupId="SALESADMIN_MANAGER" permissionId="ORDERMGR_ADMIN"/>
+    <SecurityGroupPermission groupId="DELYS_ASM_GT" permissionId="DELYS_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_ASM_GT" permissionId="DELYS_ORDER_LIST"/>
+    <SecurityGroupPermission groupId="DELYS_ASM_GT" permissionId="DELYS_QUOTATION_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_ASM_GT" permissionId="REGPROMO_ROLE_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_ASM_GT" permissionId="REGPROMO_ASM_APPROVE"/>
+	<SecurityGroupPermission groupId="DELYS_ASM_GT" permissionId="RETURNREQ_ROLE_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_ASM_GT" permissionId="RETURNREQ_ROLE_UPDATE"/>
+	<SecurityGroupPermission groupId="DELYS_ASM_GT" permissionId="REREQCOM_ROLE_UPDATE"/>
+	<SecurityGroupPermission groupId="DELYS_ASM_GT" permissionId="REREQCOM_ROLE_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_ASM_MT" permissionId="DELYS_ADMIN"/>
+    <SecurityGroupPermission groupId="DELYS_ASM_MT" permissionId="DELYS_QUOTATION_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_RSM_GT" permissionId="DELYS_ADMIN"/>
+    <SecurityGroupPermission groupId="DELYS_RSM_GT" permissionId="DELYS_QUOTATION_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_RSM_GT" permissionId="RETURNREQ_ROLE_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_RSM_GT" permissionId="RETURNREQ_ROLE_UPDATE"/>
+    <SecurityGroupPermission groupId="DELYS_RSM_MT" permissionId="DELYS_ADMIN"/>
+    <SecurityGroupPermission groupId="DELYS_RSM_MT" permissionId="DELYS_QUOTATION_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_CSM_GT" permissionId="DELYS_ADMIN"/>
+    <SecurityGroupPermission groupId="DELYS_CSM_GT" permissionId="DELYS_QUOTATION_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_CSM_MT" permissionId="DELYS_ADMIN"/>
+    <SecurityGroupPermission groupId="DELYS_CSM_MT" permissionId="DELYS_QUOTATION_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_NBD" permissionId="QUOTT_NBD_APPROVE"/>
+    <SecurityGroupPermission groupId="DELYS_NBD" permissionId="DELYS_ADMIN"/>
+    <SecurityGroupPermission groupId="DELYS_NBD" permissionId="DELYS_QUOTATION_UPDATE"/>
+	<SecurityGroupPermission groupId="DELYS_NBD" permissionId="DELYS_QUOTATION_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_NBD" permissionId="RETURNREQ_ROLE_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_NBD" permissionId="RETURNREQ_ROLE_UPDATE"/>
+	<SecurityGroupPermission groupId="DELYS_NBD" permissionId="REREQCOM_ROLE_UPDATE"/>
+	<SecurityGroupPermission groupId="DELYS_NBD" permissionId="REREQCOM_ROLE_VIEW"/>
+	
+	<SecurityGroupPermission groupId="DELYS_DIRECTOR" permissionId="DELYS_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_DIRECTOR" permissionId="DELYS_LEAVE_APPROVAL"/>
+	<SecurityGroupPermission groupId="DELYS_DIRECTOR" permissionId="DELYS_HR_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_HR" permissionId="DELYS_VIEW"/>
+    <SecurityGroupPermission groupId="DELYS_HR" permissionId="HUMANRES_CREATE"/>
+	<SecurityGroupPermission groupId="DELYS_HR" permissionId="PARTYMGR_CREATE"/>
+	<SecurityGroupPermission groupId="DELYS_HR" permissionId="DELYS_HR_ADMIN"/>
+	<SecurityGroupPermission groupId="DELYS_EMPLOYEE" permissionId="DELYS_VIEW"/>
+	<SecurityGroupPermission groupId="DELYS_EMPLOYEE" permissionId="DELYS_HR_VIEW"/>
+	<SecurityGroupPermission groupId="IMPORT_ADMIN" permissionId="DELYS_VIEW"/>
+	<SecurityGroupPermission groupId="IMPORT_ADMIN" permissionId="ACCOUNTING_CREATE"/>
+	<SecurityGroupPermission groupId="IMPORT_ADMIN" permissionId="ACCOUNTING_UPDATE"/>
+	<SecurityGroupPermission groupId="IMPORT_ADMIN" permissionId="ACCOUNTING_VIEW"/>
+	<SecurityGroupPermission groupId="IMPORT_ADMIN" permissionId="CATALOG_ADMIN"/>
+	<SecurityGroupPermission groupId="IMPORT_ADMIN" permissionId="ORDERMGR_ADMIN"/>
+	<SecurityGroupPermission groupId="IMPORT_ADMIN" permissionId="ACCTG_PREF_ADMIN"/>
+	<SecurityGroupPermission groupId="IMPORT_ADMIN" permissionId="ORDERMGR_ADMIN"/>
+	<SecurityGroupPermission groupId="IMPORT_ADMIN" permissionId="PARTYMGR_VIEW"/>
+	<SecurityGroupPermission groupId="IMPORT_ADMIN" permissionId="ORDERMGR_PURCHASE_UPDATE"/>
+	<SecurityGroupPermission groupId="DELYS_CEO" permissionId="DELYS_QUOTATION_APPROVE"/>
+	<SecurityGroupPermission groupId="DELYS_CEO" permissionId="DELYS_QUOTATION_UPDATE"/>
+    <SecurityGroupPermission groupId="DELYS_CEO" permissionId="DELYS_ADMIN"/>
+    <SecurityGroupPermission groupId="DELYS_CEO" permissionId="PROCUREMENT_ADMIN"></SecurityGroupPermission>
+    <SecurityGroupPermission groupId="DELYS_CEO" permissionId="REREQCOM_ROLE_UPDATE"/>
+    <SecurityGroupPermission groupId="DELYS_CEO" permissionId="REREQCOM_ROLE_VIEW"/>
+    
+    <SecurityGroupPermission groupId="SALESADMIN_MANAGER" permissionId="DELYS_ADMIN"/>
+    <SecurityGroupPermission groupId="SALESADMIN_MANAGER" permissionId="DELYS_QUOTATION_UPDATE"/>
+    <SecurityGroupPermission groupId="SALESADMIN_MANAGER" permissionId="DELYS_QUOTATION_CREATE"/>
+    <SecurityGroupPermission groupId="SALESADMIN_MANAGER" permissionId="DELYS_QUOTATION_DELETE"/>
+    
+    <!-- <SecurityGroupPermission groupId="DELYS_ASM_MT" permissionId="DELYS_QUOTATION_APPROVE"/> -->
+    <SecurityGroupPermission groupId="DELYS_ASM_MT" permissionId="DELYS_ADMIN"/>
+    <!-- <SecurityGroupPermission groupId="DELYS_RSM_GT" permissionId="DELYS_QUOTATION_APPROVE"/> -->
+    <SecurityGroupPermission groupId="DELYS_RSM_GT" permissionId="DELYS_ADMIN"/>
+    <!-- <SecurityGroupPermission groupId="DELYS_RSM_MT" permissionId="DELYS_QUOTATION_APPROVE"/> -->
+    <SecurityGroupPermission groupId="DELYS_RSM_MT" permissionId="DELYS_ADMIN"/>
+    <!-- <SecurityGroupPermission groupId="DELYS_CSM_GT" permissionId="DELYS_QUOTATION_APPROVE"/> -->
+    <SecurityGroupPermission groupId="DELYS_CSM_GT" permissionId="DELYS_ADMIN"/>
+    <!-- <SecurityGroupPermission groupId="DELYS_CSM_MT" permissionId="DELYS_QUOTATION_APPROVE"/> -->
+    <SecurityGroupPermission groupId="DELYS_CSM_MT" permissionId="DELYS_ADMIN"/>
+    <!-- <SecurityGroupPermission groupId="DELYS_NBD" permissionId="DELYS_QUOTATION_APPROVE"/> -->
+    <SecurityGroupPermission groupId="DELYS_NBD" permissionId="QUOTT_NBD_APPROVE"/>
+    <SecurityGroupPermission groupId="DELYS_NBD" permissionId="DELYS_ADMIN"/>
+    <SecurityGroupPermission groupId="DELYS_NBD" permissionId="DELYS_QUOTATION_UPDATE"/>
+</entity-engine-xml>

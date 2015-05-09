@@ -1,0 +1,214 @@
+ <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+     <li class="active" id="list1" style="width:50%;"><a style="height:50px;" href="ExhibitedRegister" class="center" ng-click="changeTab1()" data-toggle="tab">Đăng ký trưng bày</a></li>
+     <li id="list2" style="width : 50%;"><a href="MarksExhibited" style="height : 50px;" class="center" data-toggle="tab" ng-click="changeTab2()">Chấm điểm trưng bày</a></li>
+ </ul>	
+ <div id="my-tab-content" class="tab-content"> 
+ <div id="ExhibitedRegister" class="tab-pane active ">
+ <div class="widget-body"> 	
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<form action="" class="form-horizontal">
+			<div class="form-group">
+				<label
+					class="col-sm-4 col-xs-6 control-label no-padding-right no-padding-right blue"
+					for="level">Chọn cửa hàng ĐKTB (*)</label>
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+					<select class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-model="customers.customerId" ng-options="obj.partyIdTo as obj.groupName for obj in customers.content">
+					</select>
+				</div>
+			</div>
+			<div  ng-show="exhibited.showExhibited" class="form-group" style="margin-bottom: 0px">
+				<label
+					class="col-sm-4 col-xs-6 control-label no-padding-right no-padding-right blue"
+					for="level">Chọn CTTB</label>
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+					<select class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-model="customers.productPromoId" ng-options="obj.productPromoId as obj.promoName for obj in exhibited.info">
+					</select>
+				</div>
+			</div>
+			<div ng-show="exhibited.showRule" class="form-group" style="margin-bottom: 0px">
+				<label
+					class="col-sm-4 col-xs-6 control-label no-padding-right no-padding-right blue"
+					for="level">Chọn cấp độ</label>
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+					<select class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-model="customers.ruleId" ng-options="obj.ruleId as obj.ruleId for obj in exhibited.rule">
+					</select>
+				</div>
+			</div>
+		<div ng-show="exhibited.showDetail">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="">Tiêu chuẩn trưng bày cấp độ {{customers.ruleId}}</div>
+					<table id="table_report"
+						class="table table-striped table-bordered table-hover">
+						<thead>
+							<tr>
+								<th class="center">Sữa chua</th>
+								<th class="center">Váng sữa</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="center">
+									<img id="avatar" class="editable" alt="avatar" src="assets/images/cr7.jpg" width="300px" height="300px"/>
+								</td>
+							</tr>
+							<tr></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="form-group">
+				<label
+					class="col-sm-4 col-xs-6 control-label no-padding-right no-padding-right blue"
+					for="level">Mô tả TB cấp độ {{customers.ruleId}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 line-height-38">
+				<b>{{customers.ruleName}}</b>
+				</div>
+			</div>
+			<div class="form-group" style="margin-bottom: 0px">
+				<label
+					class="col-sm-4 col-xs-6 control-label no-padding-right no-padding-right blue"
+					for="level">Thưởng TB cấp độ {{customers.ruleId}}</label>
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 line-height-38">
+					<b>{{customers.quantity}} {{customers.productName}}</b>
+				</div>
+			</div>
+			<div class="form-group">
+				<label
+					class="col-sm-4 col-xs-6 control-label no-padding-right no-padding-right blue"
+					for="level">Thời gian áp dụng</label>
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 line-height-38">
+					<b>Từ {{customers.fromDate}} đến {{customers.thruDate}}</b>
+				</div>
+			</div>
+		</form>
+		<div class="right">
+			<button class="btn btn-info btn-small" id="save_new_cus" ng-click="exhibitedRegister()">
+				<i class="fa fa-send"></i> <span id="createNewCustomer_saveCus">Gửi
+					ĐK</span>
+			</button>
+			<button class="btn btn-small" data-last="Finish" id="cancel" ng-click="cancel()">
+				<i class="icon-undo bigger-110"></i> <span
+					id="createNewCustomer_return">Hủy</span>
+			</button>
+		</div>
+	</div>
+	</div>
+</div>
+</div>
+</div>
+	 <div id="MarksExhibited" class="tab-pane ">
+	 	<div class="widget-body">
+		<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<!-- <div class="blue">
+				<i class="fa fa-file-image-o"></i>&nbsp;Hình ảnh cửa hàng
+			</div> -->
+			<table id="table_report"
+						class="table table-striped table-bordered table-hover">
+						<thead>
+						</thead>
+							 <tr>
+								<td class='center'>
+									<img id="avatar" class="editable" alt="avatar" src="assets/images/cr7.jpg" width="400px" height="400px"/>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+			<div>
+			</div>
+			<!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 blue">
+					<i class="glyphicon glyphicon-list blue"></i>
+						Danh sách chương trình trưng bày của cửa hàng (*)
+			</div> -->
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+					<div class="row"> 
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+									<div class="row">
+										<div  style="padding-right: 10px;;float:right;"><b>Khách hàng</b> </div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 blue">
+									<div class="row">
+										<div ng-show="exhibited.showMark" class="green-color"> {{customers.customerName}}</div>
+									</div>
+								</div>
+					</div>
+				</div>	
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="padding-top : 20px;">
+					<div class="row"> 
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+									<div class="row">
+										<div class=""  style="padding-right: 10px;float:right;"><b>Mức đăng ký</b></div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 blue">
+									<div class="row">
+										<div ng-show="exhibited.showMark" class="green-color" > {{infoExhibitedMarks.ruleId}}</div>
+									</div>
+								</div>
+					</div>
+				</div>	
+				
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="padding-top : 20px;">
+					<div class="row"> 
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+									<div class="row">
+										<div class=""  style="padding-right : 10px;float:right;"><i ></i>&nbsp;<b>Chương trình trưng bày</b></div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 style="padding-right :10px;"">
+									<div class="row" >
+										<select class="green-color"  ng-model="infoExhibitedMarks.promoRegisterId" class="blue" ng-options="obj.productPromoRegisterId as obj.promoName for obj in exhibited.list"></select>
+									</div>
+								</div>
+					</div>
+				</div>				
+				
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="padding-top : 20px;">
+					<div class="row"> 
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+									<div class="row">
+										<div class=""  style="padding-right: 10px;float:right;"><b>KQ đánh giá (*)</b></div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+									<div class="row">
+										<div ng-show="exhibited.showMark" class="blue" >
+											<input type="radio" class="sizeRadio" ng-model="infoExhibitedMarks.result" value="Y"><span class="green-color"> Đạt </span>
+											<input type="radio" class="sizeRadio" ng-model="infoExhibitedMarks.result" value="N"><span class="red-color"> Không Đạt </span>
+										</div>
+									</div>
+								</div>
+					</div>
+				</div>		
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="padding-top : 20px;">
+					<div class="row"> 
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+									<div class="row">
+										<div class=""  style="padding-right: 10px;float:right;"><b>Đúng thứ tự trưng bày (*)</b></div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 blue">
+									<div class="row">
+										<div  ng-show="exhibited.showMark"   >
+											<input type="radio" ng-model="infoExhibitedMarks.isSequency" value="Y"><span class="green-color"> Đạt </span> 
+											<input type="radio" ng-model="infoExhibitedMarks.isSequency" value="N"><span class="red-color"> Không Đạt </span>
+										</div>
+									</div>
+								</div>
+					</div>
+				</div>
+				<div id="showMark" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 center " style="padding : 20px 0 20px 0;" ng-show="exhibited.showMark">
+						<button id="buttonMark" class="btn btn-small btn-primary"  ng-click="sendMark()"><i class="fa fa-star"></i>&nbsp;Chấm điểm</button>
+					</div>	
+				</div>
+				</div>
+						
+			</div>
+		</div>	
+		</div>
+		</div>
+</div>

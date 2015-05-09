@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	<screen name="ListTransfers">
+    	<section>
+            <actions>
+                <set field="selectedMenuItem" value="transfer"/>
+                <set field="selectedSubMenuItem" value="ListTransfer"/>
+                <set field="titleProperty" value="TransferList"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="TransferCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+							<html>
+								<html-template location="component://delys/webapp/delys/logistics/transfer/ListTransfer.ftl"/>
+							</html>
+						</platform-specific>
+    				</decorator-section>
+    			</decorator-screen>
+			</widgets>
+       </section>
+    </screen>
+    <screen name="DetailTransfer">
+    	<section>
+            <actions>
+                <set field="selectedMenuItem" value="transfer"/>
+                <set field="selectedSubMenuItem" value="ListTransfer"/>
+                <set field="tabButtonItem" value="Transfer"/>
+                <set field="transferId" from-field="parameters.transferId"/>
+                <entity-one value-field="transfer" entity-name="TransferHeader"></entity-one>
+                <entity-condition list="listItems" entity-name="TransferItem">
+                	<condition-expr field-name="transferId" from-field="transferId"/>
+                </entity-condition>
+			</actions>
+			<widgets>
+				<decorator-screen name="TransferCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<include-menu location="component://delys/widget/DelysMenus.xml" name="TransferTabBar"/>
+                    	<platform-specific>
+							<html>
+								<html-template location="component://delys/webapp/delys/logistics/transfer/DetailTransfer.ftl"/>
+							</html>
+						</platform-specific>
+    				</decorator-section>
+    			</decorator-screen>
+			</widgets>
+       </section>
+    </screen>
+    <screen name="DeliveryByTransfer">
+    	<section>
+            <actions>
+                <set field="selectedMenuItem" value="transfer"/>
+                <set field="selectedSubMenuItem" value="ListTransfer"/>
+                <set field="tabButtonItem" value="TransferNote"/>
+                <set field="transferId" from-field="parameters.transferId"/>
+                <entity-one value-field="transfer" entity-name="TransferHeader"></entity-one>
+                <set field="titleProperty" value="TransferNote"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="TransferCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<include-menu location="component://delys/widget/DelysMenus.xml" name="TransferTabBar"/>
+                    	<platform-specific>
+							<html>
+								<html-template location="component://delys/webapp/delys/logistics/transfer/ListTransferDelivery.ftl"/>
+							</html>
+						</platform-specific>
+    				</decorator-section>
+    			</decorator-screen>
+			</widgets>
+       </section>
+    </screen>
+    
+</screens>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<entity-engine-xml>
+    <VisualTheme visualThemeId="BIGSHOP" visualThemeSetId="ECOMMERCE" description="The Big Shop VisualTheme for Ecommerce"/>
+    <VisualThemeResource visualThemeId="BIGSHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bigshop/css/stylesheet.css" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="BIGSHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bigshop/css/slideshow.css" sequenceId="02"/>
+    <VisualThemeResource visualThemeId="BIGSHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bigshop/css/colorbox.css" sequenceId="03"/>
+    <VisualThemeResource visualThemeId="BIGSHOP" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/bigshop/css/carousel.css" sequenceId="04"/>
+    <VisualThemeResource visualThemeId="BIGSHOP" resourceTypeEnumId="VT_SHORTCUT_ICON" resourceValue="/bigshop/images/9emart.ico" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="BIGSHOP" resourceTypeEnumId="VT_HDR_IMAGE_URL" resourceValue="/bigshop/images/9emart.png" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="BIGSHOP" resourceTypeEnumId="VT_HDR_TMPLT_LOC" resourceValue="component://bigshop/webapp/bigshop/includes/header.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="BIGSHOP" resourceTypeEnumId="VT_FTR_TMPLT_LOC" resourceValue="component://bigshop/webapp/bigshop/includes/footer.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="BIGSHOP" resourceTypeEnumId="VT_SCREENSHOT" resourceValue="/bigshop/images/ecdefaulttheme.jpg" sequenceId="01"/>
+</entity-engine-xml>

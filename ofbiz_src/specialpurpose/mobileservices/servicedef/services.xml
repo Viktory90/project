@@ -1,0 +1,392 @@
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>Example Services</description>
+	<vendor>OFBiz</vendor>
+	<version>1.0</version>
+	<service name="createPartyGroupSalesman" engine="java" default-entity-name="PartyGroup"
+            location="org.ofbiz.party.party.PartyServices" invoke="createPartyGroup" auth="false">
+        <description>Create a PartyGroup</description>
+        <auto-attributes mode="INOUT" include="pk" optional="true"/>
+        <auto-attributes mode="IN" include="nonpk" optional="true"/>
+        <attribute name="partyTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="description" type="String" mode="IN" optional="true"/>
+        <attribute name="preferredCurrencyUomId" type="String" mode="IN" optional="true"/>
+        <attribute name="externalId" type="String" mode="IN" optional="true"/>
+        <attribute name="statusId" type="String" mode="IN" optional="true"/>
+        <attribute name="officeSiteName" type="String" mode="IN" optional="true"/>
+        <override name="groupName" optional="false"/>
+        <override name="comments" allow-html="safe"/>
+    </service>
+	<!-- Permission Services -->
+	<service name="createPartyGeoAddress" engine="simple"
+		location="component://mobileservices/script/org/ofbiz/mobileservices/contact/PartyContactMechServices.xml"
+		invoke="createPartyGeoAddress" auth="true">
+		<description>Create a geo Address</description> 
+		<permission-service service-name="partyContactMechPermissionCheck"
+			main-action="CREATE" />
+		<auto-attributes entity-name="PartyContactMech"
+			include="all" mode="IN" optional="true" />
+		<auto-attributes entity-name="PostalAddress" include="nonpk"
+			mode="IN" optional="true" />
+		<auto-attributes entity-name="GeoPoint" include="nonpk"
+			mode="IN" optional="true" />
+		<attribute name="paymentMethodId" type="String" mode="IN"
+			optional="true" />
+		<attribute name="contactMechPurposeTypeId" type="String"
+			mode="IN" optional="true" />
+		<attribute name="contactMechId" type="String" mode="OUT"
+			optional="false" />
+		<override name="address1" optional="false" />
+		<override name="city" optional="false" />
+	</service>
+	<service name="createGeoAddress" engine="simple"
+		location="component://mobileservices/script/org/ofbiz/mobileservices/contact/PartyContactMechServices.xml"
+		invoke="createGeoAddress" auth="true">
+		<description>Create a Postal Address</description>
+		<auto-attributes entity-name="PostalAddress" include="all"
+			mode="IN" optional="true" />
+		<auto-attributes mode="IN" optional="true" entity-name="GeoPoint" />
+		<attribute name="contactMechId" type="String" mode="OUT"
+			optional="false" />
+		<override name="address1" optional="false" />
+		<override name="city" optional="false" />
+	</service>
+	
+	<service name="olbiuscloudPermission" engine="simple"
+		location="component://olbiuscloud/script/org/ofbiz/mobileservices/permission/MobileServicesPermissionServices.xml"
+		invoke="MobileServicesPermission" auth="true">
+		<implements service="permissionInterface" />
+	</service>
+
+	<service name="olbiuscloudInstancePermission" engine="simple"
+		location="component://olbiuscloud/script/org/ofbiz/mobileservices/permission/MobileServicesPermissionServices.xml"
+		invoke="MobileServicesPermission" auth="true">
+		<implements service="permissionInterface" />
+		<attribute type="String" mode="IN" name="instanceId"
+			optional="false" />
+	</service>
+	<service name="getLastSystemInfoNoteMobile" engine="simple"
+		auth="false"
+		location="component://mobileservices/script/org/ofbiz/SystemInfoServices.xml"
+		invoke="getLastSystemInfoNote">
+		<description>Get last system note for the logged on party</description>
+		<attribute name="userLogin" mode="IN" type="GenericValue" />
+		<attribute name="lastSystemInfoNote1" type="GenericValue"
+			mode="OUT" optional="true" />
+		<attribute name="lastSystemInfoNote2" type="GenericValue"
+			mode="OUT" optional="true" />
+		<attribute name="lastSystemInfoNote3" type="GenericValue"
+			mode="OUT" optional="true" />
+	</service>
+
+	<service name="getProjectTaskMobile" engine="simple"
+		location="component://mobileservices/script/org/ofbiz/project/ProjectServices.xml"
+		invoke="getProjectTask">
+		<description>Get project task information and related timesheet info.</description>
+		<permission-service service-name="projectMgrPermissionMobile"
+			main-action="VIEW" />
+		<attribute name="hoursPartyId" type="String" mode="IN"
+			optional="true" />
+		<attribute name="taskId" type="String" mode="INOUT"
+			optional="true" />
+		<attribute name="projectId" type="String" mode="OUT"
+			optional="true" />
+		<attribute name="projectName" type="String" mode="OUT"
+			optional="true" />
+		<attribute name="taskInfo" type="Map" mode="OUT" optional="true" />
+	</service>
+
+	<service name="getProjectIdAndNameFromTaskMobile" engine="simple"
+		location="component://mobileservices/script/org/ofbiz/project/ProjectServices.xml"
+		invoke="getProjectIdAndNameFromTask">
+		<description>Get the projectId and Name when a phase or task is provided.</description>
+		<permission-service service-name="projectMgrPermission"
+			main-action="VIEW" />
+		<attribute name="taskId" type="String" mode="INOUT"
+			optional="true" />
+		<attribute name="phaseId" type="String" mode="IN" optional="true" />
+		<attribute name="projectId" type="String" mode="OUT"
+			optional="true" />
+		<attribute name="projectName" type="String" mode="OUT"
+			optional="true" />
+		<attribute name="phaseId" type="String" mode="OUT" optional="true" />
+		<attribute name="phaseName" type="String" mode="OUT"
+			optional="true" />
+		<attribute name="taskName" type="String" mode="OUT"
+			optional="true" />
+		<attribute name="taskWbsId" type="String" mode="OUT"
+			optional="true" />
+	</service>
+
+	<service name="projectMgrPermissionMobile" engine="simple"
+		location="component://mobileservices/script/org/ofbiz/project/ProjectPermissionServices.xml"
+		invoke="projectMgrPermission">
+		<implements service="permissionInterface" />
+		<attribute name="projectId" type="String" mode="IN"
+			optional="true" />
+		<attribute name="phaseId" type="String" mode="IN" optional="true" />
+		<attribute name="workEffortId" type="String" mode="IN"
+			optional="true" />
+		<attribute name="taskId" type="String" mode="IN" optional="true" />
+		<attribute name="partyId" type="String" mode="IN" optional="true" />
+		<attribute name="timesheetId" type="String" mode="IN"
+			optional="true" />
+		<attribute name="timeEntryId" type="String" mode="IN"
+			optional="true" />
+	</service>
+
+	<service name="bestProductInMonthMobile" engine="java"
+		location="org.ofbiz.mobileservices.MobileServices" invoke="getBestProductInMonth">
+		<attribute name="month" mode="IN" type="String" optional="true" />
+		<attribute name="bestProduct" mode="OUT" type="Map" />
+	</service>
+	<service name="customersSumAmount" engine="java"
+		location="org.ofbiz.mobileservices.MobileServices" invoke="getCustomerAmount">
+		<attribute name="month" mode="IN" type="String" optional="true" />
+		<attribute name="bestCus" mode="OUT" type="Map" />
+	</service>
+	<service name="updateAddressCusMobile" engine="java"
+		location="org.ofbiz.mobileservices.MobileServices" invoke="updateAddressCustomer">
+		<attribute name="address1" mode="IN" type="String"></attribute>
+		<attribute name="userLogin" type="org.ofbiz.entity.GenericValue"
+			mode="IN" optional="true" />
+		<attribute name="partyId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="latitude" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="longitude" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="city" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="roadId" mode="IN" type="String"></attribute>
+		<attribute name="contactMechId" mode="OUT" type="String"
+			optional="true"></attribute>
+	</service>
+	<service name="editAvatarSalesmanMobiles" engine="java"
+		location="org.ofbiz.mobileservices.MobileServices" invoke="editAvatarSalesman">
+		<attribute name="uploadedFile" mode="IN" type="java.nio.ByteBuffer"
+			optional="true"></attribute>
+		<attribute name="filename" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="userLogin" type="org.ofbiz.entity.GenericValue"
+			mode="IN" />
+		<attribute name="avatar" type="java.nio.ByteBuffer" mode="IN"
+			optional="true"></attribute>
+		<attribute name="resultUpdate" mode="OUT" type="java.util.Map"
+			optional="true"></attribute>
+	</service>
+
+	<service name="getOrderHeaderListView" engine="java"
+		location="org.ofbiz.mobileservices.MobileServices" invoke="orderHeaderListView"
+		auth="true">
+		<attribute name="viewIndex" mode="IN" type="String" optional="true" />
+		<attribute name="viewSize" mode="IN" type="String" optional="true" />
+		<attribute name="current" mode="IN" type="String" optional="true" />
+		<attribute name="month" mode="IN" type="String" optional="true" />
+		<attribute name="userLogin" mode="IN" type="GenericValue" />
+		<attribute name="orderHeaderList" mode="OUT" type="java.util.List"
+			optional="true"></attribute>
+		<attribute name="reponses_messages" mode="OUT" type="String"
+			optional="true"></attribute>
+		<attribute name="total" mode="OUT" type="String"
+			optional="true"></attribute>
+		<attribute name="size" mode="OUT" type="String"
+			optional="true"></attribute>
+	</service>
+
+	<service name="checkInventoryOfCustomer" engine="java"
+		location="org.ofbiz.mobileservices.MobileServices" auth="true"
+		invoke="checkInventoryOfCustomer">
+		<attribute name="userLogin" mode="IN" type="GenericValue"></attribute>
+		<attribute name="checkInventory" mode="IN" type="String"></attribute>
+	</service>
+
+	<service name="getInventoryOfCusInfo" engine="java" auth="true"
+		location="org.ofbiz.mobileservices.MobileServices" invoke="getInventoryOfCusInfo">
+		<attribute name="partyId" mode="IN" type="String"></attribute>
+		<attribute name="userLogin" mode="IN"
+			type="org.ofbiz.entity.GenericValue"></attribute>
+		<attribute name="inventoryCusInfo" mode="OUT" type="javolution.util.FastList"></attribute>
+	</service>
+	<service name="updateInventoryOfCus" engine="java" auth="true"
+		location="org.ofbiz.mobileservices.MobileServices" invoke="updateInventoryOfCus">
+		<attribute name="update" mode="IN" type="String"></attribute>
+	</service>
+	<service name="createEmplLeaveSalesman" engine="java" auth="true"
+		location="org.ofbiz.mobileservices.MobileServices" invoke="createEmplLeave">
+		<attribute name="userLogin" mode="IN"
+			type="org.ofbiz.entity.GenericValue"></attribute>
+		<attribute name="leaveTypeId" mode="IN" type="String"></attribute>
+		<attribute name="fromDate" mode="IN" type="String"></attribute>
+		<attribute name="thruDate" mode="IN" type="String"></attribute>
+		<attribute name="emplLeaveReasonTypeId" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="description" mode="IN" type="String"
+			optional="true"></attribute>
+
+	</service>
+	<service name="updatePersonSalesman" engine="java" auth="true"
+		location="org.ofbiz.mobileservices.MobileServices" invoke="updatePersonSalesman">
+		<attribute name="firstName" mode="IN" type="String"></attribute>
+		<attribute name="middleName" mode="IN" type="String"
+			optional="true"></attribute>
+		<attribute name="lastName" mode="IN" type="String"></attribute>
+		<attribute name="userLogin" mode="IN"
+			type="org.ofbiz.entity.GenericValue"></attribute>
+		<attribute name="updateMessage" mode="OUT" type="java.util.Map"
+			optional="true"></attribute>
+	</service>
+
+	<service name="test" engine="java"
+		location="org.ofbiz.mobileservices.MobileServices" invoke="test">
+		<attribute name="test" mode="OUT" type="String" />
+	</service>
+	
+	<service name="getPromotions" engine="java" location="org.ofbiz.mobileservices.SynchronizeServices" invoke="getPromotions">
+		<attribute name="promotions" mode="OUT" type="List"
+			optional="true"></attribute>
+	</service>
+	<service name="getTotalOrderDetail" engine="java" location="org.ofbiz.mobileservices.MobileServices" invoke="getTotalOrderDetail">
+	    <attribute name="customerId" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="month" mode="IN" type="String" optional="true"></attribute>
+	    <attribute name="res" mode="OUT" type="javolution.util.FastMap"></attribute>
+	</service>
+	<service name="getOrderProductDetailOfCustomer" engine="java" location="org.ofbiz.mobileservices.MobileServices" invoke="getOrderProductDetailOfCustomer">
+	    <attribute name="partyId" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="month" mode="IN" type="String" optional="true"></attribute>
+	    <attribute name="res" mode="OUT" type="javolution.util.FastMap"></attribute>
+	</service>
+	
+	<service name="updateLocationCustomer" engine="java" location="org.ofbiz.mobileservices.MobileServices" invoke="updateLocationCustomer">
+	    <attribute name="customerId" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="latitude" mode="IN" type="String" optional="true"></attribute>
+	    <attribute name="longitude" mode="IN" type="String" optional="true"></attribute>
+	    <attribute name="status" mode="OUT" type="javolution.util.FastMap"></attribute>
+	</service>
+	<service name="updateCustomer" engine="java" location="org.ofbiz.mobileservices.MobileServices" invoke="updateCustomer">
+		 <attribute name="partyId" mode="IN" type="String" optional="true"></attribute>
+	    <attribute name="groupName" mode="IN" type="String" optional="true"></attribute>	
+	    <attribute name="contact" mode="OUT" type="javolution.util.FastMap"></attribute>    
+	</service>
+	<service name="createCustomerSalesMan" engine="java" auth="true" invoke="createCustomerSalesMan" location="org.ofbiz.mobileservices.MobileServices">
+	    <attribute name="groupName" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="address1" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="roadId" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="latitude" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="longitude" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="city" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="mobile" mode="IN" type="String" optional="true"></attribute>
+	    <attribute name="sex" mode="IN" type="String" optional="true"></attribute>
+	    <attribute name="birthDay" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+	    <attribute name="startDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+	    <attribute name="result" mode="OUT" type="javolution.util.FastMap"></attribute>
+	</service>
+	<service name="submitFbCustomer" engine="java"  auth="true" invoke="submitFbCustomer" location="org.ofbiz.mobileservices.MobileServices">
+	    <attribute name="customerName" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="comment" mode="IN" type="String" optional="true"></attribute>
+	    <attribute name="status" mode="OUT" type="javolution.util.FastMap"></attribute>
+	</service>
+	<service name="submitInfoOpponent" engine="java"  auth="true" invoke="submitInfoOpponent" location="org.ofbiz.mobileservices.MobileServices">
+	    <attribute name="opponentEventId" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="promos" mode="IN" type="String" optional="true"></attribute>
+	    <attribute name="otherInfo" mode="IN" type="String" optional="true"></attribute>
+	    <attribute name="linkImage" mode="IN" type="String" optional="true"></attribute>
+	    <attribute name="status" mode="OUT" type="javolution.util.FastMap" ></attribute>
+	</service>
+<!-- 	<service name="getListOpponent" engine="java" auth="true" invoke="getListOpponent" location="org.ofbiz.mobileservices.MobileServices"> -->
+<!-- 	    <attribute name="listOpponent" mode="OUT" type="javolution.util.FastMap"></attribute> -->
+<!-- 	</service> -->
+	<service name="getListPromotionsEvent" engine="java" invoke="getListPromotionsEvent" location="org.ofbiz.mobileservices.MobileServices">
+	    <attribute name="partyId" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="listPromoEvent" mode="OUT" type="java.util.List"></attribute>
+	</service>
+	<service name="getAccumulateStore" engine="java" invoke="getAccumulateStore" location="org.ofbiz.mobileservices.MobileServices">
+	    <attribute name="partyId" mode="IN" type="String" optional="true"></attribute>
+	    <attribute name="listAccumulate" mode="OUT" type="java.util.List"></attribute>
+	</service>
+	<service name="accumulateRegister" engine="java" auth="true" invoke="accumulateRegister" location="org.ofbiz.mobileservices.MobileServices">
+	    <attribute name="customerId" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="createdDate" mode="IN" type="java.sql.Timestamp" optional="false"></attribute>
+	    <attribute name="productPromoId" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="promoSalesTargets" mode="IN" type="String" optional="true"></attribute>
+	    <attribute name="productPromoRuleId" mode="IN" type="String" optional="true"></attribute>
+	    <attribute name="accumulate" mode="OUT" type="javolution.util.FastMap"></attribute>
+	</service>
+	<service name="getExhibitedDetail" engine="java" invoke="getExhibitedDetail" auth="true"  location="org.ofbiz.mobileservices.MobileServices">
+	    <attribute name="partyId" mode="IN" type="String" optional="true"></attribute>
+	    <attribute name="listExhibited" mode="OUT" type="java.util.List"></attribute>
+	</service>
+	<service name="exhibitedRegister" engine="java" invoke="exhibitedRegister" location="org.ofbiz.mobileservices.MobileServices" auth="true">
+	    <attribute name="customerId" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="productPromoId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="ruleId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="productPromoTypeId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="promoName" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="createdDate" mode="IN" type="java.sql.Timestamp"></attribute>
+		<attribute name="result" mode="OUT" type="javolution.util.FastMap"></attribute>
+	</service>
+	<service name="getExhibitedForMark" engine="java" auth="true" invoke="getExhibitedForMark" location="org.ofbiz.mobileservices.MobileServices">
+	    <attribute name="customerId" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="result" mode="OUT" type="java.util.List"></attribute>
+	</service>
+	<service name="sendMark" engine="java" auth="true" invoke="createMarkResult" location="org.ofbiz.mobileservices.MobileServices">
+	    <attribute name="promoRegisterId" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="createdDate" mode="IN" type="java.sql.Timestamp" optional="false"></attribute>
+	    <attribute name="createdBy" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="isSequency" mode="IN" type="String" optional="false"></attribute>
+	     <attribute name="result" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="res" mode="OUT" type="javolution.util.FastMap"></attribute>
+	</service>
+	
+	<service name="getInfoSalesMan" engine="java" auth="true" invoke="getInfoSalesMan" location="org.ofbiz.mobileservices.MobileServices">
+	    <attribute name="listInfo" mode="OUT" type="java.util.List"></attribute>
+	</service>
+	
+	<service name="updateSalesMan" engine="java" auth="true" invoke="updateSalesMan" location="org.ofbiz.mobileservices.MobileServices">
+	    <attribute name="firstName" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="middleName" mode="IN" type="String" optional="true"></attribute>
+	    <attribute name="lastName" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="contactMechId" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="address1" mode="IN" type="String" optional="true"></attribute>
+	    <attribute name="city" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	<service name="updatePasswordSalesMan" engine="java" auth="true" invoke="updatePasswordSalesMan" location="org.ofbiz.mobileservices.MobileServices">
+	    <attribute name="CurrentPassword" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="NewPassword" mode="IN" type="String" optional="false"></attribute>
+	    <attribute name="PasswordVerify" mode="IN" type="String" optional="false"></attribute>
+	</service>
+	
+	<service name="getStoreByRoad" engine="java" auth="true" invoke="getStoreByRoad" location="org.ofbiz.mobileservices.MobileServices">
+<!-- 	    <attribute name="viewSize" mode="IN" type="String" optional="true"></attribute> -->
+<!-- 	    <attribute name="viewIndex" mode="IN" type="String" optional="true"></attribute> -->
+	    <attribute name="isGetInventory" mode="IN" type="String" optional="true"></attribute>
+	    <attribute name="customers" mode="OUT" type="java.util.List"></attribute>
+<!-- 		<attribute name="paging" mode="OUT" type="javolution.util.FastMap"></attribute> -->
+		<attribute name="listInventory" mode="OUT" type="java.util.List"></attribute>
+	</service>
+	<!-- Service for SUP -->	
+	<service name="getListMarkedBySalesMan" engine="java" auth="true" invoke="getListMarkedBySalesMan" location="org.ofbiz.mobileservices.MobileServices">
+	    <attribute name="list" mode="OUT" type="java.util.List" optional="false"></attribute>
+	</service>
+	
+	<service name="createRoute" engine="java" auth="true" invoke="createRoute" location="org.ofbiz.mobileservices.MobileServices">
+		<attribute name="routeName" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="infoRoute" mode="IN" type="String" optional="false"></attribute>
+	</service>
+	
+	<service name="getListRouteAndSalesMan" engine="java" auth="true" invoke="getListRouteAndSalesMan" location="org.ofbiz.mobileservices.MobileServices">
+		<attribute name="result" mode="OUT" type="javolution.util.FastMap" optional="false"></attribute>
+	</service>
+	
+	<service name="distributionRouteSalesMan" engine="java" auth="true" invoke="distributionRouteSalesMan" location="org.ofbiz.mobileservices.MobileServices">
+		<attribute name="listDistribution" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="result" mode="OUT" type="java.util.List" optional="false"></attribute>
+	</service>
+	<service name="distributionRouteStores" engine="java" auth="true" invoke="distributionRouteStores" location="org.ofbiz.mobileservices.MobileServices">
+		<attribute name="listDistributionStores" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="result" mode="OUT" type="java.util.List" optional="false"></attribute>
+	</service>
+	<service name="loginSup" engine="java" auth="true" invoke="loginSup" location="org.ofbiz.mobileservices.MobileServices">
+		<attribute name="credentials" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="result" mode="OUT" type="javolution.util.FastMap" optional="false"></attribute>
+	</service>
+	<service name="TempGetAllProduct" engine="java" invoke="tempGetAllProduct" location="org.ofbiz.mobileservices.MobileServices">
+		<attribute name="inputParams" mode="IN" type="org.ofbiz.entity.condition.EntityCondition"></attribute>
+		<attribute name="outputParams" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator"></attribute>
+	</service>
+</services>

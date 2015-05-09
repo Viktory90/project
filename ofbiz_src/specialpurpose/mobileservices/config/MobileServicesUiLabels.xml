@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<property key="mobileservices">
+		<value xml:lang="en">Mobile Services</value>
+	</property>
+	<property key="MobileServicesApplication">
+		<value xml:lang="en">OLBIUS Cloud</value>
+	</property>
+	<property key="MobileServicesCompanyName">
+		<value xml:lang="en">OLBIUS</value>
+	</property>
+</resource>

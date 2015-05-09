@@ -1,0 +1,18 @@
+.style-picker{font-family:Arial,"Helvetica CY",sans-serif;color:#010101;font-size:.85em;width:0;min-height:200px;position:fixed;top:40px;left:0;z-index:99999;}
+.style-picker .bgChanger{position:relative;min-width:35px;min-height:100px;}
+.style-picker a{color:#010101;}
+.style-picker a:hover{text-decoration:none;}
+.style-picker input, .style-picker select {font-family:"Trebuchet MS",Arial,"Helvetica CY",sans-serif;border:1px solid #b7b7b7;color:#010101;}
+.style-picker input{width:120px;}
+.style-picker select{font-size:1em;width:163px;padding:3px;height:auto;}
+.style-picker .container{width:150px;padding:0 40px 5px 0;}
+.style-picker .options,.style-picker .handler{border:1px solid #eaebd2;background-color:#fafaf8;box-shadow:3px 3px 2px rgba(0,0,0,0.30);} 
+.style-picker .options{width:180px;padding:3px 0 15px 10px;position:relative; -webkit-border-bottom-right-radius: 10px; -moz-border-radius-bottomright: 10px; border-bottom-right-radius: 10px; border-radius: 0 0 10px 0;}
+.style-picker .handler{background:#fafaf8 url(../images/close.png) 5px 6px no-repeat;width:33px;height:35px;position:absolute;top:0px;right:-33px;z-index:30;border-left:0;-webkit-border-top-right-radius: 10px; -webkit-border-bottom-right-radius: 10px; -moz-border-radius-topright: 10px; -moz-border-radius-bottomright: 10px; border-radius: 0 10px 10px 0;}
+.style-picker .container .handler.closed{background:#fafaf8 url(../images/pencil.png) 5px 6px no-repeat;}
+.style-picker span{display:block;padding:10px 0 3px;font-weight:bold;clear:both;}
+.style-picker a.thumb-img{margin:0 5px 4px 0;border:1px solid #666;}
+.style-picker a.thumb-img, .style-picker a.thumb-img img{display:block;float:left;width:20px;height:16px;cursor:pointer;}
+.style-picker a.thumb-img img{border:0;background:none;padding:0;}
+.style-picker a.bgColor{color:#555;display:block;line-height:20px;font-weight:bold;padding:5px 40px 0 0;margin:0px 0 7px;position:relative;clear:both;}
+.style-picker a.bgColor span{border:1px solid #b7b7b7;width:18px;height:18px;float:right;padding:0;margin:1px 0 0;}

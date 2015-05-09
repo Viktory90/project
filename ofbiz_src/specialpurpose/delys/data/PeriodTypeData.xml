@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	<PeriodType description="Import year" periodTypeId="IMPORT_YEAR" periodLength="1" uomId="TF_yr"/>
+	<PeriodType description="Import Week" periodTypeId="IMPORT_WEEK" periodLength="1" uomId="TF_wk"/>
+	<PeriodType description="Import Month" periodTypeId="IMPORT_MONTH" periodLength="1" uomId="TF_mon"/>
+	
+</entity-engine-xml>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Chương trình KM</title>
+<meta name="description" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- basic styles -->
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+
+<!-- page specific plugin styles -->
+
+
+<!-- ace styles -->
+<link rel="stylesheet" href="assets/css/ace.min.css" />
+<link rel="stylesheet" href="assets/css/ace-responsive.min.css" />
+<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+<!--[if lt IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+</head>
+
+<body>
+	<span id="navbar"> </span>
+	<div class="main-container container-fluid">
+		<div class="main-container-inner">
+			<div class="sidebar" id="sidebar"></div>
+			<div class="main-content">
+				<div class="page-content">
+					<div class="row-fluid">
+						<div class="span12">
+							<div class="widget-box">
+								<div class="widget-header">
+									<h3 class="pull-left grey lighter position-relative grey">
+										<i class="icon-leaf green"></i> Khuyến mại
+									</h3>
+								</div>
+
+								<div class="widget-body">
+									<div class="widget-main">										
+										<div class="row-fluid">
+											<div class="span12">						
+												<div id="productPromos" class="accordion">                                          
+											    </div>
+											</div>											
+											<!--/span-->
+										</div>										
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- basic scripts -->
+	<script type="text/javascript">
+		window.jQuery
+				|| document
+						.write("<script src='assets/js/jquery-2.0.3.min.js'>"
+								+ "<"+"/script>");
+	</script>
+
+	<script src="assets/js/bootstrap.min.js"></script>
+
+	<!-- page specific plugin scripts -->
+
+
+	<!-- ace scripts -->
+	<script src="assets/js/ace-elements.min.js"></script>
+	<script src="assets/js/ace.min.js"></script>
+
+
+	<!-- inline scripts related to this page -->
+
+	<script type="text/javascript">
+		$(function() {
+			$.get("header.html", function(data) {
+				$('#navbar').html(data);
+			}, 'html').fail(function() {
+				console.log('arge', arguments)
+			});
+			$.get("sidebar.html", function (data) {
+	        	$('#sidebar').html(data);  
+	        }, 'html').fail(function(){
+	            console.log('arge', arguments)
+	        });
+			
+			$.ajax({
+				url: localStorage.serverUrl + 'mobileservices/control/productPromos', 
+				crossDomain: true,
+				dataType: 'json',
+				success: function(data){										
+					localStorage.productPromos = JSON.stringify(data);
+					fillDataPromos(data);
+				}, 
+				error: function(textStatus, errorThrown){
+					//alert("error");
+				}				
+			});
+			$('#productPromos').on('hide', function (e) {
+				$(e.target).prev().children(0).addClass('collapsed');
+		    });
+			$('#productPromos').on('hidden', function (e) {
+				$(e.target).prev().children(0).addClass('collapsed');
+		    });
+			$('#productPromos').on('show', function (e) {
+				$(e.target).prev().children(0).removeClass('collapsed');
+		    });
+			$('#productPromos').on('shown', function (e) {
+				$(e.target).prev().children(0).removeClass('collapsed');
+		    });
+		})
+		function fillDataPromos(data){
+			var productPromos = data.productPromosInfo;
+			//console.log(data.productPromosInfo);
+			if($.isEmptyObject(productPromos)){
+				$("#productPromos").append("<h4><b>Không có chương trình khuyến mại nào</b></h4>");
+			}
+			for(var index in productPromos){
+				//console.log("ssss" + index);
+				var productNames = "<ul class='unstyled spaced'>";
+				for(var p in productPromos[index].products){
+					productNames += "<li><i class='icon-caret-right blue'></i>" +productPromos[index].products[p].productName + "</li>";
+				}
+				if(productPromos[index].fromDate){
+					dateBegin = productPromos[index].fromDate;
+				}else{
+					dateBegin = "Chưa xác định";
+				}
+				if(productPromos[index].thruDate){
+					dateEnd = productPromos[index].thruDate;
+				}else{
+					dateEnd = "Chưa xác định";
+				}
+				productNames += '</ul>';
+				//accordion cho thông tin 1 CTKM 
+				var accordion_div = "<div class='accordion-group'>";
+				accordion_div += "<div class='accordion-heading'>";
+				accordion_div += "<a href='#collapse_"+ index + "'  data-toggle='collapse' class='accordion-toggle collapsed'>";
+				accordion_div +=  "<i class='icon-star orange'></i> " + productPromos[index].promoName;
+				accordion_div += "</a></div>";
+				accordion_div += "<div class='accordion-body collapse' id='collapse_" + index +"'>";
+				accordion_div += "<div class='accordion-inner'>";
+				accordion_div += "<b>Chi tiết</b>:<ul class='unstyled spaced'><li><i class='icon-caret-right blue'></i> " + productPromos[index].promoText + '</li></ul>';
+				accordion_div += "<b>CTKM áp dụng cho các sản phẩm</b>: " + productNames ;
+				accordion_div += "<b> Ngày bắt đầu</b>: <ul class='unstyled spaced'><li><i class='icon-caret-right blue'></i>"+ dateBegin + "</li></ul>";
+				accordion_div += "<b> Ngày kết thúc</b>: <ul class='unstyled spaced'><li><i class='icon-caret-right blue'></i>"+ dateEnd + "</li></ul>";
+				accordion_div += "</div></div></div>";
+				$("#productPromos").append(accordion_div);
+			}
+		}
+	</script>
+
+</body>
+</html>

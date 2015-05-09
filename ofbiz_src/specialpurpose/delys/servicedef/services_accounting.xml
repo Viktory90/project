@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>Accounting Services</description>
+    <version>1.0</version>
+    <service name="updateAccReportTarget" engine="simple" default-entity-name="AccReportTarget"
+    	location="component://delys/script/org/ofbiz/accounting/AccountingServices.xml" invoke="updateAccReportTarget">
+    	<description>Update AccReportTarget</description>
+    	<attribute name="request" mode="IN" type="javax.servlet.http.HttpServletRequest" optional="true"/>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+    <service name="createAccReportTarget" engine="simple" default-entity-name="AccReportTarget"
+    	location="component://delys/script/org/ofbiz/accounting/AccountingServices.xml" invoke="createAccReportTarget">
+    	<description>Create AccReportTarget</description>
+    	<attribute name="request" mode="IN" type="javax.servlet.http.HttpServletRequest" optional="true"/>
+    	<attribute name="reportTypeId" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="partyId" mode="IN" type="String" optional="true"></attribute>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <auto-attributes include="pk" mode="OUT" optional="true"/>
+    </service>
+    <service name="removeAccReportTarget" default-entity-name="AccReportTarget" engine="simple"
+                location="component://delys/script/org/ofbiz/accounting/AccountingServices.xml" invoke="deleteAccReportTarget" auth="true">
+        <description>Delete an AccReportTarget</description>
+       
+        <auto-attributes include="pk" mode="INOUT" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        
+    </service>
+    <service name="removeAccReport" default-entity-name="AccReport" engine="simple"
+                location="component://delys/script/org/ofbiz/accounting/AccountingServices.xml" invoke="deleteAccReport" auth="true">
+        <description>Delete an AccReportTarget</description>
+       
+        <auto-attributes include="pk" mode="INOUT" optional="true"/>
+        
+    </service>
+    
+    <service name="removeAllAccReportTarget" default-entity-name="AccReportTarget" engine="simple"
+                location="component://delys/script/org/ofbiz/accounting/AccountingServices.xml" invoke="deleteAllAccReportTarget" auth="true">
+        <description>Delete an AccReportTarget</description>
+		<attribute name="reportTypeId" mode="INOUT" type="String" optional="false"></attribute>
+    </service>
+    <service name="createAccReport" engine="simple" default-entity-name="AccReport"
+    	location="component://delys/script/org/ofbiz/accounting/AccountingServices.xml" invoke="createAccReport">
+    	<description>Create AccReport</description>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <auto-attributes include="pk" mode="OUT" optional="true"/>
+    </service>
+    <service name="getPaymentMethodType" engine="simple" default-entity-name="PaymentMethodType"
+    	location="component://delys/script/org/ofbiz/accounting/AccountingServices.xml" invoke="getPaymentMethodType">
+    	<description>Get Payment Method Type</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="OUT" optional="true"/>
+    </service>
+    <service name="createDelivery" default-entity-name="Delivery" engine="java"
+        location="com.olbius.delys.accounting.appr.DeliveryServices" invoke="createDelivery" auth="true">
+        <description>Create Delivery</description>
+        <auto-attributes mode="IN" entity-name="Delivery" optional="true"></auto-attributes>
+        <attribute name="currencyUomId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="shipmentId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="deliveryId" mode="INOUT" type="String" optional="true"></attribute>
+        <attribute name="listOrderItems" mode="IN" type="java.util.List" optional="true"></attribute>
+    </service>
+    <service name="updateDelivery" default-entity-name="Delivery" engine="java"
+        location="com.olbius.delys.accounting.appr.DeliveryServices" invoke="updateDelivery" auth="true">
+        <description>Update Delivery</description>
+        <auto-attributes mode="IN" entity-name="Delivery" optional="false" include="pk"></auto-attributes>
+    	<auto-attributes mode="IN" entity-name="Delivery" optional="true" include="nonpk"></auto-attributes>
+    </service>
+    <service name="createShipmentFromDelivery" default-entity-name="Delivery" engine="java"
+        location="com.olbius.delys.accounting.appr.DeliveryServices" invoke="createShipmentFromDelivery" auth="true">
+        <description>Create OrderItemShipGroup, Create OrderItemShipGroupAssoc</description>
+        <attribute name="deliveryId" mode="IN" type="String" optional="false"></attribute>
+    </service>
+    <service name="updateDeliveryItem" default-entity-name="DeliveryItem" engine="java"
+        location="com.olbius.delys.accounting.appr.DeliveryServices" invoke="updateDeliveryItem" auth="true">
+        <description>Update actualExportedQuantity. Update actualDeliveredQuantity</description>
+        <auto-attributes mode="IN" include="pk" optional="false"></auto-attributes>
+        <auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+        <attribute name="deliveryTypeId" mode="OUT" type="String" optional="true"></attribute>
+        <attribute name="deliveryStatusId" mode="OUT" type="String" optional="true"></attribute>
+        <attribute name="transferId" mode="OUT" type="String" optional="true"></attribute>
+        <attribute name="deliveryId" mode="OUT" type="String" optional="true"></attribute>
+        <attribute name="deliveryItemSeqId" mode="OUT" type="String" optional="true"></attribute>
+    </service>
+    <service name="deleteDelivery" default-entity-name="Delivery" engine="java"
+        location="com.olbius.delys.services.DelysServices" invoke="deleteDelivery" auth="true">
+        <description>delete delivery</description>
+        <attribute name="deliveryId" mode="IN" type="String" optional="false"></attribute>
+    </service>
+    
+    <service name="getProductName" engine="simple"
+        location="component://delys/script/org/ofbiz/accounting/AccountingServices.xml" invoke="getProductName" auth="true">
+        <description>Get Party Name For Date</description>
+        <attribute name="productId" type="String" mode="IN" optional="false"/>
+        <attribute name="productName" type="String" mode="OUT" optional="true"/>
+    </service>    
+</services>
+    

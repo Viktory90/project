@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>Delys Component Services</description>
+    <vendor>OFBiz</vendor>
+    <version>1.0</version>
+	
+	<service name="getAgreementByUserLogin" engine="simple" invoke="getAgreementByUserLogin" auth="true" 
+		location="component://delys/script/org/ofbiz/distributor/DistributorServices.xml">
+		<attribute name="agreementList" mode="OUT" type="List"/>
+	</service>
+	<service name="JQGetListCDARInvoiceByUserLoginDis" engine="java" invoke="jqGetListCDARInvoiceByUserLoginDis" location="com.olbius.delys.services.DistributorServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   	</service>
+   	<service name="JQGetListCDAPInvoiceByUserLoginDis" engine="java" invoke="jqGetListCDAPInvoiceByUserLoginDis" location="com.olbius.delys.services.DistributorServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   	</service>
+   	<!-- change by Groovy files
+   	<service name="getListSalesmanDis" engine="java" invoke="getListSalesmanDis" location="com.olbius.delys.services.DistributorServices">
+   		<attribute name="listSalesman" mode="OUT" type="List"/>
+   	</service>
+   	<service name="getListCustomerDis" engine="java" invoke="getListCustomerDis" location="com.olbius.delys.services.DistributorServices">
+   		<attribute name="listCustomer" mode="OUT" type="List"/>
+   	</service> -->
+   	<service name="createPhysicalInventoryAndVarianceDis" engine="simple" auth="true" transaction-timeout="600"
+            location="component://delys/script/org/ofbiz/distributor/DistributorServices.xml" invoke="createPhysicalInventoryAndVariance">
+       	<description>Create a PhysicalInventory and an InventoryItemVariance</description>
+        <auto-attributes entity-name="InventoryItemVariance" include="pk" mode="IN" optional="false"/>
+        <auto-attributes entity-name="PhysicalInventory" include="nonpk" mode="IN" optional="true"/>
+        <auto-attributes entity-name="InventoryItemVariance" include="nonpk" mode="IN" optional="true"/>
+        <override name="physicalInventoryId" mode="OUT"/>
+    </service>
+    <service name="JQGetListProductByCategoryCatalog" engine="java" invoke="jqGetListProductByCategoryCatalog" location="com.olbius.delys.services.DistributorServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="true"></attribute>
+   </service>
+   <service name="JQGetListProductAndTaxByCatalog" engine="java" invoke="jqGetListProductAndTaxByCatalog" location="com.olbius.delys.services.DistributorServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="true"></attribute>
+   </service>
+   <service name="JQGetListProductByCategoryCatalogQ" engine="java" invoke="jqGetListProductByCategoryCatalog" location="com.olbius.delys.services.DistributorServices">
+   		<description>Get list product by Category Catalog type java.util.LinkedList</description>
+   		<attribute name="request" mode="IN" type="javax.servlet.http.HttpServletRequest" optional="true"/>
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.LinkedList" optional="true"></attribute>
+   </service>
+   <service name="JQGetListProductByCategoryCatalogLM" engine="java" invoke="jqGetListProductByCategoryCatalogLM" location="com.olbius.delys.services.DistributorServices">
+   		<description>Get list product by Category Catalog type List of Map</description>
+   		<attribute name="request" mode="IN" type="javax.servlet.http.HttpServletRequest" optional="true"/>
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="true"></attribute>
+   </service>
+   <service name="JQGetListProductByCategoryCatalogByOrder" engine="java" invoke="jqGetListProductByCategoryCatalogByOrder" location="com.olbius.delys.services.DistributorServices">
+   		<description>Get list product by Category Catalog type List of Map</description>
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="true"></attribute>
+   </service>
+</services>

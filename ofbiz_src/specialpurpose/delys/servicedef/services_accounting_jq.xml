@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>Delys Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+  
+   <service name="JQGetListInvoiceItemsInPayment" engine="java" invoke="jqGetListInvoiceItemsInPayment" location="com.olbius.delys.accounting.jqservices.PaymentJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListCustomTimePeriod" engine="java" invoke="jqListCustomTimePeriod" location="com.olbius.delys.accounting.jqservices.TimePeriodJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service> 
+   <service name="JQListCustomTimePeriodOrganization" engine="java" invoke="jqListCustomTimePeriodOrganization" location="com.olbius.delys.accounting.jqservices.TimePeriodJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>   
+   <service name="JQListGLAccountTypeDedault" engine="java" invoke="getGLAccountTypeDedault" location="com.olbius.delys.accounting.jqservices.GLAccountTypeDefaultJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListProduct" engine="java" invoke="getListProduct" location="com.olbius.delys.accounting.jqservices.TransactionJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListPaymentMethodTypes" engine="java" invoke="jqGetListPaymentMethodTypes" location="com.olbius.delys.accounting.jqservices.PaymentJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListGLAccountItemTypeSale" engine="groovy" invoke="" location="component://delys/script/com/olbius/accounting/ListInvoiceItemTypesGlAccount.groovy">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+   </service>
+   <service name="JQGetListGLAccountItemTypePO" engine="groovy" invoke="" location="component://delys/script/com/olbius/accounting/ListInvoiceItemTypesGlAccount.groovy">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="invItemTypePrefix" mode="IN" type="String" optional="true" default-value="PINV"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+   </service>
+   <service name="JQGetListInvoiceItemTypeGLA" engine="java" invoke="jqGetListInvoiceItemTypeGLA" location="com.olbius.delys.accounting.jqservices.GLAccountItemType">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListVarianceReasonGlAccounts" engine="java" invoke="getVarianceReasonGlAccounts" location="com.olbius.delys.accounting.jqservices.GLAccountVarianceReasonJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListChartOfAccount" engine="java" invoke="jqGetListChartOfAccount" location="com.olbius.delys.accounting.jqservices.ChartOfAccountJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListChartOfAccountOrigination" engine="java" invoke="jqGetListChartOfAccountOrigination" location="com.olbius.delys.accounting.jqservices.ChartOfAccountJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>   
+   <service name="JQListConversions" engine="java" invoke="jqGetListConversions" location="com.olbius.delys.accounting.jqservices.ForeignExchangeRates">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListGlReconciliation" engine="java" invoke="jqGetListGlReconciliation" location="com.olbius.delys.accounting.jqservices.GlReconciliationServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListTaxAuthorities" engine="java" invoke="jqGetListTaxAuthorities" location="com.olbius.delys.accounting.jqservices.TaxAuthority">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+  <service name="JQGetListGeo" engine="java" invoke="jqGetListGeo" location="com.olbius.delys.accounting.jqservices.TaxAuthority">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+  <service name="JQGetListParties" engine="java" invoke="jqGetListParties" location="com.olbius.delys.accounting.jqservices.TaxAuthority">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListTaxAuthorityCategories" engine="java" invoke="jqGetListTaxAuthorityCategories" location="com.olbius.delys.accounting.jqservices.TaxAuthority">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListProductCategories" engine="java" invoke="jqGetListProductCategories" location="com.olbius.delys.accounting.jqservices.TaxAuthority">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListTaxAuthorityAssocs" engine="java" invoke="jqListTaxAuthorityAssocs" location="com.olbius.delys.accounting.jqservices.TaxAuthority">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListTaxAuthorityGLAcounts" engine="java" invoke="jqListTaxAuthorityGLAcounts" location="com.olbius.delys.accounting.jqservices.TaxAuthority">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListGLAccounts" engine="java" invoke="jqGetListGLAccounts" location="com.olbius.delys.accounting.jqservices.TaxAuthority">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListAPInvoice" engine="java" invoke="jqGetListAPInvoice" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListAPDueInvoice" engine="java" invoke="jqGetListAPDueInvoice" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListAPDueSoonInvoice" engine="java" invoke="jqGetListAPDueSoonInvoice" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListARInvoice" engine="java" invoke="jqGetListARInvoice" location="com.olbius.delys.accounting.jqservices.ARInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListARDueInvoice" engine="java" invoke="jqGetListARDueInvoice" location="com.olbius.delys.accounting.jqservices.ARInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListARDueSoonInvoice" engine="java" invoke="jqGetListARDueSoonInvoice" location="com.olbius.delys.accounting.jqservices.ARInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListCDAPInvoice" engine="java" invoke="jqGetListCDAPInvoice" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListCDARInvoice" engine="java" invoke="jqGetListCDARInvoice" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListCUSCDAPInvoice" engine="java" invoke="jqGetListCUSCDAPInvoice" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListCUSCDARInvoice" engine="java" invoke="jqGetListCUSCDARInvoice" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListSUPCDAPInvoice" engine="java" invoke="jqGetListSUPCDAPInvoice" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListSUPCDARInvoice" engine="java" invoke="jqGetListSUPCDARInvoice" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListBillingAccoun" engine="java" invoke="jqGetListBillingAccoun" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="getInvoiceNotApplied" engine="groovy" invoke="" location="component://delys/script/com/olbius/accounting/ListApInvoice.groovy">
+   		<attribute name="inputValue" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="outputValue" mode="OUT" type="String" optional="false"></attribute>
+   </service>
+   <service name="getAmountToApply" engine="groovy" invoke="" location="component://delys/script/com/olbius/accounting/ListArInvoice.groovy">
+   		<attribute name="inputValue" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="outputValue" mode="OUT" type="String" optional="false"></attribute>
+   </service>
+   <service name="getListApPayment" engine="groovy" invoke="" location="component://delys/script/com/olbius/accounting/ListApPayment.groovy">
+   		<attribute name="inputValue" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="outputValue" mode="OUT" type="String" optional="false"></attribute>
+   </service>
+   <service name="getInvoiceTotal" engine="groovy" invoke="" location="component://delys/script/com/olbius/accounting/ListApInvoiceTotal.groovy">
+   		<attribute name="inputValue" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="outputValue" mode="OUT" type="String" optional="false"></attribute>
+   </service>
+   <service name="getARInvoiceTotal" engine="groovy" invoke="" location="component://delys/script/com/olbius/accounting/ListArInvoiceTotal.groovy">
+   		<attribute name="inputValue" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="outputValue" mode="OUT" type="String" optional="false"></attribute>
+   </service>
+   <service name="getFromParty" engine="groovy" invoke="" location="component://delys/script/com/olbius/accounting/FindLookUp.groovy">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="getListApCommisionRun" engine="groovy" invoke="" location="component://delys/script/com/olbius/accounting/ListApCommissionRun.groovy">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.LinkedList" optional="false"></attribute>
+   </service>
+   <service name="JQListTaxAuthorityRateProducts" engine="java" invoke="jqListTaxAuthorityRateProducts" location="com.olbius.delys.accounting.jqservices.TaxAuthority">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListProductStores" engine="java" invoke="jqGetListProductStores" location="com.olbius.delys.accounting.jqservices.TaxAuthority">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListTaxAuthorityParties" engine="java" invoke="jqListTaxAuthorityParties" location="com.olbius.delys.accounting.jqservices.TaxAuthority">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListTaxAuthorityGLAccounts" engine="java" invoke="jqListTaxAuthorityGLAccounts" location="com.olbius.delys.accounting.jqservices.TaxAuthority">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListTaxProductCategoryMember" engine="java" invoke="getListTaxProductCategoryMember" location="com.olbius.delys.accounting.jqservices.VatTaxJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListApAgreement" engine="java" invoke="jqGetListApAgreement" location="com.olbius.delys.accounting.jqservices.APAgreementJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListProducts" engine="java" invoke="jqGetListProducts" location="com.olbius.delys.accounting.jqservices.APAgreementJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListAPPayment" engine="java" invoke="jqGetListAPPayment" location="com.olbius.delys.accounting.jqservices.APPaymentJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListARPayment" engine="java" invoke="jqGetListARPayment" location="com.olbius.delys.accounting.jqservices.ARPaymentJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListAPInvItemAndOrdItem" engine="java" invoke="jqGetListAPInvItemAndOrdItem" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListAPAcctgTransAndEntries" engine="java" invoke="jqGetListAPAcctgTransAndEntries" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>    
+   
+   <service name="JQGetListTaxAPInvoice" engine="java" invoke="jqGetListTaxAPInvoice" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListAPInvoiceRole" engine="java" invoke="jqGetListAPInvoiceRole" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListAgreementTerms" engine="java" invoke="jqListAgreementTerms" location="com.olbius.delys.accounting.jqservices.APAgreementJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListAgreementRoles" engine="java" invoke="jqListAgreementRoles" location="com.olbius.delys.accounting.jqservices.APAgreementJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListAgreementWorkEffortApplics" engine="java" invoke="jqListAgreementWorkEffortApplics" location="com.olbius.delys.accounting.jqservices.APAgreementJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListWorkEfforts" engine="java" invoke="jqGetListWorkEfforts" location="com.olbius.delys.accounting.jqservices.APAgreementJQServices">
+      	<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListTaxARInvoice" engine="java" invoke="jqGetListTaxARInvoice" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="createCommissionInvoicesJQ" engine="java" invoke="createCommissionInvoicesJQ" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="partyIds" mode="IN" type="String" optional="true"></attribute>
+   		<attribute name="invoiceIds" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="invoicesCreated" type="List" mode="OUT" optional="true"/>
+   </service>
+   <service name="JQListAgreementItems" engine="java" invoke="jqListAgreementItems" location="com.olbius.delys.accounting.jqservices.APAgreementJQServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>   
+   <service name="JQGetInvoiceTotal" engine="java" invoke="jqGetInvoiceTotal" location="com.olbius.accounting.invoice.InvoiceWorkers">
+   		<attribute name="invoice" mode="IN" type="org.ofbiz.entity.GenericValue" optional="false"></attribute>
+   		<attribute name="invoiceTotal" mode="OUT" type="java.math.BigDecimal" optional="false"></attribute>
+   </service>  
+   <service name="JQGetListTaxAPInvoiceNotProcess" engine="java" invoke="jqGetListTaxAPInvoiceNotProcess" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListAgreementPromoAppls" engine="java" invoke="jqListAgreementPromoAppls" location="com.olbius.delys.accounting.jqservices.APAgreementJQServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>   
+   </service>
+   <service name="JQListAgreementProductAppl" engine="java" invoke="jqListAgreementProductAppl" location="com.olbius.delys.accounting.jqservices.APAgreementJQServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>   
+   </service>   
+   <service name="updateTaxAPInvoiceNotProcess" engine="java" invoke="updateTaxAPInvoiceNotProcess" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+        <permission-service service-name="acctgInvoicePermissionCheck" main-action="UPDATE"/>
+   		<attribute name="listInvoiceId" mode="IN" type="java.util.List" optional="false"></attribute>    		       
+   </service>   
+   <service name="JQGetListTaxARInvoiceNotProcess" engine="java" invoke="jqGetListTaxARInvoiceNotProcess" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListAgreementItemTerms" engine="java" invoke="jqListAgreementItemTerms" location="com.olbius.delys.accounting.jqservices.APAgreementJQServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>   
+ 
+   <service name="updateTaxARInvoiceNotProcess" engine="java" invoke="updateTaxARInvoiceNotProcess" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+        <permission-service service-name="acctgInvoicePermissionCheck" main-action="UPDATE"/>
+   		<attribute name="listInvoiceId" mode="IN" type="java.util.List" optional="false"></attribute>      
+   </service>
+   <service name="JQGetListTaxAPInvoiceProcessed" engine="java" invoke="jqGetListTaxAPInvoiceProcessed" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListAgreementGeographicalApplic" engine="java" invoke="jqListAgreementGeographicalApplic" location="com.olbius.delys.accounting.jqservices.APAgreementJQServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service> 
+   <service name="JQListAgreementFacilityAppl" engine="java" invoke="jqListAgreementFacilityAppl" location="com.olbius.delys.accounting.jqservices.APAgreementJQServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>   
+   <service name="JQGetListGeos" engine="java" invoke="jqGetListGeos" location="com.olbius.delys.accounting.jqservices.APAgreementJQServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>  
+   <service name="JQGetListFacilitys" engine="java" invoke="jqGetListFacilitys" location="com.olbius.delys.accounting.jqservices.APAgreementJQServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>        
+   <service name="JQListAgreementItemParties" engine="java" invoke="jqListAgreementItemParties" location="com.olbius.delys.accounting.jqservices.APAgreementJQServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>   
+   <service name="updateTaxAPInvoiceProcessed" engine="java" invoke="updateTaxAPInvoiceProcessed" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+        <permission-service service-name="acctgInvoicePermissionCheck" main-action="UPDATE"/>
+		<attribute name="listInvoiceId" mode="IN" type="java.util.List" optional="false"></attribute>   
+   </service>   
+   <service name="JQGetListTaxARInvoiceProcessed" engine="java" invoke="jqGetListTaxARInvoiceProcessed" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="updateTaxARInvoiceProcessed" engine="java" invoke="updateTaxARInvoiceProcessed" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+        <permission-service service-name="acctgInvoicePermissionCheck" main-action="UPDATE"/>
+   		<attribute name="listInvoiceId" mode="IN" type="java.util.List" optional="false"></attribute>      
+   </service>                             
+   <service name="JQListOrders" engine="java" invoke="jqListOrders" location="com.olbius.delys.accounting.jqservices.OrderJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListSaleOrders" engine="java" invoke="jqListSaleOrders" location="com.olbius.delys.accounting.jqservices.OrderJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListPurchaseOrders" engine="java" invoke="jqListPurchaseOrders" location="com.olbius.delys.accounting.jqservices.OrderJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="getOrderCustomer" engine="groovy" invoke="" location="component://delys/script/com/olbius/accounting/FindOrderCustomer.groovy">
+   		<attribute name="inputValue" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="outputValue" mode="OUT" type="String" optional="false"></attribute>
+   </service>  
+   <service name="JQGetListVatTaxTemplate" engine="java" invoke="jqListVatTaxTemplate" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+   </service>
+   <service name="getPartyDistributor" engine="java" invoke="getPartyDistributor" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service> 
+   <service name="getPartySupplier" engine="java" invoke="getPartySupplier" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>  
+   <service name="getPartyCustomer" engine="java" invoke="getPartyCustomer" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="getPartyCustomerAndDistributor" engine="java" invoke="getPartyCustomerAndDistributor" location="com.olbius.delys.accounting.jqservices.APInvoiceJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   
+   <service name="JQListTransaction" engine="java" invoke="jqListTransaction" location="com.olbius.delys.accounting.jqservices.TransactionJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="getListInvoice" engine="java" invoke="getListInvoice" location="com.olbius.delys.accounting.jqservices.TransactionJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="getListPayment" engine="java" invoke="getListPayment" location="com.olbius.delys.accounting.jqservices.TransactionJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="getListProduct" engine="java" invoke="getListProduct" location="com.olbius.delys.accounting.jqservices.TransactionJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="getListWorkEffort" engine="java" invoke="getListWorkEffort" location="com.olbius.delys.accounting.jqservices.TransactionJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="getListShipment" engine="java" invoke="getListShipment" location="com.olbius.delys.accounting.jqservices.TransactionJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListUnpostedTransaction" engine="java" invoke="jqListUnpostedTransaction" location="com.olbius.delys.accounting.jqservices.TransactionJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListAcctgTransAndEntries" engine="java" invoke="jqListAcctgTransAndEntries" location="com.olbius.delys.accounting.jqservices.TransactionJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListGlAccountReconciliation" engine="java" invoke="jqListGlAccountReconciliation" location="com.olbius.delys.accounting.jqservices.GlReconciliationServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListGlReconciliationEntries" engine="java" invoke="jqListGlReconciliationEntries" location="com.olbius.delys.accounting.jqservices.GlReconciliationServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQApListPaymentGroup" engine="java" invoke="jqApListPaymentGroup" location="com.olbius.delys.accounting.jqservices.APPaymentGroupJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQApListPaymentGroupMember" engine="java" invoke="jqApListPaymentGroupMember" location="com.olbius.delys.accounting.jqservices.APPaymentGroupJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+
+   <service name="JQListAccReportTarget" engine="java" invoke="jqListAccReportTarget" location="com.olbius.delys.accounting.jqservices.AccReportTargetJQServices">
+   		<attribute name="request" mode="IN" type="javax.servlet.http.HttpServletRequest" optional="true"/>
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+
+   <service name="JQListBankAccount" engine="java" invoke="jqListBankAccount" location="com.olbius.delys.accounting.jqservices.FinAccountJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+
+   <service name="JQGetListAccReportFunction" engine="java" invoke="jqListAccReportFunction" location="com.olbius.delys.accounting.jqservices.AccReportTargetJQServices">
+   		<attribute name="request" mode="IN" type="javax.servlet.http.HttpServletRequest" optional="true"/>
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+
+   <service name="JQListFinAccount" engine="java" invoke="jqListFinAccount" location="com.olbius.delys.accounting.jqservices.FinAccountJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListGlAccount" engine="java" invoke="jqListGlAccount" location="com.olbius.delys.accounting.jqservices.FinAccountJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListFinAccountRole" engine="java" invoke="jqListFinAccountRole" location="com.olbius.delys.accounting.jqservices.FinAccountJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListFinAccountTrans" engine="java" invoke="jqListFinAccountTrans" location="com.olbius.delys.accounting.jqservices.FinAccountJQServices">
+
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+
+   <service name="JQListCosts" engine="java" invoke="jqListCosts" location="com.olbius.delys.accounting.jqservices.CostsJQServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+
+   <service name="JQListDepositSlip" engine="java" invoke="jqListDepositSlip" location="com.olbius.delys.accounting.jqservices.FinAccountJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+
+   <service name="JQListGlAccountCategory" engine="java" invoke="jqListGlAccountCategory" location="com.olbius.delys.accounting.jqservices.GlAccountCategoryJQServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+
+   <service name="JQListNotAssignFinAccountTrans" engine="java" invoke="jqListNotAssignFinAccountTrans" location="com.olbius.delys.accounting.jqservices.FinAccountJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+
+   <service name="JQListRates" engine="java" invoke="jqListRates" location="com.olbius.delys.accounting.jqservices.RatesJQServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+
+   <service name="JQListFinAccountRecon" engine="java" invoke="jqListFinAccountRecon" location="com.olbius.delys.accounting.jqservices.FinAccountJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListWorkEffort" engine="java" invoke="jqListWorkEffort" location="com.olbius.delys.accounting.jqservices.WorkEffortJQServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+
+   <service name="JQListFinAccountAuth" engine="java" invoke="jqListFinAccountAuth" location="com.olbius.delys.accounting.jqservices.FinAccountJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListDepositWithDraw" engine="groovy" invoke="" location="component://delys/script/com/olbius/accounting/ListDepositWithdrawPayments.groovy">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="List" optional="false"></attribute>
+   </service>
+   <service name="JQListGlAcctgAndAmountPercentage" engine="java"
+            location="com.olbius.delys.accounting.jqservices.CostCentersJQServices" invoke="jqListGlAcctgAndAmountPercentage" auth="false">
+        <description>Get amount percentage and glAccount for cost center</description>
+        <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="List" optional="false"></attribute>
+   		<attribute name="glAccountCategories" mode="OUT"  type="List" optional="true"/>
+    </service>
+    <service name="JQListJournals" engine="java" location="com.olbius.delys.accounting.jqservices.JournalsJQServices" invoke="jqGetListJournals" auth="true">
+    	<description>Get journal list</description>
+    	<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+    </service>
+    <service name="JQListOpenTimePeriod" engine="java" invoke="jqListOpenTimePeriod" location="com.olbius.delys.accounting.jqservices.TimePeriodJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListClosedTimePeriod" engine="java" invoke="jqListClosedTimePeriod" location="com.olbius.delys.accounting.jqservices.TimePeriodJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListFinAccountTypeGlAccount" engine="java" invoke="jqListFinAccountTypeGlAccount" location="com.olbius.delys.accounting.jqservices.FinAccountTypeGlAccountJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListGlAccountNrPaymentMethod" engine="java" invoke="jqListGlAccountNrPaymentMethod" location="com.olbius.delys.accounting.jqservices.GlAccountNrPaymentMethodJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListGlAccountTypePaymentType" engine="java" invoke="jqListGlAccountTypePaymentType" location="com.olbius.delys.accounting.jqservices.GlAccountTypePaymentTypeJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListCreditCardTypeGlAccount" engine="java" invoke="jqListCreditCardTypeGlAccount" location="com.olbius.delys.accounting.jqservices.CreditCardTypeGlAccountJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQListFixedAssetTypeyGLAccounts" engine="java" invoke="jqListFixedAssetTypeGlAccount" location="com.olbius.delys.accounting.jqservices.FixedAssetTypeyGLAccounts">
+   <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>	
+
+   <service name="getListParty" engine="java" invoke="getListParty" location="com.olbius.delys.accounting.jqservices.UtilJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="getListDelivery" engine="java" invoke="getListDelivery" location="com.olbius.delys.accounting.jqservices.DeliveryJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="getListOrderItemDelivery" engine="java" invoke="getListOrderItemDelivery" location="com.olbius.delys.accounting.jqservices.DeliveryJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+   </service>
+   <service name="JQGetListProductPrice" engine="java" invoke="getListProductPrice" location="com.olbius.delys.accounting.jqservices.UtilJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListProductConfigPacking" engine="java" invoke="listProductConfigPacking" location="com.olbius.delys.accounting.jqservices.UtilJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListProductSupplier" engine="java" invoke="listProductSupplier" location="com.olbius.delys.accounting.jqservices.UtilJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListShipment" engine="java" invoke="listShipment" location="com.olbius.delys.accounting.jqservices.UtilJQServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="getListDeliveryItem" engine="java" invoke="getListDeliveryItem" location="com.olbius.delys.accounting.jqservices.DeliveryJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListVehicles" engine="java" invoke="listVehicles" location="com.olbius.delys.accounting.jqservices.UtilJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListPurchaseAgreements" engine="java" invoke="listPurchaseAgreements" location="com.olbius.delys.accounting.jqservices.UtilJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListImportQuotas" engine="java" invoke="listImportQuotas" location="com.olbius.delys.accounting.jqservices.UtilJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListQuotaItems" engine="java" invoke="listQuotaItems" location="com.olbius.delys.accounting.jqservices.UtilJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListProcessingAgreements" engine="java" invoke="listProcessingAgreements" location="com.olbius.delys.accounting.jqservices.UtilJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListPendingAgreements" engine="java" invoke="listPendingAgreements" location="com.olbius.delys.accounting.jqservices.UtilJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+<!--    hoanmEnd -->
+   <service name="JQGetListPartiesAcctgPreference" engine="java" invoke="jqGetListPartiesAcctgPreference" location="com.olbius.delys.accounting.jqservices.TimePeriodJQServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+</services>
+

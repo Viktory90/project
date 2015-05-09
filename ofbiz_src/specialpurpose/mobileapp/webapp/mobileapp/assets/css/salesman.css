@@ -1,0 +1,80 @@
+.main-menu {background:#004050;}
+.btn-salesman {
+	border: 0 none;
+    color: #fff;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 3px;
+    padding: 12px 0 8px;
+    position: relative;
+    text-align: center;
+    width: 100px
+}
+.btn-create-order {
+	background:#33b5e5!important;
+}
+.btn-create-order:hover {
+	background:#33c5e5!important;
+}
+.btn-customer {
+	background:#669900!important;
+}
+.btn-customer:hover {
+	background:#66a900!important;
+}
+
+.btn-order {
+	background:#ffbb33!important;
+}
+.btn-order:hover {
+	background:#ffcb33!important;
+}
+.btn-promotion {
+	background:#9933cc!important;
+}
+.btn-promotion:hover {
+	background:#9943cc!important;
+}
+.btn-product {
+	background:#ff8800!important;
+}
+.btn-product:hover {
+	background:#ff9800!important;
+}
+.btn-portal {
+	background:#0099cc!important;
+}
+.btn-portal:hover {
+	background:#00a9cc!important;
+}
+.btn-calendar {
+	background:#C1004F!important;
+}
+.btn-calendar:hover {
+	background:#C1104F!important;
+}
+.btn-sendinfo {
+	background:#00A3A3!important;
+}
+.btn-sendinfo:hover {
+	background:#00B3A3!important;
+}
+.btn-dashboard {
+	background:#4617B4!important;
+}
+.btn-dashboard:hover {
+	background:#4627B4!important;
+}
+.btn-sync {
+	background:#3A9548!important;
+}
+.btn-sync:hover {
+	background:#3AA548!important;
+}
+.btn-nppinfo {
+	background:#B81B1B!important;
+}
+.btn-nppinfo:hover {
+	background:#B82B1B!important;
+}

@@ -1,0 +1,35 @@
+.errorMessage, .error{
+	color:#F81700;
+}
+
+table.re-style-table {
+}
+
+table.re-style-table th {
+	border-top: 1px solid #333;
+}
+
+table.re-style-table td {
+	padding:7px 10px 0;
+	vertical-align:middle;
+}
+
+table.re-top-4 {
+	width:100%;
+}
+
+table.re-top-4 tr {
+	border: 1px solid #DDDDDD;
+}
+
+table.re-top-4 input {
+	width:80px;
+}
+
+input.re-size-80 {
+	width:80%;
+}
+
+select.re-size-80 {
+	width:81%;
+}

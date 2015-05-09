@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- These forms are for generating printed documents, such as invoices, bills, statements, etc. -->
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	<screen name="LoadDimensionTableSales">
+		<section>
+			<actions>
+				<entity-condition list="serviceDim" entity-name="ServicesOlapLoad">
+					<condition-expr field-name="tableType" operator="equals" value="table_dim"/>
+				</entity-condition>
+    			<set field="selectedMenuItem" value="settingJobPentaho"/>
+    			<set field="selectedSubMenuItem" value="DimensionTable"/>
+<!--     			<set field="tabButtonItem" value="Producdimesion" /> -->
+<!--     			<set field="titleProperty" value="BiSalesOrderReport"/> -->
+<!--     			<set field="headerItem" value="salesorder"/> -->
+    		</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet title="Cấu hình Pentaho">
+							<platform-specific>
+								<html>
+									<html-template location="component://delys/webapp/delys/pentaho/settingPentahoDimension.ftl"/>
+								</html>
+							</platform-specific>
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>			
+		</section>	
+	</screen>
+	
+	
+	<screen name="LoadFactTableSales">
+		<section>
+			<actions>
+    			<set field="selectedMenuItem" value="settingJobPentaho"/>
+    			<set field="selectedSubMenuItem" value="FactTable"/>
+    			<entity-condition list="serviceDim" entity-name="ServicesOlapLoad">
+					<condition-expr field-name="tableType" operator="equals" value="table_fact"/>
+				</entity-condition>
+    		</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet title="Cấu hình Pentaho">
+							<platform-specific>
+								<html>
+									<html-template location="component://delys/webapp/delys/pentaho/settingPentahoDimension.ftl"/>
+								</html>
+							</platform-specific>
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>			
+		</section>	
+	</screen>
+	
+	
+	<screen name="EditServiceJobDim">
+		<section>
+			<actions>
+    			<set field="selectedMenuItem" value="settingJobPentaho"/>
+    			<set field="selectedSubMenuItem" value="DimensionTable"/>
+    		</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet title="Cấu hình Pentaho">
+								<include-form location="component://delys/widget/ReportStatics/SalesReportStaticsForms.xml" name="scheduleJob"/>
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>			
+		</section>	
+	</screen>
+	
+</screens>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	<SecurityPermission permissionId="IMPORT_PLAN_APPROVE" description="Approve plan operations in the delys import module"/>
+	<SecurityPermission permissionId="IMPORT_PLAN_CREATE" description="Create plan operations in the delys import module"/>
+	<SecurityPermission permissionId="IMPORT_PLAN_UPDATE" description="Update plan operations in the delys import module"/>
+	<SecurityPermission permissionId="IMPORT_PLAN_VIEW" description="View plan operations in the delys import module"/>
+	<SecurityPermission permissionId="AGREEMENT_PURCHASE_APPROVE" description="Approve purchase agreement operations in the delys import module"/>
+	<!-- Security Group Permission -->
+	<SecurityGroupPermission groupId="PLAN_APPROVE" permissionId="IMPORT_PLAN_APPROVE"/>
+	<SecurityGroupPermission groupId="PLAN_MODIFY" permissionId="IMPORT_PLAN_UPDATE"/>
+	<SecurityGroupPermission groupId="PLAN_MODIFY" permissionId="IMPORT_PLAN_CREATE"/>
+	<SecurityGroupPermission groupId="PLAN_VIEW" permissionId="IMPORT_PLAN_VIEW"/>
+	<SecurityGroupPermission groupId="AGREEMENT_IMPORT" permissionId="AGREEMENT_PURCHASE_APPROVE"/>
+	
+	<UserLoginSecurityGroup userLoginId = "ceo" groupId="PLAN_APPROVE" fromDate="2015-03-23 14:41:25"/>
+	<UserLoginSecurityGroup userLoginId = "importadmin" groupId="PLAN_MODIFY" fromDate="2015-03-23 14:41:25"/>
+	<UserLoginSecurityGroup userLoginId = "chiefAccountant" groupId="AGREEMENT_IMPORT" fromDate="2015-03-23 14:41:25"/>
+	
+</entity-engine-xml>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+
+    <entity entity-name="DateDimension" package-name="org.ofbiz.bi.dimension" title="Date Dimension">
+        <description>Date (days) dimension. The natural key is [dateValue]</description>
+        <field name="dimensionId" type="numeric">
+            <description>Unique identifier of the Date dimension record</description>
+        </field>
+        <field name="dateValue" type="date">
+            <description>The date (day)</description>
+        </field>
+        <field name="description" type="description">
+            <description>Full date description</description>
+        </field>
+        <field name="dayName" type="short-varchar">
+            <description>The name of the day (Monday, Tuesday, etc...)</description>
+        </field>
+        <field name="dayOfWeek" type="numeric">
+            <description>The number of the day in the year</description>
+        </field>
+        <field name="dayOfMonth" type="numeric">
+            <description>The number of the day in the month</description>
+        </field>
+        <field name="dayOfYear" type="numeric">
+            <description>The number of the day in the year</description>
+        </field>
+        <field name="monthName" type="short-varchar">
+            <description>The name of the month (January, February, etc...)</description>
+        </field>
+        <field name="monthOfYear" type="numeric">
+            <description>The number of the month (1-12)</description>
+        </field>
+        <field name="yearName" type="numeric">
+            <description>The year (2008, 2009, etc...)</description>
+        </field>
+        <field name="weekOfMonth" type="numeric">
+            <description>The number of the week in the month</description>
+        </field>
+        <field name="weekOfYear" type="numeric">
+            <description>The number of the week in the year</description>
+        </field>
+        
+        <field name="weekAndYear" type="short-varchar"/>
+        
+        <field name="quarterOfYear" type="numeric"/>
+        
+        <field name="quarterAndYear" type="short-varchar"/>
+        
+        <field name="yearMonthDay" type="short-varchar">
+            <description>YYYY-MM-DD</description>
+        </field>
+        <field name="yearAndMonth" type="short-varchar">
+            <description>YYYY-MM</description>
+        </field>
+        <field name="weekdayType" type="short-varchar">
+            <description>Weekday indicator (Weekday or Weekend)</description>
+        </field>
+        <prim-key field="dimensionId"/>
+    </entity>
+
+    <entity entity-name="CurrencyDimension" package-name="org.ofbiz.bi.dimension" title="Currency Dimension">
+        <field name="dimensionId" type="numeric"/>
+        <field name="currencyId" type="id-ne"/>
+        <field name="description" type="description"/>
+        <prim-key field="dimensionId"/>
+    </entity>
+    
+    <entity entity-name="ProductDimension" package-name="org.ofbiz.bi.dimension.product" title="Product Dimension">
+        <field name="dimensionId" type="numeric"/>
+        <field name="productId" type="id-ne"/>
+        <field name="productType" type="description"/>
+        <field name="brandName" type="name"></field>
+        <field name="productName" type="name"></field>
+        <field name="internalName" type="description"></field>
+        <field name="description" type="description"></field>
+        <prim-key field="dimensionId"/>
+    </entity>
+    
+    <entity entity-name="FacilityDimension" package-name="org.ofbiz.bi.dimension" title="Facility Dimension">
+        <field name="dimensionId" type="numeric"/>
+        <field name="facilityId" type="id-ne"/>
+        <field name="description" type="description"/>
+        <field name="facilityName" type="name"></field>
+        <field name="geoPointId" type="id"></field>
+        <field name="ownerPartyId" type="id"/>
+        <prim-key field="dimensionId"/>
+    </entity>
+    
+    <entity entity-name="FacilityGeo" package-name="org.ofbiz.bi.dimension" title="Facility Geo">
+        <field name="dimensionId" type="numeric"/>
+        <field name="geoType" type="id"/>
+        <field name="geoId" type="id"/>
+        <field name="geoName" type="id"/>
+        <field name="geoCode" type="short-varchar"/>
+        <field name="geoSecCode" type="short-varchar"/>
+        <field name="abbreviation" type="short-varchar"/>
+        <prim-key field="dimensionId"/>
+        <prim-key field="geoId"/>
+    </entity>
+    
+    <entity entity-name="PartyDimension" package-name="org.ofbiz.bi.dimension">
+        <field name="dimensionId" type="numeric"/>
+        <field name="partyId" type="id-ne"/>
+        <field name="description" type="description"/>
+        
+        <field name="partyTypeId" type="id-ne"/>
+        
+        <prim-key field="dimensionId"/>
+    </entity>
+    
+    <entity entity-name="PartyGroupDimension" package-name="org.ofbiz.bi.dimension">
+    	<field name="dimensionId" type="numeric"/>
+        <field name="partyGroupDimId" type="numeric"/>
+        <field name="partyGroup" type="very-long"/>
+        <prim-key field="dimensionId"/>
+        <prim-key field="partyGroupDimId"/>
+        <prim-key field="partyGroup"/>
+    </entity>
+    
+    <entity entity-name="EmplPositionDimension" package-name="org.ofbiz.bi.dimension">
+        <field name="dimensionId" type="numeric"/>
+		<field name="emplPositionId" type="id-ne"></field>
+<!-- 		<field name="statusId" type="id"></field> -->
+		<field name="partyDimId" type="numeric"></field>
+<!-- 		<field name="budgetId" type="id"></field> -->
+<!-- 		<field name="budgetItemSeqId" type="id"></field> -->
+		<field name="emplPositionTypeId" type="id"></field>
+		<field name="description" type="description"></field>
+<!-- 		<field name="estimatedFromDate" type="date-time"></field> -->
+<!-- 		<field name="estimatedThruDate" type="date-time"></field> -->
+<!-- 		<field name="salaryFlag" type="indicator"></field> -->
+<!-- 		<field name="exemptFlag" type="indicator"></field> -->
+<!-- 		<field name="fulltimeFlag" type="indicator"></field> -->
+<!-- 		<field name="temporaryFlag" type="indicator"></field> -->
+<!-- 		<field name="actualFromDate" type="date-time"></field> -->
+<!-- 		<field name="actualThruDate" type="date-time"></field> -->
+		 <prim-key field="dimensionId"/>
+	</entity>
+    
+    <entity entity-name="PromotionDimension" package-name="org.ofbiz.olap" title="Promotion Dimension">
+		<description>Promotion Dimension</description>
+		<field name="dimensionId" type="numeric"></field>
+		<field name="productPromoId" type="id-ne"></field>
+		<field name="promoName" type="name"></field>
+		<field name="productPromoTypeId" type="id-ne"></field>
+		<field name="descriptionOfPromoTypeId" type="description"></field>
+		<field name="productPromoStatusId" type="id-ne"></field>
+		<field name="promoMiniRevenue" type="numeric"></field>
+		<field name="promoSalesTargets" type="numeric"></field>
+		<field name="promoBugetDistributor" type="numeric"></field>
+		<field name="promoText" type="description"></field>
+		<field name="paymentMethod" type="description"></field>
+		<field name="createdBy" type="id-ne"></field>
+		<field name="dateFromDimension" type="numeric"></field>
+		<field name="dateThruDimension" type="numeric"></field>
+		<prim-key field="dimensionId"/>
+		
+		<relation rel-entity-name="DateDimension" type="one" fk-name="DateDimensionFrom">
+			<key-map field-name="dateFromDimension" rel-field-name="dimensionId"/>
+		</relation>
+		<relation rel-entity-name="DateDimension" type="one" fk-name="DateDimensionThru">
+			<key-map field-name="dateThruDimension" rel-field-name="dimensionId"/>
+		</relation>
+		
+	</entity>
+	
+	<entity entity-name="OlapProductPromotion" package-name="org.ofbiz.olap" title="Olap Product Promotion">
+		<field name="promotionDimension" type="numeric"></field>
+		<field name="productDimension" type="numeric"></field>
+		<field name="productPromoAppEnumId" type="id-ne"></field>
+		<prim-key field="promotionDimension"/>
+		<prim-key field="productDimension"/>
+		<relation rel-entity-name="ProductDimension" type="one">
+			<key-map field-name="productDimension" rel-field-name="dimensionId"/>
+		</relation>
+		<relation rel-entity-name="PromotionDimension" type="one">
+			<key-map field-name="promotionDimension" rel-field-name="dimensionId"/>
+		</relation>
+	</entity>
+	
+	<entity entity-name="PromotionRoleTypeApply" package-name="org.ofbiz.olap">
+		<field name="promotionDimension" type="numeric"></field>
+		<field name="roleTypeId" type="id-ne"></field>
+		<prim-key field="promotionDimension"/>
+		<prim-key field="roleTypeId"/>
+		<relation rel-entity-name="PromotionDimension" type="one">
+			<key-map field-name="promotionDimension" rel-field-name="dimensionId" />
+		</relation>
+	</entity>
+	
+	<entity entity-name="ServicesOlapLoad" package-name="org.ofbiz.olap">
+		<field name="serviceId" type="id-ne"></field>
+		<field name="serviceNameTranform" type="name"></field>
+		<field name="serviceNameJob" type="name"></field>
+		<field name="serviceNameJobDestroy" type="name"></field>
+		<field name="statusJob" type="id-ne"></field>
+		<field name="tableType" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="serviceId"/>
+	</entity>
+</entitymodel>

@@ -1,0 +1,174 @@
+<!-- <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+	 <li style="width : 34%"  id="list1" class="active"><a href="route" ng-click="changeTab(1,'route')" data-toggle="tab"><i class="fa fa-road" style="color : #2E8965">&nbsp;</i>Phân tuyến SalesMan</a></li>
+	<li style="width : 33%" id="list3" ><a href="routeStore" data-toggle="tab" ng-click="changeTab(3,'routeStore')"><i class="fa fa-road" style="color : #2E8965"></i>&nbsp;Phân tuyến cửa hàng</a></li>
+	 <li style="width : 33%" id="list2"><a href="createRouteSalesMan" data-toggle="tab" ng-click="changeTab(2,'createRouteSalesMan')"><i class="fa fa-plus-circle" style="color : #2E8965"></i>&nbsp;Tạo mới tuyến đường</a></li>
+</ul>
+<div>
+ <div id="my-tab-content" class="tab-content">
+	<div id="route" class="tab-pane fade active in">	
+		
+	</div>
+	<div id="createRouteSalesMan" class="tab-pane fade">
+		
+	</div>
+	<div id="routeStore" class="tab-pane fade">
+		
+</div>
+</div>	 -->
+<div>
+    <ul class="nav nav-tabs">	
+        <li class="active" style="width : 33%"   id="list1"><a data-toggle="tab"  href="sectionA" ng-click="changeTab(1,'sectionA')"><i class="fa fa-plus-circle" style="color : #2E8965"></i>&nbsp;Tạo mới tuyến đường</a></li>
+        <li id="list2" style="width : 33%" ><a data-toggle="tab" ng-click="changeTab(2,'sectionB')"><i class="fa fa-road" style="color : #2E8965"></i>&nbsp;Phân tuyến cửa hàng</a></li>
+        <li id="list3" style="width : 33%" ><a data-toggle="tab" ng-click="changeTab(3,'sectionC')"><i class="fa fa-road" style="color : #2E8965">&nbsp;</i>Phân tuyến SalesMan</a></li>
+    </ul>
+    <div class="tab-content">
+    	<div id="sectionC" class="tab-pane">
+				<div class=" widget-body">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div style="overflow:auto">
+								<table class="table table-striped table-bordered table-hover" >
+									<thead>
+										<tr>
+											<td class="white-color" style="background-color: #2e8965">Mã NV</td>
+											<td class="white-color" style="background-color: #2e8965"><i class="fa fa-user white-color"></i>&nbsp;Họ và tên</td>
+											<td class="white-color" style="background-color: #2e8965"><i class="fa fa-road white-color"></i>&nbsp;Tuyến đường</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat = "man in obj.salesman">
+											<td>{{man.partyId}}</td>
+											<td>{{man.name}}</td>
+											<td>
+												<span ng-if="man.routeId">
+													<select ng-init="obj.salesman[$index].routeId = man.routeId" ng-model="obj.salesman[$index].routeId"
+															ng-options = "obj.routeId as obj.description for obj in data.listRoute">
+													</select>	
+												</span>
+												<span ng-if="!man.routeId" >
+													<select ng-model="obj.salesman[$index].routeId"
+															ng-options = "obj.routeId as obj.description for obj in data.listRoute">
+													</select>			
+												</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div style="float:right;padding-bottom : 30px;padding-right : 30px;">
+								<button ng-disabled="flag.checkRouteSalesMan" class="btn btn-small btn-primary center" ng-click="submitRoute('SalesMan')"><i class="fa fa-check" ></i>&nbsp;Xác nhận</button>
+								<button class="btn btn-small btn-primary center" ng-click="cancel()"><i class="fa fa-times"></i>&nbsp;Hủy</button>
+							</div>
+						</div>
+					</div>
+				</div>
+    	</div>
+        <div id="sectionA" class="tab-pane active">
+        	<div class="widget-body">
+				<div class="row" style="padding-top : 30px;padding-left : 10px;padding-right: 10px;">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="row">
+								<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+									<span class=" labelConfig label label-large label-pink arrowed-right">Tên tuyến (*)</span>
+								</div>
+								<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+									 <input type="text" style="width : 100%" ng-model="data.routeName"></input>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+									<span class=" labelConfig label label-large label-pink arrowed-right">Thời gian (*)</span>
+								</div>
+								<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+										<input type="checkbox" ng-model="data.select[0]" ng-true-value="'T2'" ng-false-value="'#'">Thứ 2</input>&nbsp;
+										<input type="checkbox" ng-model="data.select[1]" ng-true-value="'T3'" ng-false-value="'#'">Thứ 3</input>&nbsp;
+										<input type="checkbox" ng-model="data.select[2]" ng-true-value="'T4'" ng-false-value="'#'">Thứ 4</input>&nbsp;
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+										<input type="checkbox" ng-model="data.select[3]" ng-true-value="'T5'" ng-false-value="'#'">Thứ 5</input>&nbsp;
+										<input type="checkbox" ng-model="data.select[4]" ng-true-value="'T6'" ng-false-value="'#'">Thứ 6</input>&nbsp;
+										<input type="checkbox" ng-model="data.select[5]" ng-true-value="'T7'" ng-false-value="'#'">Thứ 7</input>&nbsp;
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+									
+								</div>
+								<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+									<div style="float:right ; padding-bottom : 30px;padding-right : 30px;">
+										<button class="btn btn-small btn-primary center" ng-click="createRoute()"><i class="fa fa-send" ></i>&nbsp;Gửi</button>
+										<button class="btn btn-small btn-primary center" ng-click="cancel()"><i class="fa fa-times"></i>&nbsp;Hủy</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+        </div>
+        <div id="sectionB" class="tab-pane">
+        	<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class=" widget-body">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<div style="overflow:auto">
+									<table class="table table-striped table-bordered table-hover" >
+										<thead>
+											<tr>
+												<td class="white-color" style="background-color: #2e8965">Mã KH</td>
+												<td class="white-color" style="background-color: #2e8965">
+													<div>
+														<div class="white-color" style="width=100%;display:block;"><i class="fa fa-user white-color"></i>&nbsp;Khách hàng</div>
+													  </div>  
+												</td>
+												<td class="white-color" style="background-color: #2e8965"><i class="fa fa-road white-color"></i>&nbsp;Tuyến đường</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="cus in obj.customers">
+												<td>{{cus.partyId}}</td>
+												<td>{{cus.name }}</td>
+												<td>
+													<span ng-if="!cus.routeId">
+														<select ng-model="obj.customers[$index].routeId" 
+															ng-options="obj.routeId as obj.description for obj in data.listRoute">		
+														</select>
+													</span>
+													<span ng-if="cus.routeId">
+														<select ng-init="obj.customers[$index].routeId = cus.routeId" ng-model="obj.customers[$index].routeId" 
+															ng-options="obj.routeId as obj.description for obj in data.listRoute">		
+														</select>
+													</span>
+												</td>											
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<div style="float:right;padding-bottom : 30px; padding-right : 30px;">
+									<button ng-disabled="flag.checkRouteStore"  class="btn btn-small btn-primary center" ng-click="submitRoute('Customer')"><i class="fa fa-check" ></i>&nbsp;Xác nhận</button>
+									<button class="btn btn-small btn-primary center" ng-click="cancel()"><i class="fa fa-times"></i>&nbsp;Hủy</button>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        </div>
+    </div>
+</div>	

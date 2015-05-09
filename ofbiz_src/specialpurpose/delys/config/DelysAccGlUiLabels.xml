@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<property key="createAccountReconciliationSuccessfully">
+        <value xml:lang="en">Create Account Reconciliation Successfully</value>
+        <value xml:lang="vi">Tạo mới cân đối tài khoản thành công</value>
+    </property>
+    <property key="createAccountReconciliationFail">
+        <value xml:lang="en">Create Account Reconciliation Fail</value>
+        <value xml:lang="vi">Tạo mới cân đối tài khoản không thành công</value>
+    </property>
+    <property key="ListAccountingBankAccount">
+        <value xml:lang="en">List Bank Account</value>
+        <value xml:lang="vi">Danh sách tài khoản ngân hàng</value>
+    </property>
+    <property key="PageTitleListFinAccountRole">
+        <value xml:lang="en">List Financial Account Role: ${finAccount.finAccountName} [${finAccountId}]</value>
+        <value xml:lang="vi">Danh sách vai trò: ${finAccount.finAccountName} [${finAccountId}]</value>
+    </property>
+    <property key="accFinancialParameters">
+        <value xml:lang="en">Financial parameters</value>
+        <value xml:lang="vi">Tham số tài chính</value>
+    </property>
+    <property key="accFinanIndex">
+        <value xml:lang="en">Financial index</value>
+        <value xml:lang="vi">Chỉ số tài chính</value>
+    </property>
+    <property key="accFinanIncome">
+        <value xml:lang="en">Income</value>
+        <value xml:lang="vi">Doanh thu</value>
+    </property>
+    <property key="accFinanExpenses">
+        <value xml:lang="en">Expenses</value>
+        <value xml:lang="vi">Chi phí</value>
+    </property>
+</resource>

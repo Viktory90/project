@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../framework/widget/dtd/widget-menu.xsd">
+	<!-- Sub Recruitment Menu-->
+	<menu name="RecruitmentMenus" modelMenu="businessSubMenu" selected-menuitem-context-field-name="selectedSubMenuItem">
+		<menu-item name="RecruitmentPlan" title="${uiLabelMap.RecruitmentPlan}">
+			<condition>
+				<if-has-permission permission="HR_RECRUITMENT_PLAN" action="_VIEW"/>
+			</condition>
+			<link target="FindRecruitmentPlan"></link>
+		</menu-item>
+		
+		<menu-item name="JobRequest" title="${uiLabelMap.JobRequest}">
+			<condition>
+				<if-has-permission permission="HR_JOB_REQUEST" action="_VIEW"/>
+			</condition>
+			<link target="FindJobRequest"></link>
+		</menu-item>
+		
+		<menu-item name="Applicant" title="${uiLabelMap.Applicant}" >
+			<condition>
+				<if-has-permission permission="HR_APPLICANT" action="_VIEW"/>
+			</condition>
+			<link target="FindApplicant"></link>
+		</menu-item>
+	</menu>
+	
+	<menu name="RecruitmentPlanTabBar" modelMenu="olbiustab" extends="CommonTabBarMenu"
+		extends-resource="component://common/widget/CommonMenus.xml" selected-menuitem-context-field-name="tabButtonItem" id="test">
+		
+		<menu-item name="FindRecruitmentPlan" title="${uiLabelMap.FindRecruitmentPlan}">
+			<condition>
+				<if-has-permission permission="HR_RECRUITMENT_PLAN_VIEW"/>
+			</condition>
+			<link target="FindRecruitmentPlan"></link>
+		</menu-item>
+		
+		<!-- <menu-item name="FindAboveRecruitmentPlan" title="${uiLabelMap.FindAboveRecruitmentPlan}">
+			<condition>
+				<if-has-permission permission="HR_RECRUITMENT_PLAN_VIEW"/>
+			</condition>
+			<link target="FindAboveRecruitmentPlan" style="icon-search"></link>
+		</menu-item>
+		
+		<menu-item name="EditRecruitmentPlan" title="${uiLabelMap.NewRecruitmentPlan}">
+			<condition>
+				<if-has-permission permission="HR_RECRUITMENT_PLAN" action="_CREATE"/>
+			</condition>
+			<link target="EditRecruitmentPlan" style="icon-plus-sign" />
+		</menu-item> -->
+		
+		<menu-item name="ProposeRecruitmentPlan" title="${uiLabelMap.ProposeRecruitmentPlan}">
+			<condition>
+				<if-has-permission permission="HR_RECRUITMENT_PLAN_PROPOSE"/>
+			</condition>
+			<link target="ProposeRecruitmentPlan"></link>
+		</menu-item>
+	</menu>
+	
+	<menu name="RecruitmentTabBar" modelMenu="olbiustab" extends="CommonTabBarMenu"
+		extends-resource="component://common/widget/CommonMenus.xml" selected-menuitem-context-field-name="tabButtonItem" id="test">
+		
+		<menu-item name="RecruitmentPlan" title="${uiLabelMap.RecruitmentPlan}"
+			widget-style="dropdown" >
+			<condition>
+				<if-has-permission permission="HR_RECRUITMENT_PLAN" action="_VIEW"/>
+			</condition>
+			
+			<sub-menu location="component://hrolbius/widget/menus/RecruitmentMenus.xml"
+				name="RecruitmentPlanSubTabBar" />
+		</menu-item>
+		 
+		<menu-item name="JobRequest" title="${uiLabelMap.JobRequest}"
+			widget-style="dropdown">
+			<condition>
+				<if-has-permission permission="HR_JOB_REQUEST" action="_VIEW"/>
+			</condition>
+			<sub-menu location="component://hrolbius/widget/menus/RecruitmentMenus.xml"
+				name="JobRequestSubTabBar" />
+		</menu-item>
+		
+		<menu-item name="Applicant" title="${uiLabelMap.Applicant}" >
+			<condition>
+				<if-has-permission permission="HR_APPLICANT" action="_VIEW"/>
+			</condition>
+			<sub-menu location="component://hrolbius/widget/menus/RecruitmentMenus.xml"
+				name="ApplicantSubTabBar" />
+		</menu-item>
+		
+		<menu-item name="RecruitmentTest" title="${uiLabelMap.RecruitmentTest}" widget-style="dropdown">
+			<condition>
+				<if-has-permission permission="HR_JOB_TEST" action="_VIEW"/>
+			</condition>
+			<sub-menu location="component://hrolbius/widget/menus/RecruitmentMenus.xml"
+				name="RecruitmentTestSubTabBar" />
+		</menu-item>
+		
+		<menu-item name="WorkTrial" title="${uiLabelMap.WorkTrial}" widget-style="dropdown">
+			<condition>
+				<if-has-permission permission="HR_WORK_TRIAL" action="_VIEW"/>
+			</condition>
+			<sub-menu location="component://hrolbius/widget/menus/RecruitmentMenus.xml"
+				name="WorkTrialSubTabBar" />
+		</menu-item>
+		
+		<menu-item name="RecruimentPg" title="${uiLabelMap.RecruimentPg}" widget-style="dropdown">
+			<condition>
+				<if-has-permission permission="HR_SALESMANPG" action="_VIEW"/>
+			</condition>
+			<sub-menu location="component://hrolbius/widget/menus/RecruitmentMenus.xml" name="RecruitmentPgSubTabBar"/>
+		</menu-item>
+		
+	</menu>
+	
+	<menu name="ApplicantSubTabBar" modelMenu="olbiusSubMenu"
+		extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml"
+		style="dropdown-menu dropdown-info" selected-menuitem-context-field-name="tabSubButtonItem" id="subtab-jobtest">
+		
+		<menu-item name="FindApplicant" title="${uiLabelMap.FindApplicant}" >
+			<condition>
+				<if-has-permission permission="HR_JOB_TEST_PLAN" action="_VIEW"/>
+			</condition>
+			<link target="FindApplicant" style="icon-search open-sans"></link>
+		</menu-item>
+		
+		<menu-item name="EditApplicant" title="${uiLabelMap.NewApplicant}">
+			<condition>
+				<if-has-permission permission="HR_APPLICANT" action="_CREATE"/>
+			</condition>
+			<link target="EditApplicant" style="icon-plus-sign open-sans"></link>
+		</menu-item>
+	</menu>
+	
+	<menu name="RecruitmentPgSubTabBar" modelMenu="olbiusSubMenu"
+		extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml"
+		style="dropdown-menu dropdown-info" selected-menuitem-context-field-name="tabSubButtonItem">
+		
+		<menu-item name="CreateNewProfile" title="${uiLabelMap.CreateNewProfileSalesmanPG}">
+			<condition>
+				<if-has-permission permission="HR_SALESMANPG" action="_CREATE"/>
+			</condition>
+			<!-- <link target="ProfileEmployeePG" style="icon-plus open-sans"></link> -->
+			<link target="EditSalesmanPG" style="icon-plus open-sans blue"></link>
+		</menu-item>
+		<menu-item name="NewRecruitmentSalesmanPG" title="${uiLabelMap.NewRecruitmentSalesmanPG}">
+			<condition>
+				<if-has-permission permission="HR_SALESMANPG" action="_APPROVE"/>
+			</condition>
+			<link target="NewRecruitmentSalesmanPG" style="open-sans icon-plus-sign blue"></link>
+		</menu-item>
+		<menu-item name="SummaryListSalesmanPGInMonth" title="${uiLabelMap.SummaryListSalesmanPGInMonth}">
+			<condition>
+				<if-has-permission permission="HR_SALESMANPG" action="_REPORT"/>
+			</condition>
+			<link target="SummaryListSalesmanPGInMonth" style="open-sans icon-list-alt blue"></link>
+		</menu-item>
+		<menu-item name="ListEmployeePGSalesMan" title="${uiLabelMap.ListEmployeePGSalesMan}">
+			<condition>
+				<if-has-permission permission="HR_SALESMANPG" action="_VIEW"/>
+			</condition>
+			<link target="ListEmployeePGSalesMan"  style="open-sans icon-list blue"></link>
+		</menu-item>
+		<menu-item name="WarningRecruitmentDisable" title="${uiLabelMap.WarningRecruitmentDisable}">
+			<link target="WarningRecruitmentDisable" style="open-sans icon-cut blue"></link>
+		</menu-item>
+		
+	</menu>
+	<menu name="sendNotifyToHr" modelMenu="olbiusScreenletMenu" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
+		<menu-item name="sendNotifyToHr" widget-style="open-sans icon-envelope" title="${uiLabelMap.SendNotifyToHr}">
+			<condition>
+				<if-has-permission permission="HR_SALESMANPG" action="_REPORT"/>
+			</condition>
+			<link target="sendNotifyToHr"></link>
+		</menu-item>
+	</menu>
+	<menu name="ViewListCheckedPGSalesman" modelMenu="olbiusScreenletMenu" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
+		<menu-item name="ViewListCheckedPGSalesman" widget-style="open-sans icon-eye-open" title="${uiLabelMap.ViewListCheckedPGSalesman}">
+			<condition>
+				<if-has-permission permission="HR_SALESMANPG" action="_VIEWREPORT"/>
+			</condition>
+			<link target="ViewListCheckedPGSalesman"></link>
+		</menu-item>
+	</menu>
+	
+	<menu name="ProfileEmployeePGSubTabBar" modelMenu="olbiusScreenletMenu">
+	    <menu-item name="addNewProfileEmployee" title="${uiLabelMap.PGEmployeeProfile}" widget-style="icon-plus-sign open-sans">
+	        <link target="ProfileEmployeePG"  />
+	    </menu-item>
+	</menu>
+	
+	<menu name="WorkTrialSubTabBar" modelMenu="olbiusSubMenu"
+		extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml"
+		style="dropdown-menu dropdown-info" selected-menuitem-context-field-name="tabSubButtonItem" id="subtab-work">
+		
+		<menu-item name="WorkTrialProposal" title="${uiLabelMap.ProposeWorkTrial}">
+			<condition>
+				<if-has-permission permission="HR_WORK_TRIAL_PROPOSAL" action="_VIEW"/>
+			</condition>
+			<link target="FindWorkTrialProposal" style="icon-sign-in"></link>
+		</menu-item>
+		
+		<menu-item name="CreateWorkTrialProposal" title="${uiLabelMap.CreateNewWorkTrialProposal}" >
+			<condition>
+				<if-has-permission permission="HR_WORK_TRIAL_PROPOSAL" action="_CREATE"/>
+			</condition>
+			<link target="ListCompletedRecruitment" style="icon-plus-sign"></link>
+		</menu-item>
+		
+	</menu>
+	
+	<menu name="RecruitmentTestSubTabBar" modelMenu="olbiusSubMenu"
+		extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml"
+		style="dropdown-menu dropdown-info" selected-menuitem-context-field-name="tabSubButtonItem" id="subtab-jobtest">
+		
+		<menu-item name="FindRecruitmentTestPlan" title="${uiLabelMap.RecruitmentTestPlan}" >
+			<condition>
+				<if-has-permission permission="HR_JOB_TEST_PLAN" action="_VIEW"/>
+			</condition>
+			<link target="FindRecruitmentTestPlan" style="icon-calendar"></link>
+		</menu-item>
+		
+		<menu-item name="CreateNewRecruitmentTestPlan" title="${uiLabelMap.CreateNewRecruitmentTestPlan}">
+			<condition>
+				<if-has-permission permission="HR_JOB_TEST_PLAN" action="_CREATE"/>
+			</condition>
+			<link target="EditRecruitmentTestPlan" style="icon-plus-sign open-sans"></link>
+		</menu-item>
+		
+	</menu>
+	
+	<menu name="RecruitmentPlanSubTabBar" modelMenu="olbiusSubMenu"
+		extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml"
+		style="dropdown-menu dropdown-info" id="subtab-advance" selected-menuitem-context-field-name="tabSubButtonItem">
+		
+		<menu-item name="FindRecruitmentPlan" title="${uiLabelMap.FindRecruitmentPlan}">
+			<condition>
+				<if-has-permission permission="HR_RECRUITMENT_PLAN_VIEW"/>
+			</condition>
+			<link target="FindRecruitmentPlan" style="icon-search"></link>
+		</menu-item>
+		
+		<menu-item name="FindAboveRecruitmentPlan" title="${uiLabelMap.FindAboveRecruitmentPlan}">
+			<condition>
+				<if-has-permission permission="HR_RECRUITMENT_PLAN_VIEW"/>
+			</condition>
+			<link target="FindAboveRecruitmentPlan" style="icon-search"></link>
+		</menu-item>
+		
+		<menu-item name="EditRecruitmentPlan" title="${uiLabelMap.NewRecruitmentPlan}">
+			<condition>
+				<if-has-permission permission="HR_RECRUITMENT_PLAN" action="_CREATE"/>
+			</condition>
+			<link target="EditRecruitmentPlan" style="icon-plus-sign" />
+		</menu-item>
+		
+		<menu-item name="ProposeRecruitmentPlan" title="${uiLabelMap.ProposeRecruitmentPlan}">
+			<condition>
+				<if-has-permission permission="HR_RECRUITMENT_PLAN_PROPOSE"/>
+			</condition>
+			<link target="ProposeRecruitmentPlan" style="icon-sign-in"></link>
+		</menu-item>
+		
+	</menu>
+	
+	<menu name="JobRequestSubTabBar" modelMenu="olbiusSubMenu"
+		extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml"
+		style="dropdown-menu dropdown-info" selected-menuitem-context-field-name="tabSubButtonItem" id="subtab-job">
+		
+		<menu-item name="FindJobRequest" title="${uiLabelMap.FindJobRequest}">
+			<condition>
+				<if-has-permission permission="HR_JOB_REQUEST_VIEW"/>
+			</condition>
+			<link target="FindJobRequest" style="icon-search"></link>
+		</menu-item>
+		
+		<menu-item name="EditJobRequest" title="${uiLabelMap.CreateJobRequest}" >
+			<condition>
+				<if-has-permission permission="HR_JOB_REQUEST" action="_CREATE"/>
+			</condition>
+			<link target="EditJobRequest" style="icon-plus-sign"/>
+		</menu-item>
+		
+	</menu>
+	
+	<menu name="JobInterviewSubTabBar" modelMenu="olbiusSubMenu"
+		extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml"
+		style="dropdown-menu dropdown-info" >
+		
+		<menu-item name="FindJobInterview" title="${uiLabelMap.jobInterview}">
+			<link target="FindJobInterview" style="icon-group"></link>
+		</menu-item>
+
+		<menu-item name="JobInterviewRating" title="${uiLabelMap.JobInterviewRating}">
+			<link target="FindJobInterviewRating" style="icon-group"></link>
+		</menu-item>
+
+		<menu-item name="FindJobInterviewQuestion" title="${uiLabelMap.JobInterviewQuestion}">
+			<link target="FindJobInterviewQuestion" style="icon-group"></link>
+		</menu-item>
+		
+	</menu>
+	
+	<menu name="RecruitmentReportSubTabBar" modelMenu="olbiusSubMenu"
+		extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml"
+		style="dropdown-menu dropdown-info">
+
+		<menu-item name="RecruitmentReport" title="${uiLabelMap.MenuItemTitle_RecruitmentReport}">
+			<link target="RecruitmentReport" style="icon-group"></link>
+		</menu-item>
+	</menu>
+	
+	<menu name="FindJobRequestSubTabBar" modelMenu="olbiusScreenletMenu"
+		extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
+		<menu-item name="EditJobRequest" title="${uiLabelMap.CreateJobRequest}" widget-style="icon-plus-sign open-sans">
+			<condition>
+				<if-has-permission permission="HR_JOB_REQUEST" action="_CREATE"/>
+			</condition>
+			<link target="EditJobRequest" />
+		</menu-item>
+	</menu>
+	
+	<menu name="FindRecruitmentPlanSubTabBar" modelMenu="olbiusScreenletMenu"
+		extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
+		<menu-item name="EditRecruitmentPlan" title="${uiLabelMap.NewRecruitmentPlan}" widget-style="icon-plus-sign open-sans">
+			<condition>
+				<if-has-permission permission="HR_RECRUITMENT_PLAN" action="_CREATE"/>
+			</condition>
+			<link target="EditRecruitmentPlan" />
+		</menu-item>
+	</menu>
+	
+	<menu name="FindInternalJobPostingSubTabBar" modelMenu="olbiusScreenletMenu"
+		extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
+		<menu-item name="EditInternalJobPosting" title="${uiLabelMap.NewInternalJobPosting}" widget-style="icon-plus-sign open-sans">
+			<link target="EditInternalJobPosting" />
+		</menu-item>
+	</menu>
+	
+	<menu name="FindJobInterviewSubTabBar" modelMenu="olbiusScreenletMenu"
+		extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
+		<menu-item name="EditJobInterview" title="${uiLabelMap.HROlbiusNewJobInterview}" widget-style="icon-plus-sign open-sans">
+			<link target="EditJobInterview" />
+		</menu-item>
+	</menu>
+	
+	<menu name="FindApprovalsSubTabBar" modelMenu="olbiusScreenletMenu"
+		extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
+	</menu>
+	
+	<menu name="FindApplicantSubTabBar" modelMenu="olbiusScreenletMenu"
+		extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
+		<menu-item name="EditApplicant" title="${uiLabelMap.NewApplicant}" widget-style="icon-plus-sign open-sans">
+			<condition>
+				<if-has-permission permission="HR_APPLICANT" action="_CREATE"/>
+			</condition>
+			<link target="EditApplicant"></link>
+		</menu-item>
+	</menu>
+	
+	
+	<menu name="FindJobRequisitionsSubTabBar" modelMenu="olbiusScreenletMenu" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">      
+		<menu-item name="NewJobRequisition" title="${uiLabelMap.HumanResNewJobRequisition}" widget-style="icon-plus-sign open-sans">
+			<link target="EditJobRequisition"></link>
+		</menu-item>
+	</menu>
+	
+	<menu name="FindEmploymentAppsSubTabBar" modelMenu="olbiusScreenletMenu" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">      
+		<menu-item name="NewEmploymentApp" title="${uiLabelMap.HumanResNewEmploymentApp}" widget-style="icon-plus-sign open-sans">
+			<link target="NewEmploymentApp"></link>
+		</menu-item>
+	</menu>
+	
+	
+	<menu name="FindRecruitmentTestPlanSubTabBar" modelMenu="olbiusScreenletMenu" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">      
+		<menu-item name="CreateNewRecruitmentTestPlan" title="${uiLabelMap.CreateNewRecruitmentTestPlan}" widget-style="icon-plus-sign open-sans">
+			<condition>
+				<if-has-permission permission="HR_JOB_TEST_PLAN" action="_CREATE"/>
+			</condition>
+			<link target="EditRecruitmentTestPlan"></link>
+		</menu-item>
+	</menu>
+	
+	<menu name="FindWorkTrialProposalSubTabBar" modelMenu="olbiusScreenletMenu" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">      
+		<menu-item name="CreateWorkTrialProposal" title="${uiLabelMap.CreateNewWorkTrialProposal}" widget-style="icon-plus-sign open-sans">
+			<condition>
+				<if-has-permission permission="HR_WORK_TRIAL_PROPOSAL" action="_CREATE"/>
+			</condition>
+			<link target="ListCompletedRecruitment"></link>
+		</menu-item>
+	</menu>
+	
+	<menu name="FindWorkTrialReportSubTabBar" modelMenu="olbiusScreenletMenu" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">      
+		<menu-item name="CreateNewWorkTrialReport" title="${uiLabelMap.CreateNewWorkTrialReport}" widget-style="icon-plus-sign open-sans">
+			<condition>
+				<if-has-permission permission="HR_TRIAL_REPORT" action="_CREATE"/>
+			</condition>
+			<link target="EditWorkTrialReport"></link>
+		</menu-item>
+	</menu>
+	
+	<menu name="ReportRecruitmentSalesmanPG" modelMenu="olbiustab" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
+		<menu-item name="ReportRecruitmentSalesmanPG" title="${uiLabelMap.ReportRecruitmentSalesmanPG}" widget-style="icon-envelope open-sans blue">
+			<link target="ReportRecruitmentSalesmanPG" id="ReportRecruitment"></link>
+		</menu-item>
+	</menu>
+</menus>

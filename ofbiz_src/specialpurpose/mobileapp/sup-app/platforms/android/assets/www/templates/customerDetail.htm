@@ -1,0 +1,159 @@
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
+        <div class="widget-box">
+            <div class="widget-header">
+				<div class="row">
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+						<h5><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;<span class="default-color">{{Map.SyntheticOrders[key]}}</span></h5>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 widget-toolbar no-border">
+						<div class="right">
+							<button class="btn btn-minier btn-primary dropdown-toggle" id='time_select' data-toggle="dropdown">
+								<i class="glyphicon glyphicon-calendar"></i>&nbsp;{{Map.Thisweek[key]}}&nbsp;
+								<i class="glyphicon glyphicon-chevron-down"></i>
+							</button>
+							<ul class="right-dropdown dropdown-menu dropdown-info pull-right dropdown-caret">
+								<li id='thisWeek' class="active">
+									<a href="javascript:void(0)" ng-click="updateOrderInfo('thisWeek')">{{Map.Thisweek[key]}}</a>
+								</li>
+								<li id="thisMonth">
+									<a href="javascript:void(0)" ng-click="updateOrderInfo('thisMonth')">{{Map.Thismonth[key]}}</a>
+								</li>
+								<li id='lastMonth'>
+									<a href="javascript:void(0)" ng-click="updateOrderInfo('lastMonth')">{{Map.Lastmonth[key]}}</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+            </div>
+            <div class="widget-body">
+                <div class="widget-main">
+                    <div class="row">
+                   		 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-9 default-color">
+                        		{{Map.TotalOrder[key]}} :
+                        	</div>
+                        	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
+                        		<b>{{reportOrder.totalOrder}}</b>
+                        	</div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-9 default-color">
+                        		{{Map.TotalUnpaidOrders[key]}}:
+                        	</div>
+                        	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
+                        		<b>{{reportOrder.totalOrderNotPayment}}</b>
+                        	</div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-9 default-color">
+                        		{{Map.TotalPaymentOrders[key]}}:
+                        	</div>
+                        	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
+                        		<b>{{reportOrder.totalOrderPayment}}</b>
+                        	</div>
+                        </div>
+                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-9 default-color">
+                        		{{Map.TotalAmount[key]}} :
+                        	</div>
+                        	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
+                        		<b>{{reportOrder.grandTotal | currency}}</b>
+                        	</div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-9 default-color">
+                            	{{Map.TotalAmountUnpaid[key]}}:
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
+                            	<b>{{reportOrder.remainingSubTotal | currency}}</b>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-9 default-color">
+                            	{{Map.TotalAmountPaid[key]}}:
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
+                            	<b>{{reportOrder.TotalAmountPaid | currency}}</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12" >
+        <div class="widget-box">
+            <div class="widget-header">
+                <h5><i class="glyphicon glyphicon glyphicon-user"></i>&nbsp;<span class="default-color">{{Map.CustomersInformation[key]}}</span></h5>
+            </div>
+            <div class="widget-body">
+            	<div class="widget-main">
+                 	     <div class="default-color">
+	                		<span class="default-color">{{Map.CustomerName[key]}}</span>:&nbsp;<span class="default-color"><b class="default-color">{{customer.groupName}}</b></span>
+	                		<input ng-show ="isChange" name="customerName" type="text" id="customerName" ng-model="groupName" />
+	                		<button ng-click="submitCustomerName()" class="btn btn-minier" ng-show="isChange"><i class=" glyphicon glyphicon-check"></i>&nbsp;Change</button>
+	                		<button ng-click="changeCustomerName()" class="btn btn-minier" ng-show="!isChange"><i class=" glyphicon glyphicon-edit"></i>&nbsp;{{Map.Edit[key]}}</button>
+			              	
+			              </div>
+			              <div class="default-color">
+		                	<span class="default-color">{{Map.DeliveryAddress[key]}}:&nbsp;</span  class="default-color"><b class="default-color">{{customer.address1}} <span class="default-color" ng-if="customer.city">, {{customer.city}}</b></span>
+		                	<button  ng-click = "updateLocationCustomer()"><i class="glyphicon glyphicon-check"></i>&nbsp;{{Map.UpdateLocation[key]}}</button>
+		               </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 customer-maps">
+		<googlemap store="store" marker="marker"></googlemap>
+	</div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="margin-bottom: 30px;">
+        <div class="widget-box">
+            <div class="widget-header">
+				<div class="row">
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+						<h5><i class="glyphicon glyphicon-gift"></i>&nbsp;<span id="viewCustomerInfo_numberProductOrdered"
+							  class="viewCustomerInfo_numberProductOrdered">{{Map.ProductOrder[key]}}</span></h5>
+				    </div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 widget-toolbar no-border">
+						<div class="right">
+							<button class="btn btn-minier btn-primary dropdown-toggle" id='time_select' data-toggle="dropdown">
+								<i class="glyphicon glyphicon-calendar"></i>&nbsp;Tuần này&nbsp;
+								<i class="glyphicon glyphicon-chevron-down"></i>
+							</button>
+							<ul class="right-dropdown dropdown-menu dropdown-info pull-right dropdown-caret">
+								<li id='thisWeek' class="active">
+									<a href="javascript:void(0)" ng-click="updateOrderInfo('thisWeek')">{{Map.Thisweek[key]}}</a>
+								</li>
+								<li id="thisMonth">
+									<a href="javascript:void(0)" ng-click="updateOrderInfo('thisMonth')">{{Map.Thismonth[key]}}</a>
+								</li>
+								<li id='lastMonth'>
+									<a href="javascript:void(0)" ng-click="updateOrderInfo('lastMonth')">{{Map.Lastmonth[key]}}</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+            </div>
+            <div class="widget-body">
+                <div class="widget-main no-padding">
+                    <table id="table_product" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th><i class="icon-caret-right blue"></i>{{Map.ProductId[key]}}</th>
+                                <th><i class="icon-caret-right blue"></i><span id="viewCustomerInfo_productName" class="viewCustomerInfo_productName">{{Map.ProductName[key]}}</span></th>
+                                <th><i class="icon-caret-right blue"></i><span id="viewCustomerInfo_productQty" class="viewCustomerInfo_productQty">{{Map.Quantity[key]}}</span></th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

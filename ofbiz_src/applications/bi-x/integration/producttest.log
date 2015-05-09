@@ -1,0 +1,20 @@
+2015/04/14 15:25:41 - Pan - Start of run.
+2015/04/14 15:25:41 - Dimension - Dispatching started for transformation [Dimension]
+2015/04/14 15:25:44 - Get Product.0 - Finished reading query, closing connection.
+2015/04/14 15:25:44 - Get Product.0 - Finished processing (I=25, O=0, R=0, W=25, U=0, E=0)
+2015/04/14 15:25:44 - Get Current Time.0 - Optimization level set to 9.
+2015/04/14 15:25:44 - Get Current Time.0 - Finished processing (I=0, O=0, R=25, W=25, U=0, E=0)
+2015/04/14 15:25:44 - Format Time.0 - Finished processing (I=0, O=0, R=25, W=25, U=0, E=0)
+2015/04/14 15:25:45 - Lookup/update Dimension.0 - Finished processing (I=25, O=25, R=25, W=25, U=0, E=0)
+2015/04/14 15:25:45 - Update.0 - Finished processing (I=25, O=0, R=25, W=25, U=25, E=0)
+2015/04/14 15:25:45 - Dimension - All transaction of database connection 'Postgres_Olap' where committed at the end of the transformation.
+2015/04/14 15:25:45 - Dimension - All transaction of database connection 'Postgres_Ofbiz' where committed at the end of the transformation.
+2015/04/14 15:25:45 - Pan - Finished!
+2015/04/14 15:25:45 - Pan - Start=2015/04/14 15:25:41.354, Stop=2015/04/14 15:25:45.235
+2015/04/14 15:25:45 - Pan - Processing ended after 3 seconds.
+2015/04/14 15:25:45 - Dimension -  
+2015/04/14 15:25:45 - Dimension - Step Lookup/update Dimension.0 ended successfully, processed 25 lines. ( 8 lines/s)
+2015/04/14 15:25:45 - Dimension - Step Update.0 ended successfully, processed 25 lines. ( 8 lines/s)
+2015/04/14 15:25:45 - Dimension - Step Get Current Time.0 ended successfully, processed 25 lines. ( 8 lines/s)
+2015/04/14 15:25:45 - Dimension - Step Format Time.0 ended successfully, processed 25 lines. ( 8 lines/s)
+2015/04/14 15:25:45 - Dimension - Step Get Product.0 ended successfully, processed 25 lines. ( 8 lines/s)

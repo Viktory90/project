@@ -1,0 +1,39 @@
+{
+    "colName": ["NĐH", "MĐH", "KH", "ST", "TT"],
+    "colModel": [{
+            "name": "orderDate",
+            "index": "orderDate",
+            "width": 15,
+            "sorttype": "date",
+            "editable": false
+        },
+        {
+            "name": "orderId",
+            "index": "orderId",
+            "width": 15,
+            "editable": false,
+            "sorttype": "string"
+        },
+        {
+            "name": "billToParty",
+            "index": "billToParty",
+            "width": 30,
+            "editable": false,
+            "sorttype": "string"
+        },
+        {
+            "name": "grandTotal",
+            "index": "grandTotal",
+            "width": 15,
+            "editable": false,
+            "sorttype": "string"
+        },
+        {
+            "name": "status",
+            "index": "status",
+            "width": 15,
+            "editable": false,
+            "sorttype": "string"
+        }
+    ]
+}

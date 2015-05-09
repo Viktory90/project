@@ -1,0 +1,110 @@
+<div id="content">
+	<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+		<li class="active" id="list1" style="width:50%">
+			<a href="infoCustomer" class="sizeTab center" ng-click="changeFormCustomer()" data-toggle="tab"><i class="green fa fa-info bigger-125"></i>&nbsp;{{Map.CommentCustomers[key]}}</a>
+		</li>
+		<li id="list2" style="width:50%">
+			<a class="sizeTab center" href="infoDt" data-toggle="tab" ng-click="changeForm()"><i class="green fa fa-info bigger-125"></i>&nbsp;{{Map.InformationOpponent[key]}}</a>
+		</li>
+	</ul>
+	<div id="my-tab-content" class="tab-content">
+		<div class="tab-pane active " id="infoCustomer">
+			<div class="widget-box">
+				<div class="widget-body">
+					<div class="widget-main">
+						<form class="form-horizontal" id="InfoCustomerForm">
+							<div class="form-group">
+								<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+									<label class="control-label bolder blue">{{Map.OpponentName[key]}}</label>
+								</div>
+								<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" >
+									<select class="form-control" ng-model="infoFBfromCustomer.customerName" id="selectCustomer"></select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+									<label class="control-label bolder blue">{{Map.Comment[key]}}</label>
+								</div>
+								<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+									<textarea ng-model="infoFBfromCustomer.comment" id="form-field-11" placeholder="{{Map.CommentCustomers[key]}}..." class="form-control autosize-transition span4" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 50px;"></textarea>
+								</div>
+							</div>
+						</form>
+						<div class="form-actions" style="margin: 0">
+							<button class="btn btn-info btn-small" id="save_new_cus">
+								<i class="icon-ok"></i>
+								<i class="ace-icon fa fa-send"></i>
+								<span id="createNewCustomer_saveCus" ng-click="submitFbCustomer()">{{Map.Send[key]}}</span>
+							</button>
+							<button class="btn btn-small" data-last="Finish" id="cancel">
+								<i class="icon-undo bigger-110"></i>
+								<i class="ace-icon fa fa-ban"></i>
+								<span id="createNewCustomer_return">{{Map.Cancel[key]}}</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane " id="infoDt">
+			<div class="widget-box">
+				<div class="widget-body">
+					<div class="widget-main">
+						<form class="form-horizontal" id="formOpinion">
+							<div class="form-group">
+								<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+									<label class="control-label bolder blue">{{Map.OpponentName[key]}}</label>
+								</div>
+								<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" >
+									<!-- 						                        <input name="form-field-radio1" type="text" class="form-control" placeholder="Tên đối thủ..."/> 													 -->
+									<select id="listOpponent"  class="form-control" ng-model="opponentInfo.opponentEventId"></select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+									<label class="control-label bolder blue">{{Map.PromosOfOpponent[key]}}</label>
+								</div>
+								<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" >
+									<textarea  ng-model="opponentInfo.promos" id="form-field-11" placeholder="{{Map.PromosOfOpponent[key]}}..." class="form-control autosize-transition span4" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 50px;"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+									<label class="control-label bolder blue">{{Map.OtherInfomartion[key]}}</label>
+								</div>
+								<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" >
+									<textarea ng-model="opponentInfo.otherInfo" id="form-field-11" placeholder="{{Map.OtherInfomartion[key]}}..." class="form-control autosize-transition span4" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 50px;"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+									<label class="control-label bolder blue">{{Map.PicOpponent[key]}}</label>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" >
+									<!-- <form name="folderForm">
+										<input type=file name="file">
+										<input type=text name="folderLocation">
+										<input type=button value="Get Folder" ng-click="getFolder()">
+									</form> -->
+									<div><camera></camera></div>
+								</div>
+							</div>
+						</form>
+						<div class="form-actions" style="margin: 0">
+							<button class="btn btn-info btn-small" id="save_new_cus" ng-click="submitInfoOpponent()">
+								<i class="icon-ok"></i>
+								<i class="ace-icon fa fa-send"></i>
+								<span id="createNewCustomer_saveCus">{{Map.Send[key]}}</span>
+							</button>
+							<button class="btn btn-small" data-last="Finish" id="cancel" ng-click="cancel()">
+								<i class="icon-undo bigger-110"></i>
+								<i class="ace-icon fa fa-ban"></i>
+								<span id="createNewCustomer_return">{{Map.Cancel[key]}}</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

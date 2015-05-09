@@ -1,0 +1,547 @@
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>Entity of an Open For Business Project Component</title>
+	<description>None</description>
+	<version>1.0</version>
+	<default-resource-name>MobileServicesEntityLabels</default-resource-name>
+
+	<!-- Services Management -->
+	<entity entity-name="ProductInventoryOfCustomer" package-name="org.ofbiz.mobileservices">
+		<field name="partyId" type="id-ne">
+			<description>id of customer's store</description>
+		</field>
+		<field name="orderId" type="id-ne"></field>
+		<field name="productId" type="id-ne"></field>
+		<field name="qtyInInventory" type="fixed-point"></field>
+		<field name="fromDate" type="date-time"></field>
+		<field name="createdBy" type="id-vlong"></field>
+
+		<prim-key field="partyId" />
+		<prim-key field="productId" />
+		<prim-key field="createdBy" />
+		<prim-key field="orderId" />
+		<prim-key field="fromDate" />
+
+		<relation rel-entity-name="Party" type="one"
+			fk-name="PRODUCT_INVENTORY_PARTY">
+			<key-map field-name="partyId" />
+		</relation>
+		<relation rel-entity-name="UserLogin" type="one"
+			fk-name="PRODUCT_INVENTORY_USERLOGIN">
+			<key-map field-name="createdBy" rel-field-name="userLoginId" />
+		</relation>
+		<relation rel-entity-name="Product" type="one"
+			fk-name="PRODUCT_INVENTORY_PRODUCT">
+			<key-map field-name="productId" />
+		</relation>
+		<relation rel-entity-name="OrderHeader" type="one"
+			fk-name="PRODUCT_INVENTORY_ORDER">
+			<key-map field-name="orderId" />
+		</relation>
+	</entity>
+	<!-- Entity for Create And Update Info Customer  -->
+		<entity entity-name="PartySalesMan" package-name="org.ofbiz.mobileservices">
+		    <field name="customerId" type="id-ne"></field>
+		    <field name="partyId" type="id-ne"></field>
+		    <field name="statusId" type="id-ne"></field>
+		    <field name="groupName" type="description"></field>
+		    <field name="officeSiteName" type="description"></field>
+		    <field name="mobile" type="description"></field>
+		    <field name="startDate" type="date-time"></field>
+		    <field name="fromDate" type="date-time"></field>
+		    <field name="sex" type="description"></field>
+		    <field name="birthDay" type="date-time"></field>
+		    <field name="createdBy" type="id-ne"></field>
+		    <field name="address" type="description"></field>
+		    <field name="latitude" type="floating-point"></field>
+		    <field name="longitude" type="floating-point"></field>
+		    <field name="city" type="description"></field>
+		    <field name="roadId" type="id-ne"></field>
+		    <prim-key field="customerId"/>
+		</entity>
+		
+	<!-- End -->
+	<!-- Entity Infomartion of Opponent-->
+	<entity entity-name="InformationOpponentEvent" package-name="org.ofbiz.mobileservices">
+	    <field name="opponentInfoId" type="id-ne"></field>
+	    <field name="opponentEventId" type="id-ne"></field>
+	    <field name="opponentPromos" type="description"></field>
+	    <field name="otherInfo" type="description"></field>
+	    <field name="opponentImage" type="description"></field>
+	    <prim-key field="opponentEventId"/>
+	    <prim-key field="opponentInfoId"/>
+	    <relation rel-entity-name="Opponent" type="one" fk-name="Infomartion_Opponent_View">
+			<key-map field-name="opponentEventId"/>		    
+		</relation>
+	</entity>
+	<!-- end -->
+	<!-- Entity for select Opponent View -->
+	<entity entity-name="Opponent" package-name="org.ofbiz.mobileservices">
+	    <field name="opponentEventId" type="id-ne"></field>
+		<field name="opponentName" type="description"></field>
+		<prim-key field="opponentEventId"/>
+	</entity>
+	<!-- View entity -->
+	
+	
+	<!-- End -->
+	<view-entity entity-name="InventoryOfCustomerDetail"
+		package-name="org.ofbiz.mobileservices">
+		<member-entity entity-alias="PI" entity-name="ProductInventoryOfCustomer"></member-entity>
+		<member-entity entity-alias="OH" entity-name="OrderHeader"></member-entity>
+		<member-entity entity-alias="PR" entity-name="Product"></member-entity>
+		<alias name="orderId" entity-alias="PI"></alias>
+		<alias name="productId" entity-alias="PI"></alias>
+		<alias name="partyId" entity-alias="PI"></alias>
+		<alias name="fromDate" entity-alias="PI"></alias>
+		<alias name="productName" entity-alias="PR"></alias>
+		<alias name="createdBy" entity-alias="PI"></alias>
+		<alias name="qtyInInventory" entity-alias="PI"></alias>
+		<alias name="orderDate" entity-alias="OH"></alias>
+		<view-link entity-alias="PI" rel-entity-alias="OH">
+			<key-map field-name="orderId" />
+		</view-link>
+		<view-link entity-alias="PI" rel-entity-alias="PR">
+			<key-map field-name="productId" />
+		</view-link>
+	</view-entity>
+	
+	<view-entity entity-name="DetailInfoSalesMan" package-name="org.ofbiz.mobileservices">
+	    <member-entity entity-alias="PS" entity-name="Person"></member-entity>
+	    <member-entity entity-alias="PCM" entity-name="PartyContactMech"></member-entity>
+	    <member-entity entity-alias="PA" entity-name="PostalAddress"></member-entity>
+	    <member-entity entity-alias="PCMP" entity-name="PartyContactMechPurpose"></member-entity>
+	    <alias name="partyId" entity-alias="PS"></alias>
+	    <alias name="firstName" entity-alias="PS"></alias>
+	    <alias name="middleName" entity-alias="PS"></alias>
+	    <alias name="lastName" entity-alias="PS"></alias>
+	    <alias name="contactMechPurposeTypeId" entity-alias="PCMP"></alias>
+		<alias name="contactMechId" entity-alias="PCM"></alias>
+		<alias name="address1" entity-alias="PA"></alias>
+		<alias name="city" entity-alias="PA"></alias>
+		<alias name="stateProvinceGeoId" entity-alias="PA"></alias>
+		<alias name="fromDate" entity-alias="PCMP"></alias>
+		<alias name="thruDate" entity-alias="PCMP"></alias>
+		<alias name="lastUpdatedStamp" entity-alias="PCMP"></alias>
+		<view-link rel-entity-alias="PCM" entity-alias="PS" rel-optional="true">
+			<key-map field-name="partyId" />		    
+		</view-link>
+		<view-link rel-entity-alias="PA" entity-alias="PCM" rel-optional="true">
+		    <key-map field-name="contactMechId"/>
+		</view-link>
+		<view-link rel-entity-alias="PCMP" entity-alias="PCM" rel-optional="true">
+		    <key-map field-name="partyId"/>
+		    <key-map field-name="contactMechId"/>
+		</view-link>
+		<entity-condition distinct="true">
+		    <condition-expr field-name="contactMechPurposeTypeId" entity-alias="PCMP" operator="equals" value="PERMANENT_RESIDENCE"/>
+		</entity-condition>
+	</view-entity>
+	
+	<view-entity entity-name="OrderHeaderDetail" package-name="org.ofbiz.mobileservices">
+		<member-entity entity-alias="ORHE" entity-name="OrderHeader"></member-entity>
+		<member-entity entity-alias="ORRO" entity-name="OrderRole"></member-entity>
+		<member-entity entity-alias="PAG" entity-name="PartyGroup"></member-entity>
+		<alias name="orderId" entity-alias="ORHE"></alias>
+		<alias name="orderDate" entity-alias="ORHE"></alias>
+		<alias name="currencyUom" entity-alias="ORHE"></alias>
+		<alias name="createdBy" entity-alias="ORHE"></alias>
+		<alias name="statusId" entity-alias="ORHE"></alias>
+		<alias name="remainingSubTotal" entity-alias="ORHE"></alias>
+		<alias name="grandTotal" entity-alias="ORHE"></alias>
+		<alias name="roleTypeId" entity-alias="ORRO"></alias>
+		<alias name="partyId" entity-alias="PAG"></alias>
+		<alias name="groupName" entity-alias="PAG"></alias>
+		<view-link entity-alias="ORHE" rel-entity-alias="ORRO">
+			<key-map field-name="orderId" />
+		</view-link>
+		<view-link entity-alias="ORRO" rel-entity-alias="PAG">
+			<key-map field-name="partyId" />
+		</view-link>
+	</view-entity>
+
+	<view-entity entity-name="OrderProductDetail" package-name="org.ofbiz.mobileservices">
+		<member-entity entity-alias="ORHE" entity-name="OrderHeader"></member-entity>
+		<member-entity entity-alias="ORST" entity-name="OrderStatus"></member-entity>
+		<member-entity entity-alias="ORRL" entity-name="OrderRole"></member-entity>
+		<member-entity entity-alias="ORIT" entity-name="OrderItem"></member-entity>
+		<member-entity entity-alias="PROD" entity-name="Product"></member-entity>
+		<alias name="orderId" entity-alias="ORHE" group-by="true"></alias>
+		<alias name="statusId" entity-alias="ORHE"  group-by="true"></alias>
+		<alias name="statusDatetime" entity-alias="ORST" group-by="true"></alias>
+		<alias name="orderDate" entity-alias="ORHE" group-by="true"></alias>
+		<alias name="partyId" entity-alias="ORRL" group-by="true"></alias>
+		<alias name="roleTypeId" entity-alias="ORRL" group-by="true"></alias>
+		<alias name="unitPrice" entity-alias="ORIT" group-by="true"></alias>
+		<alias name="quantity" entity-alias="ORIT" group-by="true"></alias>
+		<alias name="productId" entity-alias="ORIT" group-by="true"></alias>
+		<alias name="productName" entity-alias="PROD" group-by="true"></alias>
+
+		<view-link entity-alias="ORHE" rel-entity-alias="ORST">
+			<key-map field-name="orderId" />
+			<key-map field-name="statusId" />
+		</view-link>
+		<view-link entity-alias="ORHE" rel-entity-alias="ORIT">
+			<key-map field-name="orderId" />
+		</view-link>
+		<view-link entity-alias="ORHE" rel-entity-alias="ORRL">
+			<key-map field-name="orderId" />
+		</view-link>
+		<view-link entity-alias="ORIT" rel-entity-alias="PROD">
+			<key-map field-name="productId" />
+		</view-link>
+	</view-entity>
+	<view-entity entity-name="OrderReportSalesMan"
+		package-name="org.ofbiz.order.order" never-cache="true">
+		<member-entity entity-alias="OH" entity-name="OrderHeader" />
+		<member-entity entity-alias="OI" entity-name="OrderItem" />
+		<member-entity entity-alias="PR" entity-name="Product" />
+		<member-entity entity-alias="OHR" entity-name="OrderHeaderAndRoles"></member-entity>
+		<alias entity-alias="OH" name="webSiteId" group-by="true" />
+		<alias entity-alias="OH" name="productStoreId" group-by="true" />
+		<alias entity-alias="OH" name="originFacilityId" group-by="true" />
+		<alias entity-alias="OH" name="terminalId" group-by="true" />
+		<alias entity-alias="OH" name="statusId" group-by="true" />
+		<alias entity-alias="OH" name="orderDate" group-by="true" />
+		<alias entity-alias="PR" name="productId" group-by="true" />
+		<alias entity-alias="PR" name="internalName" group-by="true" />
+		<alias entity-alias="OH" name="createdBy" group-by="true" />
+		<alias entity-alias="OHR" name="partyId" group-by="true" />
+		<alias entity-alias="OI" name="quantity" function="sum" />
+		<alias entity-alias="OI" name="cancelQuantity" function="sum" />
+		<alias entity-alias="OI" name="unitPrice" function="avg" />
+		<alias entity-alias="OI" name="unitListPrice" function="avg" />
+		<view-link rel-entity-alias="OH" entity-alias="OHR">
+			<key-map field-name="orderId" />
+		</view-link>
+		<view-link entity-alias="OH" rel-entity-alias="OI">
+			<key-map field-name="orderId" />
+		</view-link>
+		<view-link entity-alias="OI" rel-entity-alias="PR">
+			<key-map field-name="productId" />
+		</view-link>
+	</view-entity>
+
+	<view-entity entity-name="PartyGroupGeoView" package-name="org.ofbiz.mobileservices">
+		<member-entity entity-alias="PRS"
+			entity-name="PartyRelationshipToPartyOlbius"></member-entity>
+		<member-entity entity-alias="PPV" entity-name="PartyPostalAddressView"></member-entity>
+		<member-entity entity-alias="POA" entity-name="PostalAddress"></member-entity>
+		<member-entity entity-alias="GEO" entity-name="GeoPoint"></member-entity>
+		<alias name="geoPointId" entity-alias="GEO"></alias>
+		<alias name="partyIdFrom" entity-alias="PRS"></alias>
+		<alias name="partyIdTo" entity-alias="PRS"></alias>
+		<alias name="officeSiteName" entity-alias="PRS"></alias>
+		<alias name="fromDate" entity-alias="PRS"></alias>
+		<alias name="address1" entity-alias="POA"></alias>
+		<alias name="city" entity-alias="POA"></alias>
+		<alias name="groupName" entity-alias="PRS"></alias>
+		<alias name="latitude" entity-alias="GEO"></alias>
+		<alias name="longitude" entity-alias="GEO"></alias>
+		<view-link entity-alias="PRS" rel-entity-alias="PPV"
+			rel-optional="true">
+			<key-map field-name="partyIdTo" rel-field-name="partyId" />
+		</view-link>
+		<view-link entity-alias="PPV" rel-entity-alias="POA"
+			rel-optional="true">
+			<key-map field-name="contactMechId" />
+		</view-link>
+		<view-link entity-alias="POA" rel-entity-alias="GEO"
+			rel-optional="true">
+			<key-map field-name="geoPointId" />
+		</view-link>
+	</view-entity>
+	<view-entity entity-name="PromosCondAction" package-name="org.ofbiz.mobileservices">
+		<member-entity entity-alias="ppc" entity-name="ProductPromoCond"></member-entity>
+		<member-entity entity-alias="ppa" entity-name="ProductPromoAction"></member-entity>
+		<alias-all entity-alias="ppc"></alias-all>
+		<alias-all entity-alias="ppa"></alias-all>
+		<view-link entity-alias="ppc" rel-entity-alias="ppa">
+			<key-map field-name="productPromoId" />
+			<key-map field-name="productPromoRuleId" />
+		</view-link>
+	</view-entity>
+	<view-entity entity-name="ProductPromotionsCondAction"
+		package-name="org.ofbiz.mobileservices">
+		<member-entity entity-alias="pca" entity-name="PromosCondAction"></member-entity>
+		<member-entity entity-alias="ppp" entity-name="ProductPromoProduct"></member-entity>
+		<alias-all entity-alias="pca">
+			<exclude field="productId" />
+			<exclude field="productPromoActionSeqId" />
+			<exclude field="productPromoCondSeqId" />
+		</alias-all>
+		<alias entity-alias="ppp" name="productId"/>
+		<alias entity-alias="ppp" name="productPromoActionSeqId"/>
+		<alias entity-alias="ppp" name="productPromoCondSeqId"/>
+		<alias entity-alias="ppp" name="orderAdjustmentTypeId"/>
+		<view-link entity-alias="pca" rel-entity-alias="ppp" rel-optional="true">
+			<key-map field-name="productPromoId" />
+			<key-map field-name="productPromoRuleId" />
+		</view-link>
+	</view-entity>
+	<view-entity entity-name="PromosEvents" package-name="org.ofbiz.mobileservices">
+		<member-entity entity-alias="ppm" entity-name="ProductPromo"></member-entity>
+		<member-entity entity-alias="ppp" entity-name="ProductPromotionsCondAction"></member-entity>
+		<member-entity entity-alias="ppr" entity-name="ProductPromoRule"></member-entity>
+		<member-entity entity-alias="ppra" entity-name="ProductPromoRoleTypeApply"></member-entity>
+		<alias-all entity-alias="ppp"></alias-all>
+		<alias  entity-alias="ppra" name="roleTypeId" ></alias>
+		<alias entity-alias="ppm" name="productPromoId"/>
+		<alias entity-alias="ppm" name="productPromoTypeId"/>
+		<alias entity-alias="ppm" name="productPromoStatusId"/>
+		<alias entity-alias="ppm" name="showToCustomer"/>
+		<alias entity-alias="ppm" name="fromDate"/>
+		<alias entity-alias="ppm" name="thruDate"/>
+		<alias entity-alias="ppp" name="productId"/>
+		<alias entity-alias="ppr" name="ruleName"/>
+		<alias entity-alias="ppm" name="promoName"/>
+		<view-link entity-alias="ppm" rel-entity-alias="ppp" rel-optional="true">
+			<key-map field-name="productPromoId" />
+		</view-link>
+		<view-link rel-entity-alias="ppr" entity-alias="ppp">
+		    <key-map field-name="productPromoId" />
+			<key-map field-name="productPromoRuleId" />
+		</view-link>
+		<view-link rel-entity-alias="ppra" entity-alias="ppm">
+		    <key-map field-name="productPromoId"/>
+		</view-link>
+	</view-entity>
+	<view-entity entity-name="PromosEventRole" package-name="org.ofbiz.mobileservices">
+	    <member-entity entity-alias="PE" entity-name="PromosEvents"></member-entity>
+	    <member-entity entity-alias="PPRTA" entity-name="ProductPromoRoleTypeApply"></member-entity>
+	    <alias-all entity-alias="PE">
+	        <exclude field="condExhibited"/>
+	        <exclude field="notes"/>
+	         <exclude field="serviceName"/>
+	    </alias-all>
+	    <alias name="promoName" entity-alias="PE"></alias>
+	   <alias name="roleTypeId" entity-alias="PPRTA"></alias> 
+	   <view-link rel-entity-alias="PE" entity-alias="PPRTA">
+			<key-map field-name="productPromoId"/>	       
+	   </view-link>
+	</view-entity>
+	<view-entity entity-name="ProductExhibitionDetail" package-name="org.ofbiz.mobileservices">
+	    <member-entity entity-alias="PPA" entity-name="ProductPromoAction"></member-entity>
+	    <member-entity entity-alias="PP" entity-name="ProductPromo"></member-entity>
+	    <member-entity entity-alias="PPR" entity-name="ProductPromoRule"></member-entity>
+	    <member-entity entity-alias="PPC" entity-name="ProductPromoCond"></member-entity>
+	    <member-entity entity-alias="PPRA" entity-name="ProductPromoRoleTypeApply"></member-entity>
+	     <member-entity entity-alias="PD" entity-name="Product"></member-entity>
+	    <alias name="productPromoId" entity-alias="PP"></alias>
+	    <alias name="promoName" entity-alias="PP"></alias>
+    	<alias name="showToCustomer" entity-alias="PP"></alias>
+    	<alias name="fromDate" entity-alias="PP"></alias>
+    	<alias name="thruDate" entity-alias="PP"></alias>
+    	<alias name="quantity" entity-alias="PPA"></alias>
+     	<alias name="amount" entity-alias="PPA"></alias>
+        <alias name="productId" entity-alias="PPA"></alias>
+        <alias name="operatorEnumId" entity-alias="PPC"></alias>
+         <alias name="condValue" entity-alias="PPC"></alias>
+	     <alias name="condExhibited" entity-alias="PPC"></alias>
+	     <alias name="productPromoRuleId" entity-alias="PPR"></alias>
+	    <alias name="ruleName" entity-alias="PPR"></alias>
+	    <alias name="roleTypeId" entity-alias="PPRA"></alias>
+	    <alias name="originalImageUrl" entity-alias="PD"></alias>
+	    <alias name="productName" entity-alias="PD"></alias>
+	    <alias name="productPromoTypeId" entity-alias="PP"></alias>
+	     <view-link rel-entity-alias="PP" entity-alias="PPA">
+	         <key-map field-name="productPromoId"/>
+	     </view-link>
+	    <view-link rel-entity-alias="PPC" entity-alias="PPA">
+			<key-map field-name="productPromoId"/>
+			<key-map field-name="productPromoRuleId"/>		        
+	    </view-link>
+	    <view-link rel-entity-alias="PPR" entity-alias="PPC">
+	        <key-map field-name="productPromoId"/>
+			<key-map field-name="productPromoRuleId"/>	
+	    </view-link>
+	    <view-link rel-entity-alias="PPRA" entity-alias="PP">
+	        <key-map field-name="productPromoId"/>
+	    </view-link>
+	    <view-link rel-entity-alias="PD" entity-alias="PPA" rel-optional="true">
+	        <key-map field-name="productId"/>
+	    </view-link>
+	    <entity-condition distinct="true">
+	        <condition-list combine="and">
+	            <condition-expr field-name="productPromoTypeId" entity-alias="PP" operator="equals" value="EXHIBITED" />
+	            <condition-expr field-name="showToCustomer" entity-alias="PP" operator="equals" value="Y"/>
+	            <condition-expr field-name="productPromoStatusId" entity-alias="PP" operator="equals" value="PROMO_ACCEPTED"/>
+	            <condition-expr field-name="roleTypeId" entity-alias="PPRA" operator="equals" value="DELYS_CUSTOMER_GT"/>
+	        </condition-list>
+	    </entity-condition>
+	</view-entity>
+	<view-entity entity-name="ProductAccumulateDetail" package-name="org.ofbiz.mobileservices">
+	    <member-entity entity-alias="PPA" entity-name="ProductPromoAction"></member-entity>
+	    <member-entity entity-alias="PP" entity-name="ProductPromo"></member-entity>
+	    <member-entity entity-alias="PPR" entity-name="ProductPromoRule"></member-entity>
+	    <member-entity entity-alias="PPC" entity-name="ProductPromoCond"></member-entity>
+	    <member-entity entity-alias="PPRA" entity-name="ProductPromoRoleTypeApply"></member-entity>
+	     <member-entity entity-alias="PD" entity-name="Product"></member-entity>
+	    <alias name="productPromoId" entity-alias="PP"></alias>
+	    <alias name="promoName" entity-alias="PP"></alias>
+    	<alias name="showToCustomer" entity-alias="PP"></alias>
+    	<alias name="promoSalesTargets" entity-alias="PP"></alias>
+    	<alias name="fromDate" entity-alias="PP"></alias>
+    	<alias name="thruDate" entity-alias="PP"></alias>
+    	<alias name="quantity" entity-alias="PPA"></alias>
+     	<alias name="amount" entity-alias="PPA"></alias>
+        <alias name="productId" entity-alias="PPA"></alias>
+        <alias name="operatorEnumId" entity-alias="PPC"></alias>
+         <alias name="condValue" entity-alias="PPC"></alias>
+	     <alias name="condExhibited" entity-alias="PPC"></alias>
+	     <alias name="productPromoRuleId" entity-alias="PPR"></alias>
+	    <alias name="ruleName" entity-alias="PPR"></alias>
+	    <alias name="roleTypeId" entity-alias="PPRA"></alias>
+	    <alias name="originalImageUrl" entity-alias="PD"></alias>
+	    <alias name="productName" entity-alias="PD"></alias>
+	    <alias name="productPromoTypeId" entity-alias="PP"></alias>
+	     <view-link rel-entity-alias="PP" entity-alias="PPA">
+	         <key-map field-name="productPromoId"/>
+	     </view-link>
+	    <view-link rel-entity-alias="PPC" entity-alias="PPA">
+			<key-map field-name="productPromoId"/>
+			<key-map field-name="productPromoRuleId"/>		        
+	    </view-link>
+	    <view-link rel-entity-alias="PPR" entity-alias="PPC">
+	        <key-map field-name="productPromoId"/>
+			<key-map field-name="productPromoRuleId"/>	
+	    </view-link>
+	    <view-link rel-entity-alias="PPRA" entity-alias="PP">
+	        <key-map field-name="productPromoId"/>
+	    </view-link>
+	    <view-link rel-entity-alias="PD" entity-alias="PPA" rel-optional="true">
+	        <key-map field-name="productId"/>
+	    </view-link>
+	    <entity-condition distinct="true">
+	        <condition-list combine="and">
+	            <condition-expr field-name="productPromoTypeId" entity-alias="PP" operator="equals" value="ACCUMULATE" />
+	            <condition-expr field-name="showToCustomer" entity-alias="PP" operator="equals" value="Y"/>
+	            <condition-expr field-name="productPromoStatusId" entity-alias="PP" operator="equals" value="PROMO_ACCEPTED"/>
+	            <condition-expr field-name="roleTypeId" entity-alias="PPRA" operator="equals" value="DELYS_CUSTOMER_GT"/>
+	        </condition-list>
+	    </entity-condition>
+	</view-entity>
+	<view-entity entity-name="ExhibitedsOfStores" package-name="com.org.mobileservices">
+	    <member-entity entity-alias="PP" entity-name="ProductPromo"></member-entity>
+	    <member-entity entity-alias="PPR" entity-name="ProductPromoRegister"></member-entity>
+	    <member-entity entity-alias="PG" entity-name="PartyGroup"></member-entity>
+	    <alias name="promoName" entity-alias="PP"></alias>
+	    <alias name="productPromoId" entity-alias="PP"></alias>
+	    <alias name="productPromoTypeId" entity-alias="PP"></alias>
+	    <alias name="productPromoRuleId" entity-alias="PPR"></alias>
+	    <alias name="createdDate" entity-alias="PPR"></alias>
+	    <alias name="createdBy" entity-alias="PPR"></alias>
+	    <alias name="productPromoRegisterId" entity-alias="PPR"></alias>
+	    <alias name="partyId" entity-alias="PPR"></alias>
+	    <alias name="groupName" entity-alias="PG"></alias>
+	    <view-link rel-entity-alias="PPR" entity-alias="PP">
+	        <key-map field-name="productPromoId"/>
+	    </view-link>
+	    <view-link rel-entity-alias="PG" entity-alias="PPR">
+	        <key-map field-name="partyId"/>
+	    </view-link>
+	    <entity-condition distinct="true">
+	        <condition-list combine="and">
+	            <condition-expr field-name="productPromoTypeId" entity-alias="PP" operator="equals" value="EXHIBITED"/>
+	        </condition-list>
+	    </entity-condition>
+	</view-entity>
+	
+	<view-entity entity-name="ResultSalesManMarkingView" package-name="com.org.mobileservices">
+	    <member-entity entity-alias="PP" entity-name="ProductPromo"></member-entity>
+	    <member-entity entity-alias="PPR" entity-name="ProductPromoRegister"></member-entity>
+	    <member-entity entity-alias="PPM" entity-name="ProductPromoMarking"></member-entity>
+	    <member-entity entity-alias="PG" entity-name="PartyGroup"></member-entity>
+	    <alias name="promoName" entity-alias="PP"></alias>
+	    <alias name="productPromoId" entity-alias="PP"></alias>
+	    <alias name="productPromoTypeId" entity-alias="PP"></alias>
+	    <alias name="productPromoRuleId" entity-alias="PPR"></alias>
+		<alias name="partyId" entity-alias="PPR"></alias>
+		<alias name="groupName" entity-alias="PG"></alias>
+   	    <alias name="createdDate" entity-alias="PPM"></alias>
+	    <alias name="createdBy" entity-alias="PPM"></alias>
+	    <alias name="isSequency" entity-alias="PPM"></alias>
+	    <alias name="result" entity-alias="PPM"></alias>
+	    <alias name="productPromoRegisterId" entity-alias="PPR"></alias>
+	    <view-link rel-entity-alias="PPR" entity-alias="PP" rel-optional="true">
+	        <key-map field-name="productPromoId"/>
+	    </view-link>
+	    <view-link rel-entity-alias="PPM" entity-alias="PPR" rel-optional="false">
+	        <key-map field-name="productPromoRegisterId"/>
+	    </view-link>
+	    <view-link rel-entity-alias="PG" entity-alias="PPR" rel-optional="false">
+			<key-map field-name="partyId"/>	        
+	    </view-link>
+	    <entity-condition distinct="true">
+	        <condition-list combine="and">
+	            <condition-expr field-name="productPromoTypeId" entity-alias="PP" operator="equals" value="EXHIBITED"/>
+	        </condition-list>
+	    </entity-condition>
+	</view-entity>
+	<!-- Entity and View Entity for SUP -->
+	<entity entity-name="RouteInformation" package-name="com.org.Mobileservices">
+	    <field name="routeId" type="id-ne"></field>
+	    <field name="description" type="description"></field>
+	    <prim-key field="routeId"/>
+	    <relation rel-entity-name="PartyGroup" type="one" fk-name="fk_PartyGroup_Route">
+	        <key-map field-name="routeId" rel-field-name="partyId"/>
+	    </relation>
+	    <relation rel-entity-name="RouteSchedule" type="one" fk-name="fk_Route_Schedule">
+	        <key-map field-name="routeId" />
+	    </relation>
+	</entity>
+	
+	<entity entity-name="RouteSchedule" package-name="com.org.Mobileservices">
+	    <field name="routeId" type="id-ne"></field>
+	    <field name="scheduleRoute" type="id-ne"></field>
+	    <prim-key field="routeId"/>
+	    <prim-key field="scheduleRoute"/>
+	    <relation rel-entity-name="DayOfWeek"  type="one" fk-name="fk_Schedule_Route">
+	       <key-map field-name="scheduleRoute" rel-field-name="dayOfWeek"/> 
+	    </relation>
+	</entity>
+	
+	<entity entity-name="OrderAndGeoPointSalesMan" package-name="com.org.MobileServices">
+	    <field name="geoPointId" type="id-ne"></field>
+	    <field name="orderId" type="id-ne"></field>
+	    <prim-key field="geoPointId"/>
+	    <prim-key field="orderId"/>
+	    <relation rel-entity-name="OrderHeader" type="one" fk-name="fk_OrderGeoPoint_Orderheader">
+	        <key-map field-name="orderId"/>
+	    </relation>
+	    <relation rel-entity-name="GeoPoint" type="one" fk-name="fk_Order_GeoPoint">
+	        <key-map field-name="geoPointId"/>
+	    </relation>
+	</entity>
+	<!-- End SUP -->
+	
+	<!-- View for SUP  -->
+<!-- 	<view-entity entity-name="RoutesSalesManView" package-name="com.org.Mobileservices"> -->
+<!-- 	    <member-entity entity-alias="DR" entity-name="DistributionRoutesSalesMan"></member-entity> -->
+<!-- 	    <member-entity entity-alias="PS" entity-name="Person"></member-entity> -->
+<!-- 	     <alias name="routeId" entity-alias="DR"></alias> -->
+<!-- 	     <alias name="partyId" entity-alias="DR"></alias> -->
+<!-- 	     <alias name="firstName" entity-alias="PS"></alias> -->
+<!-- 	     <alias name="middleName" entity-alias="PS"></alias> -->
+<!-- 	     <alias name="lastName" entity-alias="PS"></alias> -->
+<!-- 	     <view-link rel-entity-alias="DR" entity-alias="PS"> -->
+<!-- 			<key-map field-name="partyId"/>	          -->
+<!-- 	     </view-link> -->
+<!-- 	</view-entity> -->
+	
+<!-- 	<view-entity entity-name="PartyGroupPartyRole" package-name="com.org.Mobileservices"> -->
+<!-- 	    <member-entity entity-alias="PG" entity-name="PartyGroup"></member-entity> -->
+<!-- 	    <member-entity entity-alias="PR" entity-name="PartyRole"></member-entity> -->
+<!-- 	     <alias name="partyId" entity-alias="PG"></alias> -->
+<!-- 	     <alias name="roleTypeId" entity-alias="PR"></alias> -->
+<!-- 	     <alias name="groupName" entity-alias="PG"></alias> -->
+<!-- 	     <view-link rel-entity-alias="PG" entity-alias="PR"> -->
+<!-- 			<key-map field-name="partyId"/>	          -->
+<!-- 	     </view-link> -->
+<!-- 	</view-entity> -->
+	
+	<!-- End -->
+</entitymodel>

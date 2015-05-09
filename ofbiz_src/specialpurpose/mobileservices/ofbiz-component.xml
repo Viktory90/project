@@ -1,0 +1,41 @@
+<ofbiz-component enabled="true"
+	name="mobileservices"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-component.xsd">
+	<!-- define resource loaders; most common is to use the component resource loader
+		-->
+	<resource-loader name="main" type="component"/>
+	
+	<!-- place the config directory on the classpath to access configuration files -->
+	<classpath type="dir" location="config"/>
+	<classpath type="dir" location="dtd"/>
+	
+	<!-- load single or multiple external libraries -->
+	<classpath type="jar" location="build/lib/*"/>
+	<classpath type="jar" location="lib/*"/>
+	
+	<!-- entity resources: model(s), eca(s), group, and data definitions -->
+	<entity-resource type="model" reader-name="main" loader="main" location="entitydef/entitymodel.xml"/>
+	<!-- <entity-resource type="data" reader-name="seed" loader="main" location="data/MobileServicesData.xml"/>  -->
+	<entity-resource type="data" reader-name="seed" loader="main" location="data/MobileServicesSecurityPermissionSeedData.xml"/>
+	<!-- demo delys -->
+	<entity-resource type="data" reader-name="mobiledemoreader" loader="main" location="data/Party.xml"/>
+	<entity-resource type="data" reader-name="mobiledemoreader" loader="main" location="data/PartyRole.xml"/>
+	<entity-resource type="data" reader-name="mobiledemoreader" loader="main" location="data/GeoPoint.xml"/>
+	<entity-resource type="data" reader-name="mobiledemoreader" loader="main" location="data/ContactMech.xml"/>
+	<entity-resource type="data" reader-name="mobiledemoreader" loader="main" location="data/PartyContactMech.xml"/>
+	<entity-resource type="data" reader-name="mobiledemoreader" loader="main" location="data/PartyContactMechPurpose.xml"/>
+	<entity-resource type="data" reader-name="mobiledemoreader" loader="main" location="data/PartyGroup.xml"/>
+	<entity-resource type="data" reader-name="mobiledemoreader" loader="main" location="data/PartyRelationship.xml"/>
+	<entity-resource type="data" reader-name="mobiledemoreader" loader="main" location="data/PostalAddress.xml"/>
+	<!-- service resources: model(s), eca(s) and group definitions -->
+	<service-resource type="model" loader="main" location="servicedef/services.xml"/>
+	
+	<test-suite loader="main" location="testdef/tests.xml"/>
+	
+	<!-- web applications; will be mounted when using the embedded container -->
+	<webapp name="mobileservices" title="Mobile Services" menu-name="secondary" server="default-server"
+		location="webapp/mobileservices" base-permission="MOBILESERVICES" mount-point="/mobileservices"
+		app-bar-display="false"/>
+	
+</ofbiz-component>

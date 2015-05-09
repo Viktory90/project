@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-properties.xsd">
+    
+    <property key="logisticsTitle">
+        <value xml:lang="en">Logistics management</value>
+        <value xml:lang="vi">Quản lí logistics</value>
+	</property>
+    <property key="errorProductOrder">
+        <value xml:lang="en">Create error product order</value>
+        <value xml:lang="vi">Lập đơn hàng hủy</value>
+	</property>
+    <property key="facilitySizeUomId">
+        <value xml:lang="en">Uom</value>
+        <value xml:lang="vi">Đơn vị diện tích</value>
+	</property>
+    <property key="facilityOwner">
+        <value xml:lang="en">Owner</value>
+        <value xml:lang="vi">Chủ sở hữu</value>
+	</property>
+    <property key="facilityStoreKeeper">
+        <value xml:lang="en">Store keeper</value>
+        <value xml:lang="vi">Thủ kho</value>
+	</property>
+    <property key="wmparty">
+        <value xml:lang="en">&lt;Search by name or id&gt;</value>
+        <value xml:lang="vi">&lt;Tìm kiếm theo tên hoặc mã&gt;</value>
+	</property>
+    <property key="facilityExisted">
+        <value xml:lang="en">The facility already existed</value>
+        <value xml:lang="vi">Kho hàng đã tồn tại</value>
+	</property>
+    <property key="faFullName">
+        <value xml:lang="en">Full name</value>
+        <value xml:lang="vi">Họ tên</value>
+	</property>
+    <property key="faPerm">
+        <value xml:lang="en">Facility role</value>
+        <value xml:lang="vi">Vai trò(role)</value>
+	</property>
+    <property key="faNewPerm">
+        <value xml:lang="en">New facility role</value>
+        <value xml:lang="vi">Thêm quyền mới</value>
+	</property>
+    <property key="faPartyId">
+        <value xml:lang="en">Employ code</value>
+        <value xml:lang="vi">Mã nhân sự</value>
+	</property>
+    <property key="expireRole">
+        <value xml:lang="en">Expire role</value>
+        <value xml:lang="vi">Kết thúc quyền</value>
+	</property>
+	
+	<!-- Delivery -->
+	<property key="ListDeliveryEntry">
+        <value xml:lang="en">List Delivery Entry</value>
+        <value xml:lang="vi">Danh sách đợt vận chuyển</value>
+	</property>
+	<property key="deliveryEntryId">
+        <value xml:lang="en">Delivery Entry Id</value>
+        <value xml:lang="vi">Mã đợt vận chuyển</value>
+	</property>
+	<property key="weight">
+        <value xml:lang="en">Weight</value>
+        <value xml:lang="vi">Khối lượng</value>
+	</property>
+	<property key="DeliveryEntryDetail">
+        <value xml:lang="en">Delivery Entry Detail</value>
+        <value xml:lang="vi">Chi tiết đợt vận chuyển</value>
+	</property>
+	<property key="DeliveryEntry">
+        <value xml:lang="en">Delivery Entry</value>
+        <value xml:lang="vi">Đợt vận chuyển</value>
+	</property>
+	<property key="AssignShipmentToDEFail">
+        <value xml:lang="en">Assign Shipment To Delivery Entry Fail</value>
+        <value xml:lang="vi">Gán chuyển vận vào đợt vận chuyển thất bại</value>
+	</property>
+	<property key="AssignShipmentToDESuccessfully">
+        <value xml:lang="en">Assign Shipment To Delivery Entry Successfully</value>
+        <value xml:lang="vi">Gán chuyển vận vào đợt vận chuyển thành công</value>
+	</property>
+	<property key="updateDeliveryEntrySuccessfully">
+        <value xml:lang="en">Update Delivery Entry Successfully</value>
+        <value xml:lang="vi">Cập nhật đợt vận chuyển thành công</value>
+	</property>
+	<property key="updateDeliveryEntryFail">
+        <value xml:lang="en">Update Delivery Entry Fail</value>
+        <value xml:lang="vi">Cập nhật đợt vận chuyển thất bại</value>
+	</property>
+	<property key="ListShippingAgreements">
+        <value xml:lang="en">List Shipping Agreements</value>
+        <value xml:lang="vi">Danh sách hợp đồng chuyển vận</value>
+	</property>
+	<!-- /Delivery -->
+
+	<!-- Shipping Agreement -->
+	<property key="repIdFrom">
+        <value xml:lang="en">Representative Id From</value>
+        <value xml:lang="vi">Người đại diện bên A</value>
+	</property>
+	<property key="repIdTo">
+        <value xml:lang="en">Representative Id To</value>
+        <value xml:lang="vi">Người đại diện bên B</value>
+	</property>
+	<property key="repFromPos">
+        <value xml:lang="en">Representative Position From</value>
+        <value xml:lang="vi">Chức vụ bên A</value>
+	</property>
+	<property key="repToPos">
+        <value xml:lang="en">Representative Id To</value>
+        <value xml:lang="vi">Chức vụ bên B</value>
+	</property>
+	<property key="groupName">
+        <value xml:lang="en">Group Name</value>
+        <value xml:lang="vi">Tên tổ chức</value>
+	</property>
+	<property key="RepName">
+        <value xml:lang="en">Representative name</value>
+        <value xml:lang="vi">Tên người đại diện</value>
+	</property>
+	<property key="positionName">
+        <value xml:lang="en">Position name</value>
+        <value xml:lang="vi">Chức vụ</value>
+	</property>
+	<property key="phoneNumber">
+        <value xml:lang="en">Telecom Number</value>
+        <value xml:lang="vi">Số điện thoại</value>
+	</property>
+	<property key="faxNumber">
+        <value xml:lang="en">Fax Number</value>
+        <value xml:lang="vi">Số Fax</value>
+	</property>
+	<property key="taxId">
+        <value xml:lang="en">Tax Id</value>
+        <value xml:lang="vi">Mã số thuế</value>
+	</property>
+	<property key="accountNumber">
+        <value xml:lang="en">Account Number</value>
+        <value xml:lang="vi">Số tài khoản</value>
+	</property>
+	<property key="bankName">
+        <value xml:lang="en">Bank Name</value>
+        <value xml:lang="vi">Mở tại ngân hàng</value>
+	</property>
+	<property key="AddressFrom">
+        <value xml:lang="en">Address From</value>
+        <value xml:lang="vi">Địa chỉ bên A</value>
+	</property>
+	<property key="AddressTo">
+        <value xml:lang="en">Address To</value>
+        <value xml:lang="vi">Địa chỉ bên B</value>
+	</property>
+	<property key="PhoneNumberFrom">
+        <value xml:lang="en">Phone Number From</value>
+        <value xml:lang="vi">Số điện thoại bên A</value>
+	</property>
+	<property key="PhoneNumberTo">
+        <value xml:lang="en">Phone Number To</value>
+        <value xml:lang="vi">Số điện thoại bên B</value>
+	</property>
+	<property key="FaxNumberFrom">
+        <value xml:lang="en">Fax Number From</value>
+        <value xml:lang="vi">Số Fax bên A</value>
+	</property>
+	<property key="FaxNumberTo">
+        <value xml:lang="en">Fax Number To</value>
+        <value xml:lang="vi">Số Fax bên B</value>
+	</property>
+	<property key="TaxIdFrom">
+        <value xml:lang="en">Tax Id From</value>
+        <value xml:lang="vi">Mã số thuế bên A</value>
+	</property>
+	<property key="TaxIdTo">
+        <value xml:lang="en">Tax Id To</value>
+        <value xml:lang="vi">Mã số thuế B</value>
+	</property>
+	<property key="finAccountIdFrom">
+        <value xml:lang="en">Fin Account Id</value>
+        <value xml:lang="vi">Tài khoản bên B</value>
+	</property>
+	<!-- /Shipping Agreement -->
+</resource>    

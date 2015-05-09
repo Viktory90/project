@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>Entity of Delys Component</title>
+	<description>None</description>
+	<copyright></copyright>
+	<version></version>
+	
+	<view-entity entity-name="FindSalesmanOfSup" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRole"></member-entity>
+		
+		<member-entity entity-alias="P1" entity-name="Party"></member-entity>
+		<member-entity entity-alias="P2" entity-name="Party"></member-entity>
+		<member-entity entity-alias="P3" entity-name="Party"></member-entity>
+		<member-entity entity-alias="P4" entity-name="Party"></member-entity>
+		
+		<member-entity entity-alias="PS1" entity-name="PartyRelationship"></member-entity>
+		<member-entity entity-alias="PS2" entity-name="PartyRelationship"></member-entity>
+		<member-entity entity-alias="PS3" entity-name="PartyRelationship"></member-entity>
+		
+		<member-entity entity-alias="PN" entity-name="Person"></member-entity>
+		
+		<alias name="PartyId" entity-alias="P4" field="partyId"></alias>
+		<alias name="FirstName" entity-alias="PN" field="firstName"></alias>
+		<alias name="MiddleName" entity-alias="PN" field="middleName"></alias>
+		<alias name="LastName" entity-alias="PN" field="lastName"></alias>
+		<alias name="BirthDate" entity-alias="PN" field="birthDate"></alias>
+		<alias name="Role" entity-alias="PS3" field="partyIdTo"></alias>
+		<!-- <alias name="RoleTypeId" entity-alias="PR" field="roleTypeId"></alias>
+		<alias name="PartyIdFrom" entity-alias="PS3" field="partyIdFrom"></alias> -->
+		
+		
+		<view-link rel-entity-alias="PR" entity-alias="P1">
+			<key-map rel-field-name="partyId" field-name="partyId"/>
+		</view-link>
+		<view-link rel-entity-alias="PS1" entity-alias="P1">
+			<key-map field-name="partyId" rel-field-name="partyIdFrom"/>
+		</view-link>
+		
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeId" 
+					entity-alias="PR" operator="equals" value="DELYS_SALESSUP_GT" />
+				<condition-expr field-name="partyId"
+					entity-alias="P1" rel-entity-alias="PR" rel-field-name="partyId" operator="equals" />
+				<condition-expr field-name="partyIdFrom"
+					entity-alias="PS1" rel-entity-alias="P1" rel-field-name="partyId" operator="equals"/>
+				<condition-expr field-name="roleTypeIdFrom"
+					entity-alias="PS1" operator="equals" value="MANAGER"/>	
+				<condition-expr field-name="roleTypeIdTo"
+					entity-alias="PS1" operator="equals" value="INTERNAL_ORGANIZATIO"/>
+				<condition-expr field-name="partyId"
+					entity-alias="P2" rel-entity-alias="PR" rel-field-name="partyId" operator="equals" />
+				<condition-expr field-name="partyIdFrom"
+					entity-alias="PS2" rel-entity-alias="PS1" rel-field-name="partyIdTo" operator="equals"/>
+				<condition-expr field-name="roleTypeIdFrom"
+					entity-alias="PS2" operator="equals" value="DELYS_SALESSUP_GT"/>	
+				<condition-expr field-name="roleTypeIdTo"
+					entity-alias="PS2" operator="equals" value="DELYS_ROUTE"/>
+				<condition-expr field-name="partyId"
+					entity-alias="P3" rel-entity-alias="PR" rel-field-name="partyId" operator="equals" />
+				<condition-expr field-name="partyIdFrom"
+					entity-alias="PS3" rel-entity-alias="PS2" rel-field-name="partyIdTo" operator="equals"/>
+				<condition-expr field-name="roleTypeIdFrom"
+					entity-alias="PS3" operator="equals" value="DELYS_ROUTE"/>	
+				<condition-expr field-name="roleTypeIdTo"
+					entity-alias="PS3" operator="equals" value="DELYS_SALESMAN_GT"/>
+
+				<condition-expr field-name="partyId"
+					entity-alias="P4" rel-entity-alias="PS3" rel-field-name="partyIdTo" operator="equals" />	
+				<condition-expr field-name="partyId"
+					entity-alias="PN" rel-entity-alias="P4" rel-field-name="partyId" operator="equals" />	
+			<!-- 	<condition-expr field-name="roleTypeIdFrom"
+					entity-alias="PS" operator="equals" value="DELYS_SALESSUP_GT"/>	
+				<condition-expr field-name="roleTypeIdTo"
+					entity-alias="PS" operator="equals" value="DELYS_ROUTE"/> -->			
+			</condition-list>
+		</entity-condition>
+	</view-entity>	
+	
+	
+	<view-entity entity-name="FindRouteBySup" package-name="org.ofbiz.delys">
+		<member-entity entity-alias="PR" entity-name="PartyRole"></member-entity>
+		
+		<member-entity entity-alias="P1" entity-name="Party"></member-entity>
+		<member-entity entity-alias="P2" entity-name="Party"></member-entity>
+		
+		<member-entity entity-alias="PS1" entity-name="PartyRelationship"></member-entity>
+		<member-entity entity-alias="PS2" entity-name="PartyRelationship"></member-entity>
+		
+		<alias name="PartyId" entity-alias="P2" field="partyId"></alias>
+		<alias name="PartyIdTo" entity-alias="PS2" field="partyIdTo"></alias>
+
+		
+		<view-link rel-entity-alias="PR" entity-alias="P1">
+			<key-map rel-field-name="partyId" field-name="partyId"/>
+		</view-link>
+		<view-link rel-entity-alias="PS1" entity-alias="P1">
+			<key-map field-name="partyId" rel-field-name="partyIdFrom"/>
+		</view-link>
+		
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeId" 
+					entity-alias="PR" operator="equals" value="DELYS_SALESSUP_GT" />
+				<condition-expr field-name="partyId"
+					entity-alias="P1" rel-entity-alias="PR" rel-field-name="partyId" operator="equals" />
+				<condition-expr field-name="partyIdFrom"
+					entity-alias="PS1" rel-entity-alias="P1" rel-field-name="partyId" operator="equals"/>
+				<condition-expr field-name="roleTypeIdFrom"
+					entity-alias="PS1" operator="equals" value="MANAGER"/>	
+				<condition-expr field-name="roleTypeIdTo"
+					entity-alias="PS1" operator="equals" value="INTERNAL_ORGANIZATIO"/>
+				
+				<condition-expr field-name="partyId"
+					entity-alias="P2" rel-entity-alias="PR" rel-field-name="partyId" operator="equals" />
+				<condition-expr field-name="partyIdFrom"
+					entity-alias="PS2" rel-entity-alias="PS1" rel-field-name="partyIdTo" operator="equals"/>
+				<condition-expr field-name="roleTypeIdFrom"
+					entity-alias="PS2" operator="equals" value="DELYS_SALESSUP_GT"/>	
+				<condition-expr field-name="roleTypeIdTo"
+					entity-alias="PS2" operator="equals" value="DELYS_ROUTE"/>
+					
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+	
+	
+	
+	
+	<view-entity entity-name="FindCustomerInfoByRoute" package-name="org.ofbiz.delys">
+	
+		<member-entity entity-alias="PR" entity-name="PartyRelationship"></member-entity>
+		<member-entity entity-alias="PG" entity-name="PartyGroup"></member-entity>
+		
+		<alias name="routeId" entity-alias="PR" field="partyIdFrom"></alias>
+		<alias name="customerId" entity-alias="PG" field="partyId"></alias>
+		<alias name="customerName" entity-alias="PG" field="groupName"></alias>
+		
+		
+		<!-- <view-link rel-entity-alias="PR" entity-alias="P1">
+			<key-map rel-field-name="partyId" field-name="partyId"/>
+		</view-link>
+		<view-link rel-entity-alias="PS1" entity-alias="P1">
+			<key-map field-name="partyId" rel-field-name="partyIdFrom"/>
+		</view-link> -->
+		<view-link rel-entity-alias="PG" entity-alias="PR">
+			<key-map field-name="partyIdTo" rel-field-name="partyId"/>
+		</view-link>
+		
+		<entity-condition>
+			<condition-list>
+				<condition-expr field-name="roleTypeIdFrom" entity-alias="PR" value="DELYS_ROUTE"/>
+				<condition-expr field-name="roleTypeIdTo" entity-alias="PR" value="DELYS_CUSTOMER_GT"/>
+			</condition-list>
+		</entity-condition>
+	</view-entity>
+	
+
+</entitymodel>

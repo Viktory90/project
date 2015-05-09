@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>Delys Services Logistic Facility</description>
+    <vendor></vendor>
+    <version>1.0</version>
+    
+    <service name="addInventoryItemForFacility" engine="java" invoke="addInventoryItemForFacility" location="com.olbius.delys.facility.FacilityServices"
+		auth="true">
+		
+		<!-- <auto-attributes include="pk" mode="IN" optional="true"/>
+		<auto-attributes include="nonpk" mode="IN" optional="true"/> -->
+    	<attribute name="productId" type="String" mode="IN" optional="true"/>
+    	<attribute name="facilityId" type="String" mode="INOUT" optional="true"/>
+    	<attribute name="locationSeqId" type="String" mode="INOUT" optional="true"/>
+    	<attribute name="locationSeqIdCurrent" type="String" mode="INOUT" optional="true"/>
+    	<attribute name="quantity" type="String" mode="IN" optional="true"/>
+    	<attribute name="uomId" type="String" mode="IN" optional="true"/>
+    </service>
+    
+    <service name="getProductId" engine="java" location="com.olbius.delys.facility.FacilityServices" invoke="getProductId" auth="true">
+		<attribute name="facilityId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="listProductId" mode="OUT" type="List" optional="true"></attribute>
+	</service>
+	
+	<service name="getLocationByProductId" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="getLocationByProductId"
+		auth="true" default-entity-name="InventoryItemLocation">
+		<attribute name="productId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="facilityId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="listLocationByProductId" mode="OUT" type="List" optional="true"></attribute>
+	</service>
+    
+    <service name="JQXgetLocationByProductId" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="jqGetLocationByProductId"
+		auth="true">
+		   <attribute name="listAllConditions" mode="IN" type="java.util.List"  optional="false"></attribute>
+		   <attribute name="listSortFields" mode="IN" type="java.util.List"  optional="false"></attribute>
+		   <attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" 	optional="false"></attribute>
+		   <attribute name="parameters" mode="IN" type="java.util.Map" 	optional="false"></attribute>
+		   <attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+	</service>
+	
+	<service name="JQXcreateInventoryItemByProductId" engine="java" auth="true"
+        location="com.olbius.delys.facility.FacilityServices" invoke="jqCreateInventoryItemByProductId">
+        <description>Create InventoryItemLocation</description>
+        <attribute name="productId" type="String" mode="IN" optional="true"/>
+    	<attribute name="quantity" type="BigDecimal" mode="IN" optional="true"/>
+    	<attribute name="uomId" type="String" mode="IN" optional="true"/>
+    	<attribute name="locationId" type="String" mode="IN" optional="true"/>
+    </service>
+    
+    <service name="JQXgetInventoryItemByLocation" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="jqGetInventoryItemByLocation"
+		auth="true">
+		   <attribute name="listAllConditions" mode="IN" type="java.util.List"  optional="false"></attribute>
+		   <attribute name="listSortFields" mode="IN" type="java.util.List"  optional="false"></attribute>
+		   <attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" 	optional="false"></attribute>
+		   <attribute name="parameters" mode="IN" type="java.util.Map" 	optional="false"></attribute>
+		   <attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+	</service>
+    
+    <service name="stockLocation" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="stockLocation"
+		auth="true">
+		    <attribute name="productId" type="String" mode="IN" optional="true"/>
+	    	<attribute name="quantityTransfer" type="String" mode="IN" optional="true"/>
+	    	<attribute name="quantityCurrent" type="String" mode="IN" optional="true"/>
+	    	<attribute name="uomId" type="String" mode="IN" optional="true"/>
+	    	<attribute name="facilityId" type="String" mode="IN" optional="true"/>
+	    	<attribute name="locationSeqIdTranfer" type="String" mode="IN" optional="true"/>
+	    	<attribute name="locationSeqIdCurrent" type="String" mode="IN" optional="true"/>
+	</service>
+	
+	<service name="stockLocationMany" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="stockLocationMany"
+		auth="true">
+		    <attribute name="productId[]" type="List" mode="IN" optional="true"/>
+	    	<attribute name="quantityTranfers[]" type="List" mode="IN" optional="true"/>
+	    	<attribute name="quantityCurrent[]" type="List" mode="IN" optional="true"/>
+	    	<attribute name="uomId[]" type="List" mode="IN" optional="true"/>
+	    	<attribute name="facilityId" type="String" mode="IN" optional="true"/>
+	    	<attribute name="locationSeqIdTranfer" type="String" mode="IN" optional="true"/>
+	    	<attribute name="locationSeqIdCurrent[]" type="List" mode="IN" optional="true"/>
+	</service>
+	
+	<service name="stockOneProductForLocationMany" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="stockOneProductForLocationMany"
+		auth="true">
+		    <attribute name="productId" type="String" mode="IN" optional="true"/>
+	    	<attribute name="quantityTranfers[]" type="List" mode="IN" optional="true"/>
+	    	<attribute name="quantityCurrent" type="String" mode="IN" optional="true"/>
+	    	<attribute name="uomId" type="String" mode="IN" optional="true"/>
+	    	<attribute name="facilityId" type="String" mode="IN" optional="true"/>
+	    	<attribute name="locationSeqIdTranfer[]" type="List" mode="IN" optional="true"/>
+	    	<attribute name="locationSeqIdCurrent" type="String" mode="IN" optional="true"/>
+	</service>
+	
+	<service name="JQXgetLocationAndQuantityByFacilityId" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="jqGetLocationAndQuantityByFacilityId"
+		auth="true">
+		   <attribute name="listAllConditions" mode="IN" type="java.util.List"  optional="false"></attribute>
+		   <attribute name="listSortFields" mode="IN" type="java.util.List"  optional="false"></attribute>
+		   <attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" 	optional="false"></attribute>
+		   <attribute name="parameters" mode="IN" type="java.util.Map" 	optional="false"></attribute>
+		   <attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+	</service>
+    
+    <service name="JQXgetProductByFacilityIdPhysical" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="jqGetProductByFacilityIdPhysical"
+		auth="true">
+		   <attribute name="listAllConditions" mode="IN" type="java.util.List"  optional="false"></attribute>
+		   <attribute name="listSortFields" mode="IN" type="java.util.List"  optional="false"></attribute>
+		   <attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" 	optional="false"></attribute>
+		   <attribute name="parameters" mode="IN" type="java.util.Map" 	optional="false"></attribute>
+		   <attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+	</service>
+	
+	<service name="createPhysicalVariancesLog" engine="java"
+            location="com.olbius.delys.facility.FacilityServices" invoke="createPhysicalVariancesLog" auth="true">
+        <description>create hysicalVariancesLog</description>
+        <attribute name="facilityId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="expireDate" mode="IN" type="Timestamp" optional="true"></attribute>
+        <attribute name="productId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="inventoryItemId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="quantityOnHandVar" mode="IN" type="String" optional="true" ></attribute>
+        <attribute name="dateCheck" mode="IN" type="Timestamp" optional="true"></attribute>
+        <attribute name="personCheck" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="varianceReasonId" mode="IN" type="String" optional="false"></attribute>
+        <attribute name="physicalInventoryId" mode="IN" type="String" optional="true" ></attribute>
+       
+        <!-- <auto-attributes entity-name="InventoryItemVariance" include="pk" mode="IN" optional="false"/>
+        <auto-attributes entity-name="PhysicalInventory" include="nonpk" mode="IN" optional="true"/>
+        <auto-attributes entity-name="InventoryItemVariance" include="nonpk" mode="IN" optional="true"/>
+        <override name="physicalInventoryId" mode="OUT"/> -->
+    </service>
+    
+    <service name="updateProductIdByFacilityLocation" engine="java"
+            location="com.olbius.delys.facility.FacilityServices" invoke="updateProductIdByFacilityLocation" auth="true">
+        <description>Remove ProductStoreRole</description>
+        <attribute name="facilityId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="locationSeqId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="productId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="inventoryItemId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="quantity" mode="IN" type="java.math.BigDecimal" optional="true" ></attribute>
+        <attribute name="uomId" mode="IN" type="String" optional="true" ></attribute>
+       
+    </service>
+    
+    <service name="JQXgetContactMechInFacility" engine="java" auth="true"
+        location="com.olbius.delys.facility.FacilityServices" invoke="jqGetContactMechInFacility">
+        <description>Contact Mech In Facility</description>
+        <!-- <attribute name="listAllConditions" mode="IN" type="java.util.List"  optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List"  optional="false"></attribute>
+		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" 	optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute> -->
+		
+		<attribute name="listAllConditions" mode="IN" type="java.util.List"  optional="false"></attribute>
+	    <attribute name="listSortFields" mode="IN" type="java.util.List"  optional="false"></attribute>
+		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" 	optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map" 	optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+    </service>
+    
+    <service name="loadContactMechTypePurposeList" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="loadContactMechTypePurposeList"
+		auth="true">
+		    <attribute name="contactMechTypeId" type="String" mode="IN" optional="true"/>
+		    <attribute name="listcontactMechPurposeTypeMap" type="java.util.List" mode="OUT" optional="true"/>
+	</service>
+	
+	<service name="loadGeoAssocListByGeoId" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="loadGeoAssocListByGeoId"
+		auth="true">
+		    <attribute name="geoId" type="String" mode="IN" optional="true"/>
+		    <attribute name="listGeoAssocMap" type="java.util.List" mode="OUT" optional="true"/>
+	</service>
+	
+	<service name="createFacilityContactMech" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="createFacilityContactMech"
+		auth="true">
+			<attribute name="facilityId" type="String" mode="IN" optional="true"/>
+			<attribute name="contactMechTypeId" type="String" mode="IN" optional="true"/>
+		    <attribute name="contactMechPurposeTypeId" type="String" mode="IN" optional="true"/>
+		    <attribute name="toName" type="String" mode="IN" optional="true"/>
+		    <attribute name="attnName" type="String" mode="IN" optional="true"/>
+		    <attribute name="address1" type="String" mode="IN" optional="true"/>
+		    <attribute name="address2" type="String" mode="IN" optional="true"/>
+		    <attribute name="city" type="String" mode="IN" optional="true"/>
+		    <attribute name="countryGeoId" type="String" mode="IN" optional="true"/>
+		    <attribute name="stateProvinceGeoId" type="String" mode="IN" optional="true"/>
+		    <attribute name="postalCode" type="String" mode="IN" optional="true"/>
+	</service>
+	
+	<service name="createFacilityContactMechByEmailAddress" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="createFacilityContactMechByEmailAddress"
+		auth="true">
+			<attribute name="facilityId" type="String" mode="IN" optional="true"/>
+			<attribute name="contactMechTypeId" type="String" mode="IN" optional="false"/>
+			<attribute name="contactMechPurposeTypeId" type="String" mode="IN" optional="true"/>
+		    <attribute name="infoString" type="String" mode="IN" optional="false"/>
+	</service>
+    
+    <service name="JQXgetListLocationInFacility" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="jqGetListLocationInFacility"
+		auth="true">
+		   <attribute name="listAllConditions" mode="IN" type="java.util.List"  optional="false"></attribute>
+		   <attribute name="listSortFields" mode="IN" type="java.util.List"  optional="false"></attribute>
+		   <attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" 	optional="false"></attribute>
+		   <attribute name="parameters" mode="IN" type="java.util.Map" 	optional="false"></attribute>
+		   <attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+	</service>
+	
+	<service name="JQXgetListInventoryItem" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="jqGetListInventoryItem"
+		auth="true">
+		   <attribute name="listAllConditions" mode="IN" type="java.util.List"  optional="false"></attribute>
+		   <attribute name="listSortFields" mode="IN" type="java.util.List"  optional="false"></attribute>
+		   <attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" 	optional="false"></attribute>
+		   <attribute name="parameters" mode="IN" type="java.util.Map" 	optional="false"></attribute>
+		   <attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+	</service>
+	
+	<service name="loadListLocationFacility" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="loadListLocationFacility"
+		auth="true">
+			<attribute name="facilityId" type="String" mode="IN" optional="false"/>
+		    <attribute name="listlocationFacilityMap" type="java.util.List" mode="OUT" optional="true"/>
+		    <attribute name="listInventoryItemLocationDetailMap" type="java.util.Map" mode="OUT" optional="true"/>
+	</service>
+	
+	<service name="loadLocationFacilityType" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="loadLocationFacilityType"
+		auth="true">
+		    <attribute name="listlocationFacilityTypeMap" type="java.util.List" mode="OUT" optional="true"/>
+	</service>
+	
+	<service name="createNewLocationFacilityType" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="createNewLocationFacilityType"
+		auth="true">
+		    <attribute name="locationCode" type="String" mode="IN" optional="false"/>
+		    <attribute name="facilityId" type="String" mode="IN" optional="false"/>
+		    <attribute name="locationFacilityTypeId" type="String" mode="IN" optional="false"/>
+		    <attribute name="parentLocationId" type="String" mode="IN" optional="true"/>
+		    <attribute name="description" type="String" mode="IN" optional="false"/>
+	</service>
+	
+	<service name="createNewLocationFacilityTypeAISLE" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="createNewLocationFacilityTypeAISLE"
+		auth="true">
+		    <attribute name="locationCode" type="String" mode="IN" optional="false"/>
+		    <attribute name="facilityId" type="String" mode="IN" optional="false"/>
+		    <attribute name="locationFacilityTypeId" type="String" mode="IN" optional="false"/>
+		    <attribute name="parentLocationId" type="String" mode="IN" optional="false"/>
+		    <attribute name="description" type="String" mode="IN" optional="false"/>
+	</service>
+	
+	<service name="JQGetListLocationFacilityType" engine="java" invoke="jqGetListLocationFacilityType" 
+		location="com.olbius.delys.facility.FacilityServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+    </service>
+    
+    <service name="loadLocationFacilityTypeId" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="loadLocationFacilityTypeId"
+		auth="true">
+			<attribute name="facilityId" type="String" mode="IN" optional="false"/>
+			<attribute name="locationFacilityTypeId" type="String" mode="IN" optional="false"/>
+		    <attribute name="listlocationFacilityMap" type="java.util.List" mode="OUT" optional="true"/>
+	</service>
+	
+	<service name="addProductInLocationFacility" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="addProductInLocationFacility"
+		auth="true">
+			<attribute name="facilityId" type="String" mode="IN" optional="false"/>
+		    <attribute name="locationId[]" type="List" mode="IN" optional="true"/>
+		    <attribute name="productId[]" type="List" mode="IN" optional="true"/>
+		    <attribute name="inventoryItemId[]" type="List" mode="IN" optional="true"/>
+		    <attribute name="quantity[]" type="List" mode="IN" optional="true"/>
+		    <attribute name="uomId[]" type="List" mode="IN" optional="true"/>
+	</service>
+	
+	<service name="loadExpireDateByProductIdInInventoryItem" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="loadExpireDateByProductIdInInventoryItem"
+		auth="true">
+			<attribute name="facilityId" type="String" mode="IN" optional="false"/>
+			<attribute name="productId" type="String" mode="IN" optional="false"/>
+		    <attribute name="listExpireDate" type="List" mode="OUT" optional="true"/>
+		    <attribute name="listConfigPacking" type="List" mode="OUT" optional="true"/>
+	</service>	
+	
+	<service name="loadRowDetailsByLocationId" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="loadRowDetailsByLocationId"
+		auth="true">
+			<attribute name="locationId[]" type="List" mode="IN" optional="false"/>
+		    <attribute name="listInventoryItemLocationDetailsByLocationIdMap" type="java.util.Map" mode="OUT" optional="true"/>
+	</service>
+	
+	<service name="loadProductByLocationIdInFacility" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="loadProductByLocationIdInFacility"
+		auth="true">
+			<attribute name="locationIdTranfer[]" type="List" mode="IN" optional="false"/>
+		    <attribute name="listMapProductLocationInFacility" type="java.util.Map" mode="OUT" optional="true"/>
+	</service>
+	
+	<service name="createLocationFacilityTypeInFacility" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="createLocationFacilityTypeInFacility"
+		auth="true">
+			<attribute name="locationFacilityTypeId" type="String" mode="IN" optional="false"/>
+			<attribute name="parentLocationFacilityTypeId" type="String" mode="IN" optional="true"/>
+		    <attribute name="description" type="String" mode="IN" optional="false"/>
+		    <attribute name="value" type="String" mode="OUT" optional="false"/>
+	</service>
+	
+	<service name="updateLocationFacilityTypeInFacility" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="updateLocationFacilityTypeInFacility"
+		auth="true">
+			<attribute name="locationFacilityTypeId" type="String" mode="IN" optional="false"/>
+			<attribute name="parentLocationFacilityTypeId" type="String" mode="IN" optional="true"/>
+		    <attribute name="description" type="String" mode="IN" optional="false"/>
+		    <attribute name="value" type="String" mode="OUT" optional="false"/>
+	</service>
+	
+	<service name="deleteLocationFacilityTypeInFacility" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="deleteLocationFacilityTypeInFacility"
+		auth="true">
+			<attribute name="locationFacilityTypeId[]" type="List" mode="IN" optional="false"/>
+		    <attribute name="value" type="String" mode="OUT" optional="false"/>
+	</service>
+	
+	<service name="loadListLocationFacilityTypeInFacility" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="loadListLocationFacilityTypeInFacility"
+		auth="true">
+		    <attribute name="listlocationFacilityTypeMap" type="java.util.List" mode="OUT" optional="true"/>
+	</service>
+	
+	<service name="loadParentLocationFacilityTypeId" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="loadParentLocationFacilityTypeId"
+		auth="true">
+			<attribute name="locationFacilityTypeId" type="String" mode="IN" optional="false"/>
+		    <attribute name="value" type="String" mode="OUT" optional="true"/>
+	</service>
+	
+	<service name="loadParentLocationFacilityTypeIdInFacility" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="loadParentLocationFacilityTypeIdInFacility"
+		auth="true">
+			<attribute name="listParentLocationFacilityTypeMap" type="java.util.List" mode="OUT" optional="true"/>
+	</service>
+	
+	<service name="updateLocationFacility" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="updateLocationFacility"
+		auth="true">
+			<attribute name="locationId" type="String" mode="IN" optional="true"/>
+			<attribute name="locationCode" type="String" mode="IN" optional="true"/>
+			<attribute name="parentLocationId" type="String" mode="IN" optional="true"/>
+			<attribute name="locationFacilityTypeId" type="String" mode="IN" optional="true"/>
+			<attribute name="description" type="String" mode="IN" optional="true"/>
+			<attribute name="value" type="String" mode="OUT" optional="true"/>
+	</service>
+	
+	<service name="deleteLocationFacility" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="deleteLocationFacilityType"
+		auth="true">
+			<attribute name="locationId[]" type="List" mode="IN" optional="false"/>
+		    <attribute name="value" type="String" mode="OUT" optional="false"/>
+	</service>
+	
+	<service name="loadDataRowToJqxGirdTree" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="loadDataRowToJqxGirdTree"
+		auth="true">
+			<attribute name="locationId[]" type="List" mode="IN" optional="false"/>
+			<attribute name="locationIdRemain[]" type="List" mode="IN" optional="false"/>
+		    <attribute name="listLocationFacility" type="java.util.List" mode="OUT" optional="false"/>
+		    <attribute name="listLocationFacilityRemain" type="java.util.List" mode="OUT" optional="false"/>
+	</service>
+	
+	<service name="loadDataRowToJqxGirdTreeAddProduct" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="loadDataRowToJqxGirdTreeAddProduct"
+		auth="true">
+			<attribute name="locationId[]" type="List" mode="IN" optional="false"/>
+		    <attribute name="listLocationFacility" type="java.util.List" mode="OUT" optional="false"/>
+	</service>
+	
+    <service name="tranfersProductFromLocationToLocationInFacility" engine="java"
+		location="com.olbius.delys.facility.FacilityServices" invoke="tranfersProductFromLocationToLocationInFacility"
+		auth="true">
+			<attribute name="locationIdCurrent" type="String" mode="IN" optional="false"/>
+			<attribute name="inventoryItemIdTranfers[]" type="List" mode="IN" optional="false"/>
+		    <attribute name="locationIdTranfers[]" type="List" mode="IN" optional="false"/>
+		    <attribute name="productIdTranfers[]" type="List" mode="IN" optional="false"/>
+		    <attribute name="quantityCurrentTranfers[]" type="List" mode="IN" optional="false"/>
+		    <attribute name="quantityTranferTranfer[]" type="List" mode="IN" optional="false"/>
+		    <attribute name="uomIdTranfer[]" type="List" mode="IN" optional="false"/>
+		    <attribute name="value" type="String" mode="OUT" optional="true"/>
+	</service>
+	
+</services>    

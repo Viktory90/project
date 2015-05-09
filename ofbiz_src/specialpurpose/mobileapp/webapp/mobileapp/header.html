@@ -1,0 +1,351 @@
+
+<div class="navbar" id="navbar">
+	<script type="text/javascript">
+		try {
+			ace.settings.check('navbar', 'fixed')
+		} catch (e) {
+		}
+	</script>
+
+	<div class="navbar-inner">
+		<div class="container-fluid">
+			<a href="mainmenu.html" class="brand"> <small> <img
+					src="assets/img/delys-logo.png" />
+			</small>
+			</a>
+			<!-- /.brand -->
+
+			<ul class="nav ace-nav pull-right">
+				<li class="grey"><a data-toggle="dropdown"
+					class="dropdown-toggle" href="#"> <i class="icon-tasks"></i> <span
+						class="badge badge-grey iTask">0</span></a>
+					<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-closer">
+						<li class="nav-header"><i class="icon-ok"></i>
+							<p class="iTask" style="display: inline;">0</p> 
+						    <span id="header_tashToComplete">Nhiệm vụ phải hoàn thành</span>
+						</li>
+						<li style="display: none;" id="itask1"><a href="#" id="middleTopLink1">
+								<div class="clearfix">
+									<span class="pull-left" id="middleTopMessage1"></span>
+								</div>
+						</a></li>
+
+						<li style="display: none;" id="itask2"><a href="#" id="middleTopLink2">
+								<div class="clearfix">
+									<span class="pull-left" id="middleTopMessage2"></span>
+								</div>
+						</a></li>
+
+						<li style="display: none;" id="itask3"><a href="#"
+							id="middleTopLink3">
+								<div class="clearfix">
+									<span class="pull-left" id="middleTopMessage3"></span>
+								</div>
+						</a></li>
+
+						<li><a href="#" id="ThemeAllTasks"> Xem chi tiết nhiệm vụ <i class="icon-arrow-right"></i>
+						</a></li>
+					</ul></li>
+
+				<li class="purple"><a data-toggle="dropdown"
+					class="dropdown-toggle" href="#"> <i
+						class="icon-bell-alt icon-animated-bell"></i> <span
+						class="badge badge-important">3</span>
+				</a>
+					<ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-closer">
+						<li class="nav-header"><i class="icon-warning-sign"></i> 3 Ghi chú</li>
+						<li>
+							<a href="#">
+								<div class="clearfix">
+									<span class="pull-left">Đơn nghỉ phép đã đươc duyệt</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="clearfix">
+									<span class="pull-left">3 Khách hàng mới đã được tạo</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="clearfix">
+									<span class="pull-left">2 cập nhật thông tin cá nhân</span>
+								</div>
+							</a>
+						</li>
+					</ul></li>
+
+				<li class="green"><a data-toggle="dropdown"
+					class="dropdown-toggle" href="#"> <i
+						class="icon-envelope icon-animated-vertical"></i> <span
+						class="badge badge-success">1</span>
+				</a>
+
+					<ul
+						class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-closer">
+						<li class="nav-header"><i class="icon-envelope-alt"></i> 1 Tin nhắn</li>
+						<li>
+						<a href="#">
+								<div class="clearfix">
+									<span class="pull-left">1 tin nhắn từ khách hàng</span>
+								</div>
+							</a>
+						</li>	
+					</ul></li>
+
+				<li class="light-blue">
+				<a data-toggle="dropdown" href="#" class="dropdown-toggle"> 
+					<img class="nav-user-photo" id="nav-user-photo-avatar" src="assets/avatars/profile-pic.jpg" alt="Jason's Photo" /> 
+					<span class="user-info"> <small>Chào mừng,</small> <span id="username"></span>
+					</span> <i class="icon-caret-down"></i>
+				</a>
+				<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-closer">
+					<li><a href="#"> <i class="icon-cog"></i> Settings</a></li>
+
+					<li><a href="profile.html"> <i class="icon-user"></i>Profile</a></li>
+
+					
+					<li id="language"><a href="#" class="dropdown-toggle" ><i class="icon-flag"></i>Ngôn ngữ</a>
+						<ul class="obl_submenu">
+							<li>
+								<a href="javascript:void(0)" onclick="javascript:language_select('vi')">
+									<div>Tiếng Việt</div>									
+								</a>
+								<a href="javascript:void(0)" onclick="javascript:language_select('en')"">
+									<div>English</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="divider"></li>
+					<li><a href="javascript:void(0)" id="logout"> <i class="icon-off"></i> Logout
+					</a></li>
+				</ul>
+				</li>
+			</ul>
+			<script type="text/javascript">
+				function nav(){
+					$("li#language").mouseover(function(e){						
+						$("ul", this).show();						
+					});	
+					$("li#language").mouseleave(function(e){						
+						$("ul", this).hide();						
+					});
+				}
+				$(function() {
+					nav();
+				});
+			</script>
+			<style type="text/css">
+			  	#user_menu ul,
+				#user_menu ul li {
+					margin:0;
+					padding:0;
+					list-style:none;
+				}
+				#user_menu ul li{
+					float:left;
+					display:block;
+				}
+				.obl_submenu {
+					right:100%;
+					position: absolute;
+					width: 100%;
+					background: #FFF;
+					display: none;
+					line-height: 26px;
+					z-index: 1000;
+					margin-top:-30px !important;
+					border-radius: 0;
+					box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+					border:1px solid #ccc;
+					padding:5px 0 !important;
+				}
+				.obl_submenu:before{
+					position: absolute;
+					top: 4px;
+					right: -7px;
+					display: inline-block;
+					border-bottom: 7px solid transparent;
+					border-left: 7px solid #efefef;
+					border-top: 7px solid transparent;
+					border-left-color: rgba(0,0,0,0.2);
+					content: '';
+				}
+				.obl_submenu:after{
+					position: absolute;
+					top: 5px;
+					right: -6px;
+					display: inline-block;
+					border-bottom: 6px solid transparent;
+					border-left: 6px solid #fff;
+					border-top: 6px solid transparent;
+					content: '';
+				}
+				.obl_submenu li{
+					display:block !important;
+					width:93% !important;
+				}
+				.obl_submenu a{
+					display:block !important;
+					width:92% !important;
+					color: black !important;
+				}
+				.obl_submenu a:hover{
+					text-decoration:none !important;
+				}
+				.obl_submenu a div{
+					padding:4px;
+				}
+			  </style>
+			<!-- /.ace-nav -->
+		</div>
+		<!-- /.container-fluid -->
+	</div>
+	<!-- /.navbar-inner -->
+</div>
+
+<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+		
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+ 		<script type="text/javascript">
+// 			if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+<!-- 		<script src="assets/js/bootstrap.min.js"></script> -->
+
+		<!-- page specific plugin scripts -->
+
+<!-- 		<script src="assets/js/date-time/bootstrap-datepicker.min.js"></script> -->
+<!-- 		<script src="assets/js/jqGrid/jquery.jqGrid.min.js"></script> -->
+<!-- 		<script src="assets/js/jqGrid/i18n/grid.locale-en.js"></script> -->
+
+		<!-- ace scripts -->
+
+<!-- 		<script src="assets/js/ace-elements.min.js"></script> -->
+<!-- 		<script src="assets/js/ace.min.js"></script> -->
+
+		<!-- inline scripts related to this page -->
+
+<script type="text/javascript">
+		//alert("1");
+		$("#username").html(localStorage.userName);		
+		//var image_profile = localStorage.getItem("profile_picture");
+		//console.log(image_profile);
+			$("#logout").click(function(){
+				$.ajax({
+					url: localStorage.serverUrl + "mobileservices/control/logout",
+					type: 'POST',
+					dataType: 'json',
+					success: function(data){
+						//console.log(data);
+						location = "index.html";
+					},
+					error: function(textStatus, errorThrown){
+						//console.log
+						location = "index.html";
+					}
+				});
+			});
+			 $.ajax({
+				url: localStorage.serverUrl + "mobileservices/control/getImageAvatar",
+				type: "POST",
+				dataType: 'json',
+				success: function(data){					
+					image_profile_url = data.contentImageUrl;
+					$("img.nav-user-photo").attr("src", image_profile_url);
+					storeImage(image_profile_url);					
+				},
+				error: function(textStatus, errorThrown){					
+					var profile_picture = JSON.parse(localStorage.getItem("profile_picture"));					
+					if(profile_picture)						
+						$("img.nav-user-photo").attr("src", profile_picture);
+				}
+			}); 		
+				
+		$.ajax({
+			url : localStorage.serverUrl
+					+ 'mobileservices/control/getNotification',
+			crossDomain : true,
+			type : "POST",
+			dataType : 'json', // Choosing a JSON datatype
+			success : function(data) {
+				localStorage.notify = JSON.stringify(data);
+				//$("#test").text(localStorage.notify);
+				var $iTask = 0;
+				if (data['middleTopMessage1']) {
+					$iTask++;
+					$("#itask1").css("display", "block");
+					//$("a#middleTopLink1").attr("href",data["middleTopLink1"]);
+					$("#middleTopMessage1").text(data['middleTopMessage1']);
+				}
+				if (data['middleTopMessage2']) {
+					$iTask++;
+					$("#itask2").css("display", "block");
+					//$("a#middleTopLink2").attr("href",data["middleTopLink2"]);
+					$("#middleTopMessage2").text(data['middleTopMessage2']);
+				}
+				if (data['middleTopMessage3']) {
+					$iTask++;
+					$("#itask3").css("display", "block");
+					//$("a#middleTopLink3").attr("href",data["middleTopLink3"]);
+					$("#middleTopMessage3").text(data['middleTopMessage3']);
+				}
+				$('.iTask').text($iTask);
+			},
+			error : function(textStatus, errorThrown) {
+				//$("#test").text(JSON.stringify(textStatus));
+			}
+		});
+
+		$("a#middleTopLink1")
+				.click(
+						function(event) {
+							localStorage.taskLink = JSON
+									.parse(localStorage.notify)["middleTopLink1"];
+							location = "TaskDetails.html";
+							event.preventDefault();
+						});
+
+		$("a#middleTopLink2").click(function(event) {
+			localStorage.taskLink = $("a#middleTopLink2").attr("href");
+			location = "TaskDetails.html";
+			event.preventDefault();
+		});
+
+		$("a#middleTopLink3").click(function(event) {
+			localStorage.taskLink = $("a#middleTopLink3").attr("href");
+			location = "TaskDetails.html";
+			event.preventDefault();
+		});
+		function storeImage(image_profile_url){
+			image_avatar = document.getElementById("nav-user-photo-avatar"); 
+			image_avatar.addEventListener("load", function(){
+				var imgCanvas = document.createElement("canvas");
+				imgContext = imgCanvas.getContext("2d");
+				imgCanvas.width = image_avatar.width;
+				imgCanvas.height = image_avatar.height;
+				imgContext.drawImage(image_avatar, 0, 0, image_avatar.width, image_avatar.height);
+				profile_picture = imgCanvas.toDataURL("image/jpeg");
+				try{
+					localStorage.setItem("profile_picture", JSON.stringify(profile_picture));	
+				}catch(e){
+					console.log("Storage failed: " + e);
+				}				
+			}, false);
+		}
+</script>

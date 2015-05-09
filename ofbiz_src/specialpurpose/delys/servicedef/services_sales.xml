@@ -1,0 +1,1169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>Delys Component Services</description>
+    <vendor>OFBiz</vendor>
+    <version>1.0</version>
+
+	<service name="createProductPriceCondDelys" default-entity-name="ProductPriceCond" engine="simple"
+                location="component://delys/script/org/ofbiz/product/price/PriceServices.xml" invoke="createProductPriceCondDelys" auth="true">
+        <description>Create an ProductPriceCond</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="condValueInput" type="String" mode="IN" optional="true"></attribute>
+        <override name="productPriceCondSeqId" mode="OUT"/>
+    </service>
+	<service name="createProductPriceRuleAndRoleTypes" engine="simple" 
+		location="component://delys/script/org/ofbiz/product/price/PriceServices.xml" invoke="createProductPriceRuleAndRoleTypes" auth="true">
+		<description>Create an ProductPriceRule and RoleTypes</description>
+		<attribute name="productPriceRuleId" mode="INOUT" type="String" optional="true"/>
+		<attribute name="ruleName" mode="IN" type="String" optional="true"/>
+		<attribute name="description" mode="IN" type="String" optional="true"/>
+		<attribute name="isSale" mode="IN" type="String" optional="true" default-value="N"/>
+		<attribute name="fromDate" mode="IN" type="Timestamp" optional="true"/>
+		<attribute name="thruDate" mode="IN" type="Timestamp" optional="true"/>
+		<attribute name="partyRoleTypesApply" mode="IN" type="List" optional="true"/>
+		<attribute name="inputParamEnumId" mode="IN" type="String" optional="true" default-value="PRIP_ROLE_TYPE"/>
+		<attribute name="operatorEnumId" mode="IN" type="String" optional="true" default-value="PRC_EQ"/>
+	</service>
+	<!-- <service name="createProductQuotation" engine="simple" 
+		location="component://delys/script/org/ofbiz/product/price/PriceServices.xml" invoke="createProductQuotation" auth="true">
+		<description>Create an ProductQuotation and RoleTypes</description>
+		<attribute name="productQuotationId" mode="INOUT" type="String" optional="true"/>
+		<attribute name="quotationName" mode="IN" type="String" optional="true"/>
+		<attribute name="description" mode="IN" type="String" optional="true"/>
+		<attribute name="currencyUomId" mode="IN" type="String" optional="true"/>
+		<attribute name="fromDate" mode="IN" type="Timestamp" optional="true"/>
+		<attribute name="thruDate" mode="IN" type="Timestamp" optional="true"/>
+		<attribute name="salesChannel" mode="IN" type="String" optional="false"/>
+		<attribute name="partyRoleTypesApply" mode="IN" type="List" optional="true"/>
+	</service> -->
+	<service name="createProductQuotation" engine="java" location="com.olbius.delys.product.PriceServices" invoke="createProductQuotation" auth="true">
+		<description>Create an ProductQuotation and RoleTypes</description>
+		<required-permissions join-type="AND">
+			<check-permission permission="DELYS_QUOTATION" action="_CREATE"/>
+		</required-permissions>
+		<attribute name="productQuotationId" mode="INOUT" type="String" optional="true"/>
+		<attribute name="quotationName" mode="IN" type="String" optional="true"/>
+		<attribute name="description" mode="IN" type="String" optional="true"/>
+		<attribute name="currencyUomId" mode="IN" type="String" optional="true"/>
+		<attribute name="fromDate" mode="IN" type="Timestamp" optional="true"/>
+		<attribute name="thruDate" mode="IN" type="Timestamp" optional="true"/>
+		<attribute name="salesChannel" mode="IN" type="String" optional="true"/>
+		<attribute name="partyRoleTypesApply" mode="IN" type="List" optional="true"/>
+		<attribute name="productListStr" mode="IN" type="String" optional="true"/>
+		<attribute name="partyIdsApply" mode="IN" type="List" optional="true"/><!-- new -->
+		<attribute name="partyRoleTypesApplyMarket" mode="IN" type="String" optional="true"/><!-- new -->
+		<!-- create notify -->
+		<attribute name="notiToId" mode="OUT" type="String" optional="true"/>
+		<attribute name="header" mode="OUT" type="String" optional="true"/>
+		<attribute name="state" mode="OUT" type="String" optional="true"/>
+		<attribute name="action" mode="OUT" type="String" optional="true"/>
+		<attribute name="targetLink" mode="OUT" type="String" optional="true"/>
+		<attribute name="dateTime" mode="OUT" type="Timestamp" optional="true"/>
+	</service>
+	<service name="createProductQuotationRoleType" engine="simple" 
+		location="component://delys/script/org/ofbiz/product/price/PriceServices.xml" invoke="createProductQuotationRoleType" auth="true">
+		<description>Create an ProductQuotationRoleType</description>
+		<attribute name="productQuotationId" mode="IN" type="String" optional="false"/>
+		<attribute name="roleTypeId" mode="IN" type="String" optional="false"/>
+	</service>
+	<service name="createQuotationRule" engine="simple" 
+		location="component://delys/script/org/ofbiz/product/price/PriceServices.xml" invoke="createQuotationRule" auth="true">
+		<attribute name="productQuotationId" mode="INOUT" type="String" optional="false"/>
+		<attribute name="productId" mode="IN" type="String" optional="false"/>
+		<attribute name="inputCategory" mode="IN" type="String" optional="true"/>
+		<attribute name="priceToDist" mode="IN" type="BigDecimal" optional="false"/>
+		<attribute name="priceToMarket" mode="IN" type="BigDecimal" optional="true"/>
+		<attribute name="priceToConsumer" mode="IN" type="BigDecimal" optional="true"/>
+	</service>
+	<service name="updateQuotationRule" engine="simple" 
+		location="component://delys/script/org/ofbiz/product/price/PriceServices.xml" invoke="updateQuotationRule" auth="true">
+		<attribute name="update_productPriceRuleId" mode="IN" type="String" optional="true" />
+		<attribute name="update_ppa_productPriceActionSeqId" mode="IN" type="String" optional="true" />
+		<attribute name="update_ppam_productPriceActionSeqId" mode="IN" type="String" optional="true" />
+		<attribute name="update_ppac_productPriceActionSeqId" mode="IN" type="String" optional="true" />
+		<attribute name="update_pq_ProductQuotationId" mode="IN" type="String" optional="true" />
+		<attribute name="update_inputParamEnumId" mode="IN" type="String" optional="true" />
+		<attribute name="update_inputCategory" mode="IN" type="String" optional="true" />
+		<attribute name="update_priceToDist" mode="IN" type="BigDecimal" optional="false" />
+		<attribute name="update_priceToMarket" mode="IN" type="BigDecimal" optional="true" />
+		<attribute name="update_priceToConsumer" mode="IN" type="BigDecimal" optional="true" />
+		<attribute name="productQuotationId" mode="OUT" type="String" />
+	</service>
+	<service name="deleteQuotationRule" engine="simple" 
+		location="component://delys/script/org/ofbiz/product/price/PriceServices.xml" invoke="deleteQuotationRule" auth="true">
+		<attribute name="productQuotationId" mode="INOUT" type="String" optional="false"/>
+		<attribute name="productPriceRuleId" mode="IN" type="String" optional="false" />
+	</service>
+	<!-- <service name="updateProductQuotation" engine="simple"
+		location="component://delys/script/org/ofbiz/product/price/PriceServices.xml" invoke="updateProductQuotation" auth="true">
+		<attribute name="productQuotationId" type="String" mode="INOUT" optional="false"/>
+		<attribute name="quotationName" mode="IN" type="String" optional="true"/>
+		<attribute name="description" mode="IN" type="String" optional="true"/>
+		<attribute name="fromDate" mode="IN" type="Timestamp" optional="true"/>
+		<attribute name="thruDate" mode="IN" type="Timestamp" optional="true"/>
+	</service> -->
+	<service name="updateProductQuotation" engine="java" location="com.olbius.delys.product.PriceServices" invoke="updateProductQuotation" auth="true">
+		<description>Update an ProductQuotation and RoleTypes</description>
+		<attribute name="productQuotationId" mode="INOUT" type="String" optional="true"/>
+		<attribute name="quotationName" mode="IN" type="String" optional="true"/>
+		<attribute name="description" mode="IN" type="String" optional="true"/>
+		<attribute name="currencyUomId" mode="IN" type="String" optional="true"/>
+		<attribute name="fromDate" mode="IN" type="Timestamp" optional="true"/>
+		<attribute name="thruDate" mode="IN" type="Timestamp" optional="true"/>
+		<attribute name="salesChannel" mode="IN" type="String" optional="true"/>
+		<attribute name="partyRoleTypesApply" mode="IN" type="List" optional="true"/>
+		<attribute name="productListStr" mode="IN" type="String" optional="true"/>
+	</service>
+	<service name="deleteProductQuotation" engine="simple" 
+		location="component://delys/script/org/ofbiz/product/price/PriceServices.xml" invoke="deleteProductQuotation" auth="true">
+		<attribute name="productQuotationId" mode="IN" type="String" optional="false"/>
+	</service>
+	<service name="changeQuotationStatus" engine="java" auth="true" location="com.olbius.delys.product.PriceServices" invoke="setQuotationStatus">
+        <description>Change the status of an existing quotation</description>
+        <attribute name="productQuotationId" type="String" mode="INOUT"/>
+        <attribute name="statusId" type="String" mode="IN"/>
+        <attribute name="changeReason" type="String" mode="IN" optional="true"/>
+        <attribute name="oldStatusId" type="String" mode="OUT" optional="false"/>
+        <attribute name="quotationStatusId" type="String" mode="OUT" optional="true"/>
+        <!-- close notify -->
+        <attribute name="ntfId" mode="INOUT" type="String" optional="false"/>
+    </service>
+    <service name="updateQuotationThruDate" engine="simple" 
+    	location="component://delys/script/org/ofbiz/product/price/PriceServices.xml" invoke="updateQuotationThruDate" auth="true">
+    	<attribute name="productQuotationId" mode="INOUT" type="String" optional="false"/>
+    	<attribute name="thruDate" mode="IN" type="Timestamp" optional="false"/>
+    	<attribute name="productQuotationId" mode="OUT" type="String" optional="true"/>
+    </service>
+    
+    <!-- Create delivery requirement -->
+    <service name="storeDeliveryRequirement" engine="java" auth="true"
+            location="com.olbius.delys.order.OrderServices" invoke="createDeliveryRequirement">
+        <description>Creates delivery requirement entities: Requirement, OrderRequirementDelivery</description>
+        <attribute name="requirementTypeId" type="String" mode="INOUT" optional="true"/>
+        <attribute name="statusId" type="String" mode="INOUT" optional="true"/>
+        <attribute name="description" type="String" mode="IN" optional="true"/>
+        <attribute name="requirementStartDate" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="requiredByDate" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="deliveryReqItems" type="List" mode="IN"></attribute>
+        <attribute name="requirementId" type="String" mode="INOUT" optional="true"/>
+    </service>
+    
+    <service name="storeOrderDelys" engine="java" validate="true" auth="true"
+            location="com.olbius.delys.order.OrderServices" invoke="createOrder">
+        <description>Creates order entities</description>
+        <attribute name="partyId" type="String" mode="IN" optional="false"/>
+        <attribute name="placingCustomerPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="billToCustomerPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="shipToCustomerPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="endUserCustomerPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="billFromVendorPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="shipFromVendorPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="supplierAgentPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="orderName" type="String" mode="IN" optional="true"/>
+        <attribute name="visitId" type="String" mode="IN" optional="true"/>
+        <attribute name="affiliateId" type="String" mode="IN" optional="true"/>
+        <attribute name="productStoreId" type="String" mode="IN" optional="true"/>
+        <attribute name="originFacilityId" type="String" mode="IN" optional="true"/>
+        <attribute name="transactionId" type="String" mode="IN" optional="true"/>
+        <attribute name="terminalId" type="String" mode="IN" optional="true"/>
+        <attribute name="workEffortId" type="String" mode="IN" optional="true"/>
+        <attribute name="autoOrderShoppingListId" type="String" mode="IN" optional="true"/>
+        <attribute name="webSiteId" type="String" mode="IN" optional="true"/>
+        <attribute name="externalId" type="String" mode="IN" optional="true"/>
+        <attribute name="internalCode" type="String" mode="IN" optional="true"/>
+        <attribute name="distributorId" type="String" mode="IN" optional="true"/>
+        <attribute name="orderTypeId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="salesChannelEnumId" type="String" mode="IN" optional="true"/>
+        <attribute name="orderItemGroups" type="List" mode="IN" optional="true"/>
+        <attribute name="orderItems" type="List" mode="IN" optional="false"/>
+        <attribute name="orderTerms" type="List" mode="IN" optional="true"/>
+        <!-- workeffort contains the rental start/enddate, nbr of persons. WorkEfforts is mandatory for ordertype = RENTAL_ORDER_ITEM-->
+        <attribute name="workEfforts" type="List" mode="IN" optional="true"/>
+        <attribute name="orderAdjustments" type="List" mode="IN" optional="false"/>
+        <attribute name="billingAccountId" type="String" mode="IN" optional="true"/>
+        <attribute name="shippingAmount" type="BigDecimal" mode="IN" optional="true"/>
+        <attribute name="firstAttemptOrderId" type="String" mode="IN" optional="true"/>
+        <attribute name="currencyUom" type="String" mode="IN" optional="false"/>
+        <attribute name="grandTotal" type="BigDecimal" mode="IN" optional="true"/>
+        <attribute name="taxAmount" type="BigDecimal" mode="IN" optional="true"/>
+        <attribute name="orderDate" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="orderItemShipGroupInfo" type="List" mode="IN" optional="true"/>
+        <attribute name="orderItemAttributes" type="List" mode="IN" optional="true"/>
+        <attribute name="orderAttributes" type="List" mode="IN" optional="true"/>
+        <attribute name="orderPaymentInfo" type="List" mode="IN" optional="true"/>
+        <attribute name="orderContactMechs" type="List" mode="IN" optional="true"/>
+        <attribute name="orderItemContactMechs" type="List" mode="IN" optional="true"/>
+        <attribute name="orderItemPriceInfos" type="List" mode="IN" optional="true"/>
+        <attribute name="orderProductPromoUses" type="List" mode="IN" optional="true"/>
+        <attribute name="orderProductPromoCodes" type="Set" mode="IN" optional="true"/>
+        <attribute name="orderItemSurveyResponses" type="List" mode="IN" optional="true"/>
+        <attribute name="trackingCodeOrders" type="List" mode="IN" optional="true"/>
+        <attribute name="orderAdditionalPartyRoleMap" type="Map" mode="IN" optional="true"/>
+        <attribute name="orderItemAssociations" type="List" mode="IN" optional="true"/>
+        <attribute name="orderInternalNotes" type="List" mode="IN" optional="true"/>
+        <attribute name="orderNotes" type="List" mode="IN" optional="true"/>
+        <attribute name="supplierPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="orderId" type="String" mode="INOUT" optional="true"/>
+        <attribute name="originOrderId" type="String" mode="IN" optional="true"/>
+        <attribute name="statusId" type="String" mode="OUT" optional="false"/>
+        
+        <!-- TODOCHANGE add new attribute -->
+        <attribute name="salesMethodChannelEnumId" mode="IN" type="String" optional="true"/>
+    </service>
+    <service name="storeOrderDis" engine="java" validate="true" auth="true"
+            location="com.olbius.delys.order.OrderServices" invoke="createOrderDis">
+        <description>Creates order entities</description>
+        <attribute name="partyId" type="String" mode="IN" optional="false"/>
+        <attribute name="placingCustomerPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="billToCustomerPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="shipToCustomerPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="endUserCustomerPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="billFromVendorPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="shipFromVendorPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="supplierAgentPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="orderName" type="String" mode="IN" optional="true"/>
+        <attribute name="visitId" type="String" mode="IN" optional="true"/>
+        <attribute name="affiliateId" type="String" mode="IN" optional="true"/>
+        <attribute name="productStoreId" type="String" mode="IN" optional="true"/>
+        <attribute name="originFacilityId" type="String" mode="IN" optional="true"/>
+        <attribute name="transactionId" type="String" mode="IN" optional="true"/>
+        <attribute name="terminalId" type="String" mode="IN" optional="true"/>
+        <attribute name="workEffortId" type="String" mode="IN" optional="true"/>
+        <attribute name="autoOrderShoppingListId" type="String" mode="IN" optional="true"/>
+        <attribute name="webSiteId" type="String" mode="IN" optional="true"/>
+        <attribute name="externalId" type="String" mode="IN" optional="true"/>
+        <attribute name="internalCode" type="String" mode="IN" optional="true"/>
+        <attribute name="distributorId" type="String" mode="IN" optional="true"/>
+        <attribute name="orderTypeId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="salesChannelEnumId" type="String" mode="IN" optional="true"/>
+        <attribute name="orderItemGroups" type="List" mode="IN" optional="true"/>
+        <attribute name="orderItems" type="List" mode="IN" optional="false"/>
+        <attribute name="orderTerms" type="List" mode="IN" optional="true"/>
+        <!-- workeffort contains the rental start/enddate, nbr of persons. WorkEfforts is mandatory for ordertype = RENTAL_ORDER_ITEM-->
+        <attribute name="workEfforts" type="List" mode="IN" optional="true"/>
+        <attribute name="orderAdjustments" type="List" mode="IN" optional="false"/>
+        <attribute name="billingAccountId" type="String" mode="IN" optional="true"/>
+        <attribute name="shippingAmount" type="BigDecimal" mode="IN" optional="true"/>
+        <attribute name="firstAttemptOrderId" type="String" mode="IN" optional="true"/>
+        <attribute name="currencyUom" type="String" mode="IN" optional="false"/>
+        <attribute name="grandTotal" type="BigDecimal" mode="IN" optional="true"/>
+        <attribute name="taxAmount" type="BigDecimal" mode="IN" optional="true"/>
+        <attribute name="orderDate" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="orderItemShipGroupInfo" type="List" mode="IN" optional="true"/>
+        <attribute name="orderItemAttributes" type="List" mode="IN" optional="true"/>
+        <attribute name="orderAttributes" type="List" mode="IN" optional="true"/>
+        <attribute name="orderPaymentInfo" type="List" mode="IN" optional="true"/>
+        <attribute name="orderContactMechs" type="List" mode="IN" optional="true"/>
+        <attribute name="orderItemContactMechs" type="List" mode="IN" optional="true"/>
+        <attribute name="orderItemPriceInfos" type="List" mode="IN" optional="true"/>
+        <attribute name="orderProductPromoUses" type="List" mode="IN" optional="true"/>
+        <attribute name="orderProductPromoCodes" type="Set" mode="IN" optional="true"/>
+        <attribute name="orderItemSurveyResponses" type="List" mode="IN" optional="true"/>
+        <attribute name="trackingCodeOrders" type="List" mode="IN" optional="true"/>
+        <attribute name="orderAdditionalPartyRoleMap" type="Map" mode="IN" optional="true"/>
+        <attribute name="orderItemAssociations" type="List" mode="IN" optional="true"/>
+        <attribute name="orderInternalNotes" type="List" mode="IN" optional="true"/>
+        <attribute name="orderNotes" type="List" mode="IN" optional="true"/>
+        <attribute name="supplierPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="orderId" type="String" mode="INOUT" optional="true"/>
+        <attribute name="originOrderId" type="String" mode="IN" optional="true"/>
+        <attribute name="statusId" type="String" mode="OUT" optional="false"/>
+        <!-- TODOCHANGE -->
+        <attribute name="notCreateInventoryItem" mode="IN" type="String" optional="true" default-value="N"/>
+        <!-- TODOCHANGE add new attribute -->
+        <attribute name="salesMethodChannelEnumId" mode="IN" type="String" optional="true"/>
+    </service>
+    <service name="loadCartFromOrderItem" engine="java" auth="true"
+            location="com.olbius.delys.order.ShoppingCartServices" invoke="loadCartFromOrderItem">
+        <description>Create a ShoppingCart Object based on an existing order</description>
+        <attribute name="orderId" type="String" mode="IN" optional="false"/>
+        <attribute name="orderItemSeqId" type="String" mode="IN" optional="false"/>
+        <attribute name="skipInventoryChecks" type="Boolean" mode="IN" optional="true"/>
+        <attribute name="skipProductChecks" type="Boolean" mode="IN" optional="true"/>
+        <attribute name="includePromoItems" type="Boolean" mode="IN" optional="true"/>
+        <attribute name="shoppingCart" type="org.ofbiz.order.shoppingcart.ShoppingCart" mode="INOUT" optional="false"/>
+    </service>
+    <service name="checkOrderItemAssocStatus" engine="java" 
+    		location="com.olbius.delys.order.OrderServices" invoke="checkOrderItemAssocStatus">
+    	<description>Check the status of all items associate and approved/complete orderItemAssoc if we can</description>
+   		<attribute name="orderId" mode="IN" type="String" optional="false"/>
+   		<attribute name="orderItemSeqId" mode="IN" type="String" optional="false"/>
+   		<attribute name="statusId" mode="IN" type="String" optional="true"/>
+    </service>
+    
+    <!-- Sales in, Sales out -->
+    <service name="createSalesStatement" engine="simple" auth="true" default-entity-name="SalesStatementHeader"
+            location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="createSalesStatement">
+       <description>Creates a Sales Statement for the userLogin. Requires SALESMGR_INOUT_CREATE permission.</description>
+        <required-permissions join-type="AND">
+            <check-permission permission="SALESMGR" action="_INOUT_CREATE"/>
+        </required-permissions>
+        <auto-attributes mode="OUT" include="pk" optional="false"/>
+        <auto-attributes mode="IN" include="nonpk" optional="true"/>
+        <attribute name="salesId" mode="IN" type="String" optional="true"/>
+        <attribute name="salesTypeId" mode="IN" type="String" optional="false"/>
+        <attribute name="fromDate" mode="IN" type="Timestamp" optional="false"/>
+        <attribute name="thruDate" mode="IN" type="Timestamp" optional="false"/>
+    </service>
+    
+    <service name="findOrdersPre" engine="java" transaction-timeout="300" auth="true"
+            location="org.ofbiz.order.order.OrderLookupServices" invoke="findOrders">
+        <description>Uses dynamic view entity to find orders; returns a list of Order (OrderHeader) objects</description>
+        <!-- order header fields -->
+        <attribute name="orderId" type="String" mode="IN" optional="true"/>
+        <attribute name="orderName" type="String" mode="IN" optional="true"/>
+        <attribute name="orderTypeId" type="List" mode="IN" optional="true"/> <!-- can pass multiple values as list -->
+        <attribute name="orderStatusId" type="List" mode="IN" optional="true"/> <!-- can pass multiple values as list -->
+        <attribute name="productStoreId" type="List" mode="IN" optional="true"/> <!-- can pass multiple values as list -->
+        <attribute name="orderWebSiteId" type="List" mode="IN" optional="true"/> <!-- can pass multiple values as list -->
+        <attribute name="salesChannelEnumId" type="List" mode="IN" optional="true"/> <!-- can pass multiple values as list -->
+        <attribute name="createdBy" type="String" mode="IN" optional="true"/>
+        <attribute name="terminalId" type="String" mode="IN" optional="true"/>
+        <attribute name="transactionId" type="String" mode="IN" optional="true"/>
+        <attribute name="externalId" type="String" mode="IN" optional="true"/>
+        <attribute name="internalCode" type="String" mode="IN" optional="true"/>
+        <attribute name="useEntryDate" type="String" mode="IN" optional="true"/> <!-- Y/N use entryDate instead of orderDate -->
+        <attribute name="minDate" type="String" mode="IN" optional="true"/> <!-- converted to Timestamp -->
+        <attribute name="maxDate" type="String" mode="IN" optional="true"/> <!-- converted to Timestamp -->
+        <attribute name="hasBackOrders" type="String" mode="IN" optional="true"/> <!-- Y to only show orders with items on backorder -->
+
+        <!-- order role fields -->
+        <attribute name="userLoginId" type="String" mode="IN" optional="true"/>
+        <attribute name="roleTypeId" type="List" mode="IN" optional="true"/> <!-- can pass multiple values as list -->
+        <attribute name="partyId" type="String" mode="IN" optional="true"/>
+
+        <!-- order item fields -->
+        <attribute name="correspondingPoId" type="String" mode="IN" optional="true"/>
+        <attribute name="subscriptionId" type="String" mode="IN" optional="true"/>
+        <attribute name="productId" type="String" mode="IN" optional="true"/>
+        <attribute name="budgetId" type="String" mode="IN" optional="true"/>
+        <attribute name="quoteId" type="String" mode="IN" optional="true"/>
+
+        <!-- Product identification -->
+        <attribute name="goodIdentificationTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="goodIdentificationIdValue" type="String" mode="IN" optional="true"/>
+
+        <attribute name="billingAccountId" type="String" mode="IN" optional="true"/>
+        <attribute name="finAccountId" type="String" mode="IN" optional="true"/>
+        <attribute name="cardNumber" type="String" mode="IN" optional="true"/>
+        <attribute name="accountNumber" type="String" mode="IN" optional="true"/>
+        <attribute name="paymentStatusId" type="String" mode="IN" optional="true"/>
+
+        <!-- shipment/inventory fields -->
+        <attribute name="inventoryItemId" type="String" mode="IN" optional="true"/>
+        <attribute name="softIdentifier" type="String" mode="IN" optional="true"/>
+        <attribute name="serialNumber" type="String" mode="IN" optional="true"/>
+        <attribute name="shipmentId" type="String" mode="IN" optional="true"/>
+
+        <!-- inventory problem fields -->
+        <attribute name="filterInventoryProblems" type="String" mode="IN" optional="true"/>
+        <attribute name="filterPOsWithRejectedItems" type="String" mode="IN" optional="true"/>
+        <attribute name="filterPOsOpenPastTheirETA" type="String" mode="IN" optional="true"/>
+        <attribute name="filterPartiallyReceivedPOs" type="String" mode="IN" optional="true"/>
+
+        <attribute name="isViewed" type="String" mode="IN" optional="true"/> <!-- show orders with viewed Y/N -->
+        <attribute name="shipmentMethod" type="String" mode="IN" optional="true"/>
+        <attribute name="gatewayAvsResult" type="String" mode="IN" optional="true"/>
+        <attribute name="gatewayScoreResult" type="String" mode="IN" optional="true"/>
+
+        <!-- ship to country fields -->
+        <attribute name="countryGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="includeCountry" type="String" mode="IN" optional="true"/>        
+
+        <!-- view and page fields -->
+        <attribute name="viewIndex" type="Integer" mode="INOUT" optional="false" default-value="1"/>
+        <attribute name="viewSize" type="Integer" mode="INOUT" optional="false" default-value="20"/>
+        <attribute name="showAll" type="String" mode="INOUT" optional="true" default-value="Y"/>
+
+        <!-- index fields -->
+        <attribute name="highIndex" type="Integer" mode="OUT" optional="false"/>
+        <attribute name="lowIndex" type="Integer" mode="OUT" optional="false"/>
+
+        <!-- inventory problem results -->
+        <attribute name="filterInventoryProblemsList" type="List" mode="OUT" optional="true"/>
+        <attribute name="filterPOsWithRejectedItemsList" type="List" mode="OUT" optional="true"/>
+        <attribute name="filterPOsOpenPastTheirETAList" type="List" mode="OUT" optional="true"/>
+        <attribute name="filterPartiallyReceivedPOsList" type="List" mode="OUT" optional="true"/>
+
+        <!-- actual results -->
+        <attribute name="paramList" type="String" mode="OUT" optional="false"/>
+        <attribute name="orderList" type="List" mode="OUT" optional="false"/>
+        <attribute name="orderListSize" type="Integer" mode="OUT" optional="false"/>
+    </service>
+
+    <service name="updateSalesStatement" engine="simple" auth="true" default-entity-name="SalesStatementHeader"
+            location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="updateSalesStatement">
+       <description>Updates a Sales Statement for the userLogin. Requires SALESMGR_INOUT_UPDATE permission.</description>
+        <required-permissions join-type="AND">
+            <check-permission permission="SALESMGR" action="_INOUT_UPDATE"/>
+        </required-permissions>
+        <auto-attributes mode="IN" include="pk" optional="false"/>
+        <auto-attributes mode="IN" include="nonpk" optional="true"/>
+        <attribute name="changeNote" type="String" mode="IN" optional="true"/>
+    </service>
+
+     <!-- Sales Forecast Detail -->
+    <service name="createSalesStatementDetail" engine="simple" auth="true" default-entity-name="SalesStatementItem"
+            location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="createSalesStatementDetail">
+        <description>Creates a Sales Forecast Detail</description>
+        <auto-attributes mode="IN" include="pk" optional="false"/>
+        <auto-attributes mode="IN" include="nonpk" optional="true"/>
+        <override name="salesId" mode="INOUT"/>
+        <override name="salesItemSeqId" mode="OUT"/>
+        <override name="salesItemSeqId" mode="IN" optional="true"/>
+    </service>
+    <service name="updateSalesStatementDetail" engine="simple" auth="true" default-entity-name="SalesStatementItem"
+            location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="updateSalesStatementDetail">
+        <description>Updates a Sales Forecast Detail</description>
+        <auto-attributes mode="IN" include="pk" optional="false"/>
+        <auto-attributes mode="IN" include="nonpk" optional="true"/>
+    </service>
+    <service name="deleteSalesStatementDetail" engine="simple" default-entity-name="SalesStatementItem"
+            location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="deleteSalesStatementDetail">
+        <description>Delete a Sales Forecast Detail</description>
+        <auto-attributes mode="IN" include="pk" optional="false"/>
+    </service>
+    
+    <!-- Sales policy award -->
+    <service name="createSalesPolicy" engine="simple" default-entity-name="SalesPolicy"
+    	location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="createSalesPolicy" auth="true">
+		<required-permissions join-type="AND">
+			<check-permission permission="SALES_POLICY" action="_CREATE"/>
+		</required-permissions>	
+		<auto-attributes include="pk" mode="OUT" optional="false"/>
+		<attribute name="roleTypeIds" mode="IN" type="java.util.List"></attribute>
+		<attribute name="productStoreIds" mode="IN" type="java.util.List"></attribute>
+        <auto-attributes include="nonpk" mode="IN" optional="true">
+            <exclude field-name="createdDate"/>
+            <exclude field-name="createdByUserLogin"/>
+        </auto-attributes>
+        <override name="promoName" optional="false"/>
+        <override name="promoText" allow-html="any"/>
+    </service>
+    <service name="createSalesPolicyRole" engine="simple" default-entity-name="SalesPolicyRoleTypeApply"
+    	location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="createSalesPolicyRole">
+    	<auto-attributes mode="IN" include="pk" optional="false"></auto-attributes>
+    	<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+    </service>
+    <service name="createProductStorePolicyAppl" default-entity-name="ProductStoreSalesPolicyAppl" engine="simple"
+                location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="createProductStorePolicyAppl" auth="true">
+        <description>Create ProductStorePromoAppl</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <override name="fromDate" optional="true"/>
+    </service>
+    <service name="createSalesPolicyRule" default-entity-name="SalesPolicyRule" engine="simple"
+                location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="createSalesPolicyRule" auth="true">
+        <description>Create a ProductPromo</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <override name="salesPolicyRuleId" mode="OUT" optional="true"/>
+        <override name="paymentPartyId" mode="IN" optional="false"/>
+    </service>
+    <service name="deleteSalesPolicyRule" default-entity-name="SalesPolicyRule" engine="simple"
+                location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="deleteSalesPolicyRule" auth="true">
+        <description>Delete a SalesPolicy</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+    </service>
+    <!-- condition -->
+    <service name="createSalesPolicyCategory" default-entity-name="SalesPolicyCategory" engine="simple"
+                location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="createSalesPolicyCategory" auth="true">
+        <description>Create a SalesPolicyCategory</description>
+        <required-permissions join-type="AND">
+			<check-permission permission="SALES_POLICY" action="_CREATE"/>
+		</required-permissions>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+    <service name="createSalesPolicyCond" default-entity-name="SalesPolicyCond" engine="simple"
+                location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="createSalesPolicyCond" auth="true">
+        <description>Create a SalesPolicy</description>
+        <required-permissions join-type="AND">
+			<check-permission permission="SALES_POLICY" action="_CREATE"/>
+		</required-permissions>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <auto-attributes mode="IN" include="nonpk" entity-name="SalesPolicyCategory" optional="true"></auto-attributes>
+        <attribute name="carrierShipmentMethod" type="String" mode="IN" optional="true"/>
+        <attribute name="productCatIdListCond" mode="IN" type="java.util.List" optional="true"></attribute>
+        <attribute name="productIdListCond" mode="IN" type="java.util.List" optional="true"></attribute>
+        <override name="salesPolicyCondSeqId" mode="OUT" optional="true"/>
+    </service>
+    <service name="updateSalesPolicyCond" default-entity-name="SalesPolicyCond" engine="simple"
+                location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="updateSalesPolicyCond" auth="true">
+        <description>Update a SalesPolicy</description>
+        <required-permissions join-type="AND">
+			<check-permission permission="SALES_POLICY" action="_UPDATE"/>
+		</required-permissions>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="carrierShipmentMethod" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="deleteSalesPolicyCond" default-entity-name="SalesPolicyCond" engine="simple"
+                location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="deleteSalesPolicyCond" auth="true">
+        <description>Delete a SalesPolicy</description>
+        <required-permissions join-type="AND">
+			<check-permission permission="SALES_POLICY" action="_DELETE"/>
+		</required-permissions>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+    </service>
+    <service name="updateSalesPolicyCategory" default-entity-name="SalesPolicyCategory" engine="simple"
+                location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="updateSalesPolicyCategory" auth="true">
+        <description>Update a SalesPolicyCategory</description>
+        <required-permissions join-type="AND">
+			<check-permission permission="SALES_POLICY" action="_UPDATE"/>
+		</required-permissions>	
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+    <service name="deleteSalesPolicyCategory" default-entity-name="SalesPolicyCategory" engine="simple"
+                location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="deleteSalesPolicyCategory" auth="true">
+        <description>Delete a SalesPolicyCategory</description>
+        <required-permissions join-type="AND">
+			<check-permission permission="SALES_POLICY" action="_DELETE"/>
+		</required-permissions>	
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+    </service>
+    <service name="createSalesPolicyProduct" default-entity-name="SalesPolicyProduct" engine="simple"
+                location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="createSalesPolicyProduct" auth="true">
+        <description>Create a SalesPolicyProduct</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+    <service name="updateSalesPolicyProduct" default-entity-name="SalesPolicyProduct" engine="simple"
+                location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="updateSalesPolicyProduct" auth="true">
+        <description>Update a SalesPolicyProduct</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+    <service name="deleteSalesPolicyProduct" default-entity-name="SalesPolicyProduct" engine="simple"
+                location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="deleteSalesPolicyProduct" auth="true">
+        <description>Delete a SalesPolicyProduct</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+    </service>
+    <service name="createSalesPolicyAction" default-entity-name="SalesPolicyAction" engine="simple"
+                location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="createSalesPolicyAction" auth="true">
+        <description>Create a SalesPolicy</description>
+        <required-permissions join-type="AND">
+			<check-permission permission="SALES_POLICY" action="_CREATE"/>
+		</required-permissions>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <auto-attributes mode="IN" include="nonpk" entity-name="SalesPolicyCategory" optional="true"></auto-attributes>
+        <attribute name="productCatIdListAction" mode="IN" type="java.util.List" optional="true"></attribute>
+        <attribute name="productIdListAction" mode="IN" type="java.util.List" optional="true"></attribute>
+        <override name="salesPolicyActionSeqId" mode="OUT" optional="true"/>
+        <override name="salesPolicyActionEnumId" optional="false"/>
+    </service>
+    <service name="updateSalesPolicyAction" default-entity-name="SalesPolicyAction" engine="simple"
+                location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="updateSalesPolicyAction" auth="true">
+        <description>Update a SalesPolicy</description>
+        <required-permissions join-type="AND">
+			<check-permission permission="SALES_POLICY" action="_UPDATE"/>
+		</required-permissions>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+    <service name="deleteSalesPolicyAction" default-entity-name="SalesPolicyAction" engine="simple"
+                location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="deleteSalesPolicyAction" auth="true">
+        <description>Delete a SalesPolicy</description>
+        <required-permissions join-type="AND">
+			<check-permission permission="SALES_POLICY" action="_DELETE"/>
+		</required-permissions>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+    </service>
+    
+    <service name="updateSalesPolicyStatus" engine="simple" default-entity-name="SalesPolicy" auth="true"
+    	location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="updateSalesPolicyStatus">
+    	<required-permissions join-type="AND">
+			<check-permission permission="SALES_POLICY" action="_UPDATE"/>
+		</required-permissions>
+    	<auto-attributes mode="IN" include="pk" optional="false"></auto-attributes>
+    	<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+    	<attribute name="changeReason" type="String" mode="IN" optional="true"/>
+    	<override name="salesPolicyStatusId" optional="false"></override>
+    </service>
+    <service name="createSalesPolicyRole" engine="simple" default-entity-name="SalesPolicyRoleTypeApply"
+    	location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="createSalesPolicyRole">
+    	<auto-attributes mode="IN" include="pk" optional="false"></auto-attributes>
+    	<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+    </service>
+    <service name="deleteSalesPolicyRole" default-entity-name="SalesPolicyRoleTypeApply" engine="simple"
+    	location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="deleteSalesPolicyRole">
+    	<auto-attributes mode="IN" include="pk" optional="false"></auto-attributes>
+   	</service>
+   	
+   	<service name="getSalesCommissionAmountList" engine="java" invoke="getSalesCommissionAmountList" location="com.olbius.delys.services.SalesServices" auth="true">
+   		<description>View, calulate sales policy report by selecting duration time.</description>
+   		<required-permissions join-type="AND">
+   			<check-permission permission="SALES_POLICY" action="_ADMIN"/>
+   		</required-permissions>
+   		<!-- <attribute name="fromDate" mode="INOUT" type="Timestamp" optional="true"></attribute>
+		<attribute name="thruDate" mode="INOUT" type="Timestamp" optional="true"></attribute> -->
+   		<attribute name="roleTypeId" mode="IN" type="String" optional="true"/>
+   		<attribute name="customTimePeriodId" mode="IN" type="String" optional="true"/>
+   		<attribute name="fromDate" mode="IN" type="Timestamp" optional="true"/>
+   		<attribute name="thruDate" mode="IN" type="Timestamp" optional="true"/>
+   		<attribute name="salesCommissionAmountList" mode="OUT" type="List" optional="true"/>
+   	</service>
+   	
+   	<service name="logSalesCommissionData" engine="java" invoke="logSalesCommissionData" location="com.olbius.delys.services.SalesServices" auth="true">
+    	<description>Create sales commission data.</description>
+    	<required-permissions join-type="AND">
+    		<check-permission permission="SALES_POLICY" action="_ADMIN"/> 
+    	</required-permissions>
+    	<attribute name="roleTypeId" mode="IN" type="List" optional="true"></attribute>
+    	<attribute name="customTimePeriodId" mode="IN" type="String" optional="true"/>
+		<attribute name="fromDate" mode="IN" type="Timestamp" optional="true"></attribute>
+		<attribute name="thruDate" mode="IN" type="Timestamp" optional="true"></attribute>
+    	<attribute name="salesCommissionAmountList" mode="IN" type="List" optional="true"></attribute>
+    </service>
+   	
+   	<service name="runSalesStatementReport" engine="java" invoke="runSalesStatementReport" location="com.olbius.delys.services.SalesServices" auth="true">
+   		<required-permissions join-type="AND">
+   			<check-permission permission="SALESMGR" action="_INOUT_ADMIN"/>
+   		</required-permissions>
+   		<attribute name="salesId" mode="INOUT" type="String" optional="false"/>
+   	</service>
+   	<!-- <service name="salesCommissionRun" engine="java" invoke="runSalesCommission" location="com.olbius.delys.services.SalesServices" auth="true">
+   		<attribute name="fromDate" mode="INOUT" type="Timestamp" optional="false"/>
+   		<attribute name="thruDate" mode="INOUT" type="Timestamp" optional="false"/>
+   	</service> -->
+   	<service name="changeSalesStatementStatus" engine="simple" default-entity-name="SalesStatementHeader"
+    	location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="changeSalesStatementStatus">
+        <description>Change the status of an existing quotation</description>
+        <attribute name="salesId" type="String" mode="IN"/>
+        <attribute name="statusId" type="String" mode="IN"/>
+        <attribute name="changeReason" type="String" mode="IN" optional="true"/>
+        <attribute name="oldStatusId" type="String" mode="OUT" optional="false"/>
+        <attribute name="salesId" type="String" mode="OUT" optional="true"/>
+    </service>
+    <service name="createSalesForecastAdvance" engine="simple" auth="true" default-entity-name="SalesForecast"
+            location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="createSalesForecastAdvance">
+       <description>Creates a Sales Forecast for the userLogin. Requires ORDERMGR_4C_CREATE permission.
+            This will save the forecast into the history as well. Note that this service does not compute
+            the forecast. That must be done in a higher level service.</description>
+        <required-permissions join-type="AND">
+            <check-permission permission="ORDERMGR" action="_4C_CREATE"/>
+        </required-permissions>
+        <auto-attributes mode="OUT" include="pk" optional="false"/>
+        <auto-attributes mode="IN" include="nonpk" optional="true"/>
+    </service>
+    
+    <service name="createPromoSettleRecord" engine="java" invoke="createPromoSettleRecord" location="com.olbius.delys.services.SalesServices">
+   		<attribute name="acceptData" mode="IN" type="String" optional="false"/>
+   		<attribute name="rejectData" mode="IN" type="String" optional="false"/>
+   		<attribute name="promoSettleRecordId" mode="OUT" type="String" optional="true"/>
+   	</service>
+   	
+   	<!-- Product Price Services Custom add quantityUomId -->
+    <service name="calculateProductPriceCustom" engine="java"
+                location="com.olbius.delys.product.PriceServices" invoke="calculateProductPriceCustom" auth="false" use-transaction="false">
+        <description>Calculate a Product's Price from ProductPriceRules</description>
+        <attribute name="product" type="org.ofbiz.entity.GenericValue" mode="IN" optional="false"/>
+        <attribute name="prodCatalogId" type="String" mode="IN" optional="true"/>
+        <attribute name="webSiteId" type="String" mode="IN" optional="true"/>
+        <attribute name="partyId" type="String" mode="IN" optional="true"/>
+        <attribute name="productStoreId" type="String" mode="IN" optional="true"/>
+        <attribute name="productStoreGroupId" type="String" mode="IN" optional="true"/>
+        <attribute name="agreementId" type="String" mode="IN" optional="true"/>
+        <attribute name="quantity" type="BigDecimal" mode="IN" optional="true"/>
+        <attribute name="amount" type="BigDecimal" mode="IN" optional="true"/>
+        <attribute name="currencyUomId" type="String" mode="IN" optional="true"/>
+        <attribute name="currencyUomIdTo" type="String" mode="IN" optional="true"/>
+        <attribute name="quantityUomId" type="String" mode="IN" optional="true"/>
+        <attribute name="productPricePurposeId" type="String" mode="IN" optional="true"><!-- defaults to PURCHASE --></attribute>
+        <attribute name="termUomId" type="String" mode="IN" optional="true"><!-- if specified ProductPrice records will be filtered by this, ensures for purposes like recurring prices that only the recurring term desired is taken into consideration --></attribute>
+        <attribute name="autoUserLogin" type="org.ofbiz.entity.GenericValue" mode="IN" optional="true"/>
+        <attribute name="checkIncludeVat" type="String" mode="IN" optional="true"><!-- can be Y or N, defaults to N --></attribute>
+        <attribute name="findAllQuantityPrices" type="String" mode="IN" optional="true"><!-- can be Y or N, defaults to N; see the allQuantityPrices attribute for more details --></attribute>
+        <attribute name="surveyResponseId" type="String" mode="IN" optional="true"/>
+        <attribute name="customAttributes" type="Map" mode="IN" optional="true"/>
+        <attribute name="basePrice" type="BigDecimal" mode="OUT" optional="false"><!-- will only be different from price if there is a display price adjustment, for example: checkIncludeVat=Y and a VAT amount was found --></attribute>
+        <attribute name="price" type="BigDecimal" mode="OUT" optional="false"/>
+        <attribute name="listPrice" type="BigDecimal" mode="OUT" optional="true"/>
+        <attribute name="defaultPrice" type="BigDecimal" mode="OUT" optional="true"/>
+        <attribute name="competitivePrice" type="BigDecimal" mode="OUT" optional="true"/>
+        <attribute name="averageCost" type="BigDecimal" mode="OUT" optional="true"/>
+        <attribute name="promoPrice" type="BigDecimal" mode="OUT" optional="true"/>
+        <attribute name="specialPromoPrice" type="BigDecimal" mode="OUT" optional="true"><!-- used for the Product [Special Promo] Type ProductPromo Action --></attribute>
+        <attribute name="isSale" type="Boolean" mode="OUT" optional="false"/>
+        <attribute name="validPriceFound" type="Boolean" mode="OUT" optional="false"/>
+        <attribute name="currencyUsed" type="String" mode="OUT" optional="false"/>
+        <attribute name="orderItemPriceInfos" type="java.util.List" mode="OUT" optional="false"/>
+        <attribute name="allQuantityPrices" type="java.util.List" mode="OUT" optional="true">
+            <!-- Populated when findAllQuantityPrices is Y;
+                is a List of Map where each Map has all other return attributes normally created for a price calculation;
+                each Map in the List will also contain a field called "quantityProductPriceRule" with the GenericValue object representing the ProductPriceRule with the quantity condition that the List entry is based on
+            -->
+        </attribute>
+        <attribute name="optimizeForLargeRuleSet" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="attachPaymentOrder" engine="java" location="com.olbius.delys.order.DelysAdminShoppingCartEvents" invoke="attachPaymentOrder" auth="true">
+    	<attribute name="uploadedFile" mode="IN" type="java.nio.ByteBuffer" optional="true"></attribute>
+    	<attribute name="orderId" mode="INOUT" type="String" optional="true"></attribute>	
+    	<attribute name="_uploadedFile_fileName" type="String" mode="IN" optional="true"/>
+        <attribute name="_uploadedFile_contentType" type="String" mode="IN" optional="true"/>
+        <attribute name="imageResize" type="String" mode="IN" optional="true"/>
+    	<!-- <attribute name="filename" mode="IN" type="String" optional="true"></attribute> -->
+    	<!-- <attribute name="avatar" type="java.nio.ByteBuffer"  mode="IN" optional="true"></attribute> -->
+		<attribute name="ntfId" mode="INOUT" type="String" optional="true"/>
+	</service>
+	<service name="removePaymentOrder" engine="java" location="com.olbius.delys.order.DelysAdminShoppingCartEvents" invoke="removePaymentOrder" auth="true">
+    	<attribute name="orderId" mode="INOUT" type="String" optional="false"/>	
+    	<attribute name="dataResourceId" mode="IN" type="String" optional="false"/>
+    	<attribute name="userLoginId" mode="IN" type="String" optional="true"/>
+	</service>
+	<!-- Order content services -->
+    <service name="createOrderContent" default-entity-name="OrderContentPaymentOrder" engine="simple" auth="true"
+        location="component://delys/script/org/ofbiz/order/OrderContentServices.xml" invoke="createOrderContent">
+        <description>Add Content To Order</description>
+        <auto-attributes include="pk" mode="INOUT" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <auto-attributes entity-name="Content" include="nonpk" mode="IN" optional="true"/>
+        <!-- <override name="fromDate" optional="true"/> -->
+        <!-- <override name="contentId" optional="true" mode="INOUT"/> -->
+    </service>
+    <service name="removeOrderContent" default-entity-name="OrderContentPaymentOrder" engine="simple" auth="true"
+        location="component://delys/script/org/ofbiz/order/OrderContentServices.xml" invoke="removeOrderContent">
+        <description>Add Content To Order</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <auto-attributes entity-name="Content" include="nonpk" mode="IN" optional="true"/>
+        <!-- <override name="fromDate" optional="true"/> -->
+        <!-- <override name="contentId" optional="true" mode="INOUT"/> -->
+    </service>
+    <service name="updateOrderItemsSales" engine="java" auth="true"
+            location="com.olbius.delys.order.OrderServices" invoke="updateApprovedOrderItemsSales" transaction-timeout="7200">
+        <description>Update the quantities/prices for an existing order</description>
+        <attribute name="orderId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="supplierPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="orderTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="calcTax" type="Boolean" mode="IN" optional="true" default-value="true"/>
+        <attribute name="itemDescriptionMap" type="Map" mode="IN" string-map-prefix="idm_" optional="true"/>
+        <attribute name="itemQtyMap" type="Map" mode="IN" string-map-prefix="iqm_" optional="false"/>
+        <attribute name="itemPriceMap" type="Map" mode="IN" string-map-prefix="ipm_" optional="false"/>
+        <attribute name="overridePriceMap" type="Map" mode="IN" string-map-prefix="opm_" optional="false"/>
+        <attribute name="itemReasonMap" type="Map" mode="IN" string-map-prefix="irm_" optional="true"/>
+        <attribute name="itemCommentMap" type="Map" mode="IN" string-map-prefix="icm_" optional="true"/>
+        <attribute name="itemAttributesMap" type="Map" mode="IN" string-map-prefix="iam_" optional="true"/>
+        <attribute name="itemShipDateMap" type="Map" mode="IN" string-map-prefix="isdm_" optional="true"/>
+        <attribute name="itemDeliveryDateMap" type="Map" mode="IN" string-map-prefix="iddm_" optional="true"/>
+        <attribute name="strParam" mode="IN" type="String" optional="true"/>
+        <attribute name="shoppingCart" type="org.ofbiz.order.shoppingcart.ShoppingCart" mode="OUT" optional="false"/>
+    </service>
+    <service name="appendOrderItemSales" engine="java" auth="true"
+            location="com.olbius.delys.order.OrderServices" invoke="addItemToApprovedOrderSales">
+        <description>Append an item to an existing order</description>
+        <attribute name="orderId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="shipGroupSeqId" type="String" mode="IN" optional="false"/>
+        <attribute name="productId" type="String" mode="IN" optional="false"/>
+        <attribute name="prodCatalogId" type="String" mode="IN" optional="true"/>
+        <attribute name="basePrice" type="BigDecimal" mode="IN" optional="true"/>
+        <attribute name="quantity" type="BigDecimal" mode="IN" optional="false"/>
+        <attribute name="amount" type="BigDecimal" mode="IN" optional="true"/>
+        <attribute name="overridePrice" type="String" mode="IN" optional="true"/>
+        <attribute name="reasonEnumId" type="String" mode="IN" optional="true"/>
+        <attribute name="orderItemTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="changeComments" type="String" mode="IN" optional="true"/>
+        <attribute name="itemDesiredDeliveryDate" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="itemAttributesMap" type="Map" mode="IN" optional="true"/>
+        <attribute name="calcTax" type="Boolean" mode="IN" optional="true" default-value="true"/>
+        <!-- <attribute name="shoppingCart" type="org.ofbiz.order.shoppingcart.ShoppingCart" mode="OUT" optional="false"/> -->
+        
+        <!-- TODOCHANGE updateOrderItems -->
+        <attribute name="quantityUomId" mode="IN" type="String" optional="true"/>
+        <attribute name="expireDate" mode="IN" type="Timestamp" optional="true"/>
+    </service>
+    
+    <service name="updateSettlementGroupItem" engine="java" invoke="updateSettlementGroupItem" location="com.olbius.delys.promo.PromoServices">
+        <required-permissions join-type="AND">
+            <check-permission permission="PSETTLE_ROLE" action="_UPDATE"/>
+        </required-permissions>
+   		<attribute name="promoSettleGroupItemId" mode="IN" type="String" optional="false"/>
+   		<attribute name="quantityAccepted" mode="IN" type="String" optional="true"/>
+   		<attribute name="amountAccepted" mode="IN" type="String" optional="true"/>
+   		<attribute name="newStatusId" mode="IN" type="String" optional="true"/>
+   	</service>
+   	<service name="changeStatusPromoSettleGroup" engine="java" invoke="changeStatusPromoSettleGroup" location="com.olbius.delys.promo.PromoServices">
+   		<attribute name="promoSettleGroupId" mode="IN" type="String" optional="false"/>
+   		<attribute name="statusId" mode="IN" type="String" optional="false"/>
+   	</service>
+   	<service name="deletePromoSettleGroupItem" engine="java" invoke="deletePromoSettleGroupItem" location="com.olbius.delys.promo.PromoServices">
+   		<attribute name="promoSettleGroupItemId" mode="IN" type="String" optional="false"/>
+   	</service>
+   	<service name="getProductPromoTypesByChannel" engine="java" invoke="getProductPromoTypesByChannel" location="com.olbius.delys.promo.PromoServices">
+   		<attribute name="salesMethodChannel" mode="IN" type="String" optional="false"/>
+   		<attribute name="listProductPromoType" mode="OUT" type="java.util.List" optional="false"/>
+   	</service>
+   	<service name="createExhibitedAgreement" default-entity-name="Agreement" engine="java"
+    	invoke="createExhibitedAgreement" location="com.olbius.delys.services.SalesServices" auth="true">
+        <description>Create an Exhibited Agreement</description>
+        <implements service="createAgreement"/>
+        <attribute name="productPromoRegisterId" mode="IN" type="String" optional="true"/>
+    </service>
+    
+    <!-- ======================================= JQX Services =========================================================== -->
+   	<service name="JQListOrderListCompany" engine="java" invoke="jqListOrderListCompany" location="com.olbius.delys.services.SalesServices">
+    	<attribute name="request" mode="IN" type="javax.servlet.http.HttpServletRequest"/>
+    	<!-- <attribute name="isFilterProductStoreId" mode="IN" type="String" optional="true" default-value="Y"></attribute>
+    	<attribute name="productStoreId" mode="IN" type="String" optional="true"></attribute> -->
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="true"></attribute>
+   	</service>
+   	<service name="JQListOrderListCompanyForProposal" engine="java" invoke="jqListOrderListCompanyForProposal" location="com.olbius.delys.services.SalesServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="true"></attribute>
+   	</service>
+   	<service name="JQListOrderListSm" engine="java" invoke="jqListOrderListSm" location="com.olbius.delys.services.SalesServices">
+    	<attribute name="request" mode="IN" type="javax.servlet.http.HttpServletRequest"/>
+    	<!-- <attribute name="isFilterProductStoreId" mode="IN" type="String" optional="true" default-value="Y"></attribute>
+    	<attribute name="productStoreId" mode="IN" type="String" optional="true"></attribute> -->
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   	</service>
+   	<service name="JQGetListProductSelected" engine="java" invoke="jqGetListProductSelected" location="com.olbius.delys.services.SalesServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   	</service>
+   <service name="JQGetListProductQuotationAndPriceRCA" engine="java" invoke="jqGetListProductQuotationAndPriceRCA" location="com.olbius.delys.product.PriceServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="true"></attribute>
+   </service>
+   <service name="JQGetListProductQuotationRules" engine="java" invoke="jqGetListProductQuotatonRules" location="com.olbius.delys.product.PriceServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="true"></attribute>
+   </service>
+   <service name="JQGetListProductQuotationRulesAndTax" engine="java" invoke="jqGetListProductQuotatonRulesAndTax" location="com.olbius.delys.product.PriceServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="true"></attribute>
+   </service>
+   <service name="JQGetListProductQuotation" engine="java" invoke="jqGetListProductQuotaton" location="com.olbius.delys.product.PriceServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="true"></attribute>
+   </service>
+   <service name="JQGetListOrderItem" engine="java" invoke="jqGetListOrderItem" location="com.olbius.delys.services.SalesServices">
+   		<description>Get list orderItem by Order type List of Map</description>
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="true"></attribute>
+   </service>
+   	<service name="JQGetListProductByCatalogAndStore" engine="java" invoke="jqGetListProductByCatalogAndStore" location="com.olbius.delys.services.SalesServices">
+   		<description>Get list product by Category Catalog type List of Map</description>
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="true"></attribute>
+   	</service>
+    <service name="JQGetListRequirement" engine="java" invoke="jqGetListRequirement" location="com.olbius.delys.services.SalesServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListRequirementSentToCompany" engine="java" invoke="jqGetListRequirementSentToCompany" location="com.olbius.delys.services.SalesServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListCustomerBySup" engine="java" invoke="jqGetListCustomerBySup" location="com.olbius.delys.services.SalesServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+   </service>
+   <service name="JQGetListDistributorByCustomer" engine="java" invoke="jqGetListDistributorByCustomer" location="com.olbius.delys.services.SalesServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetListDistributorBySupervisor" engine="java" invoke="jqGetListDistributorBySupervisor" location="com.olbius.delys.services.SalesServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+   <service name="JQGetPartyPostalAddresses" engine="java" invoke="jqGetPartyPostalAddresses" location="com.olbius.delys.services.SalesServices">
+        <description>Get the party postal addresses</description>
+        <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+    </service>
+    <service name="JQGetListProductSales" engine="java" invoke="jqGetListProductSales" location="com.olbius.delys.services.SalesServices">
+        <description>Get list product selling</description>
+        <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+    </service>
+    <service name="JQGetListProductSalesOnlyProduct" engine="java" invoke="jqGetListProductSalesOnlyProduct" location="com.olbius.delys.services.SalesServices">
+        <description>Get list product selling only product table</description>
+        <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+    </service>
+    <service name="getListQuantityUomByProduct" engine="java" invoke="getListQuantityUomByProduct" location="com.olbius.delys.services.SalesServices">
+        <description>Get list product selling only product table</description>
+        <attribute name="productId" mode="IN" type="String" optional="true"/>
+   		<attribute name="listQuantityUom" mode="OUT" type="java.util.List" optional="false"></attribute>
+    </service>
+    <service name="createReturnRequirement" engine="java" invoke="createReturnRequirement" location="com.olbius.delys.services.SalesServices">
+    	<attribute name="customerId" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="distributorId" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="contactMechId" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="description" mode="IN" type="String" optional="true"></attribute>
+   		<attribute name="requirementStartDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+   		<attribute name="requiredByDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+   		<attribute name="requirementTypeId" mode="IN" type="String" optional="true"></attribute>
+   		<attribute name="reason" mode="IN" type="String" optional="true"></attribute>
+   		<attribute name="listProducts" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="requirementId" mode="OUT" type="String" optional="false"></attribute>
+   </service>
+   <service name="createReturnRequirementToCompany" engine="java" invoke="createReturnRequirementToCompany" location="com.olbius.delys.services.SalesServices">
+    	<attribute name="companyId" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="distributorId" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="contactMechId" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="description" mode="IN" type="String" optional="true"></attribute>
+   		<attribute name="requirementStartDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+   		<attribute name="requiredByDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+   		<attribute name="requirementTypeId" mode="IN" type="String" optional="true"></attribute>
+   		<attribute name="reason" mode="IN" type="String" optional="true"></attribute>
+   		<attribute name="listProducts" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="requirementId" mode="OUT" type="String" optional="false"></attribute>
+   </service>
+   <service name="JQGetListRequirementItem" engine="java" invoke="jqGetListRequirementItem" location="com.olbius.delys.services.SalesServices">
+        <description>Get list requirement item</description>
+        <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+    </service>
+    <service name="JQGetListRequirementAndItemDetail" engine="java" invoke="jqGetListRequirementAndItemDetail" location="com.olbius.delys.services.SalesServices">
+        <description>Get list requirement and item detail</description>
+        <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+    </service>
+    <service name="updateReturnProductReqItem" engine="java" invoke="updateReturnProductReqItem" location="com.olbius.delys.services.SalesServices">
+    	<description>Update a requirement item</description>
+    	<attribute name="requirementId" mode="IN" type="String" optional="false"/>
+    	<attribute name="reqItemSeqId" mode="IN" type="String" optional="false"/>
+    	<attribute name="quantityAccepted" mode="IN" type="String" optional="true"/>
+    </service>
+    <service name="createReturnOrderFromRequirement" engine="java" invoke="createReturnOrderFromRequirement" location="com.olbius.delys.services.SalesServices">
+    	<description>Create a return order by requirement</description>
+    	<attribute name="requirementId" mode="IN" type="String" optional="false"/>
+    	<attribute name="returnId" mode="OUT" type="String" optional="true"/>
+    </service>
+    
+    <service name="createReturnItemLoose" engine="simple"
+            location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="createReturnItemLoose">
+        <description>Create a new ReturnItem don't need (orderHeader and orderItem) in the RETURN_REQUESTED status, based on returnableQuantity and returnablePrice from the
+                     getReturnableQuantity service.  This can be called by the customer to request a return for himself or by a user with
+                     ORDERMGR_CREATE, but, if the former, the returnPrice will be overriden by the returnablePrice from getReturnableQuantity.</description>
+        <auto-attributes entity-name="ReturnItem" include="all" mode="IN" optional="true">
+            <exclude field-name="returnItemSeqId"/>
+        </auto-attributes>
+        <attribute name="includeAdjustments" type="String" mode="IN" optional="true"/> <!-- The default is "Y": the adjustments associated with the item are included in the return -->
+        <attribute name="returnItemSeqId" type="String" mode="OUT" optional="false"/>
+        <override name="returnId" optional="false"/>
+        <override name="returnTypeId" optional="false"/>
+        <override name="returnItemTypeId" optional="false"/>
+        <override name="orderId" optional="true"/>
+        <override name="returnQuantity" optional="false"/>
+    </service>
+    <service name="createReturnRequirementCommitment" engine="simple" auth="true"
+        location="component://delys/script/org/ofbiz/sales/SalesServices.xml" invoke="createReturnRequirementCommitment">
+        <auto-attributes entity-name="ReturnRequirementCommitment" include="pk" mode="IN" optional="false"/>
+        <auto-attributes entity-name="ReturnRequirementCommitment" include="nonpk" mode="IN" optional="true"/>
+    </service>
+    <service name="JQGetListReturnItem" engine="java" invoke="jqGetListReturnItem" location="com.olbius.delys.services.SalesServices">
+        <description>Get list return item</description>
+        <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+    </service>
+    <service name="JQGetListReturnOrder" engine="java" invoke="jqGetListReturnOrder" location="com.olbius.delys.services.SalesServices">
+        <description>Get list return order</description>
+        <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   	</service>
+   	<service name="JQGetListReturnOrderFromCustomer" engine="java" invoke="jqGetListReturnOrderFromCustomer" location="com.olbius.delys.services.SalesServices">
+        <description>Get list return order</description>
+        <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   	</service>
+   	<service name="JQGetListReturnOrderToCompany" engine="java" invoke="jqGetListReturnOrderToCompany" location="com.olbius.delys.services.SalesServices">
+        <description>Get list return order to company</description>
+        <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   	</service>
+   	<!-- <service name="JQGetListFacilityLocation" engine="java" invoke="jqGetListFacilityLocation" location="com.olbius.delys.services.SalesServices">
+        <description>Get list facility location</description>
+        <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   	</service> -->
+   	<service name="getPartiesAndName" engine="java" invoke="getPartiesAndName" location="com.olbius.delys.services.SalesServices">
+   		<attribute name="listParty" mode="OUT" type="java.util.List" optional="false"></attribute>
+   	</service>
+   	<service name="JQGetListDistributor" engine="java" invoke="jqGetListDistributor" location="com.olbius.delys.services.SalesServices">
+        <description>Get list distributor</description>
+        <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   	</service>
+   	<service name="JQGetListSalesmanByDist" engine="java" invoke="jqGetListSalesmanByDist" location="com.olbius.delys.services.SalesServices">
+        <description>Get list salesman by distributor</description>
+        <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   	</service>
+   	<service name="getGeneralInformationOfParty" engine="java" invoke="getGeneralInformationOfParty" location="com.olbius.delys.services.SalesServices">
+   		<attribute name="partyId" mode="INOUT" type="String" optional="false"></attribute>
+   		<attribute name="partyNameView" mode="OUT" type="org.ofbiz.entity.GenericValue" optional="true"/>
+   		<attribute name="postalAddress" mode="OUT" type="java.util.List" optional="true"/>
+   		<attribute name="phone" mode="OUT" type="String" optional="true"/>
+   		<attribute name="email" mode="OUT" type="String" optional="true"/>
+   	</service>
+   	<service name="createPartyDistributor" engine="java" invoke="createPartyDistributor" location="com.olbius.delys.services.SalesServices" auth="true">
+        <description>Create an Distributor</description>
+        <attribute name="partyId" mode="IN" type="String" optional="true"/>
+        <attribute name="organizationalUnitName" mode="IN" type="String" optional="true"/>
+        <attribute name="parentOrgId" mode="IN" type="String" optional="true"/>
+        <attribute name="functions" mode="IN" type="String" optional="true"/>
+        <attribute name="officeSiteName" mode="IN" type="String" optional="true"/>
+        <attribute name="currencyUomId" mode="IN" type="String" optional="true"/>
+        <attribute name="description" mode="IN" type="String" optional="true"/>
+        <attribute name="address1" mode="IN" type="String" optional="true"/>
+        <attribute name="emailAddress" mode="IN" type="String" optional="true"/>
+        <attribute name="countryGeoId" mode="IN" type="String" optional="true"/>
+        <attribute name="stateProvinceGeoId" mode="IN" type="String" optional="true"/>
+        <attribute name="countyGeoId" mode="IN" type="String" optional="true"/>
+        <attribute name="useForShippingAddress" mode="IN" type="String" optional="true"/>
+        <attribute name="countryCode" mode="IN" type="String" optional="true"/>
+        <attribute name="areaCode" mode="IN" type="String" optional="true"/>
+        <attribute name="contactNumber" mode="IN" type="String" optional="true"/>
+        <attribute name="userLoginIdStr" mode="IN" type="String" optional="true"/>
+        <attribute name="currentPassword" mode="IN" type="String" optional="true"/>
+        <attribute name="currentPasswordVerify" mode="IN" type="String" optional="true"/>
+        <attribute name="passwordHint" mode="IN" type="String" optional="true"/>
+        <attribute name="requirePasswordChange" mode="IN" type="String" optional="true" default-value="Y"/>
+        <attribute name="partyId" mode="OUT" type="String" optional="true"/>
+    </service>
+    <service name="JQGetListSalesman" engine="java" invoke="jqGetListSalesman" location="com.olbius.delys.services.SalesServices">
+        <description>Get list Salesman</description>
+        <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   	</service>
+   	
+   	<service name="JQGetListSupervisorDepartmentInRel" engine="java" invoke="jqGetListSupervisorDepartmentInRel" location="com.olbius.delys.services.SalesServices">
+        <description>Get list Supervisor Department</description>
+        <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   	</service>
+   	
+   	<service name="createPartySalesman" engine="java" invoke="createPartySalesman" location="com.olbius.delys.services.SalesServices" auth="true">
+        <description>Create an Distributor</description>
+        <attribute name="partyId" mode="IN" type="String" optional="true"/>
+        <attribute name="firstName" mode="IN" type="String" optional="true"/>
+        <attribute name="lastName" mode="IN" type="String" optional="true"/>
+        <attribute name="middleName" mode="IN" type="String" optional="true"/>
+        <attribute name="gender" mode="IN" type="String" optional="true"/>
+        <attribute name="roleTypeId" mode="IN" type="String" optional="true"/>
+        <attribute name="parentOrgId" mode="IN" type="String" optional="true"/>
+        <attribute name="functions" mode="IN" type="String" optional="true"/>
+        <attribute name="birthDate" mode="IN" type="java.sql.Timestamp" optional="true"/>
+        <attribute name="currencyUomId" mode="IN" type="String" optional="true"/>
+        <attribute name="description" mode="IN" type="String" optional="true"/>
+        <attribute name="address1" mode="IN" type="String" optional="true"/>
+        <attribute name="emailAddress" mode="IN" type="String" optional="true"/>
+        <attribute name="countryGeoId" mode="IN" type="String" optional="true"/>
+        <attribute name="stateProvinceGeoId" mode="IN" type="String" optional="true"/>
+        <attribute name="countyGeoId" mode="IN" type="String" optional="true"/>
+        <attribute name="useForShippingAddress" mode="IN" type="String" optional="true"/>
+        <attribute name="countryCode" mode="IN" type="String" optional="true"/>
+        <attribute name="areaCode" mode="IN" type="String" optional="true"/>
+        <attribute name="contactNumber" mode="IN" type="String" optional="true"/>
+        <attribute name="userLoginIdStr" mode="IN" type="String" optional="true"/>
+        <attribute name="currentPassword" mode="IN" type="String" optional="true"/>
+        <attribute name="currentPasswordVerify" mode="IN" type="String" optional="true"/>
+        <attribute name="passwordHint" mode="IN" type="String" optional="true"/>
+        <attribute name="requirePasswordChange" mode="IN" type="String" optional="true" default-value="Y"/>
+        <attribute name="partyId" mode="OUT" type="String" optional="true"/>
+    </service>
+   	
+   	<service name="sendNotifyChangeOrderStatus" engine="java" invoke="sendNotifyChangeOrderStatus" location="com.olbius.delys.services.SalesServices" auth="true">
+   		<description>Send a notify when order has changed status</description>
+   		<attribute name="orderId" mode="INOUT" type="String" optional="true"/>
+   		<attribute name="ntfId" mode="IN" type="String" optional="true"/>
+   	</service>
+</services>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <property key="wgpagergotopagestring">
+        <value xml:lang="en">Go to page</value>
+        <value xml:lang="vi">Tới trang</value>
+	</property>
+	<property key="wgpagershowrowsstring">
+        <value xml:lang="en">Show rows</value>
+        <value xml:lang="vi">Số lượng dòng</value>
+	</property>
+	<property key="wgpagerrangestring">
+        <value xml:lang="en">of</value>
+        <value xml:lang="vi">trên</value>
+	</property>
+	<property key="wgpagernextbuttonstring">
+        <value xml:lang="en">next</value>
+        <value xml:lang="vi">rang tiếp theo</value>
+	</property>
+	<property key="wgpagerpreviousbuttonstring">
+        <value xml:lang="en">previous</value>
+        <value xml:lang="vi">trang trước</value>
+	</property>
+	<property key="wgsortascendingstring">
+        <value xml:lang="en">Sort Ascending</value>
+        <value xml:lang="vi">Sắp xếp tăng dần</value>
+	</property>
+	<property key="wgsortdescendingstring">
+        <value xml:lang="en">Sort descending</value>
+        <value xml:lang="vi">Sắp xếp giảm dần</value>
+	</property>
+	<property key="wgemptydatastring">
+        <value xml:lang="en">No data to display</value>
+        <value xml:lang="vi">Không có dữ liệu</value>
+	</property>
+	<property key="wgfilterselectstring">
+        <value xml:lang="en">Select filter</value>
+        <value xml:lang="vi">Lựa chọn lọc</value>
+	</property>
+	<property key="wgfilterselectallstring">
+        <value xml:lang="en">(Select all)</value>
+        <value xml:lang="vi">(Chọn hết)</value>
+	</property>
+	<property key="filterchoosestring">
+        <value xml:lang="en">Please Choose:</value>
+        <value xml:lang="vi">Lựa chọn:</value>
+	</property>
+	<property key="filterselectallstring">
+        <value xml:lang="en">Select all</value>
+        <value xml:lang="vi">Chọn hết</value>
+	</property>
+	<property key="wgsortremovestring">
+        <value xml:lang="en">Sort remove</value>
+        <value xml:lang="vi">Bỏ sắp xếp</value>
+	</property>
+	<property key="wgmonday">
+        <value xml:lang="en">Monday</value>
+        <value xml:lang="vi">Thứ hai</value>
+	</property>
+	<property key="wgtuesday">
+        <value xml:lang="en">Tuesday</value>
+        <value xml:lang="vi">Thứ ba</value>
+	</property>
+	<property key="wgwednesday">
+        <value xml:lang="en">Wednesday</value>
+        <value xml:lang="vi">Thứ tư</value>
+	</property>
+	<property key="wgthursday">
+        <value xml:lang="en">Thursday</value>
+        <value xml:lang="vi">Thứ năm</value>
+	</property>
+	<property key="wgfriday">
+        <value xml:lang="en">Friday</value>
+        <value xml:lang="vi">Thứ sáu</value>
+	</property>
+	<property key="wgsaturday">
+        <value xml:lang="en">Saturday</value>
+        <value xml:lang="vi">Thứ bảy</value>
+	</property>
+	<property key="wgsunday">
+        <value xml:lang="en">Sunday</value>
+        <value xml:lang="vi">Chủ nhật</value>
+	</property>
+	<property key="wgamonday">
+        <value xml:lang="en">Monday</value>
+        <value xml:lang="vi">Hai</value>
+	</property>
+	<property key="wgatuesday">
+        <value xml:lang="en">Tuesday</value>
+        <value xml:lang="vi">Ba</value>
+	</property>
+	<property key="wgawednesday">
+        <value xml:lang="en">Wednesday</value>
+        <value xml:lang="vi">Tư</value>
+	</property>
+	<property key="wgathursday">
+        <value xml:lang="en">Thursday</value>
+        <value xml:lang="vi">Năm</value>
+	</property>
+	<property key="wgafriday">
+        <value xml:lang="en">Friday</value>
+        <value xml:lang="vi">Sáu</value>
+	</property>
+	<property key="wgasaturday">
+        <value xml:lang="en">Saturday</value>
+        <value xml:lang="vi">Bảy</value>
+	</property>
+	<property key="wgasunday">
+        <value xml:lang="en">Sunday</value>
+        <value xml:lang="vi">CN</value>
+	</property>
+	<property key="wgsmonday">
+        <value xml:lang="en">Monday</value>
+        <value xml:lang="vi">H</value>
+	</property>
+	<property key="wgstuesday">
+        <value xml:lang="en">Tuesday</value>
+        <value xml:lang="vi">B</value>
+	</property>
+	<property key="wgswednesday">
+        <value xml:lang="en">Wednesday</value>
+        <value xml:lang="vi">T</value>
+	</property>
+	<property key="wgsthursday">
+        <value xml:lang="en">Thursday</value>
+        <value xml:lang="vi">N</value>
+	</property>
+	<property key="wgsfriday">
+        <value xml:lang="en">Friday</value>
+        <value xml:lang="vi">S</value>
+	</property>
+	<property key="wgssaturday">
+        <value xml:lang="en">Saturday</value>
+        <value xml:lang="vi">B</value>
+	</property>
+	<property key="wgssunday">
+        <value xml:lang="en">Sunday</value>
+        <value xml:lang="vi">C</value>
+	</property>
+	<property key="wgjanuary">
+        <value xml:lang="en">January</value>
+        <value xml:lang="vi">Tháng Một</value>
+	</property>
+	<property key="wgfebruary">
+        <value xml:lang="en">February</value>
+        <value xml:lang="vi">Tháng Hai</value>
+	</property>
+	<property key="wgmarch">
+        <value xml:lang="en">March</value>
+        <value xml:lang="vi">Tháng Ba</value>
+	</property>
+	<property key="wgapril">
+        <value xml:lang="en">April</value>
+        <value xml:lang="vi">Tháng Tư</value>
+	</property>
+	<property key="wgmay">
+        <value xml:lang="en">May</value>
+        <value xml:lang="vi">Tháng Năm</value>
+	</property>
+	<property key="wgjune">
+        <value xml:lang="en">June</value>
+        <value xml:lang="vi">Tháng Sáu</value>
+	</property>
+	<property key="wgjuly">
+        <value xml:lang="en">July</value>
+        <value xml:lang="vi">Tháng Bảy</value>
+	</property>
+	<property key="wgaugust">
+        <value xml:lang="en">August</value>
+        <value xml:lang="vi">Tháng Tám</value>
+	</property>
+	<property key="wgseptember">
+        <value xml:lang="en">September</value>
+        <value xml:lang="vi">Tháng Chín</value>
+	</property>
+	<property key="wgoctober">
+        <value xml:lang="en">October</value>
+        <value xml:lang="vi">Tháng Mười</value>
+	</property>
+	<property key="wgnovember">
+        <value xml:lang="en">November</value>
+        <value xml:lang="vi">Tháng Mười Một</value>
+	</property>
+	<property key="wgdecember">
+        <value xml:lang="en">December</value>
+        <value xml:lang="vi">Tháng Mười Hai</value>
+	</property>
+	<property key="wgajanuary">
+        <value xml:lang="en">January</value>
+        <value xml:lang="vi">Thg1</value>
+	</property>
+	<property key="wgafebruary">
+        <value xml:lang="en">February</value>
+        <value xml:lang="vi">Thg2</value>
+	</property>
+	<property key="wgamarch">
+        <value xml:lang="en">March</value>
+        <value xml:lang="vi">Thg3</value>
+	</property>
+	<property key="wgaapril">
+        <value xml:lang="en">April</value>
+        <value xml:lang="vi">Thg4</value>
+	</property>
+	<property key="wgamay">
+        <value xml:lang="en">May</value>
+        <value xml:lang="vi">Thg5</value>
+	</property>
+	<property key="wgajune">
+        <value xml:lang="en">June</value>
+        <value xml:lang="vi">Thg6</value>
+	</property>
+	<property key="wgajuly">
+        <value xml:lang="en">July</value>
+        <value xml:lang="vi">Thg7</value>
+	</property>
+	<property key="wgaaugust">
+        <value xml:lang="en">August</value>
+        <value xml:lang="vi">Thg8</value>
+	</property>
+	<property key="wgaseptember">
+        <value xml:lang="en">September</value>
+        <value xml:lang="vi">Thg9</value>
+	</property>
+	<property key="wgaoctober">
+        <value xml:lang="en">October</value>
+        <value xml:lang="vi">Thg10</value>
+	</property>
+	<property key="wganovember">
+        <value xml:lang="en">November</value>
+        <value xml:lang="vi">Thg11</value>
+	</property>todaystring
+	<property key="wgadecember">
+        <value xml:lang="en">December</value>
+        <value xml:lang="vi">Thg12</value>
+	</property>
+	<property key="wgtodaystring">
+        <value xml:lang="en">Today</value>
+        <value xml:lang="vi">Hôm nay</value>
+	</property>
+	<property key="wgclearstring">
+        <value xml:lang="en">Clear</value>
+        <value xml:lang="vi">Xóa trắng</value>
+	</property>
+	<property key="wgok">
+        <value xml:lang="en">Ok</value>
+        <value xml:lang="vi">Đồng ý</value>
+	</property>
+	<property key="wgcancel">
+        <value xml:lang="en">Cancel</value>
+        <value xml:lang="vi">Bỏ qua</value>
+	</property>
+	<property key="wgupdatesuccess">
+        <value xml:lang="en">Update successful</value>
+        <value xml:lang="vi">Cập nhật thành công</value>
+	</property>
+	<property key="wgdeletesuccess">
+        <value xml:lang="en">Delete successful</value>
+        <value xml:lang="vi">Xóa thành công</value>
+	</property>
+	<property key="wgaddsuccess">
+        <value xml:lang="en">Add successful</value>
+        <value xml:lang="vi">Thêm mới thành công</value>
+	</property>
+	<property key="wgdeletedata">
+        <value xml:lang="en">Delete data</value>
+        <value xml:lang="vi">Xóa dữ liệu</value>
+	</property>
+	<property key="wgdeleteconfirm">
+        <value xml:lang="en">These all items will be delete. Are you sure</value>
+        <value xml:lang="vi">Những dòng đã lựa chọn sẽ bị xóa. Bạn có chắc chắn muốn xóa không</value>
+	</property>
+	<property key="cldisplay">
+        <value xml:lang="en">Columns to display</value>
+        <value xml:lang="vi">Hiển thị/Ẩn cột</value>
+	</property>
+	<property key="clpin">
+        <value xml:lang="en">Columns to pin</value>
+        <value xml:lang="vi">Đính/Bỏ đính cột</value>
+	</property>
+	<property key="clconfiguration">
+        <value xml:lang="en">Configuration</value>
+        <value xml:lang="vi">Cấu hình</value>
+	</property>
+</resource>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	<screen name="ListDeliveryEntry">
+    	<section>
+            <actions>
+            	<set field="titleProperty" value="ListDeliveryEntry"/>
+            	<set field="selectedMenuItem" value="facilityShipment"/>
+            	<set field="selectedSubMenuItem" value="DeliveryEntry" />
+			</actions>
+			<widgets>
+				<decorator-screen name="DelysCommonDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html><html-template location="component://delys/webapp/delys/logistics/delivery/listDeliveryEntry.ftl"/></html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+       </section>
+    </screen>
+	
+	<screen name="DeliveryEntryDetail">
+    	<section>
+            <actions>
+            	<set field="titleProperty" value="ShipmenElement"/>
+            	<set field="selectedMenuItem" value="facilityShipment"/>
+            	<set field="selectedSubMenuItem" value="DeliveryEntry" />
+            	<set field="tabButtonItem" value="DeliveryEntry"/>
+            	<set field="deliveryEntryId" from-field="parameters.deliveryEntryId"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="DelysCommonDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<include-menu location="component://delys/widget/DelysMenus.xml" name="DeliveryEntryTabBar"/>
+						<platform-specific>
+							<html><html-template location="component://delys/webapp/delys/logistics/delivery/listShipmentInDE.ftl"/></html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+       </section>
+    </screen>
+ 	<screen name="VehicleByDeliveryEntry">
+    	<section>
+            <actions>
+                <set field="selectedMenuItem" value="facilityShipment"/>
+                <set field="selectedSubMenuItem" value="DeliveryEntry"/>
+                <set field="tabButtonItem" value="DeliveryEntryVehicle"/>
+                <set field="deliveryEntryId" from-field="parameters.deliveryEntryId"/>
+                <entity-one value-field="deliveryEntry" entity-name="DeliveryEntry"></entity-one>
+                <set field="titleProperty" value="Vehicles"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="DelysCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<include-menu location="component://delys/widget/DelysMenus.xml" name="DeliveryEntryTabBar"/>
+                    	<platform-specific>
+							<html>
+								<html-template location="component://delys/webapp/delys/logistics/delivery/listDeliveryEntryVehicles.ftl"/>
+							</html>
+						</platform-specific>
+    				</decorator-section>
+    			</decorator-screen>
+			</widgets>
+       </section>
+    </screen>
+    <screen name="DeliveryEntryPackage">
+    	<section>
+            <actions>
+                <set field="selectedMenuItem" value="facilityShipment"/>
+                <set field="selectedSubMenuItem" value="DeliveryEntry"/>
+                <set field="tabButtonItem" value="DeliveryEntryPackage"/>
+                <set field="deliveryEntryId" from-field="parameters.deliveryEntryId"/>
+                <entity-one value-field="deliveryEntry" entity-name="DeliveryEntry"></entity-one>
+                <set field="titleProperty" value="PackingList"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="DelysCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<include-menu location="component://delys/widget/DelysMenus.xml" name="DeliveryEntryTabBar"/>
+                    	<platform-specific>
+							<html>
+								<html-template location="component://delys/webapp/delys/logistics/delivery/listDeliveryEntryPackages.ftl"/>
+							</html>
+						</platform-specific>
+    				</decorator-section>
+    			</decorator-screen>
+			</widgets>
+       </section>
+    </screen>
+</screens>

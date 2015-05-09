@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="facility-report">
+		<section>
+			<actions>
+				<property-map map-name="uiLabelMap" resource="FacilityUiLabels" global="true"/>
+			
+				<set field="facilityId" from-field="parameters.facilityId"/>
+				<set field="productId" from-field="parameters.productId"/>
+				<set field="fromDate" default-value="2000-01-01" from-field="parameters.fromDate"/>
+				<set field="thruDate" default-value="2000-12-31" from-field="parameters.thruDate"/>
+				<!-- olapType : RECEIVE, EXPORT, INVENTORY -->
+				<set field="olapType" default-value="INVENTORY" from-field="parameters.olapType"/>
+				<!-- dateType : DAY, WEEK, MONTH, QUARTER, YEAR -->
+				<set field="dateType" default-value="MONTH" from-field="parameters.dateType"/>
+				<set field="geoId" from-field="parameters.geoId"/>
+				<set field="geoType" from-field="parameters.geoType"/>
+			</actions>
+			<widgets>
+				<screenlet id="center">
+					<container id="centerView">
+						<platform-specific>
+							<html>
+								<html-template location="component://bi-x/widget/ftl/facility-report-view.ftl" />
+							</html>
+						</platform-specific>
+					</container>
+				</screenlet>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="facility-report-pie">
+		<section>
+			<actions>
+				<property-map map-name="uiLabelMap" resource="FacilityUiLabels" global="true"/>
+			
+				<set field="facilityId" from-field="parameters.facilityId"/>
+				<set field="date" default-value="2000-01-01" from-field="parameters.date"/>
+				<!-- olapType : RECEIVE, EXPORT, INVENTORY, BOOK, AVAILABLE -->
+				<set field="olapType" default-value="INVENTORY" from-field="parameters.olapType"/>
+				<!-- dateType : DAY, WEEK, MONTH, QUARTER, YEAR -->
+				<set field="dateType" default-value="MONTH" from-field="parameters.dateType"/>
+				<set field="geoId" from-field="parameters.geoId"/>
+				<set field="geoType" from-field="parameters.geoType"/>
+			</actions>
+			<widgets>
+				<screenlet id="center">
+					<container id="centerView">
+						<platform-specific>
+							<html>
+								<html-template location="component://bi-x/widget/ftl/facility-report-pie-view.ftl" />
+							</html>
+						</platform-specific>
+					</container>
+				</screenlet>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="facility-report-pie-ii">
+		<section>
+			<actions>
+				<property-map map-name="uiLabelMap" resource="FacilityUiLabels" global="true"/>
+			
+				<set field="productId" from-field="parameters.productId"/>
+				<set field="date" default-value="2000-01-01" from-field="parameters.date"/>
+				<!-- olapType : RECEIVE, EXPORT, INVENTORY, BOOK, AVAILABLE -->
+				<set field="olapType" default-value="INVENTORY" from-field="parameters.olapType"/>
+				<!-- dateType : DAY, WEEK, MONTH, QUARTER, YEAR -->
+				<set field="dateType" default-value="MONTH" from-field="parameters.dateType"/>
+				<set field="geoType" from-field="parameters.geoType"/>
+			</actions>
+			<widgets>
+				<screenlet id="center">
+					<container id="centerView">
+						<platform-specific>
+							<html>
+								<html-template location="component://bi-x/widget/ftl/facility-report-pie-ii-view.ftl" />
+							</html>
+						</platform-specific>
+					</container>
+				</screenlet>
+			</widgets>
+		</section>
+	</screen>
+	
+</screens>

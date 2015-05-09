@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+		<title>Dashboard - Ace Admin</title>
+		<meta name="description" content="overview & stats" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="utf-8" />
+		
+		<!-- basic styles -->
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
+
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+
+		<!-- page specific plugin styles -->
+		
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-responsive.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		
+		<!--[if lt IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+</head>
+
+<body>
+	<span id="navbar"> </span>
+
+	<div class="main-container container-fluid">
+		<div class="main-container-inner">
+			<div class="sidebar" id="sidebar">
+			</div>
+			<div class="main-content">
+				<div class="page-content">	
+				<div class="page-header">
+					
+					<h1>Dashboard 
+					<small>
+						<i class="icon-double-angle-right"></i>
+						<span id="dashboard_pageheader">Tổng quan & thống kê</span>
+					</small>
+					</h1>
+				</div>				
+				<div class="row-fluid">							
+					<div class="space-6"></div>
+					<div id="test"></div>
+					<div class="row-fluid">
+						<div class="span7">
+							<div class="widget-box">
+								<div class="widget-header widget-header-flat widget-header-small">
+									<h5 id="dashboard_rateNumberProductSold">Tỷ lệ số lượng các SP đã bán(%)</h5>
+								</div>	
+								<div class="widget-body">
+									<div class="widget-main">
+										<div id="productQtyReport" style="width: 99%; height: 220px;"></div>
+									</div>
+								</div>
+							</div>	
+						</div>
+						<div class="vspace"></div>
+						<div class="span5">
+							<div class="widget-box">
+								<div class="widget-header widget-header-flat widget-header-small">
+									<h5 id="dashboard_amountOrders">Tỷ lệ doanh số đơn hàng trong 6 tháng gần nhất(%)</h5>
+								</div>	
+								<div class="widget-body">
+									<div class="widget-main">
+										<div id="orderAmount" style="width: 99%; height: 220px;"></div>
+									</div>
+								</div>
+							</div>	
+						</div>	
+					</div>
+					<div class="hr hr32 hr-dotted"></div>
+					<div class="space-6"></div>
+					<div class="row-fluid">
+						<div class="span5">
+							<div class="wiget-box">
+								<div class="widget-header widget-header-flat widget-header-small">
+									<h5><i class="icon-signal"></i> 
+										<span id="dashboard_bestCustomers">Khách hàng có tổng GT đơn hàng lơn nhất</span></h5>
+									<div class="widget-toolbar no-border">
+										<button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+											<span id="dashboard_monthBtnCus">Tháng này</span><i class="icon-angle-down icon-on-right"></i></button>
+										<ul class="dropdown-menu dropdown-info pull-right dropdown-caret">
+											<li id="dashboard_liThisMonthCus" class="active">
+												<a onclick="updateBestCus('thisMonth')">Tháng này</a></li>											
+											<li id="dashboard_liLastMonthCus"><a onclick="updateBestCus('lastMonth')">Tháng trước</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="widget-body">
+									<div class="widget-main">
+										<div id="piechart-placeholder" style="width: 90%; min-height: 150px; padding: 0px; position: relative;">
+										
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="vspace"></div>
+						<div class="span7">
+							<div class="widget-box">
+								<div class="widget-header widget-header-flat">
+									<h4 class="lighter">
+										<i class="icon-calendar blue"></i>
+										<span id="">Các sự kiện trong tháng</span>
+									</h4>
+									<div class="widget-toolbar no-border">
+										<button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+											<span id="">Tháng này</span> 
+											<i class="icon-angle-down icon-on-right"></i>
+										</button>
+										<ul class="dropdown-menu dropdown-info pull-right dropdown-caret">
+											<li class="active" id="dashboard_liThisMonth">
+												<a id="" onclick="updatePopuLarProduct('thisMonth');">Tháng này</a></li>												
+											<li id="dashboard_liLastMonth">
+												<a id="" onclick="updatePopuLarProduct('lastMonth');">Tháng trước</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="widget-body">
+									<div class="widget-body-inner">
+										<div class="widget-main no-padding">
+											<table id="table_report" class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+														<th>
+															<i class="icon-caret-right blue"></i>
+															<span id="dashboard_nameBestProduct">Sự kiện</span>
+														</th>
+														<th>
+															<i class="icon-caret-right blue"></i>
+															<span id="dashboard_quantityBestProduct">Thời gian</span>
+														</th>
+														<th>
+															<i class="icon-caret-right blue"></i>
+															<span id="dashboard_quantityBestProduct">Doanh số</span>
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													
+														<tr style="text-align: center;">
+															<td class=""><b class="blue">Sự kiện 1</b></td>
+															<td>																
+																<b class="blue">Từ ngày 7 đến ngày 15</b>
+															</td>
+															<td>10,000,000VND</td>
+														</tr>
+														
+														<tr style="text-align: center;">
+															<td class=""><b class="blue">Sự kiện 2</b></td>
+															<td>
+																<b class="blue">Từ ngày 10 đến ngày 19</b>
+															</td>
+															<td class="">12,000,000VND</td>
+														</tr>
+														
+														<tr style="text-align: center;">
+															<td class=""><b class="blue">Sự kiện 3</b></td>
+															<td>
+																<b class="blue">Từ ngày 22 đến ngày 29</b>
+															</td>
+															<td>20,000,000VND</td>
+														</tr>																											
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+												
+					</div>
+					<div class="hr hr32 hr-dotted"></div>					
+					<div class="row-fluid">
+						<div class="span5">
+							<div class="widget-box transparent">
+								<div class="widget-header widget-header-flat">
+									<h4 class="lighter">
+										<i class="icon-star orange"></i>
+										<span id="dashboard_bestProduct">5 SP bán chạy nhất</span>
+									</h4>
+									<div class="widget-toolbar no-border">
+										<button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+											<span id="dashboard_monthBtn">Tháng này</span> 
+											<i class="icon-angle-down icon-on-right"></i>
+										</button>
+										<ul class="dropdown-menu dropdown-info pull-right dropdown-caret">
+											<li class="active" id="dashboard_liThisMonth">
+												<a id="thisMOnclick" onclick="updatePopuLarProduct('thisMonth');">Tháng này</a></li>												
+											<li id="dashboard_liLastMonth">
+												<a id="lastMOnclick" onclick="updatePopuLarProduct('lastMonth');">Tháng trước</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="widget-body">
+									<div class="widget-body-inner">
+										<div class="widget-main no-padding">
+											<table id="table_bug_report" class="table table-bordered table-striped">
+												<thead>
+													<tr>
+														<th>
+															<i class="icon-caret-right blue"></i>
+															<span id="dashboard_nameBestProduct">Tên SP</span>
+														</th>
+														<th>
+															<i class="icon-caret-right blue"></i>
+															<span id="dashboard_quantityBestProduct">Số lượng</span>
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="vspace"></div>
+						<div class="span7 infobox-container">
+							<div class="infobox-container">
+								<div class="infobox infobox-pink">
+									<div class="infobox-icon">
+										<i class="icon-shopping-cart"></i>									
+									</div>
+									<div class="infobox-data">
+										<span class="infobox-data-number" id="orders_created">-1</span>
+										<span class="infobox-content">Đh tạo hôm nay</span>
+									</div>
+								</div>
+								<div class="infobox infobox-green">
+									<div class="infobox-icon">
+										<i class="icon-ok"></i>									
+									</div>
+									<div class="infobox-data">
+										<span class="infobox-data-number" id="orders_complete">-1</span>
+										<span class="infobox-content">ĐH hoàn thành hôm nay</span>
+									</div>
+								</div>
+								<!-- <div class="infobox infobox-orange2">
+									<div class="infobox-icon">
+										<i class="icon-shopping-cart"></i>									
+									</div>
+									<div class="infobox-data">
+										<span class="infobox-data-number" id="orders_approval">-1</span>
+										<span class="infobox-content">orders approval</span>
+									</div>
+								</div> -->
+								<div class="infobox infobox-red">
+									<div class="infobox-icon">
+										<i class="icon-trash"></i>									
+									</div>
+									<div class="infobox-data">
+										<span class="infobox-data-number" id="orders_canceled">-1</span>
+										<span class="infobox-content">ĐH bị hủy hôm nay</span>
+									</div>
+								</div>									
+								<div class="infobox infobox-blue2">
+									<div class="infobox-icon">
+										<i class="icon-shopping-cart"></i>									
+									</div>
+									<div class="infobox-data">
+										<span class="infobox-data-number" id="waiting_payment">-1</span>
+										<span class="infobox-content">ĐH chờ thanh toán</span>
+									</div>
+								</div>									
+								<div class="infobox infobox-blue">
+									<div class="infobox-icon">
+										<i class="icon-shopping-cart"></i>									
+									</div>
+									<div class="infobox-data">
+										<span class="infobox-data-number" id="waiting_complete">-1</span>
+										<span class="infobox-content">ĐH chờ được duyệt</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>				
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /.main-container -->
+
+	<!-- basic scripts -->
+
+	<!--[if !IE]> -->
+
+	<script type="text/javascript">
+		window.jQuery
+				|| document
+						.write("<script src='assets/js/jquery-2.0.3.min.js'>"
+								+ "<"+"/script>");
+	</script>
+
+	<!-- <![endif]-->
+
+	<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+	<script type="text/javascript">
+		if ("ontouchend" in document)
+			document
+					.write("<script src='assets/js/jquery.mobile.custom.min.js'>"
+							+ "<"+"/script>");
+	</script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	
+
+	<!-- page specific plugin scripts -->
+
+	<!--[if lte IE 8]>
+	  <script src="assets/js/excanvas.min.js"></script>
+	<![endif]-->
+		
+	<script src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+	<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+	<script src="assets/js/jquery.slimscroll.min.js"></script>
+	<script src="assets/js/jquery.easy-pie-chart.min.js"></script>
+	<script src="assets/js/jquery.sparkline.min.js"></script>
+	<script src="assets/js/flot/jquery.flot.min.js"></script>
+	<script src="assets/js/flot/jquery.flot.pie.min.js"></script>
+	<script src="assets/js/flot/jquery.flot.resize.min.js"></script>
+	<script src="assets/js/flot/jquery.flot.axislabels.js"></script>
+	<script src="assets/js/flot/jquery.flot.time.min.js"></script>
+	<script src="assets/js/flot/jquery.flot.barnumbers.js" type="text/javascript"></script>
+	<!-- ace scripts -->
+
+	<script src="assets/js/ace-elements.min.js"></script>
+	<script src="assets/js/ace.min.js"></script>	<!-- inline scripts related to this page -->
+	
+	<script src="assets/js/languages/language.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var languageObject = null;
+		var lang = null;
+		function language_select(language){
+			//lang = language;
+			//languageObject = changeLanguage('config/dashboard.json', lang);	
+		}
+		//insert into String function
+		String.prototype.insert = function (index, string) {
+			  if (index > 0)
+			    return this.substring(0, index) + string + this.substring(index, this.length);
+			  else
+			    return string + this;
+		};
+		// end function
+		jQuery(function($) {
+			$.get("header.html", function(data) {
+				$('#navbar').html(data);
+			}, 'html').fail(function() {
+				console.log('arge', arguments)
+			});
+			$.get("sidebar.html", function (data) {
+	        	$('#sidebar').html(data);  
+	        }, 'html').fail(function(){
+	            console.log('arge', arguments)
+	        });
+			
+			//$("#dashboard", "#sidebar").addClass("active");
+			
+			$('#loading-btn').on(ace.click_event, function() {
+				var btn = $(this);
+				btn.button('loading')
+				setTimeout(function() {
+					btn.button('reset')
+				}, 2000)
+			});
+
+			$('#id-button-borders').attr('checked', 'checked').on('click',
+					function() {
+						$('#default-buttons .btn').toggleClass('no-border');
+					});
+
+			$.ajax({
+				url : localStorage.serverUrl
+						+ 'mobileservices/control/purchaseReportProduct',
+				crossDomain : true,
+				type : 'POST',
+				dataType : 'json',
+				success : function(data) {
+					//$("#test").html(JSON.stringify(data));
+					localStorage.productReport = JSON.stringify(data);
+					drawReportProductChart(data);
+				},
+				error : function(textStatus, errorThrown) {
+// 					$("#test").html(JSON.stringify(textStatus));		        		
+				}
+			});
+			$.ajax({
+				url : localStorage.serverUrl
+						+ 'mobileservices/control/orderAmountPerMonth',
+				crossDomain : true,
+				type : 'POST',
+				dataType : 'json',
+				success : function(data) {
+					//$("#test").html(JSON.stringify(data));
+					localStorage.orderAmount = JSON.stringify(data);
+					drawOrderAmountChart(data);
+					console.log("data",data);
+				},
+				error : function(textStatus, errorThrown) {
+					//$("#test").html(JSON.stringify(textStatus));		        		
+				}
+			});
+			
+			$.ajax({
+				url : localStorage.serverUrl + 'mobileservices/control/productSalesSum',
+				crossDomain: true,
+				type:'POST',
+				dataType: 'json',
+				success : function(data) {
+					//$("#test").html(JSON.stringify(data));
+					//localStorage.orderAmount = JSON.stringify(data);
+					addDataToTable(data["bestProduct"]);	
+				},
+				error : function(textStatus, errorThrown) {
+					$("#test").html(JSON.stringify(textStatus));		        		
+				}
+			});
+						
+			$.ajax({
+				url : localStorage.serverUrl + 'mobileservices/control/customerSumAmount',
+				crossDomain: true,
+				type: 'POST',
+				dataType: 'json',
+				success: function(data){
+					//$("#test").html(JSON.stringify(data));
+					drawBestCusPieChart(data["bestCus"]);
+				},
+				error: function(textStatus, errorThrown){
+					$("#test").html(JSON.stringify(textStatus));
+				}
+			});
+			function drawReportProductChart(data) {
+				var productPurchaseArr = new Array();
+				var productPurchaseTicks = new Array();
+				var productQuantity = new Array();
+				var i = 0;//index
+				for ( var productReport in data["productQtyInfo"]) {	
+					var quantity = parseFloat(data["productQtyInfo"][productReport]["quantity"]);
+					productPurchaseArr.push(quantity);							        		
+					productPurchaseTicks.push([i, data["productQtyInfo"][productReport]["internalName"].insert(8, "\n")]);
+					i++;
+				}
+				
+				var sum = 0;
+				for (var j = 0; j < productPurchaseArr.length; j++) {
+					sum += productPurchaseArr[j];
+				}
+				for (var j = 0; j < productPurchaseArr.length; j++) {
+					productQuantity.push([(productPurchaseArr[j] / sum * 100).toFixed(2), j]);
+				}			
+				var dataSet=[{data: productQuantity, color: "#5482FF"}];
+				var options={
+					series:{
+						bars:{
+							show: true,
+							numbers: {								
+								show: true,
+		                    	yAlign: function (y){
+		                    		return y + 0.15;
+		                    	}
+							}
+						},
+						
+					},
+					bars:{
+						align:"center",
+						barWidth:0.5,
+						horizontal: true,
+		                fillColor: { colors: [{ opacity: 0.5 }, { opacity: 1}] },
+		                lineWidth: 1
+		                
+					},
+					
+					xaxis: {		                
+		                axisLabelUseCanvas: true,
+		                axisLabelFontSizePixels: 12,
+		                axisLabelFontFamily: 'Verdana, Arial',
+		                axisLabelPadding: 10,		                
+		                tickColor: "#5E5E5E",	
+		                tickFormatter:function(v, axis){
+		                	return v + "%";
+		                },
+		                color: "black"
+		            },
+		            yaxis: {		                
+		                axisLabelUseCanvas: true,
+		                axisLabelFontSizePixels: 12,
+		                axisLabelFontFamily: 'Verdana, Arial',
+		                axisLabelPadding: 3,
+		                tickColor: "#5E5E5E",		                
+		                ticks: productPurchaseTicks,
+		                color: "black"
+		            },
+		            legend: {
+		                noColumns: 0,
+		                labelBoxBorderColor: "#858585",
+		                position: "ne"
+		            },
+		            grid: {
+		                hoverable: true,
+		                borderWidth: 2,
+		                backgroundColor: { colors: ["#ffffff", "#EDF5FF"] }
+		            },
+		            valueLabels:{
+		            	show: true,
+		                align: 'center',
+		                
+		                labelFormatter: function (v) {
+		                    return v + '%';
+		                }
+		            }
+				};
+				$.plot($("#productQtyReport"), dataSet, options);
+			}
+			
+			function drawOrderAmountChart(data) {
+				var orderAmountTotal = new Array();
+				var orderAmountTicks = new Array();
+				var rawData = new Array();
+				i = 0;
+				for ( var orderAmount in data["monthAmount"]) {
+					amount = parseFloat(data["monthAmount"][orderAmount]);
+					//amount.push([])
+					orderAmountTotal.push(amount);
+					orderAmountTicks.push([i, orderAmount]);
+					i++;
+				}
+				sum = 0;	
+				for(i = 0; i < orderAmountTotal.length; i++){
+					sum += orderAmountTotal[i];
+				}
+				for(i = 0 ; i < orderAmountTotal.length; i++){
+					rawData.push([i, (orderAmountTotal[i] / sum * 100).toFixed(2)]);					
+				}
+				var dataSet = [{label: "Order Amount", data: rawData, color: '#5482FF'}];
+				var options = {
+				 series: {					   
+					 bars: {
+						 	dataLabels: true,
+						 	labelLoc: "center",
+		                    show: true,		                    
+		                    numbers: {
+		                    	show: true,
+		                    	xAlign: function (x){
+		                    		return (x);
+		                    	},
+		                    	yAlign: function(y){
+		                    		return (y + 10);
+		                    	}
+		                    }
+		                }								
+		            },
+		            bars: {
+		                align: "center",
+		                barWidth: 0.6	
+		            },
+		            xaxis: {		             
+		                axisLabelUseCanvas: true,
+		                axisLabelFontSizePixels: 12,
+		                axisLabelFontFamily: 'Verdana, Arial',
+		                axisLabelPadding: 20,
+		                max: 6,
+		                ticks: orderAmountTicks,		                
+		            },
+		            yaxis: {				              
+		                axisLabelUseCanvas: true,
+		                axisLabelFontSizePixels: 12,
+		                axisLabelFontFamily: 'Verdana, Arial',
+		                axisLabelPadding: 3,
+		                max: 120,
+		                tickFormatter: function (v, axis) {
+		                    return v + "%";
+		                }
+		            },
+		            legend: {
+		                noColumns: 0,
+		                labelBoxBorderColor: "#000000",
+		                position: "nw"
+		            },
+		            grid: {
+		                hoverable: true,
+		                borderWidth: 2,
+		                backgroundColor: { colors: ["#ffffff", "#EDF5FF"] }
+		            }
+				};
+				$.plot($("#orderAmount"), dataSet, options);
+				
+				$("#orders_created").text(data["dayOrder"]);
+				$("#orders_complete").text(data['dayComplete']);
+				$("#orders_approval").text(data['dayApprove']);
+				$("#orders_canceled").text(data['dayCancelled']);
+				$("#waiting_payment").text(data['waitingPayment']);
+				$("#waiting_complete").text(data['waitingComplete']);
+			}
+			
+			function addDataToTable(data){
+				for(d in data){
+					$("#table_bug_report").append('<tr><td>' + d + '</td><td>'+ data[d] + '</td></tr>');
+					//alert(data[d]);
+				}				
+			}					
+		});
+		
+		
+		
+		function updateBestCus(month){
+			if(month == 'thisMonth'){
+				$("#dashboard_monthBtnCus").text("Tháng này");
+				$("#dashboard_liLastMonthCus").removeClass("active");
+				$("#dashboard_liThisMonthCus").addClass("active");
+				/* $("a#thisMOnclick[onclick]").attr("onclick", "");
+				$("a#lastMOnclick[onclick]").attr("onclick", "updatePopuLarProduct(lastMonth)"); */
+			}else{
+				$("#dashboard_monthBtnCus").text("Tháng trước");
+				$("#dashboard_liThisMonthCus").removeClass("active");
+				$("#dashboard_liLastMonthCus").addClass("active");
+				/* $("a#lastMOnclick[onclick]").attr("onclick", "");
+				$("a#thisMOnclick[onclick]").attr("onclick", "updatePopuLarProduct(thisMonth)"); */ 
+			}
+			$.ajax({
+				url : localStorage.serverUrl + 'mobileservices/control/customerSumAmount',
+				crossDomain: true,
+				type: 'POST',
+				dataType: 'json',
+				data:{
+					month: month
+				},
+				success: function(data){
+					//$("#test").html(JSON.stringify(data));					
+					drawBestCusPieChart(data["bestCus"]);
+				},
+				error: function(textStatus, errorThrown){
+					//$("#test").html(JSON.stringify(textStatus));
+				}
+			});
+		}
+		
+		function updatePopuLarProduct(month){
+			if(month == 'thisMonth'){
+				$("#dashboard_monthBtn").text("Tháng này");
+				$("#dashboard_liLastMonth").removeClass("active");
+				$("#dashboard_liThisMonth").addClass("active");
+				/* $("a#thisMOnclick[onclick]").attr("onclick", "");
+				$("a#lastMOnclick[onclick]").attr("onclick", "updatePopuLarProduct(lastMonth)"); */
+			}else{
+				$("#dashboard_monthBtn").text("Tháng trước");
+				$("#dashboard_liThisMonth").removeClass("active");
+				$("#dashboard_liLastMonth").addClass("active");
+				/* $("a#lastMOnclick[onclick]").attr("onclick", "");
+				$("a#thisMOnclick[onclick]").attr("onclick", "updatePopuLarProduct(thisMonth)"); */ 
+			}
+			$.ajax({
+				url : localStorage.serverUrl + 'mobileservices/control/productSalesSum',
+				crossDomain: true,
+				type:'POST',
+				data: {
+					month: month
+				},
+				dataType: 'json',
+				success : function(data) {
+					//$("#test").html(JSON.stringify(data));
+					//localStorage.orderAmount = JSON.stringify(data);
+					$("#table_bug_report > tbody tr").remove();	
+					for(d in data["bestProduct"]){
+						$("#table_bug_report").append('<tr><td>' + d + '</td><td>'+ data["bestProduct"][d] + '</td></tr>');
+					}
+				},
+				error : function(textStatus, errorThrown) {
+					$("#test").html(JSON.stringify(textStatus));		        		
+				}
+			});
+		}
+		
+		function drawBestCusPieChart(data){
+			$("#piechart-placeholder").empty();
+			if(!jQuery.isEmptyObject(data)){
+				var dataSet = new Array();
+				colors = ["#005CDE", "#00A36A", "#7D0096", "#992B00", "#DE000F"];
+				i = 0;
+				for(d in data){
+					console.log(d);
+					i++;
+					dataSet.push({label: d, data: data[d], color: colors[i % colors.length]});
+				}
+				console.log(dataSet);
+				$.plot("#piechart-placeholder", dataSet, {
+					series: {
+				        pie: {
+				            show: true,
+							tilt:0.8,
+							label:{
+								show: true,
+								formatter: function(label, series){
+									return  '<div style="font-size:8pt;padding:0px; margin: 0px">' + Math.round(series.percent) + "%</div>";
+								}
+							},
+							highlight: {
+								opacity: 0.25
+							},
+							stroke: {
+								color: '#fff',
+								width: 2
+							},
+							startAngle: 2
+							
+				        }
+				    },
+				    legend: {
+				        show: true,
+						position: "ne", 
+					    labelBoxBorderColor: null,
+						margin:[-30,15]
+				    }
+					,
+					grid: {
+						hoverable: true,
+						clickable: true
+					},
+					tooltip: true, //activate tooltip
+					tooltipOpts: {
+						content: "%s : %y.1",
+						shifts: {
+							x: -30,
+							y: -50
+						}
+					}
+				});	
+			}else{
+				$("#piechart-placeholder").html("no customers orders");
+			}				
+		}
+	</script>
+</body>
+</html>

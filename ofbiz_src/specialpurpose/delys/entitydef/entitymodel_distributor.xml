@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>View Entity of Delys Component Sales</title>
+    <description>View Entity of Delys Component Sales</description>
+    <copyright></copyright>
+    <version>1.0</version>
+    
+    <!-- ========================================================= -->
+  	<!-- com.olbius.delys -->
+  	<!-- ========================================================= -->
+  	
+    
+<!-- ______________ EXTEND ENTITY __________________________________________________________________________________ -->
+  	
+  	
+<!-- ______________ VIEW ENTITY ____________________________________________________________________________________ -->
+  	<!-- <view-entity entity-name="AgreementAndUserLogin" package-name="com.olbius.delys">
+  		<member-entity entity-alias="AGR" entity-name="Agreement"/>
+  		<member-entity entity-alias="PTYREF" entity-name="PartyRelationship"/>
+  		<member-entity entity-alias="PTYREFS" entity-name="PartyRelationship"/>
+  		<member-entity entity-alias="PTYRET" entity-name="PartyRelationship"/>
+  		<member-entity entity-alias="PTYRETS" entity-name="PartyRelationship"/>
+  		<alias-all entity-alias="AGR"/>
+  		<alias name="partyIdFrom1" field="partyIdFrom" entity-alias="PTYREF"/>
+  		<alias name="partyIdTo1" field="partyIdTo" entity-alias="PTYREFS"/>
+  		<alias name="partyIdFrom2" field="partyIdFrom" entity-alias="PTYRET"/>
+  		<alias name="partyIdTo2" field="partyIdTo" entity-alias="PTYRETS"/>
+  		<view-link entity-alias="AGR" rel-entity-alias="PTYREF" rel-optional="true">
+  			<key-map field-name="partyIdFrom" rel-field-name="partyIdFrom"/>
+  			<entity-condition>
+  				<condition-list>
+  					<condition-expr field-name="roleTypeIdFrom" entity-alias="PTYREF" value="PARENT_MEMBER"/>
+  					<condition-expr field-name="roleTypeIdTo" entity-alias="PTYREF" value="CHILD_MEMBER"/>
+  					<condition-expr field-name="partyRelationshipTypeId" entity-alias="PTYREF" value="PARENT"/>
+  				</condition-list>
+  			</entity-condition>
+  		</view-link>
+  		<view-link entity-alias="AGR" rel-entity-alias="PTYREFS" rel-optional="true">
+  			<key-map field-name="partyIdFrom" rel-field-name="partyIdTo"/>
+  			<entity-condition>
+  				<condition-list>
+  					<condition-expr field-name="roleTypeIdFrom" entity-alias="PTYREFS" value="CHILD_MEMBER"/>
+  					<condition-expr field-name="roleTypeIdTo" entity-alias="PTYREFS" value="PARENT_MEMBER"/>
+  					<condition-expr field-name="partyRelationshipTypeId" entity-alias="PTYREFS" value="CHILD"/>
+  				</condition-list>
+  			</entity-condition>
+  		</view-link>
+  		<view-link entity-alias="AGR" rel-entity-alias="PTYRET" rel-optional="true">
+  			<key-map field-name="partyIdTo" rel-field-name="partyIdFrom"/>
+  			<entity-condition>
+  				<condition-list>
+  					<condition-expr field-name="roleTypeIdFrom" entity-alias="PTYRET" value="PARENT_MEMBER"/>
+  					<condition-expr field-name="roleTypeIdTo" entity-alias="PTYRET" value="CHILD_MEMBER"/>
+  					<condition-expr field-name="partyRelationshipTypeId" entity-alias="PTYRET" value="PARENT"/>
+  				</condition-list>
+  			</entity-condition>
+  		</view-link>
+  		<view-link entity-alias="AGR" rel-entity-alias="PTYRETS" rel-optional="true">
+  			<key-map field-name="partyIdTo" rel-field-name="partyIdTo"/>
+  			<entity-condition>
+  				<condition-list>
+  					<condition-expr field-name="roleTypeIdFrom" entity-alias="PTYRETS" value="CHILD_MEMBER"/>
+  					<condition-expr field-name="roleTypeIdTo" entity-alias="PTYRETS" value="PARENT_MEMBER"/>
+  					<condition-expr field-name="partyRelationshipTypeId" entity-alias="PTYRETS" value="CHILD"/>
+  				</condition-list>
+  			</entity-condition>
+  		</view-link>
+  	</view-entity> -->
+  	
+</entitymodel>

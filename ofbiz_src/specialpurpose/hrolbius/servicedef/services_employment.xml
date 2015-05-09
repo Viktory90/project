@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>Employment Services</description>
+	<vendor></vendor>
+	<version>1.0</version>
+   	<service name="createFullEmployment" invoke="createFullEmployment" location="com.olbius.employment.services.EmploymentServices"
+		auth="true" engine="java">
+		<description>
+			Create Employment
+			Create EmplPosition
+			Create EmplPositionfulfillment
+			Create PartyRelationship 
+		</description>
+		<attribute name="partyIdFrom" mode="IN" type="String" optional="false"/>
+		<attribute name="partyIdTo" mode="IN" type="String" optional="false"/>
+		<attribute name="fromDate" mode="IN" type="java.sql.Timestamp" optional="false"/>
+		<attribute name="thruDate" mode="IN" type="java.sql.Timestamp" optional="true"/>
+		<attribute name="salary" mode="IN" type="Double" optional="true"/>
+		<attribute name="allowance" mode="IN" type="String" optional="true"/>
+		<attribute name="trialSalaryRate" mode="IN" type="Double" optional="true"/>
+		<attribute name="emplPositionTypeId" mode="IN" type="String" optional="false"/>
+	</service>
+	<service name="createRequestDisciplineProposal" engine="java" invoke="createRequestDisciplineProposal" auth="true"
+		location="com.olbius.employment.services.EmploymentServices">
+		<attribute name="partyId" mode="IN" type="String"></attribute>
+		<attribute name="approverIdProposal" mode="IN" type="String"></attribute>
+		<attribute name="emplProposalId" mode="OUT" type="String"></attribute>	
+		<attribute name="comment" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	<service name="updateRequestDisciplineProposal" engine="java" invoke="updateRequestDisciplineProposal" auth="true"
+		location="com.olbius.employment.services.EmploymentServices" default-entity-name="EmplProposal">
+		<auto-attributes mode="IN" include="pk" optional="false"></auto-attributes>
+		<attribute name="approvalStatusId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="comment" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="ntfId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="statusId" mode="OUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="createEmplProposalApproval" engine="java" invoke="createEmplProposalApproval" auth="true"
+		location="com.olbius.employment.services.EmploymentServices" default-entity-name="EmplProposalApproval">
+		<auto-attributes mode="IN" include="all" optional="true"></auto-attributes>
+		<attribute name="statusId" mode="OUT" type="String" optional="true"></attribute>
+		<override name="emplProposalId" optional="false"></override>
+		<override name="partyId" optional="false"></override>
+		<override name="approvalStatusId" optional="false"></override>	
+	</service>
+	<service name="updateEmplProposalApproval" engine="java" invoke="updateEmplProposalApproval" auth="true"
+		location="com.olbius.employment.services.EmploymentServices" default-entity-name="EmplProposalApproval">
+		<auto-attributes mode="IN" include="pk" optional="false"></auto-attributes>
+		<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+		<attribute name="statusId" mode="OUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="createEmplProposalRoleType" engine="java" invoke="createEmplProposalRoleType" auth="true"
+		location="com.olbius.employment.services.EmploymentServices" default-entity-name="EmplProposalRoleType">
+		<auto-attributes mode="IN" include="pk" optional="false"></auto-attributes>
+		<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+		<override name="fromDate" optional="true"></override>
+	</service>
+	<service name="createEmplProposal" engine="java" invoke="createEmplProposal" auth="true"
+		location="com.olbius.employment.services.EmploymentServices" default-entity-name="EmplProposal">
+		<auto-attributes mode="IN" include="all" optional="true"></auto-attributes>
+		<auto-attributes mode="OUT" include="pk" optional="false"></auto-attributes>	
+	</service>
+	<service name="updateEmplProposal" engine="java" invoke="updateEmplProposal" auth="true"
+		location="com.olbius.employment.services.EmploymentServices" default-entity-name="EmplProposal">
+		<auto-attributes mode="IN" include="nonpk" optional="true"></auto-attributes>
+		<auto-attributes mode="IN" include="pk" optional="false"></auto-attributes>
+		<attribute name="approvalStatusId" mode="IN" type="String"></attribute>
+		<attribute name="roleTypeId" mode="IN" type="String"></attribute>
+		<attribute name="statusId" mode="OUT" type="String" optional="true"></attribute>	
+	</service>
+	<service name="removeEmplFromOrg" engine="java" invoke="removeEmplFromOrg" auth="true"
+		location="com.olbius.employment.services.EmploymentServices">
+		<attribute name="emplProposalId" mode="IN" type="String"></attribute>
+		<attribute name="expireEmpl" mode="IN" type="String" optional="true"></attribute>	
+		<attribute name="disableUserLogin" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	<service name="getNextRoleTypeLevelApprProposal" engine="java" invoke="getNextRoleTypeLevelApprProposal"
+		auth="true" location="com.olbius.employment.services.EmploymentServices">
+		<attribute name="emplProposalId" mode="IN" type="String"></attribute>
+		<attribute name="roleTypeId" mode="OUT" type="String" optional="true"></attribute>	
+	</service>
+	<service name="createNtfApprEmplProposal" engine="java" invoke="createNtfApprEmplProposal" auth="true"
+		location="com.olbius.employment.services.EmploymentServices">
+		<attribute name="roleTypeId" mode="IN" type="String"></attribute>
+		<attribute name="emplProposalId" mode="IN" type="String"></attribute>
+		<attribute name="header" mode="IN" type="String"></attribute>
+		<attribute name="action" mode="IN" type="String"></attribute>
+		<attribute name="targetLink" mode="IN" type="String"></attribute>
+		<attribute name="ntfType" mode="IN" type="String" optional="true"></attribute>	
+	</service>
+	<service name="getEmplPosition" engine="java" invoke="getEmplPosition"
+		location="com.olbius.employment.services.EmploymentServices" auth="true">
+		<attribute name="partyId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="emplPositionId" mode="OUT" type="String" optional="true"></attribute>	
+		<attribute name="emplPositionTypeId" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="emplPositionTypeDesc" mode="OUT" type="String" optional="true"></attribute>
+	</service>
+	<!-- JQx Services -->
+	<service name="JQgetListEmployeeLeave" engine="java" invoke="JQgetListEmployeeLeave" location="com.olbius.employment.services.EmploymentServices">
+	    <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="true"></attribute>
+	    <attribute name="listSortFields" mode="IN" type="java.util.List" optional="true"></attribute>
+	    <attribute name="opts" mode="IN"  type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+     	<attribute name="parameters" mode="IN"  type="java.util.Map" optional="true"></attribute>	
+	    <attribute name="listIterator" mode="OUT" type="List" optional="false"></attribute> 
+	    <attribute name="TotalRows" mode="OUT" type="String" optional="false"></attribute> 
+	</service>
+	
+	<service name="JQgetListEmplSummary" engine="java" invoke="JQgetListEmplSummary" location="com.olbius.employment.services.EmploymentServices">
+	    <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="true"></attribute>
+	    <attribute name="listSortFields" mode="IN" type="java.util.List" optional="true"></attribute>
+	    <attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="true"></attribute>
+	    <attribute name="parameters" mode="IN"  type="java.util.Map" optional="true"></attribute>	
+	    <attribute name="listIterator" mode="OUT" type="List" optional="true"></attribute> 
+	    <attribute name="TotalRows" mode="OUT" type="String" optional="true"></attribute> 
+	</service>
+	<service name="JQgetListEmplWorkOverTime" engine="java" invoke="JQgetListEmplWorkOverTime" location="com.olbius.employment.services.EmploymentServices">
+	    <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="true"></attribute>
+	    <attribute name="listSortFields" mode="IN" type="java.util.List" optional="true"></attribute>
+	    <attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="true"></attribute>
+	    <attribute name="parameters" mode="IN"  type="java.util.Map" optional="true"></attribute>	
+	    <attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="true"></attribute> 
+	</service>
+	
+	<service name="JQgetListEmplWorkLate" engine="java" invoke="JQgetListEmplWorkLate" location="com.olbius.employment.services.EmploymentServices">
+	    <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="true"></attribute>
+	    <attribute name="listSortFields" mode="IN" type="java.util.List" optional="true"></attribute>
+	    <attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="true"></attribute>
+	    <attribute name="parameters" mode="IN"  type="java.util.Map" optional="true"></attribute>	
+	    <attribute name="listIterator" mode="OUT" type="List" optional="true"></attribute> 
+	</service>
+	
+	<service name="JQgetListEmplInOrg" engine="java" invoke="JQgetListEmplInOrg" location="com.olbius.employment.services.EmploymentServices">
+	    <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="true"></attribute>
+	    <attribute name="listSortFields" mode="IN" type="java.util.List" optional="true"></attribute>
+	    <attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="true"></attribute>
+	    <attribute name="parameters" mode="IN"  type="java.util.Map" optional="true"></attribute>	
+	    <attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="true"></attribute> 
+	</service>
+	
+	<service name="JQgetInfoDetailsEmplworkingLate" engine="java" invoke="JQgetInfoDetailsEmplworkingLate" location="com.olbius.employment.services.EmploymentServices">
+	    <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="true"></attribute>
+	    <attribute name="listSortFields" mode="IN" type="java.util.List" optional="true"></attribute>
+	    <attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="true"></attribute>
+	    <attribute name="parameters" mode="IN"  type="java.util.Map" optional="true"></attribute>	
+	    <attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="true"></attribute> 
+	</service>
+	
+	<service name="JQgetListEmplClaims" engine="java" invoke="JQgetListEmplClaims" location="com.olbius.employment.services.EmploymentServices">
+	    <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="true"></attribute>
+	    <attribute name="listSortFields" mode="IN" type="java.util.List" optional="true"></attribute>
+	    <attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="true"></attribute>
+	    <attribute name="parameters" mode="IN"  type="java.util.Map" optional="true"></attribute>	
+	    <attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="true"></attribute> 
+	</service>
+	
+	<service name="JQgetFullNameEmployee" engine="java" invoke="JQgetFullNameEmployee" location="com.olbius.employment.services.EmploymentServices">
+	    <attribute name="inputValue" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="outputValue" mode="OUT" type="String" optional="false"></attribute>	    
+	</service>
+	
+	<service name="JQgetEmployeeInOrg" engine="java" invoke="JQgetEmployeeInOrg" location="com.olbius.employment.services.EmploymentServices">
+	    <attribute name="listAllConditions" mode="IN" type="java.util.List" optional="true"></attribute>
+	    <attribute name="listSortFields" mode="IN" type="java.util.List" optional="true"></attribute>
+	    <attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="true"></attribute>
+	    <attribute name="parameters" mode="IN"  type="java.util.Map" optional="true"></attribute>	
+	    <attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="true"></attribute>  
+	</service>
+</services>

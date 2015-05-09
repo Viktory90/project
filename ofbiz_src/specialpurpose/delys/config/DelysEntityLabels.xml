@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<property key="ProductPromoType.description.EXHIBITED">
+        <value xml:lang="en">Exihibited promotion</value>
+        <value xml:lang="vi">Chương trình trưng bày</value>
+    </property>
+    <property key="ProductPromoType.description.ACCUMULATE">
+        <value xml:lang="en">Accumulate promotion</value>
+        <value xml:lang="vi">Chương trình tích lũy</value>
+    </property>
+    <property key="ProductPromoType.description.PROMOTION">
+        <value xml:lang="en">Promotion by order</value>
+        <value xml:lang="vi">CTKM theo đơn</value>
+    </property>
+    <property key="ProductPromoType.description.OTHER">
+        <value xml:lang="en">Promotion other</value>
+        <value xml:lang="vi">CTKM khác</value>
+    </property>
+    <property key="QuotaType.description.IMPORT_QUOTA">
+        <value xml:lang="en">Import Quota</value>
+        <value xml:lang="vi">Hạn ngạch nhập khẩu</value>
+    </property>
+    <property key="QuotaType.description.EXPORT_QUOTA">
+        <value xml:lang="en">Export Quota</value>
+        <value xml:lang="vi">Hạn ngạch xuất khẩu</value>
+    </property>
+    <property key="ProductPlanType.description.IMPORT_PLAN">
+        <value xml:lang="en">Import planning</value>
+        <value xml:lang="vi">Kế hoạch nhập khẩu</value>
+    </property>
+    <property key="ProductPlanType.description.EXPORT_PLAN">
+        <value xml:lang="en">Created</value>
+        <value xml:lang="vi">Kế hoạch xuất khẩu</value>
+    </property>
+    
+    <!-- Delivery type -->
+    <property key="DeliveryType.description.DELIVERY_SALES">
+        <value xml:lang="en">Delivery for sales</value>
+        <value xml:lang="vi">Xuất kho hàng bán</value>
+    </property>
+    <property key="DeliveryType.description.DELIVERY_TRANSFER">
+        <value xml:lang="en">Delivery for transfer</value>
+        <value xml:lang="vi">Xuất kho hàng điều chuyển</value>
+    </property>
+    
+    <!-- Shipment Type -->
+    <property key="ShipmentType.description.TRANS_INTERNAL">
+        <value xml:lang="en">Shipment to transfers product between company's facilitites</value>
+        <value xml:lang="vi">Chuyển vận điều chuyển kho nội bộ</value>
+    </property>
+    <property key="ShipmentType.description.TRANS_DISTRIBUTOR">
+        <value xml:lang="en">Shipment to transfers product between distributor's facility and company's facility</value>
+        <value xml:lang="vi">Chuyển vận điều chuyển kho gửi NPP</value>
+    </property>
+    <property key="ShipmentType.description.TRANS_INTERMEDIARY">
+        <value xml:lang="en">Shipment to transfers product between two region</value>
+        <value xml:lang="vi">Chuyển vận điều chuyển trung gian</value>
+    </property>
+    
+    <!-- Transfer Type -->
+    <property key="TransferType.description.TRANS_INTERNAL">
+        <value xml:lang="en">Transfers product between company's facilitites</value>
+        <value xml:lang="vi">Điều chuyển kho nội bộ</value>
+    </property>
+    <property key="TransferType.description.TRANS_DISTRIBUTOR">
+        <value xml:lang="en">Transfers product between distributor's facility and company's facility</value>
+        <value xml:lang="vi">Điều chuyển kho gửi NPP</value>
+    </property>
+    <property key="TransferType.description.TRANS_INTERMEDIARY">
+        <value xml:lang="en">Transfers product between two region</value>
+        <value xml:lang="vi">Điều chuyển trung gian</value>
+    </property>
+    <property key="TransferType.description.TRANS_SALES_CHANNEL">
+        <value xml:lang="en">Transfers between two Sales channel</value>
+        <value xml:lang="vi">Điều chuyển giữa các kênh bán hàng</value>
+    </property>
+    
+</resource>

@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>Logistics Services</description>
+	<vendor></vendor>
+	<version>1.0</version>
+
+	<service name="listFacilityJqx" engine="java" invoke="listFacilityJqx" location="com.olbius.delys.facility.FacilityJqx">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+	</service>
+	<service name="facilityOwnerableList" engine="java" invoke="facilityOwnerableList" location="com.olbius.delys.facility.FacilityJqx">
+		<attribute name="searchKey" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="listParties" mode="OUT" type="List" optional="false"></attribute>
+	</service>
+	<service name="facilityManagerableList" engine="java" invoke="facilityManagerableList" location="com.olbius.delys.facility.FacilityJqx">
+		<attribute name="searchKey" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="listParties" mode="OUT" type="List" optional="false"></attribute>
+	</service>
+	<service name="createFacilityPartyDetail" engine="java" invoke="createFacilityPartyDetail" location="com.olbius.delys.facility.FacilityJqx">
+		<attribute name="partyId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="facilityId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="roleTypeId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="fromDate" mode="IN" type="Timestamp" optional="false"></attribute>
+		<attribute name="thruDate" mode="IN" type="Timestamp" optional="true"></attribute>
+	</service>
+	<service name="updateFacilityPartyDetail" engine="java" invoke="updateFacilityPartyDetail" location="com.olbius.delys.facility.FacilityJqx">
+		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+		<attribute name="partyId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="roleTypeId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="fromDate" mode="IN" type="Timestamp" optional="false"></attribute>
+		<attribute name="thruDate" mode="IN" type="Timestamp" optional="true"></attribute>
+	</service>
+	<service name="facilityPartyDetailList" engine="java" invoke="facilityPartyDetailList" location="com.olbius.delys.facility.FacilityJqx">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+	</service>
+	<service name="createFacilityJqx" engine="java" invoke="createFacilityJqx" location="com.olbius.delys.facility.FacilityJqx">
+		<attribute name="facilityName" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="primaryFacilityGroupId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="facilityTypeId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="ownerPartyId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="managerPartyId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="fromDate" mode="IN" type="Timestamp" optional="true"></attribute>
+		<attribute name="thruDate" mode="IN" type="Timestamp" optional="true"></attribute>
+		<attribute name="fromDateManager" mode="IN" type="Timestamp" optional="true"></attribute>
+		<attribute name="thruDateManager" mode="IN" type="Timestamp" optional="true"></attribute>
+		<attribute name="facilitySize" mode="IN" type="java.math.BigDecimal" optional="true"></attribute>
+		<attribute name="facilitySizeUomId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="facilityId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="facilityId" mode="OUT" type="String" optional="false"></attribute>
+	</service>
+	
+	<!-- Delivery -->
+	<service name="JQListDeliveryEntry" engine="java" invoke="jqListDeliveryEntry" location="com.olbius.delys.logistics.delivery.JQDeliveryEntryServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+	</service>
+	
+	<service name="JQGetListShipmentInDE" engine="java" invoke="jqGetListShipmentInDE" location="com.olbius.delys.logistics.delivery.JQDeliveryEntryServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+	</service>
+	
+	<service name="createDeliveryEntry" engine="simple" invoke="createDeliveryEntry" location="component://delys/script/com/olbius/logistics/delivery/DeliveryEntryServices.xml">
+		<attribute name="listShipments" mode="IN" type="java.util.List" optional="true"></attribute>
+		<auto-attributes mode="IN" optional="true" entity-name="DeliveryEntry"></auto-attributes>
+		<override name="fromDate" optional="false"></override>
+		<override name="deliveryEntryId" mode="INOUT" />
+	</service>
+	
+	<service name="JQGetListFilterShipment" engine="java" invoke="jqGetListFilterShipment" location="com.olbius.delys.logistics.delivery.JQDeliveryEntryServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+	</service>
+	
+	<service name="assignShipmentToDE" engine="java" invoke="assignShipmentToDE" location="com.olbius.delys.logistics.delivery.JQDeliveryEntryServices">
+		<attribute name="shipmentId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="deliveryEntryId" mode="IN" type="String" optional="false"></attribute>
+	</service>
+	
+	<service name="updateDeliveryEntry" engine="java" invoke="updateDeliveryEntry" location="com.olbius.delys.logistics.delivery.JQDeliveryEntryServices">
+		<auto-attributes mode="IN" include="pk" entity-name="DeliveryEntry" optional="false" />
+		<auto-attributes mode="IN" include="nonpk" entity-name="DeliveryEntry" optional="true" />
+	</service>
+	
+	<service name="updateShipmentStatus" engine="java" invoke="updateShipmentStatus" location="com.olbius.delys.logistics.delivery.JQDeliveryEntryServices">
+		<auto-attributes mode="IN" include="pk" entity-name="Shipment" optional="false" />
+		<auto-attributes mode="IN" include="nonpk" entity-name="Shipment" optional="true" />
+	</service>
+	
+	<service name="updateDeliveryByShipment" engine="java" invoke="updateDeliveryByShipment" location="com.olbius.delys.logistics.delivery.JQDeliveryEntryServices">
+		<attribute name="shipmentId" mode="IN" type="String" optional="false"></attribute>
+	</service>
+	
+	<service name="getDeliveryById" engine="java" invoke="getDeliveryById" location="com.olbius.delys.accounting.appr.DeliveryServices">
+		<attribute name="deliveryId" mode="IN" type="String" optional="false"></attribute>
+		<auto-attributes entity-name="Delivery"  mode="OUT" optional="true"></auto-attributes>
+	</service>
+	
+	<service name="JQGetListShippingAgreement" engine="java" invoke="jqGetListShippingAgreement" location="com.olbius.delys.logistics.delivery.JQShippingAgreementServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+	</service>
+	
+	<service name="createShippingAgreement" engine="java" invoke="createShippingAgreement" location="com.olbius.delys.logistics.delivery.ShippingAgrServices">
+		<description>Create Agreement with SHIPPING_AGREEMENT type, Create Agreement Roles For Representives </description>
+		<auto-attributes mode="IN" include="all" entity-name="Agreement" optional="true"></auto-attributes>
+		<attribute name="repIdFrom" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="repIdTo" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="repToPos" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="repFromPos" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="addressFrom" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="addressTo" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="faxNumberFrom" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="faxNumberTo" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="taxIdFrom" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="taxIdTo" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="finAccountIdTo" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="phoneNumberTo" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="phoneNumberFrom" mode="IN" type="String" optional="true"></attribute>
+		<override name="agreementId" mode="INOUT"></override>
+	</service>
+	
+	<service name="createFaxNumber" engine="simple" invoke="createFaxNumber" location="component://party/script/org/ofbiz/party/contact/ContactMechServices.xml">
+		<description>Create a fax number</description>
+		<auto-attributes entity-name="FaxNumber" include="all" optional="true" mode="IN"></auto-attributes>
+		<override name="contactMechId" mode="OUT" optional="false"></override>
+	</service>
+	
+	<service name="createPartyQuickly" engine="java" invoke="createPartyQuickly" location="com.olbius.delys.logistics.delivery.ShippingAgrServices">
+		<description>Create a party quickly, If party is not exist</description>
+		<attribute mode="IN" name="groupName" type="String" optional="true"></attribute>
+		<attribute mode="IN" name="firstName" type="String" optional="true"></attribute>
+		<attribute mode="IN" name="middleName" type="String" optional="true"></attribute>
+		<attribute mode="IN" name="lastName" type="String" optional="true"></attribute>
+		<attribute mode="IN" name="positionName" type="String" optional="true"></attribute>
+		<attribute mode="IN" name="address" type="String" optional="true"></attribute>
+		<attribute mode="IN" name="phoneNumber" type="String" optional="true"></attribute>
+		<attribute mode="IN" name="faxNumber" type="String" optional="true"></attribute>
+		<attribute mode="IN" name="taxId" type="String" optional="true"></attribute>
+		<attribute mode="IN" name="accountNumber" type="String" optional="true"></attribute>
+		<attribute mode="IN" name="bankName" type="String" optional="true"></attribute>
+		<attribute mode="OUT" name="partyIdTo" type="String" optional="true"></attribute>
+		<attribute mode="OUT" name="repIdTo" type="String" optional="true"></attribute>
+		<attribute mode="OUT" name="roleTypeIdTo" type="String" optional="true"></attribute>
+		<attribute mode="OUT" name="emplPositionTypeIdTo" type="String" optional="true"></attribute>
+		<attribute mode="OUT" name="postalAddressIdTo" type="String" optional="true"></attribute>
+		<attribute mode="OUT" name="telecomNumberIdTo" type="String" optional="true"></attribute>
+		<attribute mode="OUT" name="faxNumberIdTo" type="String" optional="true"></attribute>
+		<attribute mode="OUT" name="taxIdTo" type="String" optional="true"></attribute>
+		<attribute mode="OUT" name="finAccountIdTo" type="String" optional="true"></attribute>
+	</service>
+	<!-- /Delivery -->
+	<service name="getListProducts" engine="java" invoke="getListProducts" location="com.olbius.delys.logistics.transfer.TransferServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="List" optional="false"></attribute>
+   </service>
+   <service name="createTransferRequirement" engine="java" invoke="createTransferRequirement" location="com.olbius.delys.logistics.transfer.TransferServices">
+   		<attribute name="requirementTypeId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="productStoreIdFrom" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="productStoreIdTo" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="facilityIdFrom" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="facilityIdTo" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="originContactMechId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="destContactMechId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="reason" mode="IN" type="String" optional="true"></attribute>
+   		<attribute name="description" mode="IN" type="String" optional="true"></attribute>
+   		<attribute name="requirementStartDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+   		<attribute name="requiredByDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+   		<attribute name="requiredByDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+   		<attribute name="estimatedBudget" mode="IN" type="String" optional="true"></attribute>
+   		<attribute name="currencyUomId" mode="IN" type="String" optional="true"></attribute>
+   		<attribute name="listProducts" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="requirementId" mode="OUT" type="String" optional="false"></attribute>
+   </service>
+   <service name="getProductPackingUoms" engine="java" invoke="getProductPackingUoms" location="com.olbius.delys.logistics.transfer.TransferServices">
+   		<attribute name="productId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="listPackingUoms" mode="OUT" type="java.util.List" optional="false"></attribute>
+	</service>
+	<service name="getListRequirements" engine="java" invoke="getListRequirements" location="com.olbius.delys.logistics.transfer.TransferServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+   </service>
+   <service name="getRequirementRoles" engine="java" invoke="getRequirementRoles" location="com.olbius.delys.logistics.transfer.TransferServices">
+   		<attribute name="requirementId" mode="INOUT" type="String" optional="false"></attribute>
+   		<attribute name="roleTypeId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="listRequirementRoles" mode="OUT" type="java.util.List" optional="false"></attribute>
+	</service>
+	<service name="sendTransferRequirement" engine="java" invoke="sendTransferRequirement" location="com.olbius.delys.logistics.transfer.TransferServices" default-entity-name="Requirement" auth="true">
+    	<description>send transfer requirement</description>
+    	<attribute name="requirementId" mode="INOUT" type="String"></attribute>
+    	<attribute name="partyIdTo" mode="IN" type="String"></attribute>
+    	<attribute name="sendMessage" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="action" mode="IN" type="String" optional="true"></attribute>
+    </service>
+    <service name="approveTransferRequirement" engine="java" invoke="approveTransferRequirement" location="com.olbius.delys.logistics.transfer.TransferServices" default-entity-name="Requirement" auth="true">
+    	<description>send transfer requirement</description>
+    	<attribute name="requirementId" mode="INOUT" type="String"></attribute>
+<!--     	<attribute name="partyIdTo" mode="IN" type="String"></attribute> -->
+<!--     	<attribute name="sendMessage" mode="IN" type="String" optional="true"></attribute> -->
+<!--     	<attribute name="action" mode="IN" type="String" optional="true"></attribute> -->
+    </service>
+	<service name="getListTransfer" engine="java" invoke="getListTransfer" location="com.olbius.delys.logistics.transfer.TransferServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+   </service>
+   <service name="createTransfer" engine="java" invoke="createTransfer" location="com.olbius.delys.logistics.transfer.TransferServices">
+   		<attribute name="transferTypeId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="originFacilityId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="destFacilityId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="originContactMechId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="destContactMechId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="shipmentMethodTypeId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="carrierPartyId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="description" mode="IN" type="String" optional="true"></attribute>
+   		<attribute name="shipBeforeDate" mode="IN" type="java.sql.Timestamp" optional="false"></attribute>
+   		<attribute name="shipAfterDate" mode="IN" type="java.sql.Timestamp" optional="false"></attribute>
+   		<attribute name="listProducts" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="transferId" mode="OUT" type="String" optional="false"></attribute>
+   </service>
+   <service name="getFacilityByTransferType" engine="java" invoke="getFacilityByTransferType" location="com.olbius.delys.logistics.transfer.TransferServices">
+   		<attribute name="transferTypeId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="listOriginFacilities" mode="OUT" type="List" optional="true"></attribute>
+    	<attribute name="listDestFacilities" mode="OUT" type="List" optional="true"></attribute>
+    	<attribute name="listOriginContactMechs" mode="OUT" type="List" optional="true"></attribute>
+    	<attribute name="listDestContactMechs" mode="OUT" type="List" optional="true"></attribute>
+   </service>
+   <service name="approveTransfer" engine="java" invoke="approveTransfer" location="com.olbius.delys.logistics.transfer.TransferServices" default-entity-name="Transfer" auth="true">
+    	<description>send transfer</description>
+    	<attribute name="transferId" mode="INOUT" type="String"></attribute>
+<!--     	<attribute name="partyIdTo" mode="IN" type="String"></attribute> -->
+<!--     	<attribute name="sendMessage" mode="IN" type="String" optional="true"></attribute> -->
+<!--     	<attribute name="action" mode="IN" type="String" optional="true"></attribute> -->
+    </service>
+   <service name="getListTransferDelivery" engine="java" invoke="getListTransferDelivery" location="com.olbius.delys.logistics.transfer.TransferServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+   </service>
+   <service name="getListTransferItemDelivery" engine="java" invoke="getListTransferItemDelivery" location="com.olbius.delys.logistics.transfer.TransferServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+   </service>
+   <service name="createTransferDelivery" engine="java" invoke="createTransferDelivery" location="com.olbius.delys.logistics.transfer.TransferServices">
+   		<description>Create transfer Delivery (transfer note)</description>
+        <auto-attributes mode="IN" entity-name="Delivery" optional="true"></auto-attributes>
+        <attribute name="deliveryId" mode="INOUT" type="String" optional="true"></attribute>
+        <attribute name="listTransferItems" mode="IN" type="java.util.List" optional="true"></attribute>
+   </service>
+   <service name="createTransferFromRequirement" engine="java" invoke="createTransferFromRequirement" location="com.olbius.delys.logistics.transfer.TransferServices">
+   		<description>Create transfer from transfer requirement</description>
+        <attribute name="requirementId" mode="IN" type="String" optional="false"></attribute>
+        <attribute name="transferId" mode="OUT" type="String" optional="false"></attribute>
+   </service>
+   <service name="issueTransferItemShipGrpInvResToShipment" engine="simple"
+            location="component://delys/script/com/olbius/logistics/transfer/TransferServices.xml" invoke="issueTransferItemShipGrpInvResToShipment" auth="true">
+        <description>Add an TransferItemShipGrpInvRes to a Shipment</description>
+<!--         <required-permissions join-type="AND"> -->
+<!--             <permission-service service-name="facilityGenericPermission" main-action="CREATE"/> -->
+<!--             <permission-service service-name="facilityGenericPermission" main-action="UPDATE"/> -->
+<!--         </required-permissions> -->
+        <auto-attributes entity-name="Shipment" include="pk" mode="IN" optional="false"/>
+        <auto-attributes entity-name="TransferItemShipGrpInvRes" include="pk" mode="IN" optional="false"/>
+        <attribute name="quantity" type="BigDecimal" mode="IN" optional="false"/>
+        <attribute name="eventDate" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="shipmentItemSeqId" type="String" mode="OUT" optional="false"/>
+        <attribute name="transItemIssuanceId" type="String" mode="OUT" optional="false"/>
+    </service>
+    
+    <service name="createTransferShipment" default-entity-name="TransferShipment" engine="simple"
+            location="component://delys/script/com/olbius/logistics/transfer/TransferServices.xml" invoke="createTransferShipment" auth="true">
+        <description>Create TransferShipment</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+    <service name="createTransferItemIssuance" default-entity-name="TransferItemIssuance" engine="simple"
+            location="component://delys/script/com/olbius/logistics/transfer/TransferServices.xml" invoke="createTransferItemIssuance" auth="true">
+        <description>Create TransferItemIssuance</description>
+        <auto-attributes include="pk" mode="OUT" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="affectAccounting" type="Boolean" mode="OUT" optional="true"/>
+    </service>
+    <service name="changeTransferItemStatus" engine="java" auth="true" location="com.olbius.delys.logistics.transfer.TransferServices" invoke="setTransferItemStatus">
+        <description>Change the status of an existing order item.  If no orderItemSeqId is specified, the status of all order items will be changed.</description>
+        <attribute name="transferId" type="String" mode="IN" optional="false"/>
+        <attribute name="transferItemSeqId" type="String" mode="IN" optional="true"/>
+        <attribute name="fromStatusId" type="String" mode="IN" optional="true"/>
+        <attribute name="statusId" type="String" mode="IN" optional="false"/>
+        <attribute name="statusDateTime" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="changeReason" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="checkTransferItemStatus" engine="java" location="com.olbius.delys.logistics.transfer.TransferServices" invoke="checkTransferItemStatus">
+      <description>Check the status of all items and cancel/approve/complete the transfer if we can</description>
+        <attribute name="transferId" type="String" mode="IN" optional="false"/>
+    </service>
+    <service name="changeTransferStatus" engine="java" auth="true" location="com.olbius.delys.logistics.transfer.TransferServices" invoke="setTransferStatus">
+        <description>Change the status of an existing transfer</description>
+        <attribute name="transferId" type="String" mode="IN"/>
+        <attribute name="statusId" type="String" mode="IN"/>
+        <attribute name="changeReason" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="reserveInventoryForTransfer" engine="java" auth="true" location="com.olbius.delys.logistics.transfer.TransferServices" invoke="reserveInventoryForTransfer">
+        <description>Reserve Inventory For Transfer</description>
+        <attribute name="transferId" type="String" mode="IN"/>
+        <attribute name="facilityId" type="String" mode="IN"/>
+    </service>
+    <service name="createTransferItemIssuanceRole" default-entity-name="TransferItemIssuanceRole" engine="simple"
+            location="component://delys/script/com/olbius/logistics/transfer/TransferServices.xml" invoke="createTransferItemIssuanceRole" auth="true">
+        <description>Create TransferItemIssuanceRole</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <!-- Will check if OK to change status of shipment, so Shipment PK is needed -->
+        <auto-attributes entity-name="Shipment" include="pk" mode="IN" optional="false"/>
+    </service>
+    <service name="checkDeliveryTransferStatus" engine="java" location="com.olbius.delys.logistics.transfer.TransferServices" invoke="checkDeliveryTransferStatus">
+      <description>Check the status of all delivery of transfer</description>
+        <attribute name="transferId" type="String" mode="IN" optional="false"/>
+    </service>
+    <service name="getDeliveryItemDetail" engine="java" location="com.olbius.delys.logistics.transfer.TransferServices" invoke="getDeliveryItemDetail">
+        <attribute name="deliveryId" type="String" mode="IN" optional="false"/>
+        <attribute name="deliveryItemSeqId" type="String" mode="IN" optional="false"/>
+   		<attribute name="productId" mode="OUT" type="String" optional="false"></attribute>
+   		<attribute name="quantityUomId" mode="OUT" type="String" optional="false"></attribute>
+   		<attribute name="expireDate" mode="OUT" type="Timestamp" optional="true"></attribute>
+    </service>
+    <service name="sendNotificationToStorekeeper" engine="java" location="com.olbius.delys.logistics.transfer.TransferServices" invoke="sendNotificationToStorekeeper">
+        <attribute name="deliveryId" type="String" mode="IN" optional="false"/>
+    </service>
+    <service name="updateShipmentByDelivery" engine="java" location="com.olbius.delys.logistics.transfer.TransferServices" invoke="updateShipmentByDelivery">
+        <attribute name="deliveryId" type="String" mode="IN" optional="false"/>
+    </service>
+    <service name="updateDeliveryByShipment" engine="java" location="com.olbius.delys.logistics.transfer.TransferServices" invoke="updateDeliveryByShipment">
+        <attribute name="shipmentId" type="String" mode="IN" optional="false"/>
+    </service>
+    <service name="getStatusValidToChange" engine="java" location="com.olbius.delys.logistics.transfer.TransferServices" invoke="getStatusValidToChange">
+        <attribute name="statusId" type="String" mode="IN" optional="false"/>
+        <attribute name="listStatusIds" mode="OUT" type="java.util.List" optional="false"></attribute>
+    </service>
+	<service name="getListShipmentItem" engine="java" invoke="getListShipmentItem" location="com.olbius.delys.logistics.transfer.TransferServices">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+   	</service>
+   	<service name="getShipmentById" engine="java" invoke="getShipmentById" location="org.ofbiz.shipment.shipment.ShipmentServices">
+		<attribute name="shipmentId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="shipment" mode="OUT" type="java.util.Map"></attribute>
+	</service>
+   	<service name="getShipmentPackage" engine="java" invoke="getShipmentPackage" location="org.ofbiz.shipment.shipment.ShipmentServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+	</service>
+	<service name="getShipmentCosts" engine="java" invoke="getShipmentCosts" location="org.ofbiz.shipment.shipment.ShipmentServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+	</service>
+	<service name="getDeliveryEntryVehicles" engine="java" invoke="getDeliveryEntryVehicles" location="com.olbius.delys.logistics.delivery.JQDeliveryEntryServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+	</service>
+	<service name="getDeliveryEntryPackages" engine="java" invoke="getDeliveryEntryPackages" location="com.olbius.delys.accounting.appr.DeliveryServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+	</service>
+	<service name="getShipmentByDeliveryEntry" engine="java" invoke="getShipmentByDeliveryEntry" location="com.olbius.delys.accounting.appr.DeliveryServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+	</service>
+	<service name="createDeliveryEntryPackage" engine="java" invoke="createDeliveryEntryPackage" location="com.olbius.delys.accounting.appr.DeliveryServices">
+   		<attribute name="deliveryEntryId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="deliveryBoxTypeId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="listShipmentItems" mode="IN" type="java.util.List" optional="false"></attribute>
+   </service>
+   <service name="getShipmentItemByDeliveryEntry" engine="java" invoke="getShipmentItemByDeliveryEntry" location="com.olbius.delys.accounting.appr.DeliveryServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+	</service>
+	<service name="createDeliveryEntryVehicle" engine="java" invoke="createDeliveryEntryVehicle" location="com.olbius.delys.accounting.appr.DeliveryServices">
+   		<attribute name="deliveryEntryId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="vehicleId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="deliveryManId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="driverId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="statusId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="listShipmentItems" mode="IN" type="java.util.List" optional="false"></attribute>
+   </service>
+	<service name="getDeliveryEntryVehicleRole" engine="java" invoke="getDeliveryEntryVehicleRole" location="com.olbius.delys.logistics.delivery.JQDeliveryEntryServices">
+   		<attribute name="deliveryEntryId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="vehicleId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="roleTypeId" mode="IN" type="String" optional="false"></attribute>
+   		<attribute name="partyId" mode="OUT" type="String" optional="false"></attribute>
+	</service>
+	<service name="acceptReceiptRequirements" engine="java" invoke="acceptReceiptRequirements" location="com.olbius.delys.logistics.LogisticsServices">
+   		<attribute name="listReceiptRequirements" mode="IN" type="String" optional="false"></attribute>
+	</service>
+	<service name="getListReceipts" engine="java" invoke="getListReceipts" location="com.olbius.delys.logistics.LogisticsServices">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="java.util.List" optional="false"></attribute>
+	</service>
+</services>

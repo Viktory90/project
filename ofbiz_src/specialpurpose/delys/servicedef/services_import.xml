@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>Import Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+    <service name="noSyntaxError" engine="interface">
+        <description>
+            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
+        </description>
+    </service> 
+    <!-- hoanmStart -->
+	<!--   	EmailServiceH -->
+	<service name="sendMailFromScreenInterfaceCustom"  engine="interface" location="" invoke="">
+        <description>Interface service for E-Mail sent From Screen Widget</description>
+        <implements service="sendMailInterface"/>
+        <attribute name="bodyText" type="String" mode="IN" optional="true" allow-html="safe"/>
+        <attribute name="bodyScreenUri" type="String" mode="IN" optional="true"/>
+        <attribute name="xslfoAttachScreenLocation" type="String" mode="IN" optional="true"/>
+        <attribute name="attachmentName" type="String" mode="IN" optional="true"/>
+        <attribute name="xslfoAttachScreenLocationList" type="List" mode="IN" optional="true"/>
+        <attribute name="attachmentNameList" type="List" mode="IN" optional="true"/>
+        <attribute name="bodyParametersList" type="List" mode="IN" optional="true"/>
+        <attribute name="webSiteId" type="String" mode="IN" optional="true"/>
+        <attribute name="subject" type="String" mode="OUT" optional="true"/>
+        <attribute name="body" type="String" mode="OUT" optional="true"/>
+    </service>
+    <service name="sendMailFromScreenCustom" max-retry="3" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="sendMailFromScreenCustom">
+        <description>Send E-Mail From Screen Widget Service</description>
+        <implements service="sendMailFromScreenInterfaceCustom"/>
+        <attribute name="hideInLog" type="Boolean" mode="IN" optional="true"/>                        
+    </service>
+	<!--   	/EmailServiceH -->
+    <service name="createEmailAgrrementHoanm" engine="java" invoke="createBirtEmailAgrrement" location="com.olbius.delys.importServices.ImportServices" auth="true">
+    	<attribute name="agreementId[]" mode="IN" type="List" optional="false"></attribute>
+    	<attribute name="authUser" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="authPass" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="subject" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="sendTo" mode="IN" type="String" optional="false"></attribute>
+    	<attribute name="bodyText" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="sendResp" mode="OUT" type="Map" optional="true"></attribute>
+   	</service>
+    <service name="updateStatusListAgreementsJava" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="updateStatusListAgreementsJava" auth="true">
+		<attribute name="agreementId" mode="IN" type="List" optional="false"></attribute>
+		<attribute name="statusId" mode="IN" type="String" optional="false"></attribute>
+	</service>
+    <service name="updateStatusListAgreements" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="updateStatusListAgreements" auth="true">
+		<attribute name="agreementId[]" mode="IN" type="List" optional="false"></attribute>
+		<attribute name="statusId" mode="IN" type="String" optional="false"></attribute>
+	</service>
+    <service name="getAgreementName" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getAgreementName" auth="true">
+		<attribute name="agreementId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="agreementName" mode="OUT" type="String" optional="true"></attribute>
+	</service>
+	<!-- 	Excel demo -->
+	<service name="demoServices" engine="java" location="com.olbius.delys.importServices.MicrosoftDocumentsServices" invoke="demoServices" auth="true">
+		<attribute name="listDemo" mode="OUT" type="List" optional="true"></attribute>
+	</service>
+	<!-- 	Excel demo -->
+    <service name="createBillOfLading" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="createBillOfLading" auth="true">
+		<attribute name="billNumber" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="partyIdFrom" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="partyIdTo" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="departureDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+		<attribute name="arrivalDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+		<attribute name="billId" mode="OUT" type="String" optional="false"></attribute>
+	</service>
+    <service name="updateBillOfLading" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="createBillOfLading" auth="true">
+		<attribute name="billId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="billNumber" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="partyIdFrom" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="partyIdTo" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="departureDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+		<attribute name="arrivalDate" mode="IN" type="java.sql.Timestamp" optional="true"></attribute>
+	</service>
+    <service name="updateStatusPlanAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="updateStatusPlanAjax" auth="true">
+		<attribute name="productPlanId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="check" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="mess" mode="OUT" type="String" optional="true"></attribute>
+	</service>
+    <service name="getPathFileScanAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getPathFileScanAjax" auth="true">
+		<attribute name="dataResourceId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="objectInfo" mode="OUT" type="String" optional="false"></attribute>
+	</service>
+    <service name="getlistProductQualityAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getlistProductQualityAjax" auth="true">
+		<attribute name="contentTypeId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="contentId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="listProductQuality" mode="OUT" type="List" optional="false"></attribute>
+	</service>
+    <service name="updateDataSourceAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="updateDataSourceAjax" auth="true">
+		<attribute name="dataResourceName" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="dataResourceId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="objectInfo" mode="IN" type="String" optional="false"></attribute>
+	</service>
+    <service name="getlistQuotaItemsAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getlistQuotaItemsAjax" auth="true">
+		<attribute name="quotaId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="listQuotaItems" mode="OUT" type="List" optional="false"></attribute>
+	</service>
+    <service name="getlistQuotaAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getlistQuotaAjax" auth="true">
+		<attribute name="quotaTypeId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="listQuotas" mode="OUT" type="List" optional="false"></attribute>
+	</service>
+    <service name="saveQuotaItemAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="saveQuotaItemAjax" auth="true">
+		<attribute name="quotaId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="productId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="productName" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="quotaQuantity" mode="IN" type="BigDecimal" optional="false"></attribute>
+		<attribute name="quantityUomId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="fromDate" mode="IN" type="java.sql.Timestamp" optional="false"></attribute>
+		<attribute name="thruDate" mode="IN" type="java.sql.Timestamp" optional="false"></attribute>
+	</service>
+    <service name="saveQuotaHeaderAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="saveQuotaHeaderAjax" auth="true">
+		<attribute name="quotaName" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="fromDate" mode="IN" type="java.sql.Timestamp" optional="false"></attribute>
+		<attribute name="thruDate" mode="IN" type="java.sql.Timestamp" optional="false"></attribute>
+		<attribute name="quotaId" mode="OUT" type="String" optional="false"></attribute>
+	</service>
+    <service name="getFromAndThruDateAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getFromAndThruDateAjax" auth="true">
+		<attribute name="customTimePeriodId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="fromAndThruDate" mode="OUT" type="org.ofbiz.entity.GenericValue" optional="false"></attribute>
+	</service>
+    <service name="SaveProductQualityService" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="StoreProductQuality" auth="true">
+		<attribute name="productQualityName" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="productId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="shelfLife" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="fromDate" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="thruDate" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="shelfLifeUnit" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="contentId" mode="OUT" type="String" optional="false"></attribute>
+		<attribute name="dataResourceId" mode="OUT" type="String" optional="false"></attribute>
+	</service>
+	<service name="SaveQuotaService" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="SaveQuotaService" auth="true">
+		<attribute name="quotaName" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="supplier" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="fromDate" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="thruDate" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="contentId" mode="OUT" type="String" optional="false"></attribute>
+		<attribute name="dataResourceId" mode="OUT" type="String" optional="false"></attribute>
+	</service>
+    <service name="getPlanInThisMonthAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getPlanInThisMonthAjax" auth="true">
+		<attribute name="customTimePeriodId[]" mode="IN" type="List" optional="true"></attribute>
+		<attribute name="supplierPartyId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="listProductInMonths" mode="OUT" type="List" optional="false"></attribute>
+		<attribute name="currencyUomId" mode="OUT" type="String" optional="false"></attribute>
+		<attribute name="totalWeightAll" mode="OUT" type="java.lang.Double" optional="false"></attribute>
+		<attribute name="totalPriceAll" mode="OUT" type="java.lang.Double" optional="false"></attribute>
+	</service>
+    <service name="getMonthInPlanHeaderAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getMonthInPlanHeaderAjax" auth="true">
+		<attribute name="customTimePeriodId[]" mode="IN" type="List" optional="true"></attribute>
+		<attribute name="listMonths" mode="OUT" type="List" optional="false"></attribute>
+	</service>
+    <service name="getYearInPlanHeaderAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getYearInPlanHeaderAjax" auth="true">
+		<attribute name="periodTypeId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="listYears" mode="OUT" type="List" optional="false"></attribute>
+	</service>
+    <service name="loadPlanAvailableAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="loadPlanAvailableAjax" auth="true" default-entity-name="ProductPlanItem">
+		<attribute name="productPlanId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="listPlanAvailable" mode="OUT" type="javolution.util.FastMap" optional="true"></attribute>
+	</service>
+    <service name="createPlanItemToDatabaseAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="createPlanItemToDatabaseAjax" auth="true" default-entity-name="ProductPlanItem">
+		<description>insert Product Plan Item</description>
+		<auto-attributes include="pk" mode="IN" optional="true" entity-name="ProductPlanItem" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" entity-name="ProductPlanItem" />
+		<attribute name="mess" mode="OUT" type="String" optional="true"></attribute>
+	</service>
+    <service name="getProductCategory" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getProductCategory" auth="true" default-entity-name="ProductCategory">
+		<attribute name="productCategoryTypeId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="listProductCategorys" mode="OUT" type="List" optional="true"></attribute>
+	</service>
+    <service name="getAllMonthSalesForcast" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getAllMonthSalesForcast" auth="true">
+		<attribute name="productPlanId" mode="IN" type="String" optional="true" allow-html="any"></attribute>
+		<attribute name="productId" mode="IN" type="String" optional="true" allow-html="any"></attribute>
+		<attribute name="uomToId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="month" mode="OUT" type="javolution.util.FastMap" optional="true"></attribute>
+	</service>
+    <service name="getMonthSalesForcast" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getMonthSalesForcast" auth="true" default-entity-name="SalesForecast">
+		<attribute name="customTimePeriodId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="thisMonth" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="month" mode="OUT" type="List" optional="true"></attribute>
+	</service>
+    <service name="getThisquantityConvert" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getThisquantityConvert" auth="true">
+		<attribute name="productId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="quantityConvert" mode="OUT" type="BigDecimal" optional="true"></attribute>
+	</service>
+	<service name="getSalesForcast" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getSalesForcast" auth="true" default-entity-name="SalesForecast">
+		<attribute name="customTimePeriodId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="productId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="thisMonth" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="quantityConvert" mode="IN" type="Integer" optional="true"></attribute>
+		<attribute name="listSalesForcasts" mode="OUT" type="List" optional="true"></attribute>
+	</service>
+	<service name="getMonth" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getMonth" auth="true" default-entity-name="CustomTimePeriod">
+		<attribute name="customTimePeriodId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="listMonths" mode="OUT" type="List" optional="true"></attribute>
+	</service>
+	<service name="getYear" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getYear" auth="true" default-entity-name="CustomTimePeriod">
+		<attribute name="periodTypeId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="listYears" mode="OUT" type="List" optional="true"></attribute>
+	</service>
+	<service name="getTimeAndSalesForcast" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getTimeAndSalesForcast" auth="true">
+		<attribute name="fromDate" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="thruDate" mode="IN" type="String" optional="false"></attribute>
+		<!-- <attribute name="test" mode="OUT" type="Date" optional="true"></attribute> -->
+		<attribute name="listTimeAndSalesForcast" mode="OUT" type="List" optional="true"></attribute>
+	</service>
+	<service name="getUomUnit" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getUomUnit" auth="true" default-entity-name="Uom">
+		<attribute name="productId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="listUom" mode="OUT" type="List" optional="true"></attribute>
+	</service>
+	<service name="saveAgreementToBillAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="saveAgreementToBillAjax" auth="true">
+		<attribute name="orderId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="billId" mode="IN" type="String" optional="false"></attribute>
+	</service>
+	<service name="updateQuotaItemAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="updateQuotaItemAjax" auth="true">
+		<attribute name="quotaId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="quotaItemSeqId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="quantityAvailable" mode="IN" type="BigDecimal" optional="false"></attribute>
+	</service>
+	<service name="deleteAgreementFromBillAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="deleteAgreementFromBillAjax" auth="true">
+		<attribute name="orderId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="billId" mode="IN" type="String" optional="false"></attribute>
+	</service>
+	<service name="createQuotaNotification" engine="java" invoke="createNotification" location="com.olbius.notification.services.NotificationServices" auth="true">
+    	<attribute name="ntfGroupId" type="String" mode="IN" optional="true"/>
+    	<attribute name="partyId" type="String" mode="IN" optional="true"/>
+    	<attribute name="header" type="String" mode="IN" optional="true"/>
+    	<attribute name="dateTime" type="java.sql.Timestamp" mode="IN" optional="true"/>
+    	<attribute name="openTime" type="java.sql.Timestamp" mode="IN" optional="true"/>
+    	<attribute name="targetLink" type="String" mode="IN" optional="true"/>
+    	<attribute name="action" type="String" mode="IN" optional="true"/>
+    	<attribute name="roleTypeId" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="getContainerID" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getContainerID" auth="true">
+		<attribute name="orderId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="containerId" mode="OUT" type="String" optional="true"></attribute>
+	</service>
+    <service name="getProductStoreID" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getProductStoreID" auth="true">
+		<attribute name="orderId" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="productStoreId" mode="OUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="saveQualityPublicationAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="saveQualityPublicationAjax" auth="true">
+		<attribute name="productId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="qualityPublicationName" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="expireDate" mode="IN" type="Long" optional="false"></attribute>
+		<attribute name="fromDate" mode="IN" type="java.sql.Timestamp" optional="false"></attribute>
+		<attribute name="thruDate" mode="IN" type="java.sql.Timestamp" optional="false"></attribute>
+	</service>
+	<service name="createContentForQualityPublication" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="createContentForQualityPublication" auth="true">
+		<attribute name="contentId" mode="OUT" type="String" optional="false"></attribute>
+	</service>
+	<service name="getProductShelfLifeAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="listProductShelfLife" auth="true">
+		<attribute name="listProductShelfLife" mode="OUT" type="List" optional="true"></attribute>
+	</service>
+	<service name="getImportPlanAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getImportPlanAjax" auth="true">
+		<attribute name="date" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="productPlanId" mode="OUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="loadAgreementNotHasBillAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="loadAgreementNotHasBillAjax" auth="true">
+		<attribute name="agreementNotHasBill" mode="OUT" type="List" optional="true"></attribute>
+	</service>
+	<service name="getListOrderItemsAjax" engine="java" location="com.olbius.delys.importServices.ImportServices" invoke="getListOrderItemsAjax" auth="true">
+		<attribute name="orderId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="listOrderItems" mode="OUT" type="List" optional="true"></attribute>
+	</service>
+<!--     JQXService -->
+    <service name="JQGetListReceiptRequirements" engine="java" invoke="listReceiptRequirements" location="com.olbius.delys.importServices.ImportServices" auth="true">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+    <service name="JQGetListEditReceiptRequirement" engine="java" invoke="listEditReceiptRequirement" location="com.olbius.delys.importServices.ImportServices" auth="true">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="List" optional="false"></attribute>
+   </service>
+    <service name="JQGetListQualityPublication" engine="java" invoke="listQualityPublication" location="com.olbius.delys.importServices.ImportServices" auth="true">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+    <service name="JQGetListImportPlan" engine="java" invoke="listImportPlan" location="com.olbius.delys.importServices.ImportServices" auth="true">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+    <service name="JQGetListProductQA" engine="java" invoke="listProductQA" location="com.olbius.delys.importServices.ImportServices" auth="true">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="org.ofbiz.entity.util.EntityListIterator" optional="false"></attribute>
+   </service>
+    <service name="JQGetListReceiveAgreement" engine="java" invoke="listReceiveAgreement" location="com.olbius.delys.importServices.ImportServices" auth="true">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="List" optional="false"></attribute>
+   </service>
+    <service name="JQGetListQuotas" engine="java" invoke="listQuotas" location="com.olbius.delys.importServices.ImportServices" auth="true">
+   		<attribute name="listAllConditions" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="listSortFields" mode="IN" type="java.util.List" optional="false"></attribute>
+   		<attribute name="opts" mode="IN" type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+   		<attribute name="parameters" mode="IN" type="java.util.Map" optional="false"></attribute>
+   		<attribute name="listIterator" mode="OUT" type="List" optional="false"></attribute>
+   </service>
+<!--    /JQX services -->
+	<!-- hoanmEnd -->
+</services>

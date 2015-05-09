@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>View Entity For Accounting</title>
+	<description>None</description>
+	<copyright></copyright>
+	<version></version>
+	<view-entity entity-name="GlAccountAndGlAccountCategoryMember"
+		package-name="org.ofbiz.delys" title="GlAccount and GlAccountCategoryMember">
+		<member-entity entity-alias="GL" entity-name="GlAccount" />
+		<member-entity entity-alias="GLCM" entity-name="GlAccountCategoryMember" />
+		<alias-all entity-alias="GL" />
+		<alias-all entity-alias="GLCM" />
+		<view-link entity-alias="GL" rel-entity-alias="GLCM">
+			<key-map field-name="glAccountId" />
+		</view-link>
+	</view-entity>
+	
+</entitymodel>	
+	

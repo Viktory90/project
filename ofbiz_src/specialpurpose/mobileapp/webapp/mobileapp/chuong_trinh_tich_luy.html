@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Form Elements - Ace Admin</title>
+		<meta name="description" content="Common form elements and layouts" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- basic styles -->
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
+			
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-responsive.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		
+		
+		<link rel="stylesheet" href="assets/css/jquery-ui-1.10.2.custom.min.css" />
+		<link rel="stylesheet" href="assets/css/chosen.css" />
+		<link rel="stylesheet" href="assets/css/datepicker.css" />
+		<link rel="stylesheet" href="assets/css/bootstrap-timepicker.css" />
+		<link rel="stylesheet" href="assets/css/daterangepicker.css" />
+		<link rel="stylesheet" href="assets/css/colorpicker.css" />
+
+		
+		<!--[if lt IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+	</head>
+
+
+<body>
+<span id="navbar"> </span>
+<div class="main-container container-fluid">
+<div class="main-container-inner">
+<div class="main-content">
+<div class="page-content">		
+	<div class="row-fluid">
+		<div class="span6">
+			<div class="widget-box">
+				<div class="widget-header">
+					<h5 class="smaller"><b>CTTL</b></h5>
+					<div class="widget-toolbar no-border">
+						<ul class="nav nav-tabs" id="myTab">
+							<li class="active"><a data-toggle="tab" href="#home">ĐK CTTL</a></li>													
+						</ul>
+					</div>
+				</div>
+				<div class="widget-body">
+				 <div class="widget-main" style="margin: 0; padding: 0">
+					 <div class="tab-content">
+					  <div id="home" class="tab-pane in active">
+					  <form action="" class="form-horizontal">
+						  <div class="control-group" style="margin-bottom: 0px">
+						  		<label  class="control-label" for="level"><h5 class="blue">Chọn cửa hàng ĐK</h5></label>
+						  		<div class="controls">
+						  			<select>
+						  				<option selected="selected">111 Nguyễn trãi</option>					  				
+						  			</select>
+						  		</div>					  						  	
+						  	</div>
+					  	<div class="control-group" style="margin-bottom: 0px">
+					  		<label  class="control-label" for="level"><h5 class="blue">Chọn CTTL</h5></label>
+					  		<div class="controls">
+					  			<select>
+					  				<option selected="selected">CTTL 1</option>
+					  			</select>
+					  		</div>					  						  	
+					  	</div>
+					  	<div class="control-group" style="margin-bottom: 0px">
+					  		<label  class="control-label" for="level"><h5 class="blue">Chọn cấp độ</h5></label>
+					  		<div class="controls">
+					  			<select>
+					  				<option selected="selected">cấp độ 1</option>
+					  				<option>Cấp độ 2</option>
+					  			</select>
+					  		</div>					  						  	
+					  	</div>
+					  	
+					  	</form>						
+					  	
+					  	<form action="" class="form-horizontal">
+					  	<div class="control-group" style="margin-bottom: 0px">
+					  		<label  class="control-label" for="level"><h5 class="blue">Mức thời hạn</h5></label>
+					  		<div class="controls">
+					  			<b>1 tháng (01/06/2014 - 30/06/2014)</b>
+					  		</div>					  						  	
+					  	</div>
+					  	<div class="control-group" style="margin-bottom: 0px">
+					  		<label  class="control-label" for="level"><h5 class="blue">Mức doanh số</h5></label>
+					  		<div class="controls">
+					  			<b>3,000,000VND</b>
+					  		</div>					  						  	
+					  	</div>
+					  	<div class="control-group" >
+					  		<label  class="control-label" for="level"><h5 class="blue">Thưởng tích lũy</h5></label>
+					  		<div class="controls">
+					  			<b>20 vỉ sữa chua Zott</b>
+					  		</div>					  						  	
+					  	</div>
+					  	</form>	
+					  	<div class="form-actions" style="margin: 0">
+							<button class="btn btn-info btn-small" id="save_new_cus"><i class="icon-ok"></i>
+								<span id="createNewCustomer_saveCus">Gửi ĐK</span>
+							</button>
+							<button class="btn btn-small" data-last="Finish" id="cancel"><i class="icon-undo bigger-110"></i>
+								<span id="createNewCustomer_return">Hủy</span>
+							</button>
+						</div>														
+					  </div>
+					  <div id="profile" class="tab-pane">
+					  <div class="row-fluid">
+						<form class="form-horizontal">
+						<div class="control-group">
+							<div class="table-header">
+								Hình ảnh trưng bày của KH								
+							</div>
+							<img alt="" src="assets/default_image_custom/default.jpg" width="400" height="250">
+							<div class="form-actions" style="margin: 0">
+								<button class="btn btn-info btn-mini" id="save_new_cus"><i class="icon-camera"></i>
+									<span id="createNewCustomer_saveCus">Chụp lại</span>
+								</button>
+								<button class="btn btn-success btn-mini" data-last="Finish" id="cancel"><i class="icon-save bigger-110"></i>
+									<span id="createNewCustomer_return">Lưu</span>
+								</button>
+							</div>
+						</div>
+						<hr/>	
+							<div class="control-group">
+								<label class="control-label bolder blue">Khách hàng</label>
+								<div class="controls ">
+									<span>33 Ngụy Như Kon Tum</span>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label bolder blue">Mức ĐK</label>
+								<div class="controls">
+									<span>Mức 1</span>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label bolder blue">KQ đánh giá</label>
+								<div class="controls">
+									<label >
+										<input name="form-field-radio" type="radio" class="ace"/><span class="lbl" style="margin-right: 10px"> Đạt</span>
+									</label>
+									<label>
+										<input name="form-field-radio" type="radio" class="ace"/><span class="lbl"> Không đạt</span>
+									</label>
+								
+																										
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label bolder blue">Đúng thứ tự TB</label>
+								<div class="controls">
+									<label>
+										<input name="form-field-radio1" type="radio" class="ace"/><span class="lbl" style="margin-right: 10px"> Có</span>
+									</label>
+									<label>
+										<input name="form-field-radio1" type="radio" class="ace" /><span class="lbl"> Không</span>
+									</label>
+								</div>
+							</div>
+						</form>
+						<div class="form-actions" style="margin: 0">
+							<button class="btn btn-info btn-small" id="save_new_cus"><i class="icon-ok"></i>
+								<span id="createNewCustomer_saveCus">Gửi</span>
+							</button>
+							<button class="btn btn-small" data-last="Finish" id="cancel"><i class="icon-undo bigger-110"></i>
+								<span id="createNewCustomer_return">Hủy</span>
+							</button>
+						</div>
+					  </div>
+					  </div>
+					  <div id="info" class="tab-pane">
+						<p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade.</p>
+					  </div>
+					</div>
+				 </div>
+				</div>
+			</div>
+		</div>			
+	</div>
+</div>	
+</div>
+</div>
+</div>
+	<!-- basic scripts -->
+		<script type="text/javascript">
+		window.jQuery
+				|| document
+						.write("<script src='assets/js/jquery-2.0.3.min.js'>"
+								+ "<"+"/script>");
+		</script>
+		<script src="assets/js/bootstrap.min.js"></script>
+
+	
+	
+	<!-- basic scripts -->
+		
+		
+		
+		<script src="assets/js/bootstrap.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+		
+		<!--[if lt IE 9]>
+		<script type="text/javascript" src="assets/js/excanvas.min.js"></script>
+		<![endif]-->
+
+		<script type="text/javascript" src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+
+		<script type="text/javascript" src="assets/js/jquery.ui.touch-punch.min.js"></script>
+
+		<script type="text/javascript" src="assets/js/chosen.jquery.min.js"></script>
+
+		<script type="text/javascript" src="assets/js/fuelux.spinner.js"></script>
+
+		<script type="text/javascript" src="assets/js/bootstrap-datepicker.min.js"></script>
+
+		<script type="text/javascript" src="assets/js/bootstrap-timepicker.min.js"></script>
+
+		<script type="text/javascript" src="assets/js/date.js"></script>
+
+		<script type="text/javascript" src="assets/js/daterangepicker.min.js"></script>
+
+		<script type="text/javascript" src="assets/js/bootstrap-colorpicker.min.js"></script>
+
+		<script type="text/javascript" src="assets/js/jquery.knob.min.js"></script>
+
+		<script type="text/javascript" src="assets/js/jquery.autosize-min.js"></script>
+
+		<script type="text/javascript" src="assets/js/jquery.inputlimiter.1.3.1.min.js"></script>
+
+		<script type="text/javascript" src="assets/js/jquery.maskedinput.min.js"></script>
+
+
+		<!-- ace scripts -->
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+	
+		<!-- inline scripts related to this page -->
+		
+		<script type="text/javascript">
+		$(function() {
+			$.get("header.html", function(data) {
+				$('#navbar').html(data);
+			}, 'html').fail(function() {
+				console.log('arge', arguments)
+			});
+	$('#simple-colorpicker-1').ace_colorpicker({pull_right:true}).on('change', function(){
+		var color_class = $(this).find('option:selected').data('class');
+		var new_class = 'widget-header';
+		if(color_class != 'default')  new_class += ' header-color-'+color_class;
+		$(this).closest('.widget-header').attr('class', new_class);
+	});
+
+	
+	// scrollables
+	$('.slim-scroll').each(function () {
+		var $this = $(this);
+		$this.slimScroll({
+			height: $this.data('height') || 100,
+			railVisible:true
+		});
+      });	  
+	  
+		/*
+		$( '.row-fluid' ).sortable({
+			connectWith: '.row-fluid'
+		});
+		$( ".widget-box" ).addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" )
+		.find( ".widget-header" )
+		.addClass( "ui-widget-header ui-corner-all" )
+		.prepend( "<span class='ui-icon ui-icon-minusthick'></span>")
+		.end()
+		.find( ".widget-body" );
+		$( ".portlet-header .ui-icon" ).click(function() {
+		$( this ).toggleClass( "ui-icon-minusthick" ).toggleClass( "ui-icon-plusthick" );
+		$( this ).parents( ".portlet:first" ).find( ".portlet-content" ).toggle();
+		});
+		$( '.row-fluid' ).disableSelection();
+		*/
+	
+})
+
+	</script>
+</body>
+</html>
+	

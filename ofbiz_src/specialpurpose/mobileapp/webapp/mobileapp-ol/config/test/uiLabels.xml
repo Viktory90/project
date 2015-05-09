@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource>
+	<!-- dashboard.html screen -->
+	<property key="dashboard_pageheader">
+		<value lang="vi">Tổng quan & thống kê</value>
+		<value lang="en"></value>
+	</property>
+	<property key="dashboard_rateNumberProductSold">
+		<value lang="vi">Tỷ lệ số lượng các SP đã bán(%)</value>
+		<value lang="en"></value>
+	</property>
+	<property key="dashboard_amountOrders">
+		<value lang="vi">Tổng số tiền đơn hàng các tháng trong năm(%)</value>
+		<value lang="en"></value>
+	</property>
+	<property key="dashboard_bestCustomers">
+		<value lang="vi">Khách hàng có tổng GT đơn hàng lơn nhất</value>
+		<value lang="en"></value>
+	</property>
+	
+	<property key="dashboard_nameBestProduct">
+		<value lang="vi">Tên SP</value>
+		<value lang="en"></value>
+	</property>
+	<property key="dashboard_quantityBestProduct">
+		<value lang="vi">Số lượng</value>
+		<value lang="en"></value>
+	</property>	
+	<!-- end dashboard screen -->
+	
+	<!-- customers.html screen -->
+	<property key="cusomters_customersList">
+		<value lang="vi">Danh sách Khách hàng</value>
+		<value lang="en"></value>
+	</property>
+	<property key="customers_selectRoad">
+		<value lang="vi">Chọn tuyến đường</value>
+		<value lang="en"></value>
+	</property>
+	<property key="customers_createCustomer">
+		<value lang="vi">Tạo khách hàng mới</value>
+		<value lang="en"></value>
+	</property>		
+	<!-- end customers screen-->
+	
+	<!-- createNewCustomer.html screen -->
+	<property key="createNewCustomer_page-header">
+		<value lang="vi">Khách hàng</value>
+		<value lang="en"></value>
+	</property>
+	<property key="createNewCustomer_title">
+		<value lang="vi">Tạo mới khách hàng</value>
+		<value lang="en"></value>
+	</property>
+	<property key="createNewCustomer_widget-header">
+		<value lang="vi">Tạo khách hàng mới</value>
+		<value lang="en"></value>
+	</property>
+	<property key="createNewCustomer_formTitle">
+		<value lang="vi">Nhập thông tin khách hàng</value>
+		<value lang="en"></value>
+	</property>
+	<property key="createNewCustomer_customerName">
+		<value lang="vi">Tên khách hàng</value>
+		<value lang="en"></value>
+	</property>
+	<property key="createNewCustomer_officesite">
+		<value lang="vi">Office site</value>
+		<value lang="en">Office site</value>
+	</property>
+	<property key="createNewCustomer_cusAddress">
+		<value lang="vi">Địa chỉ khách hàng</value>
+		<value lang="en"></value>
+	</property>
+	<property key="createNewCustomer_city">
+		<value lang="vi">Thành phố</value>
+		<value lang="en"></value>
+	</property>
+	<property key="createNewCustomer_road">
+		<value lang="vi">Tuyến đường</value>
+		<value lang="en"></value>
+	</property>
+	<property key="createNewCustomer_zipcode">
+		<value lang="vi"></value>
+		<value lang="en"></value>
+	</property>
+	<property key="createNewCustomer_saveCus">
+		<value lang="vi">Tạo mới</value>
+		<value lang="en"></value>
+	</property>
+	<property key="createNewCustomer_return">
+		<value lang="vi">Quay lại</value>
+		<value lang="en"></value>
+	</property>
+	<!-- end createNewCustomer screen -->
+	
+	<!-- orders.html -->
+	<property key="orders_page-header">
+		<value lang="vi">Danh sách đơn hàng</value>
+		<value lang="en"></value>
+	</property>
+	<property key="orders_tableTitle">
+		<value lang="vi">Danh sách đơn hàng</value>
+		<value lang="en"></value>
+	</property>
+	<property key="orders_orderStatusState">
+		<value lang="vi">Tất cả</value>
+		<value lang="en">ALL</value>
+	</property>
+	<property key="orders_selectAll">
+		<value lang="vi">Tất cả</value>
+		<value lang="en"></value>
+	</property>
+	<property key="orders_selectPaid">
+		<value lang="vi">Đã Thanh toán</value>
+		<value lang="en"></value>
+	</property>
+	<property key="orders_selectNonPaid">
+		<value lang="vi">Chưa Thanh toán</value>
+		<value lang="en"></value>
+	</property>
+	<property key="orders_dateOrder">
+		<value lang="vi"></value>
+		<value lang="en"></value>
+	</property>
+	<property key="orders_dateOrder">
+		<value lang="vi">Ngày ĐH</value>
+		<value lang="en"></value>
+	</property>
+	<property key="orders_orderId">
+		<value lang="vi">Mã ĐH</value>
+		<value lang="en"></value>
+	</property>
+	<property key="orders_OrderType">
+		<value lang="vi">Loại ĐH</value>
+		<value lang="en"></value>
+	</property>
+	<property key="orders_customers">
+		<value lang="vi">Khách hàng</value>
+		<value lang="en"></value>
+	</property>
+	<property key="orders_amount">
+		<value lang="vi">Số tiền</value>
+		<value lang="en"></value>
+	</property>
+	<property key="orders_status">
+		<value lang="vi">Trạng thái</value>
+		<value lang="en"></value>
+	</property>	
+	<!-- end order.html -->
+	
+	<!-- createOrderAdvance.html -->
+	<property key="createOrderAdvance_page-header">
+		<value lang="vi">Đơn hàng</value>
+		<value lang="en"></value>
+	</property>
+	<property key="createOrderAdvance_title">
+		<value lang="vi">Tạo đơn hàng</value>
+		<value lang="en"></value>
+	</property>
+	<property key="createOrderAdvance_categories">
+		<value lang="vi">Danh mục</value>
+		<value lang="en"></value>
+	</property>
+	<property key="createOrderAdvance_product">
+		<value lang="vi">Sản phẩm</value>
+		<value lang="en"></value>
+	</property>
+	<property key="createOrderAdvance_road">
+		<value lang="vi">Chọn tuyến đường</value>
+		<value lang="en"></value>
+	</property>
+	<property key="createOrderAdvance_store">
+		<value lang="vi">Chọn cửa hàng</value>
+		<value lang="en"></value>
+	</property>
+	<!-- end createOrderAdvance.html -->
+</resource>

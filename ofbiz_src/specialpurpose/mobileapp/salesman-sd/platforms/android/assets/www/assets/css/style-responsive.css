@@ -1,0 +1,60 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 27, 2014, 3:43:04 PM
+    Author     : Alex Bui
+*/
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+    /*main screen*/
+    .ui-jqgrid .ui-jqgrid-pager {
+        height: 50px;
+    }
+    /*navbar*/
+    .navbar-container a.brand{
+        float: left !important;
+    }
+    .navbar:not(.navbar-collapse) .navbar-header{
+        float: left !important;
+        padding-right: 0;
+    }
+    .ace-nav>li>a{
+        padding: 0;
+    }
+     .action-change{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .action-change:nth-child(2n){
+    	padding-left: 5px;
+    }
+    .action-change:nth-child(2n+1){
+    	padding-right: 5px;
+    }
+    
+    .ui-jqgrid .ui-jqgrid-view, .ui-jqgrid .ui-paging-info, .ui-jqgrid .ui-pg-selbox, .ui-jqgrid .ui-pg-table {
+        font-size: 11px;
+    }
+    #grid-pager_right{
+    display: none
+    }
+    
+    .ui-jqgrid .ui-paging-info{
+    display: none;
+    }
+    .ui-jqgrid .ui-jqgrid-pager>.ui-pager-control>.ui-pg-table>tbody>tr>td#grid-pager_center>.ui-pg-table{
+        margin: 0;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+    /*main screen*/
+
+}
+@media only screen and (min-width: 978px) and (max-width: 1199px) {
+
+}
+@media only screen and (min-width: 1200px)
+
+}

@@ -1,0 +1,164 @@
+<div ng-show="isValidDistance">
+	<div class="row" style="padding-bottom: 20px;">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 horizon-scrollable">
+			<table
+			class="table table-striped table-bordered table-hover products">
+				<thead>
+					<tr>
+						<th class="center">{{Map.ProductId[key]}}</th>
+						<th class="center">{{Map.ProductName[key]}}</th>
+						<th class="center">{{Map.Price[key]}}</th>
+						<th class="center">{{Map.Quantity[key]}}</th>
+					</tr>
+				</thead>
+				<tbody id="listProducts">
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<hr class="hr hr-10 hr-dotted" />
+	<div class="row  margin-bottom-10"
+	style="position: fixed; bottom: 0px; height: 55px; width: 100%;">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<!-- <div class="pagination">
+				<button class="btn pagination-btn" ng-if="current > 1"
+				ng-click="previous()">
+					{{Map.Previous[key]}}
+				</button>
+				<span id="paginationNumber"></span>
+				<button class="btn pagination-btn" ng-if="total > 1"
+				ng-click="next()">
+					{{Map.Next[key]}}
+				</button>
+			</div> -->
+			<div class="right">
+				<!-- <button class="btn btn-small btn-primary" data-toggle="modal"
+				data-target="#submitorder">
+					<i class="ace-icon fa fa-send"></i> {{Map.SendOrder[key]}}
+				</button> -->
+				<button class="btn btn-small btn-primary" ng-click="btcreateOrder()">
+					<i class="ace-icon fa fa-send"></i> {{Map.SendOrder[key]}}
+				</button>
+				<button ng-click="viewOrder()" class="btn btn-small btn-primary">
+					<i class="ace-icon fa fa-book"></i> {{Map.ViewOrder[key]}}
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="submitorder" tabindex="-1" role="dialog"
+aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" style="background-color : #046740">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title white-color" id="myModalLabel"><i class=" white-color fa fa-file-text-o"></i>&nbsp;{{Map.OrderDetail[key]}}</h4>
+			</div>
+			<div class="modal-body">
+				<table
+				class="table table-striped table-bordered table-hover products">
+					<thead>
+						<tr>
+							<th class="center">{{Map.ProductId[key]}}</th>
+							<th class="center">{{Map.ProductName[key]}}</th>
+							<th class="center">{{Map.Quantity[key]}}</th>
+							<th class="center">{{Map.Price[key]}}</th>
+						</tr>
+					</thead>
+					<tbody id="productOrderBody"></tbody>
+				</table>
+				<div class="row" ng-if="!network.status">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 theme-color"
+					id="notification">
+					{{notification}}
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"
+					style="text-align: right">
+						{{Map.TotalPayment[key]}}: <b class="theme-color" id="total-amount"> <b>{{FormatNumberBy3(calculateTotalCost())}} đ</b></b>
+					</div>
+				</div>
+				<!--online calculate promtions-->
+			<div ng-if="network.status">
+				<div ng-if="!checkPromo">
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 theme-color" id="notification">
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align: right">
+							{{Map.TotalAmount[key]}} : <b class="theme-color" >{{FormatNumberBy3(calculateTotalCost())}} đ</b>
+						</div>
+					</div>
+					<div class="row" >
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 theme-color" id="notification"></div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align: right">
+							<a style="text-decoration: line-through;color:black">{{Map.TotalPayment[key]}} : <b>{{FormatNumberBy3(PaymentTotal)}} đ</b></a>
+						</div>
+					</div>
+				</div>
+				<div ng-show="checkPromo">
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 theme-color" id="notification">
+							{{notification}}
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align: right">
+							<a  style="text-decoration: line-through;color:black">{{Map.TotalAmount[key]}}: <b id="TotalCost">{{FormatNumberBy3(calculateTotalCost())}} đ</b></a>
+						</div>
+					</div>
+					<div class="row" >
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 theme-color" id="notification"></div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align: right">
+							<a >{{Map.TotalPayment[key]}} : <b class="theme-color">{{FormatNumberBy3(PaymentTotal)}} đ</b></a>
+						</div>
+					</div>
+					<div class="row" >
+						<div ng-show="checkPromo" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align: left">
+							<b> {{Map.DetailProductPromo[key]}}  : </b>
+						</div>
+						<table class="table table-striped table-bordered table-hover products">
+							<thead>
+								<tr>
+									<th class="center">{{Map.ProductId[key]}}</th>
+									<th class="center">{{Map.ProductName[key]}}</th>
+									<th class="center">{{Map.Quantity[key]}}</th>
+									<th class="center">{{Map.Price[key]}}</th>
+								</tr>
+							</thead>
+							<tbody id="GiftProduct"></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div ng-if="!network.status">	
+				<!-- ofline calculate promotions -->
+				<div class="row" ng-show="checkPromo">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align: left">
+							<b> {{Map.DetailProductPromo[key]}}  : </b>
+						</div>
+						<div class="promotions-result" id="promotions" >
+						</div>
+				</div>
+			</div>	
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clearPaymentTotal()">
+						<i class="glyphicon glyphicon-refresh"></i>&nbsp;{{Map.again[key]}}
+					</button>
+					<button type="button" class="btn btn-primary"
+						ng-click="submitOrder()" id="submitOrderBt">
+						<i class="glyphicon glyphicon-send"></i>&nbsp;{{Map.Confirm[key]}}
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-show="!isValidDistance">
+		<center>
+			<b class="red">{{Map.ConditionCreateOrder[key]}}
+			 <span>"Reload"</span> </b>
+			<hr />
+			<button ng-click="reloadDistance()" class="btn">
+				<i class="glyphicon glyphicon-refresh"></i> Reload
+			</button>
+		</center>
+	</div>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	
+	<!-- Security -->
+	
+	<!-- Role -->
+	<RoleType roleTypeId="DELYS_QA" hasTable="N" description="Delys-QA"/>
+	<RoleType roleTypeId="QA_LEGAL_OFFICER" hasTable="N" description="QA legal officer"/>
+	<RoleType roleTypeId="QA_LEGAL_OFFICER_ST" parentTypeId="QA_LEGAL_OFFICER" hasTable="N" description="QA legal officer southern"/>
+	<RoleType roleTypeId="QA_LEGAL_OFFICER_NT" parentTypeId="QA_LEGAL_OFFICER" hasTable="N" description="QA legal officer northern"/>
+	<RoleType roleTypeId="QA_QUALITY_MANAGER" hasTable="N" description="QA Quality manager"/>
+	<RoleType roleTypeId="QUALITY_MANAGER_ST" parentTypeId="QA_QUALITY_MANAGER" hasTable="N" description="QA quality manager southern"/>
+	<RoleType roleTypeId="QUALITY_MANAGER_NT" parentTypeId="QA_QUALITY_MANAGER" hasTable="N" description="QA quality manager northern"/>
+	
+	<!-- Security group -->
+	<SecurityGroup groupId="DELYS_QA" description="Delys QA"/>
+	<SecurityGroup groupId="QA_LEGAL_OFFICER" description="QA legal officer"/>
+	<SecurityGroup groupId="QA_LEGAL_OFFICER_ST" description="QA legal officer southern"/>
+	<SecurityGroup groupId="QA_LEGAL_OFFICER_NT" description="QA legal officer northern"/>
+	<SecurityGroup groupId="QA_QUALITY_MANAGER" description="QA Quality manager"/>
+	<SecurityGroup groupId="QUALITY_MANAGER_ST" description="QA quality manager southern"/>
+	<SecurityGroup groupId="QUALITY_MANAGER_NT" description="QA quality manager northern"/>
+	
+</entity-engine-xml>

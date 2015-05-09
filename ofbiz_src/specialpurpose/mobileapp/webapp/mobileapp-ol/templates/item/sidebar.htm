@@ -1,0 +1,77 @@
+<div id="left" class="sidebar-nav snap-drawer snap-drawer-left" ng-controller="SidebarController">
+	<ul class="list-action">
+		<li class="action">
+			<div class="user">
+				<a href="#/profile" class="white-color">
+					<div class="user-avatar">
+							<!-- <i class="fa fa-edit white-color"></i>&nbsp;<span class="white-color">{{Map.Menu[key]}}</span>  -->
+						
+						<img src="{{}}" ng-if="employee.avatar"/>
+						<img src="assets/avatars/avatar.png" ng-if="!employee.avatar"/>
+					</div>
+					
+					<div class="user-name white-color">
+						{{employee.firstName + " " + employee.middleName + " " +
+						employee.lastName}}
+						<span>
+						<!-- <a href="#/profile" class="white-color"> 
+							<i class="fa fa-edit white-color"></i>&nbsp;<span class="white-color">{{Map.Menu[key]}}</span> 
+						</a> -->
+					</span>
+					</div>
+				</a>
+				<div class="iconLanguage white-color">
+					<input style="margin-top:-32px;float: right" type="image" src="assets/images/en.png" name="english" ng-click="ChangeEnglish()"/>
+					<input style="margin-top:-32px;margin-right:35px;float: right" type="image" src="assets/images/vi.png" name="vietnamese" ng-click="ChangeTV()"/>
+				</div>
+			</div>
+		</li>
+		<!-- <li class="action">
+			<div class="language"> -->
+					<!-- <input class="iconLanguage" type="image" src="assets/images/en.png" name="english" ng-click="ChangeEnglish()"/>
+					<input class="iconLanguage" type="image" src="assets/images/vi.png" name="vietnamese" ng-click="ChangeTV()"/> -->
+				<!-- <div class="dropdown">
+			        <button class="white-color dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"><i class="c-icon fa fa-home white-color"></i>&nbsp;<span class="white-color">Language</span>
+			        <span class="caret"></span></button>
+			        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+			          <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="ChangeEnglish()">English</a></li>
+			          <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="ChangeTV()">Tiếng Việt</a></li>
+	       		 </ul> -->
+			<!-- </div>
+		</li> -->
+		<li class="action">
+			<a href="javascript:void(0)" ng-click="home()" class="white-color"> 
+				<i class="c-icon fa fa-home white-color"></i>&nbsp;<span class="white-color">{{UiLabelMap.Menu[key]}}</span> 
+			</a>
+		</li>
+		<li class="action">
+			<a href="javascript:void(0)" ng-click="inventory()" class="white-color"> 
+				<i class="c-icon fa fa-list-ul white-color"></i>&nbsp;<span class="white-color">{{UiLabelMap.SelectInventoryStore[key]}}</span> 
+			</a>
+		</li>
+		<li class="action">
+			<a href="javascript:void(0)" ng-click="createCustomer()" class="white-color"> 
+				<i class="c-icon fa fa-user white-color"></i>&nbsp;<span class="white-color">{{UiLabelMap.CreateCustomer[key]}}</span> 
+			</a>
+		</li>
+		<li class="action">
+			<a href="javascript:void(0)" ng-click="leave()" class="white-color"> 
+				<i class="c-icon fa fa-fighter-jet white-color"></i>&nbsp;<span class="white-color">Xin nghỉ phép</span> 
+			</a>
+		</li>
+		<li class="action">
+			<a href="javascript:void(0)" ng-click="markExhibitedSup()" class="white-color"> 
+				<i class="c-icon fa fa-power-off white-color"></i>&nbsp;<span class="white-color">Chấm điểm TB(Sup)</span> 
+			</a>
+		</li>
+		<li class="action">
+			<a href="javascript:void(0)" ng-click="logout()" class="white-color"> 
+				<i class="c-icon fa fa-power-off white-color"></i>&nbsp;<span class="white-color">Logout</span> 
+			</a>
+		</li>
+	</ul>
+	<div class="url-config">
+		<input ng-model="url" type="text" class="col-xs-12 col-sm-12" placeholder="Enter base url"/>
+		<button class="url-config-reload" ng-click="urlConfig()"><i class="c-icon fa fa-refresh"></i></button>
+	</div>
+</div>

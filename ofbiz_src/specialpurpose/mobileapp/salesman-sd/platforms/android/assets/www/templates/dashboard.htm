@@ -1,0 +1,192 @@
+<div class="widget-box" id="DashboardOrder">
+	<div class="widget-header widget-header-flat widget-header-small main-bg">
+		<h4 class="widget-title white-color">{{Map.RateProductsSold[key]}} (%)</h4>
+	</div>
+	<div class="widget-body">
+		<div class="widget-main">
+			<div id="productQtyReport" style="width: 0%; height: 0px;"></div>
+			<highchart config="chartConfig"></highchart>
+		</div>
+	</div>
+
+	<div class="widget-box" >
+		<div class="widget-header widget-header-flat widget-header-small main-bg">
+			<h5 id="dashboard_amountOrders" class="white-color">{{Map.RateRevenueOrder[key]}} (%)</h5>
+		</div>
+		<div class="widget-body">
+			<div class="widget-main">
+				<div id="orderAmount" style="width: 0%; height: 0px;"></div>
+				<highchart config="chartConfig1">
+				</highchart>
+			</div>
+		</div>
+	</div>
+	<div class="hr hr10 hr-dotted"></div>
+	<div class="row">
+		<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+			<div class="widget-box">
+				<div class="widget-header widget-header-flat widget-header-small  main-bg">
+					<h5 class="widget-title"><i class="icon-signal"></i><span id="dashboard_bestCustomers" class="white-color">{{Map.CustomersTotalOrdersMax[key]}}</span></h5>
+					<!-- <div class="widget-toolbar no-border">
+						<button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+							<span id="dashboard_monthBtnCus">{{Map.Thismonth[key]}}</span><i class="icon-angle-down icon-on-right"></i>
+						</button>
+						<ul class="dropdown-menu dropdown-info pull-right dropdown-caret">
+							<li id="dashboard_liThisMonthCus" class="active">
+								<a onclick="updateBestCus('thisMonth')">{{Map.Thismonth[key]}}</a>
+							</li>
+							<li id="dashboard_liLastMonthCus">
+								<a onclick="updateBestCus('lastMonth')">{{Map.Lastmonth[key]}}</a>
+							</li>
+						</ul>
+					</div> -->
+				</div>
+				<div class="widget-body">
+					<div class="widget-main">
+						<div id="piechart-placeholder" style="width: 90%; min-height: 150px; padding: 0px; position: relative;">
+							<highchart config="chartConfig2"></highchart>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		 <div class="vspace"></div>
+		 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+			<div class="widget-box">
+				<div class="widget-header widget-header-flat main-bg">
+					<h4 class="widget-title"><i class="icon-calendar blue"></i><span class="white-color"><i class="glyphicon glyphicon-calendar"></i> &nbsp;{{Map.EventOfMonth[key]}}</span></h4>
+					<div class="widget-toolbar no-border">
+						<!-- <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+							<span id="">Tháng này</span>
+							<i class="icon-angle-down icon-on-right"></i>
+						</button>
+						<ul class="dropdown-menu dropdown-info pull-right dropdown-caret">
+							<li class="active" id="dashboard_liThisMonth">
+								<a id="" onclick="updatePopuLarProduct('thisMonth');">{{Map.Thismonth[key]}}</a>
+							</li>
+							<li id="dashboard_liLastMonth">
+								<a id="" onclick="updatePopuLarProduct('lastMonth');">{{Map.Lastmonth[key]}}</a>
+							</li>
+						</ul> -->
+					</div>
+				</div>
+				<div class="widget-body">
+					<div class="widget-body-inner">
+						<div class="widget-main no-padding">
+							<table id="table_report" class="table table-striped table-bordered table-hover">
+								<thead>
+									<tr>
+										<th><i class="icon-caret-right blue"></i><span id="dashboard_nameBestProduct">{{Map.Event[key]}}</span></th>
+										<th><i class="icon-caret-right blue"></i><span id="dashboard_quantityBestProduct">{{Map.Time[key]}}</span></th>
+										<th><i class="icon-caret-right blue"></i><span id="dashboard_quantityBestProduct">{{Map.Revenue[key]}}</span></th>
+									</tr>
+								</thead>
+								<tbody>
+
+									<tr ng-repeat="data in dataPolicysDetail">
+										<td ng-if="data.policyName">{{data.policyName}}</td>
+										<td ng-if="!data.policyName"></td>
+										<td ng-if="data.fromDate && data.thruDate">{{Map.From[key]}}  {{data.fromDate}}  {{Map.To[key]}}  {{data.thruDate}}</td>
+										<td ng-if="data.fromDate && !data.thruDate">{{Map.From[key]}}  {{data.fromDate}} </td>
+										<td ng-if="data.amount">{{data.amount | currency}}</td>
+										<td ng-if="!data.amount"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div class="hr hr-10 hr-dotted"></div>
+	<div class="row" >
+		<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12" id="bestPurchaseProduct">
+			<div class="widget-box">
+				<div class="widget-header widget-header-flat main-bg">
+					<h4 class="widget-title"><i class="icon-star orange"></i><span id="dashboard_bestProduct" class="white-color"> <i class="glyphicon glyphicon-usd"></i>&nbsp;{{Map.ProductBestSeller[key]}}</span></h4>
+					<div class="widget-toolbar no-border">
+						<!-- <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+							<span id="dashboard_monthBtn">{{Map.Thismonth[key]}}</span>
+							<i class="icon-angle-down icon-on-right"></i>
+						</button>
+						<ul class="dropdown-menu dropdown-info pull-right dropdown-caret">
+							<li class="active" id="dashboard_liThisMonth">
+								<a id="thisMOnclick" ng-click = "updatePopuLarProduct('thisMonth');">{{Map.Thismonth[key]}}</a>
+							</li>
+							<li id="dashboard_liLastMonth">
+								<a id="lastMOnclick" ng-click = "updatePopuLarProduct('lastMonth');">{{Map.Lastmonth[key]}}</a>
+							</li>
+						</ul> -->
+					</div>
+				</div>
+				<div class="widget-body">
+					<div class="widget-body-inner">
+						<div class="widget-main ">
+							<table id="table_bug_report" class="table table-bordered table-striped" >
+								<thead>
+									<tr>
+										<th><i class="icon-caret-right blue"></i><span id="dashboard_nameBestProduct">{{Map.ProductName[key]}}</span></th>
+										<th><i class="icon-caret-right blue"></i><span id="dashboard_quantityBestProduct">{{Map.Quantity[key]}}</span></th>
+									</tr>
+								</thead>
+								<tbody >
+									<tr ng-repeat="data in dataProduct" >
+										<span ng-if="data"> <td>{{data.productReport}}</td> <td>{{data.quantity}}</td> </span>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	 	<div class="vspace"></div>
+		<div class="infobox-container" id="orderDetail">
+				<span class="width-80 label label-info label-xlg arrowed-in arrowed-in-right"><h4 class="widget-title col-xs-12 col-md-12 white-color" style="margin-top:-2px;">{{Map.StatisticsOrder[key]}}</h4></span>
+		<div class="profile-user-info profile-user-info-striped" ng-click="viewDetailOrder()">
+            <div class="profile-info-row">
+                <div class="profile-info-name"><span id="profile_salesmanName" class="profile_salesmanName"><span ><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;{{Map.OrderCreateToday[key]}}</span></span></div>
+                <div class="profile-info-value">
+                    <span class="editable" >
+                    <span  id="orders_created" >{{dataOrderDetail.dayOrder}}</span></span>
+                </div>											
+            </div>
+
+            <div class="profile-info-row">
+                <div class="profile-info-name"><span id="profile_salesmanAddress" class="profile_salesmanAddress"><span ><i class="glyphicon glyphicon-ok"></i>&nbsp;{{Map.OrderfinishToday[key]}}</span></span></div>
+                <div class="profile-info-value">
+                    <i class="icon-map-marker light-orange bigger-110"></i> 
+                    <span class="editable" id="address"><span  id="orders_complete" > {{dataOrderDetail.dayComplete}}</span></span> 												
+                </div>
+            </div>
+            <div class="profile-info-row">
+                <div class="profile-info-name">
+                    <span id="profile_joinedDate" class="profile_joinedDate"><span ><i class="glyphicon glyphicon-trash"></i>&nbsp;{{Map.OrderCancelToday[key]}}</span></span>
+                </div>
+
+                <div class="profile-info-value">
+                    <span class="editable" id="signup"><span  id="orders_canceled">{{dataOrderDetail.dayCancelled}}</span></span>
+                </div>
+            </div>
+
+            <div class="profile-info-row">
+                <div class="profile-info-name">
+                    <span id="profile_lastUpdate"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;{{Map.PendingPaymentOrder[key]}}</span></span>
+                </div>
+                <div class="profile-info-value">
+                    <span class="editable" id="lastupdate"><span  >{{dataOrderDetail.waitingPayment}}</span></span>
+                </div>
+            </div>
+            <div class="profile-info-row">
+                <div class="profile-info-name">
+                    <span><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;{{Map.PendingApprovedOrder[key]}}</span>
+                </div>
+                <div class="profile-info-value">
+                    <span class="editable" id="lastupdate"><span>{{dataOrderDetail.waitingComplete}}</span></span>
+                </div>
+            </div>
+        </div>
+       </div>
+	</div>
+</div>

@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+   
+   <screen name="root-decorator">
+        <section>
+            <actions>
+                <!-- base/top/specific map first, then more common map added for shared labels -->
+                <property-map resource="BigshopUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+
+                <set field="MainColumnStyle" value="nocolumns" global="true"/>
+
+                <!-- The default (global) shortcut icon -->
+                <set field="layoutSettings.shortcutIcon" value="/images/favicon.ico" global="true"/>
+
+                <!-- The default (main) java scripts -->
+                <!-- NOTE: this should be included on each screen that uses it to avoid including it in all screens: -->
+                <set field="layoutSettings.javaScripts[]" value="/images/selectall.js" global="true"/>
+                <set field="initialLocaleComplete" type="String" value="${groovy:parameters?.userLogin?.lastLocale}" default-value="${groovy:locale.toString()}"/>
+                <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.dateTime.getFilePath(initialLocaleComplete)}" global="true"/>
+				<set field="layoutSettings.javaScripts[+0]" value="/bazar/js/jquery/jquery.nivo.slider.pack.js" global="true"/>
+				<set field="layoutSettings.javaScripts[+0]" value="/bazar/js/jquery/jquery.jcarousel.min.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/bazar/js/jquery/jquery.easing-1.3.min.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/bazar/js/jquery/jquery.dcjqaccordion.js" global="true"/>
+				
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/datetimepicker/jquery-ui-timepicker-addon-1.0.5.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/ui/js/jquery-ui-1.9.0.custom.min.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/ui/development-bundle/ui/jquery.ui.datepicker.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/validate/jquery.validate.min.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-1.8.2.min.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/bazar/js/jquery/jquery.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/bazar/js/analytics.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/bazar/js/comment-reply.min.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/bazar/js/nr-100.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/bazar/js/shortcode.min.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/bazar/js/sitepress.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/bazar/js/twitter-text.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/bazar/js/underscore.min.js" global="true"/>
+                
+                
+                <script location="component://bazarstore/webapp/bazarstore/WEB-INF/actions/EcommerceSetup.groovy"/>
+
+                <!-- Get the store VisualTheme -->
+                <set field="visualThemeId" from-field="productStore.visualThemeId" default-value="EC_DEFAULT"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true"/>
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[1]" default-value="component://bazar/webapp/bazar/includes/header.ftl"/>
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[1]" default-value="component://bazar/webapp/bazar/includes/footer.ftl"/>
+                <entity-and list="webAnalyticsConfigs" entity-name="WebAnalyticsConfig">
+                    <field-map field-name="webSiteId"/>
+                </entity-and>
+                <set field="layoutSettings.javaScripts[]" value="/images/miscAjaxFunctions.js" global="true" />
+                
+            </actions>
+            <widgets>
+               <section>
+                  <condition>
+                     <not><if-empty field="globalContext.productStore"/></not>
+                  </condition>
+                  <widgets>
+                     <platform-specific><html><html-template location="component://bazar/webapp/bazar/includes/headerHead.ftl"/></html></platform-specific>
+                     <platform-specific><html><html-template location="component://common/webcommon/includes/openhtmlbody.ftl"/></html></platform-specific>
+                     <container style="main-wrapper">
+	                     <!-- render header -->
+	                     <!-- header <container id="header"><platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific></container>
+						  -->
+						 <container id="header"><platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific></container>
+	                     <container id="menu"><include-screen name="menuCategories" location="component://bazar/widget/CatalogScreens.xml"/></container>	
+	                     <container id="container">
+	                     	<!-- render messages -->
+	                           <platform-specific><html><html-template location="component://bazar/webapp/bazar/includes/messages.ftl"/></html></platform-specific>
+	                        <!-- by default will render left-bar only if left/rightbarScreenName value not empty -->
+	                        
+	                        <!-- 
+	                        <container id="column-left">
+                        		<decorator-section-include name="leftside"/>
+                        	</container>
+	                         -->
+	
+	                        <container id="content">
+	                           <decorator-section-include name="body"/>
+	                        </container>
+	
+	                        <container id="div4" style="endcolumns"/>
+	                    </container>
+	                     
+                    </container>
+                    <!-- render footer -->
+	                <container id="footer"><platform-specific><html><html-template location="${footerTemplateLocation}"/></html></platform-specific></container>
+	                <platform-specific><html><html-template location="component://common/webcommon/includes/closehtmlbody.ftl"/></html></platform-specific>
+                  </widgets>
+                  <fail-widgets>
+                     <label text="A Product Store has not been defined for this ecommerce site.  A Product Store can be created using the ofbizsetup wizard."/>
+                  </fail-widgets>
+               </section>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="main-decorator">
+        <section>
+            <actions>
+            </actions>
+            <widgets>
+                <decorator-screen name="root-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="leftside">
+                    	<!-- <include-screen name="${leftbarScreenName}" location="${leftbarScreenLocation}"/> -->
+                    </decorator-section>
+                    <decorator-section name="body">
+                    	<decorator-section-include name="body"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+   
+   <screen name="main">
+   		<section>
+            <actions>
+            <!-- leftbar -->
+                <set field="MainColumnStyle" value="center"/>
+
+                <set field="titleProperty" value="PageTitleMain"/>
+                <set field="headerItem" value="main"/>
+                <set field="randomSurveyGroup" value="testSurveyGroup"/>
+
+                <script location="component://bazarstore/webapp/bazarstore/WEB-INF/actions/Main.groovy"/>
+                <script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/catalog/Category.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://bazar/webapp/bazar/main.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+   </screen>
+   
+    <!-- Top Level Screens -->
+    <!-- <screen name="main">
+        <section>
+            <widgets>
+                 <platform-specific>
+                     <html><html-template location="component://bazar/webapp/bazar/main.ftl"/></html>
+                 </platform-specific>
+            </widgets>
+        </section>
+    </screen>-->
+    
+    <screen name="adv_slide">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://bazar/webapp/bazar/includes/content/adv_slide.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="login">
+        <section>
+            <actions>
+            	<!-- <set field="leftbarScreenName" value="leftbar"/> -->
+                <set field="titleProperty" value="PageTitleLogin"/>
+                <set field="headerItem" value="login"/>
+                <script location="component://bazarstore/webapp/bazarstore/WEB-INF/actions/Login.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="root-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://bazar/webapp/bazar/login.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <!-- Screen cho trang dang ki thanh vien - CustomerScreens.xml#newcustomer -->
+    <screen name="account-decorator">
+        <section>
+            <actions>
+            </actions>
+            <widgets>
+                <decorator-screen name="root-decorator" location="${parameters.mainDecoratorLocation}">
+                    <!-- 
+                    <decorator-section name="leftside">
+                    	<platform-specific>
+                            <html><html-template location="component://bigshop/webapp/bigshop/includes/leftLoginSide.ftl"/></html>
+                        </platform-specific>
+                        <include-screen name="productCategoriesSpecial" location="component://bigshop/widget/CatalogScreens.xml"/>
+                    </decorator-section>
+                     -->
+                    <decorator-section name="body">
+                    	<decorator-section-include name="body"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="filter-decorator">
+         <section>
+            <actions>
+            </actions>
+            <widgets>
+                <decorator-screen name="root-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="leftside">
+                    	<include-screen name="category-filter"/>
+                    	<!-- <include-screen name="${leftbarScreenName}" location="${leftbarScreenLocation}"/> -->
+                    </decorator-section>
+                    <decorator-section name="body">
+                    	<decorator-section-include name="body"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- filter for category -->
+    <screen name="category-filter">
+		<section>
+			<actions>
+				<!-- <set field="leftbarScreenName" value="leftbar"/> -->
+                <set field="rightbarScreenName" value="rightbar"/>
+                <set field="MainColumnStyle" value="center"/>
+
+                <set field="titleProperty" value="PageTitleAdvancedSearch"/>
+                <set field="headerItem" value="Advanced Search"/>
+				<script location="component://bazarstore/webapp/bazarstore/WEB-INF/actions/catalog/AdvancedSearchOptions.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific><html><html-template location="component://bazar/webapp/bazar/includes/catalog/filter.ftl"/></html></platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="CommonPopUpDecorator">
+        <section>
+            <actions>
+                <!-- base/top/specific map first, then more common map added for shared labels -->
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AccountingUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+
+                <set field="MainColumnStyle" value="nocolumns" global="true"/>
+
+                <!-- The default (global) shortcut icon -->
+                <set field="layoutSettings.shortcutIcon" value="/images/ofbiz.ico" global="true"/>
+
+                <!-- The default (main) java scripts -->
+                <!-- NOTE: this should be included on each screen that uses it to avoid including it in all screens: -->
+                <set field="layoutSettings.javaScripts[]" value="/images/selectall.js" global="true"/>
+
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/validate/jquery.validate.min.js" global="true"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-1.8.2.min.js" global="true"/>
+
+                <script location="component://bazarstore/webapp/bazarstore/WEB-INF/actions/EcommerceSetup.groovy"/>
+
+                <!-- Get the store VisualTheme -->
+                <set field="visualThemeId" from-field="productStore.visualThemeId" default-value="EC_DEFAULT"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://bazar/webapp/bazar/includes/headerHead.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://common/webcommon/includes/openhtmlbody.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific>
+
+                <decorator-section-include name="body"/>
+
+                <platform-specific><html><html-template location="component://common/webcommon/includes/closehtmlbody.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="creditCardFields">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://bazar/webapp/bazar/includes/account/creditcardfields.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+</screens>

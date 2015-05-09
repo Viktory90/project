@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>Entity of Recruitment</title>
+	<description>None</description>
+	<copyright></copyright>
+	<version></version>
+	<entity entity-name="PartyJobRequest" package-name="com.olbius.hrolbius">
+		<description>Map a Applicant with Job Requisition</description>
+		<field name="partyId" type="id-ne"></field>
+		<field name="jobRequestId" type="id-ne"></field>
+		<field name="description" type="very-long"></field>
+		<prim-key field="partyId" />
+		<prim-key field="jobRequestId" />
+		<relation rel-entity-name="Party" type="one" fk-name="FK_PARTY_NEW4">
+			<key-map field-name="partyId" />
+		</relation>
+		<relation rel-entity-name="JobRequest" type="one">
+			<key-map field-name="jobRequestId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="Interviewee" package-name="com.olbius.hrolbius">
+		<description>Interviewee</description>
+		<field name="partyId" type="id-ne"></field>
+		<field name="jobInterviewId" type="id-ne"></field>
+		<field name="jobInterviewResult" type="id-ne"></field>
+		<prim-key field="partyId" />
+		<prim-key field="jobInterviewId" />
+		<relation type="one" rel-entity-name="Party" fk-name="FK_PARTY_NEW2">
+			<key-map field-name="partyId" />
+		</relation>
+		<relation type="one" rel-entity-name="JobInterview">
+			<key-map field-name="jobInterviewId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="Interviewer" package-name="com.olbius.hrolbius">
+		<description>Interviewer</description>
+		<field name="partyId" type="id-ne"></field>
+		<field name="jobInterviewId" type="id-ne"></field>
+		<prim-key field="partyId" />
+		<prim-key field="jobInterviewId" />
+		<relation type="one" rel-entity-name="Party" fk-name="FK_PARTY_NEW3">
+			<key-map field-name="partyId" />
+		</relation>
+
+		<relation type="many" rel-entity-name="JobInterview">
+			<key-map field-name="jobInterviewId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="JobInterview" package-name="com.olbius.hrolbius"
+		title="Entity for storing data about Interviews conducted">
+		<field name="jobInterviewId" type="id-ne"></field>
+		<field name="jobRequisitionId" type="id"></field>
+		<field name="jobInterviewTypeId" type="id"></field>
+		<field name="gradeSecuredEnumId" type="id"></field>
+		<field name="jobInterviewDate" type="date"></field>
+		<prim-key field="jobInterviewId" />
+
+		<relation type="one" fk-name="JOB_INTW_INTYP"
+			rel-entity-name="JobInterviewType">
+			<key-map field-name="jobInterviewTypeId" />
+		</relation>
+		<relation type="one" fk-name="JOB_INTW_JBREQ"
+			rel-entity-name="JobRequisition">
+			<key-map field-name="jobRequisitionId" />
+		</relation>
+		<relation type="one" fk-name="JOB_INTW_ENUM" rel-entity-name="Enumeration">
+			<key-map field-name="gradeSecuredEnumId" rel-field-name="enumId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="JobInterviewQuestion" package-name="com.olbius.hrolbius">
+		<description>Job Interview Question</description>
+		<field name="questionId" type="id-ne" not-null="true"></field>
+		<field name="questionTypeId" type="id-ne" not-null="true"></field>
+		<field name="fromDate" type="date"></field>
+		<field name="thruDate" type="date"></field>
+		<field name="content" type="very-long"></field>
+		<prim-key field="questionId" />
+		<relation rel-entity-name="JobQuestionType" type="one">
+			<key-map field-name="questionTypeId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="JobQuestionType" package-name="com.olbius.hrolbius">
+		<description>Job Question Type</description>
+		<field name="questionTypeId" type="id-ne" not-null="true"></field>
+		<field name="description" type="value"></field>
+		<prim-key field="questionTypeId" />
+	</entity>
+
+	<entity entity-name="JobInterviewQuestionMap" package-name="com.olbius.hrolbius">
+		<description>Map Job Interview Question and Job Interview </description>
+		<field name="questionId" type="id-ne" not-null="false" />
+		<field name="jobInterviewId" type="id-ne" not-null="false" />
+		<prim-key field="questionId" />
+		<prim-key field="jobInterviewId" />
+		<relation rel-entity-name="JobInterviewQuestion" type="one">
+			<key-map field-name="questionId" />
+		</relation>
+		<relation rel-entity-name="JobInterview" type="one" fk-name="FK_JOBINTERVIEW_NEW1">
+			<key-map field-name="jobInterviewId" />
+		</relation>
+	</entity>
+	
+	<!-- Job Request -->
+	<entity entity-name="EmplPositionTypeCriteria" package-name="com.olbius.delys.hr">
+		<field name="emplPositionTypeId" type="id-ne"></field>
+		<field name="recruitmentCriteriaId" type="id-ne"></field>
+		<prim-key field="emplPositionTypeId" />
+		<prim-key field="recruitmentCriteriaId" />
+		<relation rel-entity-name="RecruitmentCriteria" type="one" fk-name="FK_EPTC_RC">
+			<key-map field-name="recruitmentCriteriaId"/>
+		</relation>
+		<relation rel-entity-name="EmplPositionType" type="one" fk-name="FK_EPTC_EPT">
+			<key-map field-name="emplPositionTypeId"></key-map>
+		</relation>
+	</entity>
+	<!-- /Job Request -->
+	
+	<entity entity-name="RecruitmentPlanHeader" package-name="com.olbius.delys.hr">
+		<field name="year" type="id-ne"></field>
+		<field name="partyId" type="id-ne">
+			<description>Organizational Unit Id</description>
+		</field>
+		<field name="scheduleDate" type="date-time"></field>
+		<field name="statusId" type="id-ne"></field>
+		<field name="reason" type="very-long"></field>
+		<prim-key field="year"></prim-key>
+		<prim-key field="partyId"></prim-key>
+		<relation rel-entity-name="PartyGroup" type="one" fk-name="FK_RPH_PG">
+			<key-map field-name="partyId"/>
+		</relation>
+		<relation rel-entity-name="StatusItem" type="one" fk-name="FK_RPH_STAT">
+			<key-map field-name="statusId"></key-map>
+		</relation>
+	</entity>
+
+	<entity entity-name="RecruitmentPlanStatus" package-name="com.olbius.delys.hr">
+		<field name="recruitmentPlanStatusId" type="id-ne"></field>
+		<field name="year" type="id-ne"></field>
+		<field name="partyId" type="id-ne">
+			<description>Organizational Unit Id</description>
+		</field>
+		<field name="createDate" type="date-time"></field>
+		<field name="statusUserLogin" type="id-ne"></field>
+		<field name="statusId" type="id-ne"></field>
+		<field name="reason" type="very-long"></field>
+		<prim-key field="recruitmentPlanStatusId"></prim-key>
+		<relation rel-entity-name="RecruitmentPlanHeader" type="one" fk-name="FK_RPS_RPH">
+			<key-map field-name="partyId"/>
+		</relation>
+		<relation rel-entity-name="RecruitmentPlanHeader" type="one" fk-name="FK_RPS_RPH">
+			<key-map field-name="year"/>
+		</relation>
+		<relation rel-entity-name="RecruitmentPlan" type="one" fk-name="FK_RPS_RP">
+			<key-map field-name="emplPositionTypeId"/>
+		</relation>
+		<relation rel-entity-name="StatusItem" type="one" fk-name="FK_RPH_STAT">
+			<key-map field-name="statusId"></key-map>
+		</relation>
+		<relation rel-entity-name="Party" type="one" fk-name="FK_RPH_PARTY">
+			<key-map field-name="statusUserLogin" rel-field-name="partyId"></key-map>
+		</relation>
+	</entity>
+
+	<entity entity-name="RecruitmentPlan" package-name="com.olbius.delys.hr">
+		<field name="partyId" type="id-ne">
+			<description>Organizational Unit Id</description>
+		</field>
+		<field name="year" type="id-ne"></field>
+		<field name="emplPositionTypeId" type="id-ne"></field>
+		<field name="firstMonth" type="numeric"></field>
+		<field name="secondMonth" type="numeric"></field>
+		<field name="thirdMonth" type="numeric"></field>
+		<field name="fourthMonth" type="numeric"></field>
+		<field name="fifthMonth" type="numeric"></field>
+		<field name="sixthMonth" type="numeric"></field>
+		<field name="seventhMonth" type="numeric"></field>
+		<field name="eighthMonth" type="numeric"></field>
+		<field name="ninthMonth" type="numeric"></field>
+		<field name="tenthMonth" type="numeric"></field>
+		<field name="eleventhMonth" type="numeric"></field>
+		<field name="twelfthMonth" type="numeric"></field>
+		<prim-key field="emplPositionTypeId" />
+		<prim-key field="year" />
+		<prim-key field="partyId" />
+		<relation rel-entity-name="RecruitmentPlanHeader" type="one" fk-name="FK_RP_RPH">
+			<key-map field-name="partyId"/>
+		</relation>
+		<relation rel-entity-name="RecruitmentPlanHeader" type="one" fk-name="FK_RP_RPH_YEAR">
+			<key-map field-name="year"/>
+		</relation>
+		<relation rel-entity-name="EmplPositionType" type="one" fk-name="FK_RP_ET">
+			<key-map field-name="emplPositionTypeId" />
+		</relation>
+	</entity>
+
+	<entity entity-name="JobRequest" package-name="com.olbius.hrdelys">
+		<description>Job Request for Delys</description>
+		<field name="jobRequestId" type="id-ne"></field>
+		<field name="partyId" type="id-ne">
+			<description>Department which request</description>
+		</field>
+		<field name="workLocation" type="id-vlong"></field>
+		<field name="fromDate" type="date-time"></field>
+		<field name="thruDate" type="date-time"></field>
+		<field name="emplPositionTypeId" type="id-ne"></field>
+		<field name="recruitmentTypeId" type="id-ne"></field>
+		<field name="recruitmentFormId" type="id-ne"></field>
+		<field name="isInPlan" type="id-ne"></field>
+		<field name="resourceNumber" type="numeric"></field>
+		<field name="reason" type="very-long"></field>
+		<field name="jobDescription" type="very-long"></field>
+		<field name="statusId" type="id-ne"></field>
+		<prim-key field="jobRequestId"/>
+		<relation rel-entity-name="StatusItem" type="one" fk-name="FK_JR_SI">
+			<key-map field-name="statusId"/>
+		</relation>
+		
+		<relation rel-entity-name="StatusItem" type="one" fk-name="FK_JR_SIIIP">
+			<key-map field-name="isInPlan" rel-field-name="statusId"/>
+		</relation>
+		
+		<relation rel-entity-name="RecruitmentType" type="one" fk-name="FK_JR_RT">
+			<key-map field-name="recruitmentTypeId"/>
+		</relation>
+		<relation rel-entity-name="RecruitmentForm" type="one" fk-name="FK_JR_RF">
+			<key-map field-name="recruitmentFormId"/>
+		</relation>
+		<relation rel-entity-name="EmplPositionType" type="one" fk-name="FK_JR_RF2">
+			<key-map field-name="emplPositionTypeId"/>
+		</relation>
+	</entity>
+	
+	<entity entity-name="JobRequestStatus" package-name="com.olbius.delys.hr">
+		<field name="jobRequestStatusId" type="id-ne"></field>
+		<field name="jobRequestId" type="id-ne"></field>
+		<field name="createDate" type="date-time"></field>
+		<field name="statusUserLogin" type="id-ne"></field>
+		<field name="statusId" type="id-ne"></field>
+		<field name="reason" type="very-long"></field>
+		<prim-key field="jobRequestStatusId"></prim-key>
+		<relation rel-entity-name="JobRequest" type="one" fk-name="FK_JRS_JR">
+			<key-map field-name="jobRequestId"/>
+		</relation>
+		<relation rel-entity-name="StatusItem" type="one" fk-name="FK_JRS_STAT">
+			<key-map field-name="statusId"></key-map>
+		</relation>
+		<relation rel-entity-name="Party" type="one" fk-name="FK_JRS_PAR">
+			<key-map field-name="statusUserLogin" rel-field-name="partyId"></key-map>
+		</relation>
+	</entity>
+
+	
+	<entity entity-name="EmploymentApplication" package-name="com.olbius.hrdelys">
+		<field name="applicationId" type="id-ne"></field>
+		<field name="applyingPartyId" type="id-ne">
+			<description>Id's Applicant</description>
+		</field>
+		<field name="referredByPartyId" type="id-ne">
+			<description>Id's Introducer</description>
+		</field>
+		<field name="jobRequestId" type="id-ne"></field>
+		<field name="applicationDate" type="date-time"></field>
+		<field name="employmentAppSourceTypeId" type="id-ne"></field>
+		<field name="potential" type="id-ne"/>
+		<field name="statusId" type="id-ne"></field>
+		<prim-key field="applicationId" />
+		<relation type="one" fk-name="FK_EA_EAST" rel-entity-name="EmploymentAppSourceType">
+        <key-map field-name="employmentAppSourceTypeId"/>
+      </relation>
+		<relation rel-entity-name="StatusItem" type="one" fk-name="FK_EA_SI">
+			<key-map field-name="statusId"></key-map>
+		</relation>
+		<relation rel-entity-name="JobRequest" type="one" fk-name="FK_EA_JR">
+			<key-map field-name="jobRequestId"></key-map>
+		</relation>
+		<relation rel-entity-name="Party" type="one" fk-name="FK_EA_PARTY">
+			<key-map field-name="referredByPartyId" rel-field-name="partyId"></key-map>
+		</relation>		
+		<relation rel-entity-name="Party" type="one" fk-name="FK_EA_PARTY2">
+			<key-map field-name="applyingPartyId" rel-field-name="partyId"></key-map>
+		</relation>		
+	</entity>
+	
+	<entity entity-name="JobRequestCriteria" package-name="com.olbius.hrdelys">
+		<description>Relate RecruitmentCriteria and JobRequest</description>
+		<field name="recruitmentCriteriaId" type="id-ne"></field>
+		<field name="jobRequestId" type="id-ne"></field>
+		<prim-key field="recruitmentCriteriaId"/>
+		<prim-key field="jobRequestId"/>
+		<relation rel-entity-name="RecruitmentCriteria" type="one" fk-name="FK_JRC_RC">
+			<key-map field-name="recruitmentCriteriaId"/>
+		</relation>
+		<relation rel-entity-name="JobRequest" type="one" fk-name="FK_JRC_JR">
+			<key-map field-name="jobRequestId"/>
+		</relation>
+	</entity>
+	
+	<entity entity-name="DeptPositionType" package-name="com.olbius.hrdelys">
+		<description>Map Department with employee position</description>
+		<field name="deptId" type="id-ne"></field>
+		<field name="emplPositionTypeId" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="deptId"/>
+		<prim-key field="emplPositionTypeId"/>
+		<relation rel-entity-name="Party" type="one" fk-name="FK_RIR_PARTY">
+			<key-map field-name="deptId" rel-field-name="partyId"/>
+		</relation>
+		<relation rel-entity-name="EmplPositionType" type="one" fk-name="FK_RIR_EPT">
+			<key-map field-name="emplPositionTypeId"/>
+		</relation>
+	</entity>
+	
+	<entity entity-name="ApplicantTestResult" package-name="com.olbius.hrdelys">
+		<description>
+			Map Test Result To Applicant
+		</description>
+		<field name="workEffortId" type="id-ne"></field>
+		<field name="partyId" type="id-ne"></field>
+		<field name="recruitmentTestResultId" type="id-ne"/>
+		<prim-key field="workEffortId"/>
+		<prim-key field="partyId"/>
+		<relation rel-entity-name="RecruitmentTestResult" type="one" fk-name="FK_ATR_RTR">
+			<key-map field-name="recruitmentTestResultId"/>
+		</relation>
+		<relation rel-entity-name="WorkEffort" type="one" fk-name="FK_RIR_WE">
+			<key-map field-name="workEffortId"/>
+		</relation>
+		<relation rel-entity-name="Party" type="one" fk-name="FK_RIR_PARTY_NEW">
+			<key-map field-name="partyId"/>
+		</relation>
+		
+	</entity>
+	
+	<entity entity-name="RecruitmentTestResult" package-name="com.olbius.hrdelys">
+		<field name="recruitmentTestResultId" type="id-ne"></field>
+		<field name="recruitmentTestResultTypeId" type="id-ne"></field>
+		<field name="resultId" type="id-ne"></field>
+		<prim-key field="recruitmentTestResultId" />
+		<relation rel-entity-name="ResultItem" type="one" fk-name="FK_RTR_RI">
+			<key-map field-name="resultId"/>
+		</relation>
+		<relation rel-entity-name="RecruitmentTestResultType" type="one" fk-name="FK_RIR_RTRT">
+			<key-map field-name="recruitmentTestResultTypeId"/>
+		</relation>
+	</entity>
+	
+	<entity entity-name="RecruitmentTestResultType" package-name="com.olbius.hrdelys">
+		<field name="recruitmentTestResultTypeId" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="recruitmentTestResultTypeId" />
+	</entity>
+	
+	<entity entity-name="RecruitmentExamResult" package-name="com.olbius.hrdelys">
+		<field name="recruitmentTestResultId" type="id-ne"></field>
+		<field name="score" type="numeric" />
+		<prim-key field="recruitmentTestResultId" />
+	</entity>
+	
+	<entity entity-name="RecruitmentInterviewResult" package-name="com.olbius.hrdelys">
+		<field name="recruitmentTestResultId" type="id-ne"></field>
+		<field name="face" type="id-ne" />
+		<field name="figure" type="id-ne" />
+		<field name="voice" type="id-ne" />
+		<field name="communication" type="id-ne" />
+		<field name="confidence" type="id-ne"></field>
+		<field name="circumstance" type="id-ne"></field>
+		<field name="agility" type="id-ne"></field>
+		<field name="logic" type="id-ne"></field>
+		<field name="answer" type="id-ne"></field>
+		<field name="honest" type="id-ne"></field>
+		<field name="experience" type="id-ne"></field>
+		<field name="expertise" type="id-ne"></field>
+		<field name="workChangeId" type="id-ne"></field>
+		<field name="parentBackgroundId" type="id-ne"></field>
+		<field name="siblingBackgroundId" type="id-ne"></field>
+		<field name="spousesBackgroundId" type="id-ne"></field>
+		<field name="childBackgroundId" type="id-ne"></field>
+		<field name="uniCertificateId" type="id-ne"></field>
+		<field name="itCertificateId" type="id-ne"></field>
+		<field name="engCertificateId" type="id-ne"></field>
+		<field name="teamWorkId" type="id-ne"></field>
+		<field name="aloneWorkId" type="id-ne"></field>
+		<field name="currentSal" type="id-ne"></field>
+		<field name="proposeSal" type="id-ne"></field>
+		<field name="genaralRate" type="id-ne"></field>
+		<field name="propose" type="id-ne"></field>
+		<prim-key field="recruitmentTestResultId" />
+		<relation rel-entity-name="WorkChange" type="one" fk-name="FK_RIR_WC">
+			<key-map field-name="workChangeId"/>
+		</relation>
+		<relation rel-entity-name="ParentBackground" type="one" fk-name="FK_RIR_PB">
+			<key-map field-name="parentBackgroundId"/>
+		</relation>
+		<relation rel-entity-name="SiblingBackground" type="one" fk-name="FK_RIR_SB">
+			<key-map field-name="siblingBackgroundId"/>
+		</relation>
+		<relation rel-entity-name="SpousesBackground" type="one" fk-name="FK_RIR_SP">
+			<key-map field-name="spousesBackgroundId"/>
+		</relation>
+		<relation rel-entity-name="ChildBackground" type="one" fk-name="FK_RIR_CB">
+			<key-map field-name="childBackgroundId"/>
+		</relation>
+		<relation rel-entity-name="UniCertificate" type="one" fk-name="FK_RIR_UC">
+			<key-map field-name="uniCertificateId"/>
+		</relation>
+		<relation rel-entity-name="ItCertificate" type="one" fk-name="FK_RIR_IC">
+			<key-map field-name="itCertificateId"/>
+		</relation>
+		<relation rel-entity-name="EngCertificate" type="one" fk-name="FK_RIR_EC">
+			<key-map field-name="engCertificateId"/>
+		</relation>
+		
+		<relation rel-entity-name="TeamWork" type="one" fk-name="FK_RIR_TW">
+			<key-map field-name="teamWorkId"/>
+		</relation>
+		<relation rel-entity-name="AloneWork" type="one" fk-name="FK_RIR_AW">
+			<key-map field-name="aloneWorkId"/>
+		</relation>
+	</entity>
+	
+	<entity entity-name="WorkEffortRequestFulfillment" package-name="com.olbius.hrdelys.recruitment">
+		<field name="workEffortId" type="id-ne"></field>
+		<field name="jobRequestId" type="id-ne"></field>
+		<prim-key field="workEffortId" />
+		<prim-key field="jobRequestId"/>
+		<relation rel-entity-name="WorkEffort" type="one" fk-name="FK_WEF_WORKEFF">
+			<key-map field-name="workEffortId"/>
+		</relation>
+		<relation rel-entity-name="JobRequest" type="one" fk-name="FK_WEF_JOB_REQUEST">
+			<key-map field-name="jobRequestId"/>
+		</relation>
+	</entity>
+	
+	<entity entity-name="WorkChange" package-name="com.olbius.hrdelys">
+		<field name="workChangeId" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="workChangeId" />
+	</entity>
+	
+	<entity entity-name="ParentBackground" package-name="com.olbius.hrdelys">
+		<field name="parentBackgroundId" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="parentBackgroundId" />
+	</entity>
+	
+	<entity entity-name="SiblingBackground" package-name="com.olbius.hrdelys">
+		<field name="siblingBackgroundId" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="siblingBackgroundId" />
+	</entity>
+	
+	<entity entity-name="SpousesBackground" package-name="com.olbius.hrdelys">
+		<field name="spousesBackgroundId" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="spousesBackgroundId" />
+	</entity>
+	
+	<entity entity-name="ChildBackground" package-name="com.olbius.hrdelys">
+		<field name="childBackgroundId" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="childBackgroundId" />
+	</entity>
+	
+	<entity entity-name="UniCertificate" package-name="com.olbius.hrdelys">
+		<field name="uniCertificateId" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="uniCertificateId" />
+	</entity>
+	
+	<entity entity-name="ItCertificate" package-name="com.olbius.hrdelys">
+		<field name="itCertificateId" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="itCertificateId" />
+	</entity>
+	
+	<entity entity-name="EngCertificate" package-name="com.olbius.hrdelys">
+		<field name="engCertificateId" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="engCertificateId" />
+	</entity>
+	
+	<entity entity-name="TeamWork" package-name="com.olbius.hrdelys">
+		<field name="teamWorkId" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="teamWorkId" />
+	</entity>
+	
+	<entity entity-name="AloneWork" package-name="com.olbius.hrdelys">
+		<field name="aloneWorkId" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="aloneWorkId" />
+	</entity>
+	
+	<entity entity-name="ResultItem" package-name="com.olbius.hrdelys">
+		<field name="resultId" type="id-ne"></field>
+		<field name="resultTypeId" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="resultId" />
+		<relation rel-entity-name="ResultType" type="one" fk-name="FK_RI_RT">
+			<key-map field-name="resultTypeId"/>
+		</relation>
+	</entity>
+	
+	<entity entity-name="ResultType" package-name="com.olbius.hrdelys">
+		<field name="resultTypeId" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="resultTypeId"/>
+	</entity>
+	
+	<entity entity-name="WorkTrialProposal" package-name="com.olbius.hrdelys">
+		<field name="workTrialProposalId" type="id-ne" />
+		<field name="workingPartyId" type="id-ne"></field>
+		<field name="emplPositionTypeId" type="id-ne"></field>
+		<field name="salary" type="floating-point"></field>
+		<field name="allowance" type="description"></field>
+		<field name="trialSalaryRate" type="floating-point"></field>
+		<field name="fromDate" type="date-time" />
+		<field name="trialTime" type="numeric"></field>
+		<field name="description" type="description"></field>
+		<field name="statusId" type="id-ne"></field>
+		<prim-key field="workTrialProposalId"/>
+		<relation rel-entity-name="StatusItem" type="one" fk-name="FK_WTP_STAT">
+			<key-map field-name="statusId"/>
+		</relation>
+		<relation rel-entity-name="Party" type="one" fk-name="FK_WTP_PARTY">
+			<key-map field-name="workingPartyId" rel-field-name="partyId"></key-map>
+		</relation>
+		<relation rel-entity-name="EmplPositionType" fk-name="FK_WTP_EPT" type="one">
+			<key-map field-name="emplPositionTypeId"></key-map>
+		</relation>		
+	</entity>
+	
+	<entity entity-name="WorkTrialApplicant" package-name="com.olbius.hrdelys">
+		<field name="workTrialProposalId" type="id-ne" />
+		<field name="applicantId" type="id-ne" />
+		<prim-key field="workTrialProposalId" />
+		<prim-key field="applicantId" />
+		<relation rel-entity-name="Party" type="one" fk-name="FK_WTA_PARTY">
+			<key-map rel-field-name="partyId" field-name="applicantId"/>
+		</relation>
+		<relation rel-entity-name="WorkTrialProposal" type="one" fk-name="FK_WTAPP_WTP">
+			<key-map field-name="workTrialProposalId"/>
+		</relation>
+	</entity>
+	
+	<extend-entity entity-name="Person" >
+	    <field name="size" type="very-short"/>
+	    <field name="experience" type="long-varchar"></field>
+	</extend-entity>
+	
+	<entity entity-name="WorkTrialReport" package-name="com.olbius.hrdelys">
+		<field name="workTrialReportId" type="id-ne" />
+		<field name="partyId" type="id-ne">
+			<description>Id's Trial Employee</description>
+		</field>
+		<field name="eduProcess" type="description"></field>
+		<field name="workResult" type="description"></field>
+		<field name="advAndDis" type="description"></field>
+		<field name="workOrientation" type="description"></field>
+		<field name="workProposal" type="description" />
+		<field name="policyProposal" type="description"></field>
+		<field name="eduProposal" type="description"></field>
+		
+		<prim-key field="workTrialReportId"/>
+		<relation rel-entity-name="Party" type="one" fk-name="FK_WTR_PARTY">
+			<key-map field-name="partyId"/>
+		</relation>
+	</entity>
+	
+	<entity entity-name="Evaluation" package-name="com.olbius.hrdelys">
+		<field name="evalId" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="evalId"/>
+	</entity>
+	<extend-entity entity-name="Evaluation">
+		<field name="sequenceId" type="id-ne"></field>
+	</extend-entity>
+	
+	<entity entity-name="WorkTrialRating" package-name="com.olbius.hrdelys">
+		<field name="workTrialRatingId" type="id-ne"></field>
+		<field name="workTrialReportId" type="id-ne"></field>
+		<field name="partyId" type="id-ne">
+			<description>Employee who rates</description>
+		</field>
+		<field name="workTrialRatingTypeId" type="id-ne"></field>
+		<prim-key field="workTrialRatingId"/>
+		<relation rel-entity-name="WorkTrialRatingType" type="one" fk-name="FK_WTR_WTRT">
+			<key-map field-name="workTrialRatingTypeId"/>
+		</relation>
+		<relation rel-entity-name="Party" type="one" fk-name="FK_WTR_P">
+			<key-map field-name="partyId"/>
+		</relation>
+		<relation rel-entity-name="WorkTrialReport" type="one" fk-name="FK_WTR_WTR">
+			<key-map field-name="workTrialReportId"/>
+		</relation>
+	</entity>
+	
+	<entity entity-name="WorkTrialSelfRating" package-name="com.olbius.hrdelys">
+		<field name="workTrialRatingId" type="id-ne"></field>
+		<field name="ruleCompliance" type="id-ne"></field>
+		<field name="complWorkRate" type="id-ne"></field>
+		<field name="interCommunication" type="id-ne"></field>
+		<field name="learningCapability" type="id-ne"></field>
+		<field name="exterCommunication" type="id-ne"></field>
+		<prim-key field="workTrialRatingId"/>
+		<relation rel-entity-name="Evaluation" type="one" fk-name="FK_WTSR_EL_RC">
+			<key-map field-name="ruleCompliance" rel-field-name="evalId"/>
+		</relation>
+		<relation rel-entity-name="Evaluation" type="one" fk-name="FK_WTSR_EL_CR">
+			<key-map field-name="complWorkRate" rel-field-name="evalId"/>
+		</relation>
+		<relation rel-entity-name="Evaluation" type="one" fk-name="FK_WTSR_EL_IC">
+			<key-map field-name="interCommunication" rel-field-name="evalId"/>
+		</relation>
+		<relation rel-entity-name="Evaluation" type="one" fk-name="FK_WTSR_EL_LC">
+			<key-map field-name="learningCapability" rel-field-name="evalId"/>
+		</relation>
+		<relation rel-entity-name="Evaluation" type="one" fk-name="FK_WTSR_EL_EC">
+			<key-map field-name="exterCommunication" rel-field-name="evalId"/>
+		</relation>
+	</entity>
+	
+	<entity entity-name="WorkTrialLeaderRating" package-name="com.olbius.hrdelys">
+		<field name="workTrialRatingId" type="id-ne"></field>
+		<field name="ruleCompliance" type="id-ne"></field>
+		<field name="complWorkRate" type="id-ne"></field>
+		<field name="interCommunication" type="id-ne"></field>
+		<field name="learningCapability" type="id-ne"></field>
+		<field name="exterCommunication" type="id-ne"></field>
+		<field name="assignedTask" type="id-ne"></field>
+		<field name="futureEdu" type="id-ne"></field>
+		<field name="requiredOther" type="id-ne"></field>
+		<field name="resultId" type="id-ne"></field>
+		<field name="extTime" type="numeric"></field>
+		<prim-key field="workTrialRatingId"/>
+		<relation rel-entity-name="Evaluation" type="one" fk-name="FK_WTLR_EL_RC">
+			<key-map field-name="ruleCompliance" rel-field-name="evalId"/>
+		</relation>
+		<relation rel-entity-name="Evaluation" type="one" fk-name="FK_WTLR_EL_CR">
+			<key-map field-name="complWorkRate" rel-field-name="evalId"/>
+		</relation>
+		<relation rel-entity-name="Evaluation" type="one" fk-name="FK_WTLR_EL_IC">
+			<key-map field-name="interCommunication" rel-field-name="evalId"/>
+		</relation>
+		<relation rel-entity-name="Evaluation" type="one" fk-name="FK_WTLR_EL_LC">
+			<key-map field-name="learningCapability" rel-field-name="evalId"/>
+		</relation>
+		<relation rel-entity-name="Evaluation" type="one" fk-name="FK_WTLR_EL_EC">
+			<key-map field-name="exterCommunication" rel-field-name="evalId"/>
+		</relation>
+		<relation rel-entity-name="ResultItem" type="one" fk-name="FK_WTLR_RI">
+			<key-map field-name="resultId"/>
+		</relation>
+	</entity>
+	
+	<entity entity-name="WorkTrialHrmRating" package-name="com.olbius.hrdelys">
+		<field name="workTrialRatingId" type="id-ne"></field>
+		<field name="resultId" type="id-ne"></field>
+		<field name="extTime" type="numeric"></field>
+		<prim-key field="workTrialRatingId"/>
+		<relation rel-entity-name="ResultItem" type="one" fk-name="FK_WTHR_RI">
+			<key-map field-name="resultId"/>
+		</relation>
+	</entity>
+	
+	<entity entity-name="WorkTrialCeoRating" package-name="com.olbius.hrdelys">
+		<field name="workTrialRatingId" type="id-ne"></field>
+		<field name="resultId" type="id-ne"></field>
+		<field name="extTime" type="numeric"></field>
+		<prim-key field="workTrialRatingId"/>
+		<relation rel-entity-name="ResultItem" type="one" fk-name="FK_WTCR_RI">
+			<key-map field-name="resultId"/>
+		</relation>
+	</entity>
+	
+	<entity entity-name="WorkTrialRatingType" package-name="com.olbius.hrdelys">
+		<field name="workTrialRatingTypeId" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="workTrialRatingTypeId"/>
+	</entity>
+
+	<entity entity-name="ProposeEmployeePg" package-name="com.olbius.hrdelys" title="Propose Employee Pg">
+	    <field name="proposeId" type="id-ne"/>
+	    <field name="partyId" type="id-ne"/>
+	    <field name="salary" type="id-ne"/>
+	    <field name="allowance" type="id-ne"/>
+	    <field name="rateSalaryWorkTrial" type="very-short"/>
+	    <field name="noteOfPropose" type="short-varchar"/>
+	    <field name="noteOfCheck" type="short-varchar"/>
+	    <field name="noteOfApprove" type="short-varchar"/>
+	    <field name="timeOfWorkTrial" type="short-varchar"/>
+	    <field name="probationFrom" type="date-time"/>
+	    <field name="statusId" type="id-ne"/>
+	    <field name="createdByUserLogin" type="id-vlong-ne"/>
+	    <field name="proposedByUserLogin" type="id-vlong-ne"/>
+	    <field name="checkedByUserLogin" type="id-vlong-ne"/>
+	    <field name="approvedByUserLogin" type="id-vlong-ne"/>
+	    <field name="reported" type="indicator" ></field>
+	    <prim-key field="proposeId"/>
+	    <relation rel-entity-name="Person" type="one" fk-name="FrKey_person">
+	        <key-map field-name="partyId"/>
+	    </relation>
+	    <relation rel-entity-name="StatusItem" type="one" fk-name="Frskey_status">
+			<key-map field-name="statusId" />
+		</relation>
+		<relation rel-entity-name="UserLogin" type="one" fk-name="Frkey_created">
+			<key-map field-name="createdByUserLogin" rel-field-name="userLoginId"/>
+		</relation>
+		<relation rel-entity-name="UserLogin" type="one" fk-name="Frkey_propose">
+			<key-map field-name="proposedByUserLogin" rel-field-name="userLoginId"/>
+		</relation>
+		<relation rel-entity-name="UserLogin" type="one" fk-name="Frkey_approve">
+			<key-map field-name="approvedByUserLogin" rel-field-name="userLoginId"/>
+		</relation>
+		<relation rel-entity-name="UserLogin" type="one" fk-name="Frkey_approve_new1">
+			<key-map field-name="createdByUserLogin" rel-field-name="userLoginId"/>
+		</relation>
+	</entity>
+	
+	<entity entity-name="BankVn" package-name="com.olbius.hrdelys">
+		<field name="bankId" type="id-ne"></field>
+		<field name="description" type="long-varchar"/>
+		<field name="website" type="long-varchar"/>
+		<prim-key field="bankId"/>
+	</entity>
+	<entity entity-name="PartyBank" package-name="com.olbius.hrdelys">
+		<field name="bankAcountNumber" type="id-ne"></field>
+		<field name="bankId" type="id-ne"></field>
+		<field name="bankBrandId" type="id-ne"></field>
+		<field name="partyId" type="id-ne"></field>
+		<prim-key field="bankId"/>
+		<prim-key field="bankBrandId"/>
+		<prim-key field="partyId"/>
+		<prim-key field="bankAcountNumber"/>
+		<relation rel-entity-name="BankBrandVn" type="one" fk-name="Frk_brank">
+			<key-map field-name="bankBrandId"/>
+			<key-map field-name="bankId"/>
+		</relation>
+	</entity>
+	<entity entity-name="BankBrandVn" package-name="com.olbius.hrdelys">
+		<field name="bankBrandId" type="id-ne"/>
+		<field name="bankId" type="id-ne" not-null="true" />
+		<field name="brandName" type="long-varchar"/>
+		<field name="description" type="long-varchar"></field>
+		<field name="address" type="long-varchar"/>
+		<prim-key field="bankBrandId"/>
+		<prim-key field="bankId"/>
+		<relation rel-entity-name="BankVn" type="one" fk-name="Frskey_bbank">
+			<key-map field-name="bankId"/>
+		</relation>
+	</entity>
+	<entity entity-name="RecruitmentDisable" package-name="com.olbius.hrolbius">
+		<field name="recruitmentDisableId" type="id-ne"></field>
+		<field name="fromDate" type="date-time"></field>
+		<field name="thruDate" type="date-time"></field>
+		<field name="emplPositionTypeId" type="id-ne"></field>
+		<field name="recruitmentTypeId" type="id-ne"></field>
+		<!-- <field name="reasons" type="long-varchar"></field> -->	
+		<prim-key field="recruitmentDisableId"></prim-key>
+		<relation rel-entity-name="EmplPositionType" type="one" fk-name="FK_RD_EPT">
+			<key-map field-name="emplPositionTypeId"></key-map>
+		</relation>
+		<relation rel-entity-name="RecruitmentType" type="one" fk-name="FK_RD_RT">
+			<key-map field-name="recruitmentTypeId"/>
+		</relation>
+	</entity>
+	<entity entity-name="RecruitmentDisableApply" package-name="com.olbius.hrolbius">
+		<field name="recruitmentDisableId" type="id-ne"></field>
+		<field name="partyId" type="id-ne"></field>
+		<field name="reasons" type="long-varchar"></field>
+		<prim-key field="recruitmentDisableId"></prim-key>
+		<prim-key field="partyId"></prim-key>
+		<relation rel-entity-name="Party" type="one" fk-name="FK_RDA_PT">
+			<key-map field-name="partyId"></key-map>
+		</relation>
+		<relation rel-entity-name="RecruitmentDisable" type="one" fk-name="FK_RDA_RD">
+			<key-map field-name="recruitmentDisableId"></key-map>
+		</relation>
+	</entity>
+	
+	<entity entity-name="DegreeClassificationType" package-name="com.olbius.hrolbius">
+		<field name="classificationTypeId" type="id-ne"></field>
+		<field name="parentTypeId" type="id-ne"></field>
+		<field name="description" type="long-varchar"></field>
+		<prim-key field="classificationTypeId"></prim-key>
+		<relation rel-entity-name="DegreeClassificationType" title="Parent" fk-name="FK_DEG_CLASS_TYPAR" type="one">
+			<key-map field-name="parentTypeId" rel-field-name="classificationTypeId"></key-map>
+		</relation>
+	</entity>
+	<entity entity-name="StudyModeType" package-name="com.olbius.hrolbius">
+		<field name="studyModeTypeId" type="id-ne"></field>
+		<field name="parentTypeId" type="id-ne"></field>
+		<field name="description" type="long-varchar"></field>
+		<prim-key field="studyModeTypeId"></prim-key>
+		<relation rel-entity-name="StudyModeType" title="Parent" fk-name="FK_STD_MODE_TYPAR" type="one">
+			<key-map field-name="parentTypeId" rel-field-name="studyModeTypeId"></key-map>
+		</relation>
+	</entity>
+	<entity entity-name="EducationSystemType" package-name="com.olbius.hrolbius">
+		<field name="educationSystemTypeId" type="id-ne"></field>
+		<field name="parentTypeId" type="id-ne"></field>
+		<field name="description" type="long-varchar"></field>
+		<field name="level" type="numeric"></field>
+		<prim-key field="educationSystemTypeId"></prim-key>
+		<relation rel-entity-name="EducationSystemType" title="parent" fk-name="FK_EDU_SYS_TYPAR" type="one">
+			<key-map field-name="parentTypeId" rel-field-name="educationSystemTypeId"></key-map>
+		</relation>
+	</entity>
+	<view-entity entity-name="RecruitmentDisableAndParty" package-name="com.olbius.hrdelys">
+		<member-entity entity-alias="RDIS" entity-name="RecruitmentDisable"></member-entity>
+		<member-entity entity-alias="RDISAPP" entity-name="RecruitmentDisableApply"></member-entity>
+		<alias-all entity-alias="RDIS"></alias-all>
+		<alias-all entity-alias="RDISAPP"></alias-all>
+		<view-link entity-alias="RDIS" rel-entity-alias="RDISAPP">
+			<key-map field-name="recruitmentDisableId"></key-map>
+		</view-link>
+	</view-entity>
+
+    <view-entity entity-name="EmploymentAndEmplPosAndFFSalesmanPg" package-name="com.olbius.hrdelys">
+    	<member-entity entity-name="Employment" entity-alias="employment"></member-entity>
+    	<member-entity entity-name="EmplPosition" entity-alias="EMPLPOS"></member-entity>
+    	<member-entity entity-name="EmplPositionFulfillment" entity-alias="EPF"></member-entity>
+    	<alias-all entity-alias="employment"></alias-all>
+    	<alias-all entity-alias="EPF">
+    		<exclude field="partyId"/>
+    		<exclude field="fromDate"/>
+    		<exclude field="thruDate"></exclude>
+    	</alias-all>
+    	<alias-all entity-alias="EMPLPOS">
+			<exclude field="partyId"/>    	
+    	</alias-all>
+    	<alias name="emplPartyId" field="partyId" entity-alias="EPF"></alias>
+    	<alias name="interalOrgId" field="partyId" entity-alias="EMPLPOS"></alias>
+    	<view-link entity-alias="EMPLPOS" rel-entity-alias="EPF">
+    		<key-map field-name="emplPositionId"></key-map>
+    	</view-link>
+    	<view-link entity-alias="EPF" rel-entity-alias="employment">
+    		<key-map field-name="partyId" rel-field-name="partyIdTo"></key-map>
+    	</view-link>
+    	<entity-condition>
+    		<condition-list combine="or">
+    			<condition-expr entity-alias="EMPLPOS" operator="equals" field-name="emplPositionTypeId" value="SALESMAN"></condition-expr>
+    			<condition-expr entity-alias="EMPLPOS" operator="equals" field-name="emplPositionTypeId" value="PROMOTION_GIRL"></condition-expr>
+    		</condition-list>
+    	</entity-condition>
+    </view-entity>
+    <view-entity entity-name="InvoiceItemAndType" package-name="com.olbius.hrdelys">
+    	<member-entity entity-name="InvoiceItem" entity-alias="II"></member-entity>
+    	<member-entity entity-name="InvoiceItemType" entity-alias="IIT"></member-entity>
+    	<alias-all entity-alias="II">
+    	</alias-all>
+    	<alias-all entity-alias="IIT">
+    		<exclude field="description"></exclude>
+    	</alias-all>
+    	<view-link entity-alias="II" rel-entity-alias="IIT">
+    		<key-map field-name="invoiceItemTypeId"></key-map>
+    	</view-link>
+    </view-entity>
+    <entity entity-name="AboveRecruitmentPlan" package-name="com.olbius.hrdelys">
+		<description>
+			Above Recruitment Plan
+		</description>
+		<field name="partyId" type="id-ne">
+			<description>Organizational Unit Id</description>
+		</field>
+		<field name="year" type="numeric"></field>
+		<field name="emplPositionTypeId" type="id-ne"></field>
+		<field name="firstMonth" type="numeric"></field>
+		<field name="secondMonth" type="numeric"></field>
+		<field name="thirdMonth" type="numeric"></field>
+		<field name="fourthMonth" type="numeric"></field>
+		<field name="fifthMonth" type="numeric"></field>
+		<field name="sixthMonth" type="numeric"></field>
+		<field name="seventhMonth" type="numeric"></field>
+		<field name="eighthMonth" type="numeric"></field>
+		<field name="ninthMonth" type="numeric"></field>
+		<field name="tenthMonth" type="numeric"></field>
+		<field name="eleventhMonth" type="numeric"></field>
+		<field name="twelfthMonth" type="numeric"></field>
+		<prim-key field="emplPositionTypeId" />
+		<prim-key field="year" />
+		<prim-key field="partyId" />
+		<relation rel-entity-name="PartyGroup" type="one" fk-name="FK_ARP_PG">
+			<key-map field-name="partyId"/>
+		</relation>
+		<relation rel-entity-name="EmplPositionType" type="one" fk-name="FK_ARP_ET">
+			<key-map field-name="emplPositionTypeId" />
+		</relation>
+    </entity>
+</entitymodel>

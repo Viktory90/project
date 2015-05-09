@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	
+	<entity entity-name="PersonFact" package-name="org.ofbiz.bi.fact.party"
+		title="Person Fact Entity">
+		<field name="partyDimId" type="numeric"></field>
+		<field name="firstName" type="name"></field>
+		<field name="middleName" type="name"></field>
+		<field name="lastName" type="name"></field>
+		<field name="personalTitle" type="name"></field>
+		<field name="gender" type="indicator"></field>
+		<field name="birthDateDimId" type="numeric"></field>
+		<field name="height" type="floating-point"></field>
+		<field name="weight" type="floating-point"></field>
+		<field name="schoolId" type="id-ne"/>
+    	<field name="majorId" type="id-ne"/>
+    	<field name="studyModeTypeId" type="id-ne"/>
+    	<field name="classificationTypeId" type="id-ne"/>
+    	<field name="educationSystemTypeId" type="id-ne"/>
+		<prim-key field="partyDimId" />
+	</entity>
+	
+	<entity entity-name="PartyRelationshipFact" package-name="org.ofbiz.bi.fact.party">
+		<field name="partyDimId" type="numeric"></field>
+		<field name="partyGroupDimId" type="numeric"></field>
+		<field name="fromDateDimId" type="numeric"></field>
+		<field name="thruDateDimId" type="numeric"></field>
+		<field name="relationship" type="id-ne"></field>
+		<prim-key field="partyDimId" />
+		<prim-key field="partyGroupDimId" />
+		<prim-key field="fromDateDimId" />
+		<prim-key field="relationship" />
+	</entity>
+	
+	<entity entity-name="PersonGroupFact" package-name="org.ofbiz.bi.fact.party"
+		title="Person Group Fact Entity">
+		<field name="dateDimId" type="numeric"></field>
+		<field name="partyGroupDimId" type="numeric"></field>
+		<field name="partyGroup" type="very-long"></field>
+		<field name="member" type="numeric"></field>
+		<prim-key field="partyGroup" />
+		<prim-key field="partyGroupDimId" />
+		<prim-key field="dateDimId" />
+	</entity>
+	
+	<entity entity-name="EmplPositionFact" package-name="org.ofbiz.bi.dimension">
+        <field name="partyDimId" type="numeric"/>
+		<field name="emplPositionDimId" type="numeric"></field>
+		<field name="fromDateDimId" type="numeric"></field>
+		<field name="thruDateDimId" type="numeric"></field>
+		<prim-key field="partyDimId"/>
+		<prim-key field="emplPositionDimId"/>
+		<prim-key field="fromDateDimId"/>
+	</entity>
+	
+</entitymodel>

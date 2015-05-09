@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <PortletCategory portletCategoryId="DASHBOARD" description="Dashboard for all users"/>
+    
+    <!-- portal page default -->
+    <PortalPage portalPageId="defaultPortalPage" sequenceNum="0" portalPageName="Dashboard for default user" description="Dashboard for default user" ownerUserLoginId="_NA_"/>
+    <PortalPortlet portalPortletId="defaultportlet"
+	    portletName="Default Portlet"
+	    screenName="DefaultPortlet"
+	    screenLocation="component://delys/widget/PortletScreens.xml"
+	    description="Statistics for default users"
+	    screenshot="/images/portlets/defaultportlet.png"/>
+    <PortletPortletCategory portalPortletId="defaultportlet" portletCategoryId="DASHBOARD"/>
+    <PortalPageColumn portalPageId="defaultPortalPage" columnSeqId="00001"/>
+    <PortalPagePortlet portalPageId="defaultPortalPage" portalPortletId="defaultportlet" portletSeqId="00001" columnSeqId="00001" sequenceNum="0"/>
+    
+    <!-- portal porlet for logistics -->
+    <PortalPage roleTypeId="LOG_ADMIN" portalPageId="logistics" sequenceNum="0" portalPageName="Dashboard for logistics users" description="Dashboard for logistics users" ownerUserLoginId="_NA_"/>
+    <PortalPortlet portalPortletId="logisticsFaciltiy"
+	    portletName="Logistics Facility dashboard"
+	    screenName="LogisticsDashboard"
+	    screenLocation="component://delys/widget/PortletScreens.xml"
+	    description="Statistics for logistics room"
+	    screenshot="/images/portlets/logfa.png"/>
+    <PortletPortletCategory portalPortletId="logisticsFaciltiy" portletCategoryId="DASHBOARD"/>
+    <PortalPageColumn portalPageId="logistics" columnSeqId="00001"/>
+    <PortalPagePortlet portalPageId="logistics" portalPortletId="logisticsFaciltiy" portletSeqId="00001" columnSeqId="00001" sequenceNum="0"/>
+    
+    <!-- portal porlet for salesadmin -->
+	<PortalPage roleTypeId="SALES_ADMIN" portalPageId="salesadmin" sequenceNum="0" portalPageName="Dashboard for salesadmin users" description="Dashboard for salesadmin users" ownerUserLoginId="_NA_"/>
+    <PortalPortlet portalPortletId="salesadmin"
+	    portletName="Sales admin dashboard"
+	    screenName="SalesAdminDashboard"
+	    screenLocation="component://delys/widget/PortletScreens.xml"
+	    description="Statistics for salesadmin room"
+	    screenshot="/images/portlets/salesadmin.png"/>
+    <PortalPageColumn portalPageId="salesadmin" columnSeqId="00001"/>
+    <PortalPagePortlet portalPageId="salesadmin" portalPortletId="salesadmin" portletSeqId="00001" columnSeqId="00001" sequenceNum="0"/>
+</entity-engine-xml>
+	

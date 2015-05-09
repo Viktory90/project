@@ -1,0 +1,12 @@
+<div class="maps" ng-click="toMap()">
+	<img src="assets/images/googlemap2.png" />
+</div>
+<div class="row store" id="listStore">	
+
+</div>
+
+<div class="pagination">
+	<button class="btn pagination-btn" ng-if="current > 1" ng-click="previous()">Previous</button>
+	<span id="paginationNumber"></span>
+	<button class="btn pagination-btn" ng-if="total > 1" ng-click="next()">Next</button>
+</div>

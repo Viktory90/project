@@ -1,0 +1,31 @@
+<div ng-if="listPromotions" ng-repeat="pro in listPromotions">
+<div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
+	    <div class="widget-header widget-header-flat widget-header-small btn-default">
+	       		<span class="glyphicon glyphicon-star">&nbsp;{{pro.promoName}}</span>
+	    </div>	
+	    <div class="widget-body col-md-12 col-xs-12">
+	        <div class="widget-main">
+	        	<div class="col-xs-12 col-md-12">
+	        		<b><i class="glyphicon glyphicon-list-alt"></i>&nbsp;{{Map.PromotionDetail[key]}}:</b>
+	        	</div>
+	        	<div class="col-md-12 col-xs-12">
+	        		{{pro.ruleName}}
+	        	</div>
+	        	<div class="col-md-12 col-xs-12">
+	        		{{Map.TimeforPromotions[key]}} : {{Map.From[key]}} <i>{{pro.fromDate}}</i> {{Map.To[key]}} <i ng-show="listPromotions.thruDate">{{pro.thruDate}}</i><i ng-show="!listPromotions.thruDate">{{Map.NoTimeLimit[key]}}</i>
+	        	</div>
+	        </div>
+   		 </div>
+    </div>
+<br></br>	
+</div>
+<div ng-if="!listPromotions" class="col-md-12 col-xs-12 col-lg-12 col-sm-12" >
+	 <div class="widget-header widget-header-flat widget-header-small btn-default">
+	       		<span class="fa fa-info-circle">&nbsp;Map.Notification[key]</span>
+	    </div>	
+	    <div class="widget-body col-md-12 col-xs-12">
+	        <div class="widget-main">
+	        	<span style= "color :red;" class="center"> Map.NotificationNoPromotions[key].</span>
+	        </div>
+   		 </div>
+</div>

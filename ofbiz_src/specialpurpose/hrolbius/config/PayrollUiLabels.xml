@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<property key="PayrollMainMenu">
+		<value xml:lang="en">Payroll</value>
+		<value xml:lang="vi">Tiền lương</value>
+	</property>
+	
+	<property key="Schedule">
+		<value xml:lang="en">Schedule</value>
+		<value xml:lang="vi">Chu kỳ tính lương</value>
+	</property>
+	<property key="CommonPeriodType">
+		<value xml:lang="en">Period type</value>
+		<value xml:lang="vi">Kiểu chu kỳ tính</value>
+	</property>
+	<property key="PageTitleScheduleSalary">
+		<value xml:lang="en">Schedule salary</value>
+		<value xml:lang="vi">Lên lịch tính lương</value>
+	</property>
+	
+	<property key="AddUpdatePayrollparameters">
+		<value xml:lang="en">Add/Update parameters</value>
+		<value xml:lang="vi">Thêm/Cập nhập thông tin tham số lương</value>
+	</property>
+	<property key="PayrollReport">
+		<value xml:lang="en">Payroll table</value>
+		<value xml:lang="vi">Bảng tiền lương</value>
+	</property>
+	<property key="PayrollParameters">
+		<value xml:lang="en">Payroll parameters</value>
+		<value xml:lang="vi">Tham số tiền lương</value>
+	</property>
+	<property key="formula">
+		<value xml:lang="en">Formula</value>
+		<value xml:lang="vi">Cách thức tính</value>
+	</property>
+	<property key="FindFormula">
+		<value xml:lang="en">Find formula</value>
+		<value xml:lang="vi">Tìm kiếm cách thức tính</value>
+	</property>
+	<property key="NewFormula">
+		<value xml:lang="en">New formula</value>
+		<value xml:lang="vi">Thêm mới cách thức tính</value>
+	</property>
+	<property key="ListFormula">
+		<value xml:lang="en">Formula list</value>
+		<value xml:lang="vi">Danh sách cách tính</value>
+	</property>
+	<property key="EditFormula">
+		<value xml:lang="en">Add/Edit Formula</value>
+		<value xml:lang="vi">Thêm/chỉnh sửa cách thức tính</value>
+	</property>
+	<property key="NewFormula">
+		<value xml:lang="en">New Formula</value>
+		<value xml:lang="vi">Thêm mới cách thức tính</value>
+	</property>
+	<property key="formulaCode">
+		<value xml:lang="en">Formula code</value>
+		<value xml:lang="vi">Mã cách thức tính</value>
+	</property>
+	<property key="formulaName">
+		<value xml:lang="en">Formula name</value>
+		<value xml:lang="vi">Tên công thức</value>
+	</property>
+	<property key="formulaFunction">
+		<value xml:lang="en">Function</value>
+		<value xml:lang="vi">Công thức tính</value>
+	</property>
+	<property key="formulaAmount">
+		<value xml:lang="en">Amount</value>
+		<value xml:lang="vi">Số lượng</value>
+	</property>
+	<property key="formulaFunctionType">
+		<value xml:lang="en">Function type</value>
+		<value xml:lang="vi">Loại công thức</value>
+	</property>
+	<property key="formulaDescription">
+		<value xml:lang="en">Formula description</value>
+		<value xml:lang="vi">Mô tả công thức tính</value>
+	</property>
+	<property key="parameters">
+		<value xml:lang="en">Parameter</value>
+		<value xml:lang="vi">Tham số</value>
+	</property>
+	<property key="NewParameter">
+		<value xml:lang="en">New parameter</value>
+		<value xml:lang="vi">Thêm mới tham số</value>
+	</property>
+	<property key="EditParameters">
+		<value xml:lang="en">Edit parameter</value>
+		<value xml:lang="vi">Sửa tham số</value>
+	</property>
+	<property key="FindParameters">
+		<value xml:lang="en">Find parameter</value>
+		<value xml:lang="vi">Tìm kiếm tham số</value>
+	</property>
+	<property key="GeneralInfo">
+		<value xml:lang="en">General information</value>
+		<value xml:lang="vi">Thông tin chung</value>
+	</property>
+	<property key="EmployeePayrollParameter">
+		<value xml:lang="en">Payroll parameters</value>
+		<value xml:lang="vi">Tham số lương</value>
+	</property>
+	<property key="parameterCode">
+		<value xml:lang="en">Parameter code</value>
+		<value xml:lang="vi">Mã tham số</value>
+	</property>
+	<property key="parameterName">
+		<value xml:lang="en">Parameter name</value>
+		<value xml:lang="vi">Tên tham số</value>
+	</property>
+	<property key="parameterValue">
+		<value xml:lang="en">Parameter value</value>
+		<value xml:lang="vi">Giá trị tham số</value>
+	</property>
+	<property key="defaultParamValueEx">
+		<value xml:lang="en">Ex: 1.2</value>
+		<value xml:lang="vi">VD: 1.2</value>
+	</property>
+	<property key="IdNotSpace">
+		<value xml:lang="en">Id cannot has any space</value>
+		<value xml:lang="vi">Mã số không được có dấu cách</value>
+	</property>
+	<property key="fromDate">
+		<value xml:lang="en">From date</value>
+		<value xml:lang="vi">Từ ngày</value>
+	</property>
+	<property key="thruDate">
+		<value xml:lang="en">Thru date</value>
+		<value xml:lang="vi">Đến ngày</value>
+	</property>
+	<property key="date">
+		<value xml:lang="en">DateTime</value>
+		<value xml:lang="vi">Thời gian</value>
+	</property>
+	<property key="systemTime">
+		<value xml:lang="en">System time</value>
+		<value xml:lang="vi">Thời gian hệ thống</value>
+	</property>
+	<property key="InvAndPaym">
+		<value xml:lang="en">Create invoices and payments</value>
+		<value xml:lang="vi">Tạo hóa đơn và thanh toán</value>
+	</property>
+	<property key="actualValue">
+		<value xml:lang="en">Actual value</value>
+		<value xml:lang="vi">Giá trị thực tế</value>
+	</property>
+	<property key="parameterType">
+		<value xml:lang="en">Parameter type</value>
+		<value xml:lang="vi">Loại tham số</value>
+	</property>
+	<property key="defaultValue">
+		<value xml:lang="en">Default value</value>
+		<value xml:lang="vi">Giá trị mặc định</value>
+	</property>
+	<property key="actualPercent">
+		<value xml:lang="en">Actual percent</value>
+		<value xml:lang="vi">Phần trăm thực tế</value>
+	</property>
+	<property key="ApprovePayroll">
+		<value xml:lang="en">Approve Payroll</value>
+		<value xml:lang="vi">Phê duyệt bảng lương</value>
+	</property>
+	<property key="PageTitleApprovePayroll">
+		<value xml:lang="en">Approve Payroll</value>
+		<value xml:lang="vi">Phê duyệt bảng lương</value>
+	</property>
+	<property key="PayrollTablePartyHistory">
+		<value xml:lang="en">Payroll Table Party History</value>
+		<value xml:lang="vi">Lịch sử bảng lương</value>
+	</property>
+	
+	<property key="HrolbiusFomular">
+		<value xml:lang="en">Fomular</value>
+		<value xml:lang="vi">Tính</value>
+	</property>
+	<property key="HRPayrollInformation">
+		<value xml:lang="en">Payroll Information</value>
+		<value xml:lang="vi">Thông Tin Lương</value>
+	</property>
+	<property key="HRPayrollCode">
+		<value xml:lang="en">Code</value>
+		<value xml:lang="vi">Mã</value>
+	</property>
+	<property key="PayrollTableParty">
+		<value xml:lang="en">Payroll table</value>
+		<value xml:lang="vi">Bảng lương</value>
+	</property>
+	<property key="NoEmplCalcPayrollSalary">
+		<value xml:lang="en">Can't create invoice when no Employee are calculated payroll salary</value>
+		<value xml:lang="vi">Không thể tạo hóa đơn khi chưa có nhân viên nào được tính lương</value>
+	</property>
+	<property key="HrolbiusMaxValue">
+		<value xml:lang="en">Max Value</value>
+		<value xml:lang="vi">Giá trị tối đa</value>
+	</property>
+	
+	<property key="HrolbiustaxAuthority">
+		<value xml:lang="en">Tax Authority</value>
+		<value xml:lang="vi">Cơ quan thuế</value>
+	</property>
+	
+	<property key="HrolbiusJobFrequency">
+		<value xml:lang="en">Job Frequency</value>
+		<value xml:lang="vi">Chu kì công việc</value>
+	</property>
+	
+	<property key="HrolbiusStartTime">
+		<value xml:lang="en">Start Time</value>
+		<value xml:lang="vi">Thời gian bắt đầu</value>
+	</property>
+	
+	<property key="HrolbiusExpireTime">
+		<value xml:lang="en">Expire Time</value>
+		<value xml:lang="vi">Thời gian Kết thúc</value>
+	</property>
+	
+	<property key="HrolbiusDefaultValue">
+		<value xml:lang="en">Default Value</value>
+		<value xml:lang="vi">Giá trị mặc định</value>
+	</property>
+	
+	<property key="HrolbiusActualValue">
+		<value xml:lang="en">Actual Value</value>
+		<value xml:lang="vi">Giá trị thực tế</value>
+	</property>
+	
+	<property key="HrolbiusAmountValue">
+		<value xml:lang="en">Amount Value</value>
+		<value xml:lang="vi">Giá trị chi trả</value>
+	</property>
+	<property key="CreateNewParameters">
+		<value xml:lang="en">Create new payroll parameters</value>
+		<value xml:lang="vi">Tạo mới tham số lương</value>
+	</property>
+	<property key="HRPayslips">
+		<value xml:lang="en">PERSONAL PAYCHECK</value>
+		<value xml:lang="vi">PHIẾU LƯƠNG CÁ NHÂN</value>
+	</property>
+	<property key="HRSalaryPeriod">
+		<value xml:lang="en">Salary period</value>
+		<value xml:lang="vi">Thời gian tính lương</value>
+	</property>
+	<property key="DateJoinCompany">
+		<value xml:lang="en">Date join company</value>
+		<value xml:lang="vi">Ngày vào công ty</value>
+	</property>
+	<property key="AccountNumber">
+		<value xml:lang="en">Account Number</value>
+		<value xml:lang="vi">Số tài khoản</value>
+	</property>
+	<property key="NumberWorkDay">
+		<value xml:lang="en">Number work day</value>
+		<value xml:lang="vi">Số ngày công</value>
+	</property>
+	<property key="HRCurrency">
+		<value xml:lang="en">Currency Unit</value>
+		<value xml:lang="vi">ĐVT</value>
+	</property>
+	<property key="SalaryType">
+		<value xml:lang="en">Salary type</value>
+		<value xml:lang="vi">Tên khoản</value>
+	</property>
+	<property key="HRAmount">
+		<value xml:lang="en">Amount</value>
+		<value xml:lang="vi">Thành tiền</value>
+	</property>
+	<property key="HRIncomes">
+		<value xml:lang="en">Incomes</value>
+		<value xml:lang="vi">Các khoản thu nhập</value>
+	</property>
+	<property key="HRDeductions">
+		<value xml:lang="en">Deductions</value>
+		<value xml:lang="vi">Các khoản giảm trừ</value>
+	</property>
+	<property key="SumSalary">
+		<value xml:lang="en">Summary</value>
+		<value xml:lang="vi">Tổng</value>
+	</property>
+	<property key="ActualReceipt">
+		<value xml:lang="en">Actual Receipt</value>
+		<value xml:lang="vi">Lương thực lĩnh</value>
+	</property>
+	<property key="PageTitleListEmplSalary">
+		<value xml:lang="en">List employee salary</value>
+		<value xml:lang="vi">Danh sách tiền lương nhân viên</value>
+	</property>
+	<property key="ListEmplSalary">
+		<value xml:lang="en">List employee salary</value>
+		<value xml:lang="vi">DS tiền lương NV</value>
+	</property>
+	<property key="CalcOperation">
+		<value xml:lang="en">Calc Operation</value>
+		<value xml:lang="vi">Phép tính</value>
+	</property>
+	<property key="OpenParenthesis">
+		<value xml:lang="en">Open Prths</value>
+		<value xml:lang="vi">Mở ngoặc</value>
+	</property>
+	<property key="CloseParenthesis">
+		<value xml:lang="en">Close Prths</value>
+		<value xml:lang="vi">Đóng ngoặc</value>
+	</property>
+	<property key="PlusOperand">
+		<value xml:lang="en">Plus</value>
+		<value xml:lang="vi">Cộng</value>
+	</property>
+	<property key="MinusOperand">
+		<value xml:lang="en">Minus</value>
+		<value xml:lang="vi">Trừ</value>
+	</property>
+	<property key="TimesOperand">
+		<value xml:lang="en">Times</value>
+		<value xml:lang="vi">Nhân</value>
+	</property>
+	<property key="DivideOperand">
+		<value xml:lang="en">Divide</value>
+		<value xml:lang="vi">Chia</value>
+	</property>
+	<property key="AddIfStatement">
+		<value xml:lang="en">If</value>
+		<value xml:lang="vi">If</value>
+	</property>
+	<property key="formulaIsEmptyOrNotValid">
+		<value xml:lang="en">Formula is empty or not valid</value>
+		<value xml:lang="vi">Công thức đang rỗng hoặc không hợp lệ</value>
+	</property>
+	<property key="CodeFormulaIsExists">
+		<value xml:lang="en">Code formula is exists</value>
+		<value xml:lang="vi">Mã Công thức đã tồn tại</value>
+	</property>
+	<property key="EmplTimekeeping">
+		<value xml:lang="en">Timekeeping</value>
+		<value xml:lang="vi">Chấm công</value>
+	</property>
+	<property key="TotalTimeKeeping">
+		<value xml:lang="en">Day working in month</value>
+		<value xml:lang="vi">Số ngày làm việc trong tháng</value>
+	</property>
+	<property key="TotalDayWorking">
+		<value xml:lang="en">Total timekeeping</value>
+		<value xml:lang="vi">Số ngày công</value>
+	</property>
+	<property key="EmplTimekeepingReport">
+		<value xml:lang="en">Timekeeping report month ${monthDisplay}/${year}</value>
+		<value xml:lang="vi">Tổng hợp chấm công tháng ${monthDisplay}/${year}</value>
+	</property>
+	<property key="DetailEmplTimekeepingReport">
+		<value xml:lang="en">Detail timekeeping report month ${monthDisplay}/${year}</value>
+		<value xml:lang="vi">Chi tiết chấm công tháng ${monthDisplay}/${year}</value>
+	</property>
+	<property key="EmplTimekeepingReportTilte">
+		<value xml:lang="en">Timekeeping report</value>
+		<value xml:lang="vi">Tổng hợp chấm công</value>
+	</property>
+	<property key="DetailEmplTimekeepingReportTiltle">
+		<value xml:lang="en">Detail timekeeping report</value>
+		<value xml:lang="vi">Chi tiết chấm công</value>
+	</property>
+	<property key="EmplTimekeepingDetailReport">
+		<value xml:lang="en">Timekeeping detail report</value>
+		<value xml:lang="vi">Chi tiết chấm công</value>
+	</property>
+	<property key="PeriodTypePayroll">
+		<value xml:lang="en">Period Payroll</value>
+		<value xml:lang="vi">Chu kỳ trả lương</value>
+	</property>
+	<property key="CommonPeriodType">
+		<value xml:lang="en">Period Type</value>
+		<value xml:lang="vi">Chu kỳ tính</value>
+	</property>
+	<property key="PayrollFromDate">
+		<value xml:lang="en">Start from</value>
+		<value xml:lang="vi">Bắt đầu tính từ</value>
+	</property>
+	<property key="PayrollThruDate">
+		<value xml:lang="en">Thru date</value>
+		<value xml:lang="vi">Có hiệu lực đến</value>
+	</property>
+	<property key="ViewHistoryPartyPayroll">
+		<value xml:lang="en">View history payroll</value>
+		<value xml:lang="vi">Xem lich sử tiền lương</value>
+	</property>
+	<property key="SalaryBaseFlat">
+		<value xml:lang="en">Salary base flat</value>
+		<value xml:lang="vi">Lương cơ bản</value>
+	</property>
+	<property key="EmplSalaryBaseFlatList">
+		<value xml:lang="en">Employee salary base flat</value>
+		<value xml:lang="vi">Danh sách lương cơ bản của nhân viên</value>
+	</property>
+	<property key="SettingEmpPosTypeSalary">
+		<value xml:lang="en">Setting salary base by position type</value>
+		<value xml:lang="vi">Thiết lập lương cơ bản theo vị trí</value>
+	</property>
+	<property key="EmplPosTypeRateIsSet">
+		<value xml:lang="en">Salary base for position type is set</value>
+		<value xml:lang="vi">Lương cơ bản cho kiểu vị trí đã được thiết lập</value>
+	</property>
+	<property key="AddEmpPosTypeSalary">
+		<value xml:lang="en">Add setting</value>
+		<value xml:lang="vi">Thêm thiết lập</value>
+	</property>
+	<property key="AllEmplPositionTypeSalarySet">
+		<value xml:lang="en">All position type salary is set</value>
+		<value xml:lang="vi">Mức lương của tất cả các vị trí đã được thiết lập</value>
+	</property>
+	<property key="EditEmpPosTypeSalary">
+		<value xml:lang="en">Add/Edit position type base salary</value>
+		<value xml:lang="vi">Thêm/Chỉnh sửa lương cơ bản theo vị trí</value>
+	</property>
+	<property key="EditPartyRateAmount">
+		<value xml:lang="en">Edit base salary</value>
+		<value xml:lang="vi">Chỉnh sửa lương cơ bản</value>
+	</property>
+	<property key="CalcSalaryPeriod">
+		<value xml:lang="en">Frequency calculate salary</value>
+		<value xml:lang="vi">Tần suất tính lương</value>
+	</property>
+	<property key="PayrollTableName">
+		<value xml:lang="en">Payroll table name</value>
+		<value xml:lang="vi">Tên bảng tiền lương</value>
+	</property>
+	<property key="PayrollTableList">
+		<value xml:lang="en">Payroll table list</value>
+		<value xml:lang="vi">Danh sách bảng lương</value>
+	</property>
+	<property key="EditPayrollTable">
+		<value xml:lang="en">Add Payroll table</value>
+		<value xml:lang="vi">Thêm mới bảng lương</value>
+	</property>
+	<property key="PayrollTableNotCalc">
+		<value xml:lang="en">Cannot view results when payroll table haven't calculated</value>
+		<value xml:lang="vi">Không thể xem kết quả khi bảng lương chưa được tính toán</value>
+	</property>
+	<property key="PayrollTableCalcResults">
+		<value xml:lang="en">Results of calculate payroll table</value>
+		<value xml:lang="vi">Kết quả tính toán bảng lương</value>
+	</property>
+	<property key="CannotUpdatePayrollTableHaveCalculated">
+		<value xml:lang="en">Cannot update payroll table have calculated</value>
+		<value xml:lang="vi">Không thê cập nhật bảng lương đã được tính toán</value>
+	</property>	
+	
+	<property key="PayrollFormulaNotValid">
+		<value xml:lang="en">The calculation formula is not valid</value>
+		<value xml:lang="vi">Công thức tính này không hợp lệ</value>
+	</property>
+	
+	<property key="PayrollPleaseReviewTheFormula">
+		<value xml:lang="en">Please review the math</value>
+		<value xml:lang="vi">Vui lòng xem lại phép toán</value>
+	</property>
+	
+	<property key="PayrollNotify">
+		<value xml:lang="en">Notification result</value>
+		<value xml:lang="vi">Thông báo kết quả thực hiện</value>
+	</property>
+	
+	<property key="PayrollSuccess">
+		<value xml:lang="en">The process is executed successfully!</value>
+		<value xml:lang="vi">Quá trình thực hiện thành công!</value>
+	</property>
+	
+	<property key="PayrollCommonSuccess">
+		<value xml:lang="en">Success</value>
+		<value xml:lang="vi">Thành công</value>
+	</property>
+	
+	<property key="PayrollCommonDanger">
+		<value xml:lang="en">Error</value>
+		<value xml:lang="vi">Xảy ra lỗi!</value>
+	</property>
+	
+	<property key="PayrollError">
+		<value xml:lang="en">The process is executed Error!</value>
+		<value xml:lang="vi">Quá trình thực hiện xảy ra lỗi!</value>
+	</property>
+	<property key="ParametersList">
+		<value xml:lang="en">Parameters list</value>
+		<value xml:lang="vi">Danh sách tham số</value>
+	</property>
+	<property key="CreatePayrollInvoice">
+		<value xml:lang="en">Create invoice</value>
+		<value xml:lang="vi">Tạo hóa đơn</value>
+	</property>
+	<property key="PageTitleApprovalPayrollTable">
+		<value xml:lang="en">Create invoice for payroll table</value>
+		<value xml:lang="vi">Tạo hóa đơn cho bảng lương</value>
+	</property>
+	<property key="CannotFindPayrollTable">
+		<value xml:lang="en">Cannot find payroll table</value>
+		<value xml:lang="vi">Không thể tìm thấy bảng lương</value>
+	</property>
+	<property key="FormulaInvoiceItemType">
+		<value xml:lang="en">Formula invoice item type</value>
+		<value xml:lang="vi">Thiết lập loại hạng mục cho công thức</value>
+	</property>
+	<property key="EditPartyFormulaInvoiceItemType">
+		<value xml:lang="en">Set invoice item type for payroll formula</value>
+		<value xml:lang="vi">Thiết lập loại hạng mục cho công thức lương</value>
+	</property>
+	<property key="NoPartyFoundForFormulaInvoiceItemType">
+		<value xml:lang="en">No department found to set</value>
+		<value xml:lang="vi">Không tìm thấy phòng ban để thiết lập</value>
+	</property>
+	<property key="FormulaList">
+		<value xml:lang="en">Formula list</value>
+		<value xml:lang="vi">Danh sách công thức tính</value>
+	</property>
+	<property key="PayrollTableHaveCreatedInvoice">
+		<value xml:lang="en">Payroll table have created invoice</value>
+		<value xml:lang="vi">Đã tạo hóa đơn cho bảng lương</value>
+	</property>
+	<property key="ListPartyFormulaInvoiceItemType">
+		<value xml:lang="en">List party formula invoice item type</value>
+		<value xml:lang="vi">Danh sách loại hạng mục cho công thức lương</value>
+	</property>
+	<property key="PayrollFormulaCode">
+		<value xml:lang="en">Formula code</value>
+		<value xml:lang="vi">Mã công thức</value>
+	</property>
+	<property key="ViewResultEmplTimekeeping">
+		<value xml:lang="en">View result time keeping</value>
+		<value xml:lang="vi">Xem kết quả chấm công</value>
+	</property>
+	<property key="PartyFormulaInvoiceItemTypeExists">
+		<value xml:lang="en">Invoice item ${invoiceItemType} for payrol formula ${code} of department ${departmentName} have exists</value>
+		<value xml:lang="vi">Loại hạng mục ${invoiceItemType} cho công thức lương ${code} của phòng ban ${departmentName} đã tồn tại</value>
+	</property>
+	<property key="PayrollParametersHaveExists">
+		<value xml:lang="en">Paramter with ${code} have exists</value>
+		<value xml:lang="vi">Tham số có mã ${code} đã tồn tại</value>
+	</property>
+	<property key="PayrollParametersDonotHaveWhiteSpace">
+		<value xml:lang="en">Paramter don't allow contain white space</value>
+		<value xml:lang="vi">Mã công thức không được chứa ký tự dấu cách</value>
+	</property>
+	<property key="PayrollTableNotCalculated">
+		<value xml:lang="en">Payroll table not calculated</value>
+		<value xml:lang="vi">Bảng lương chưa được tính toán</value>
+	</property>
+	<property key="SalaryInPeriodIsSet">
+		<value xml:lang="en">Cannot set salary amount fromdate ${fromDateSet} to ${thruDateSet} because ${fromDate} to ${thruDate} salary is set ${amount}</value>
+		<value xml:lang="vi">Không thể thiết lập lương cơ bản từ ngày ${fromDateSet} đến ${thruDateSet} bởi vì từ ${fromDate} đến ${thruDate} lương cơ bản đã được thiết lập là ${amount}</value>
+	</property>
+	<property key="EmplPositionTypeRateIsSet">
+		<value xml:lang="en">Salary for ${emplPositionType} from ${fromDate} to ${thruDate} is set</value>
+		<value xml:lang="vi">Lương cơ bản cho vị trí ${emplPositionType} từ ${fromDate} đến ${thruDate} đã được thiết lập</value>
+	</property>
+	<property key="CannotDeleteSalarySetBaseOnPosType">
+		<value xml:lang="en">Cannot delete because salary is based on position type</value>
+		<value xml:lang="vi">Không thể xóa vì lương được thiết lập dựa trên vị trí</value>
+	</property>
+	<property key="IsBasedOnPosType">
+		<value xml:lang="en">Based on position type</value>
+		<value xml:lang="vi">Dựa trên kiểu vị trí</value>
+	</property>
+	<property key="SetParametersFor">
+		<value xml:lang="en">Set payroll parameter for</value>
+		<value xml:lang="vi">Thiết lập tham số lương cho</value>
+	</property>
+	<property key="ValueSetByDefault">
+		<value xml:lang="en">Based on general parameter</value>
+		<value xml:lang="vi">Dựa trên tham số chung</value>
+	</property>
+	<property key="AddPayrollParameterFor">
+		<value xml:lang="en">Add payroll parameters for</value>
+		<value xml:lang="vi">Thiết lập tham số cho</value>
+	</property>
+	<property key="CannotAssignParameter">
+		<value xml:lang="en">Cannot assign parameters ${code} for ${emplName} from ${fromDateSet} to ${thruDateSet} because from ${fromDate} to ${thruDate} ${code} is set ${value}</value>
+		<value xml:lang="vi">Không thể gán tham số ${code} cho ${emplName} từ ${fromDateSet} đến ${thruDateSet} vì từ ${fromDate} to ${thruDate} ${code} đã được thiết lập ${value}</value>
+	</property>
+	<property key="CannotUpdatePayrolParamDateInvalid">
+		<value xml:lang="en">Cannot update because ${fromDateUpdate} to ${thruDateUpdate} is overwrite with ${fromDateError} to ${thruDateErr}</value>
+		<value xml:lang="vi">Không thể cập nhật vì ${fromDateUpdate} đến ${thruDateUpdate} bị trùng với ${fromDateError} đến ${thruDateErr}</value>
+	</property>
+	<property key="ListEmplPayrollParameters">
+		<value xml:lang="en">Overview employee payroll parameters</value>
+		<value xml:lang="vi">Tổng hợp tham số của nhân viên</value>
+	</property>
+	<property key="TotalParametersSet">
+		<value xml:lang="en">Total parameters is set</value>
+		<value xml:lang="vi">Số tham số đã thiết lập</value>
+	</property>
+	<property key="ListParametersOf">
+		<value xml:lang="en">List parameters of</value>
+		<value xml:lang="vi">Danh sách tham số của</value>
+	</property>
+	<property key="EmplPayrollParameters">
+		<value xml:lang="en">Setting parameters for employee</value>
+		<value xml:lang="vi">Thiết lập tham số cho NV</value>
+	</property>
+	<property key="EditEmpPosTypeRate">
+		<value xml:lang="en">Edit emplPosition type rate</value>
+		<value xml:lang="vi">Chỉnh sửa mức lương theo vị trí</value>
+	</property>
+	<property key="InsuranceFormulaCodeEmpty">
+		<value xml:lang="en">Formula code is empty</value>
+		<value xml:lang="vi">Mã công thức rỗng</value>
+	</property>
+	<property key="CodeContainsInvalidLetters">
+		<value xml:lang="en">Formula code only contains letters "a->z" and letter "_"</value>
+		<value xml:lang="vi">Mã công thức chỉ được chứa các ký tự "a->z" và ký tự "_"</value>
+	</property>
+	<property key="InsuranceFormulaDescEmpty">
+		<value xml:lang="en">Name for insurance formula is empty</value>
+		<value xml:lang="vi">Tên công thức rỗng</value>
+	</property>
+	<property key="InsuranceFormulaFunctionEmpty">
+		<value xml:lang="en">Function for formula is empty</value>
+		<value xml:lang="vi">Cách thức tính rỗng</value>
+	</property>
+	<property key="FormulaIsNotValid">
+		<value xml:lang="en">Formula is not valid</value>
+		<value xml:lang="vi">Công thức tính không hợp lệ</value>
+	</property>
+	<property key="HRPayrollTableId">
+		<value xml:lang="en">Payroll table Id</value>
+		<value xml:lang="vi">Mã bảng lương</value>
+	</property>
+	<property key="CannotCreateInsuranceType_ErrorWhenCreateParam">
+		<value xml:lang="en">Cannot create insurance type because error occur when create payroll parameters for insurance type: ${errorMsg}</value>
+		<value xml:lang="vi">Không thể tạo mới kiểu bảo hiểm vì đã có lỗi sau xảy ra khi tạo tham số cho bảo hiểm: ${errorMsg}</value>
+	</property>
+	<property key="CannotUpdateRefParameters">
+		<value xml:lang="en">Cannot update parameters is reference from another information</value>
+		<value xml:lang="vi">Không thể cập nhật tham số lương được tham chiếu thông tin từ các phân khác</value>
+	</property>
+	<property key="PayrollCalculated_Recalculated">
+		<value xml:lang="en">Payroll is calculated, do you want to recalculated?</value>
+		<value xml:lang="vi">Bảng lương đã được tính toán, bạn có muốn tính lại không?</value>
+	</property>
+	<property key="CannotDeleteCodeExistsInAnotherCode">
+		<value xml:lang="en">Cannot delete formula have code ${code} because ${code} is setup in formula ${codeExists}</value>
+		<value xml:lang="vi">Không thể xóa công thức có mã là ${code} vì công thức này được thiết lập trong công thức có mã là ${codeExists}</value>
+	</property>
+	<property key="CannotDeleteCodeExistInPayrollTable">
+		<value xml:lang="en">Cannot delete formula have code ${code} because ${code} is setup in payroll table have code is ${payrollTableId}</value>
+		<value xml:lang="vi">Không thể xóa công thức có mã là ${code} vì công thức này được thiết lập trong bảng lương có mã là ${payrollTableId}</value>
+	</property>
+	<property key="CannotDeletePayrollParam_setFormula">
+		<value xml:lang="en">Cannot delete parameters have code is ${code} because parametes is set in formula ${formulaName}[${formula}]</value>
+		<value xml:lang="vi">Không thể xóa tham số có mã là ${code} vì tham số này tồn tại trong công thức ${formulaName}[${formula}]</value>
+	</property>
+	<property key="CannotDeletePayrollParam_emplPayrollParam">
+		<value xml:lang="en">Cannot delete parameters have code is ${code} because parametes is set in employee ${listEmplParam}</value>
+		<value xml:lang="vi">Không thể xóa tham số có mã là ${code} vì tham số này đã được thiết lập cho nhân viên ${listEmplParam}</value>
+	</property>
+	<property key="CannotDeletePayrollParam_RefType">
+		<value xml:lang="en">Cannot delete parameters because parameters is reference</value>
+		<value xml:lang="vi">Không thể xóa tham số vì tham số được tham chiếu từ phần khác</value>
+	</property>
+	<property key="ReviewFormula">
+		<value xml:lang="en">Review formula</value>
+		<value xml:lang="vi">Xem lại công thức hiện tại</value>
+	</property>
+	<property key="PayrollParamterType">
+		<value xml:lang="en">Parameter type</value>
+		<value xml:lang="vi">Kiểu tham số</value>
+	</property>
+</resource>

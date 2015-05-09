@@ -1,0 +1,19 @@
+{
+	"data": [
+		{
+			"name": "id",
+			"type": "INTEGER",
+			"primary": "true"
+		}, {
+			"name": "productId",
+			"type": "TEXT"
+		}, {
+			"name": "productName",
+			"type": "TEXT"
+		}, {
+			"name": "unitPrice",
+			"type": "NUMBERIC"
+		}
+	]
+}
+

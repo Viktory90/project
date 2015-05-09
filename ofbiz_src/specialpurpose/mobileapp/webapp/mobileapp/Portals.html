@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Cổng thông tin</title>
+<meta name="description" content="Widget Boxes & Containers" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- basic styles -->
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+
+<!-- page specific plugin styles -->
+
+
+<!-- ace styles -->
+<link rel="stylesheet" href="assets/css/ace.min.css" />
+<link rel="stylesheet" href="assets/css/ace-responsive.min.css" />
+<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+<!--[if lt IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+</head>
+
+<body>
+	<span id="navbar"> </span>
+	<div class="main-container container-fluid">
+		<div class="main-container-inner">
+			<div class="main-content">
+				<div class="page-content">
+				<div class="row-fluid">
+					<div class="tabbable">
+			            <ul class="nav nav-tabs" id="myTab">
+			              <li class="active"><a data-toggle="tab" href="#home">
+			              			<i class="green icon-home bigger-110"></i> 
+			              				Sự kiện mới</a></li>
+			              <li><a data-toggle="tab" href="#newProduct">Sản phẩm mới 
+			              		<span class="badge badge-important" id="numberNewProduct">0</span></a></li>			              
+			            </ul>
+			            <div class="tab-content">
+						  <div id="home" class="tab-pane in active">
+						  	<ul id="tasks" class="item-list">
+								<li class="item-blue"><i class="icon-ok"></i> Lễ ra mắt sản phẩm sữa chua Zott Mil</li>
+								<li class="item-blue"><i class="icon-ok"></i> New message from customer at 22 Nguyen Trai </li>
+							</ul>
+						  </div>
+						  <div id="newProduct" class="tab-pane">
+						  	<ul id="tasks" class="item-list">								
+							</ul>
+						  </div>						  
+			            </div>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- basic scripts -->
+		<script type="text/javascript">
+		window.jQuery
+				|| document
+						.write("<script src='assets/js/jquery-2.0.3.min.js'>"
+								+ "<"+"/script>");
+		</script>
+		<script src="assets/js/bootstrap.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+		
+		<script type="text/javascript" src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+
+		<script type="text/javascript" src="assets/js/jquery.ui.touch-punch.min.js"></script>
+
+		<script type="text/javascript" src="assets/js/jquery.slimscroll.min.js"></script>
+
+
+		<!-- ace scripts -->
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+
+
+		<!-- inline scripts related to this page -->
+		
+	<script type="text/javascript">
+		$(function() {
+			$.get("header.html", function(data) {
+				$('#navbar').html(data);
+			}, 'html').fail(function() {
+				console.log('arge', arguments)
+			});
+		$('#simple-colorpicker-1').ace_colorpicker({pull_right:true}).on('change', function(){
+			var color_class = $(this).find('option:selected').data('class');
+			var new_class = 'widget-header';
+			if(color_class != 'default')  new_class += ' header-color-'+color_class;
+			$(this).closest('.widget-header').attr('class', new_class);
+		});
+	
+		$.ajax({
+			url: localStorage.serverUrl + 'mobileservices/control/getNewProducts',
+			crossDomain : true,
+			type : "POST",
+			dataType : 'json',
+			success: function(data){
+				if(data.numberNewProduct > 0){
+					$("#numberNewProduct").text(data.numberNewProduct);
+					for(var i in data.newProduct){
+						var newProductLi = "<li class='item-blue'><span class='label label-large label-purple arrowed-in'>New</span> ";
+						newProductLi += data.newProduct[i].productName + " - <b>Ngày phát hành</b>: " + data.newProduct[i].releaseDate;
+						newProductLi += "</li>";
+						$("#newProduct ul").append(newProductLi);
+					}
+				}else{
+					$("#numberNewProduct").empty();
+					$("#newProduct ul").append("<li class='item-blue'>Không có sản phẩm nào mới</li>");
+				}
+			},
+			error: function(textStatus, errorThrown){
+				
+			}
+		});
+		$.ajax({
+			url : localStorage.serverUrl + 'mobileservices/control/getNotification',
+			crossDomain : true,
+			type : "POST",
+			dataType : 'json', // Choosing a JSON datatype
+			success : function(data){
+				
+			},
+			error: function(textStatus, errorThrown){
+				
+			}
+		});
+		// scrollables
+		$('.slim-scroll').each(function () {
+			var $this = $(this);
+			$this.slimScroll({
+				height: $this.data('height') || 100,
+				railVisible:true
+			});
+	      });	  	  				
+		});
+
+	</script>
+</body>
+</body>

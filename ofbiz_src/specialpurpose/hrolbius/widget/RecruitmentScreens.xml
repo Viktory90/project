@@ -1,0 +1,2603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	<!-- Screens for internal job posting -->
+	<screen name="Recruitment">
+		<section>
+			<actions>
+				<set field="selectedMenuItem" value="recruitment"></set>
+				<set field="titleProperty" value="PageTitleRecruitmentHome" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="component://hrolbius/widget/CommonScreens.xml">
+					<decorator-section name="body">
+						<screenlet title="${uiLabelMap.PageTitleRecruitmentHome}">
+
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="FindInternalJobPosting">
+		<section>
+			<actions>
+				<set field="navMenuName" value="FindInternalJobPostingSubTabBar" />
+				<set field="navMenuLocation"
+					value="component://hrolbius/widget/menus/RecruitmentMenus.xml" />
+				<set field="titleProperty" value="PageTitleFindInternalJobPosting" />
+				<set field="tabButtonItemTop" value="FindInternalJobPosting" />
+				<service service-name="hrGenericPermission" result-map="permResult">
+					<field-map field-name="mainAction" value="ADMIN" />
+				</service>
+				<set field="hasAdminPermission" from-field="permResult.hasPermission" />
+				<set field="partyId" from-field="parameters.userLogin.partyId" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HROLBIUS"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<decorator-screen name="FindScreenDecorator"
+									location="component://common/widget/CommonScreens.xml">
+									<decorator-section name="menu-bar">
+										<section>
+											<widgets>
+												<!-- <container style="button-bar"> -->
+												<!-- <link target="EditInternalJobPosting" -->
+												<!-- text="${uiLabelMap.HROlbiusNewInternalJobPosting}" style="btn 
+													btn-small btn-primary" /> -->
+												<!-- </container> -->
+											</widgets>
+										</section>
+									</decorator-section>
+									<decorator-section name="search-options">
+										<include-form name="FindInternalJobPosting"
+											location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+									</decorator-section>
+									<decorator-section name="search-results">
+										<include-form name="ListInternalJobPosting"
+											location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+									</decorator-section>
+								</decorator-screen>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="EditInternalJobPosting">
+		<section>
+			<actions>
+				<set field="tabButtonItemTop" value="FindInternalJobPosting" />
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/jobanalysis/prepareEditJobRequisitionForm.groovy" />
+				<set field="titleProperty" value="PageTitleEditJobRequisitionItem"></set>
+				<set field="partyId" from-field="parameters.userLogin.partyId" />
+				<set field="applicationId" from-field="parameters.applicationId"></set>
+				<entity-one value-field="employmentApp" entity-name="EmploymentApp"></entity-one>
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="component://hrolbius/widget/CommonScreens.xml">
+					<decorator-section name="body">
+						<container>
+							<screenlet title="${uiLabelMap.PageTitleEditInternalJobPosting}" icon-style="icon-edit" >
+								<include-form name="EditInternalJobPosting"
+									location="component://hrolbius/widget/forms/RecruitmentForms.xml"/>
+							</screenlet>
+						</container>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="FindJobRequisitions">
+		<section>
+			<actions>
+				<set field="navMenuName" value="FindJobRequisitionsSubTabBar" />
+				<set field="navMenuLocation"
+					value="component://hrolbius/widget/menus/RecruitmentMenus.xml" />
+				<set field="titleProperty" value="PageTitleFindJobRequisition" />
+				<set field="tabButtonItemTop" value="FindJobRequisitions" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HROLBIUS"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<decorator-screen name="FindScreenDecorator"
+									location="component://common/widget/CommonScreens.xml">
+									<decorator-section name="menu-bar">
+										<section>
+											<condition>
+												<if-has-permission permission="HROLBIUS"
+													action="_ADMIN" />
+											</condition>
+											<widgets>
+												<!-- <container style="button-bar"> -->
+												<!-- <link target="EditJobRequisition" text="${uiLabelMap.HumanResNewJobRequisition}" 
+													style="btn btn-info btn-small"/> -->
+												<!-- </container> -->
+											</widgets>
+										</section>
+									</decorator-section>
+									<decorator-section name="search-options">
+										<include-form name="FindJobRequisitions"
+											location="component://humanres/widget/forms/RecruitmentForms.xml" />
+									</decorator-section>
+									<decorator-section name="search-results">
+										<include-form name="ListJobRequisitions"
+											location="component://humanres/widget/forms/RecruitmentForms.xml" />
+									</decorator-section>
+								</decorator-screen>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HumanResViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<!-- ================================End of screens for internal job posting==================================== -->
+
+	<!-- ================================Job interview============================================================== -->
+	<screen name="FindJobInterview">
+		<section>
+			<actions>
+				<set field="navMenuName" value="FindJobInterviewSubTabBar" />
+				<set field="navMenuLocation"
+					value="component://hrolbius/widget/menus/RecruitmentMenus.xml" />
+				<set field="titleProperty" value="PageTitleFindJobInterviewDetails" />
+				<set field="tabButtonItemTop" value="FindJobInterview" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HROLBIUS"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<decorator-screen name="FindScreenDecorator"
+									location="component://common/widget/CommonScreens.xml">
+									<decorator-section name="menu-bar">
+										<section>
+											<widgets>
+												<!-- <container style="button-bar"> -->
+												<!-- <link target="EditJobInterview" text="${uiLabelMap.HROlbiusNewJobInterview}" -->
+												<!-- style="btn btn-small btn-primary" /> -->
+												<!-- </container> -->
+											</widgets>
+										</section>
+									</decorator-section>
+									<decorator-section name="search-options">
+										<include-form name="FindJobInterview"
+											location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+									</decorator-section>
+									<decorator-section name="search-results">
+										<include-form name="ListInterview"
+											location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+									</decorator-section>
+								</decorator-screen>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="FindJobInterviewRating">
+		<section>
+			<actions>
+				<set field="navMenuName" value="FindJobInterviewSubTabBar" />
+				<set field="navMenuLocation"
+					value="component://hrolbius/widget/menus/RecruitmentMenus.xml" />
+				<set field="titleProperty" value="PageTitleFindJobInterviewDetails" />
+				<set field="tabButtonItemTop" value="FindJobInterview" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HROLBIUS"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<decorator-screen name="FindScreenDecorator"
+									location="component://common/widget/CommonScreens.xml">
+									<decorator-section name="menu-bar">
+										<section>
+											<widgets>
+												<!-- <container style="button-bar"> -->
+												<!-- <link target="EditJobInterview" text="${uiLabelMap.HROlbiusNewJobInterview}" -->
+												<!-- style="btn btn-small btn-primary" /> -->
+												<!-- </container> -->
+											</widgets>
+										</section>
+									</decorator-section>
+									<decorator-section name="search-options">
+										<include-form name="FindJobInterview"
+											location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+									</decorator-section>
+									<decorator-section name="search-results">
+										<include-form name="ListJobInterviewRating"
+											location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+									</decorator-section>
+								</decorator-screen>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="EditJobInterview">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleEditJobInterview" />
+				<set field="tabButtonItemTop" value="FindJobInterview" />
+				<set field="jobInterviewId" from-field="parameters.jobInterviewId" />
+				<entity-one entity-name="JobInterview" value-field="JobInterview" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<widgets>
+								<screenlet title="${uiLabelMap.HROlbiusEditJobInterview}"
+									icon-style="icon-edit">
+									<include-form name="EditJobInterview"
+										location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+								</screenlet>
+							</widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="AddInterviewee">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleEditJobInterview" />
+				<set field="tabButtonItemTop" value="FindJobInterview" />
+				<set field="jobInterviewId" from-field="parameters.jobInterviewId" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<widgets>
+								<container style="smaller blue header lighter">
+									<label style="h1"
+										text="${uiLabelMap.jobInterview} [${jobInterviewId}]"></label>
+								</container>
+								<include-form
+									location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+									name="ListInterviewee" />
+								<screenlet title="${uiLabelMap.AddInterviewee}">
+									<include-form name="AddInterviewee"
+										location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+								</screenlet>
+							</widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="AddInterviewer">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleEditJobInterview" />
+				<set field="tabButtonItemTop" value="FindJobInterview" />
+				<set field="jobInterviewId" from-field="parameters.jobInterviewId" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<widgets>
+								<container style="smaller blue header lighter">
+									<label style="h1"
+										text="${uiLabelMap.jobInterview} [${jobInterviewId}]"></label>
+								</container>
+								<include-form
+									location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+									name="ListInterviewer" />
+								<screenlet title="${uiLabelMap.AddInterviewer}">
+									<include-form name="AddInterviewer"
+										location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+								</screenlet>
+							</widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="EditJobInterviewRating">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleEditJobInterviewRating" />
+				<set field="tabButtonItemTop" value="FindJobInterviewRating" />
+				<set field="jobInterviewId" from-field="parameters.jobInterviewId" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<widgets>
+								<container style="smaller blue header lighter">
+									<label style="h1"
+										text="${uiLabelMap.jobInterview} [${jobInterviewId}]"></label>
+								</container>
+								<include-form
+									location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+									name="EditJobInterviewRating" />
+							</widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<!-- ================================End of Job interview======================================================= -->
+
+	<!-- ================================Approval=================================================================== -->
+	<screen name="FindApprovals">
+		<section>
+			<actions>
+				<set field="navMenuName" value="FindApprovalsSubTabBar" />
+				<set field="navMenuLocation"
+					value="component://hrolbius/widget/menus/RecruitmentMenus.xml" />
+				<set field="titleProperty" value="PageTitleFindApprovals" />
+				<set field="tabButtonItemTop" value="FindApprovals" />
+				<service service-name="hrGenericPermission" result-map="permResult">
+					<field-map field-name="mainAction" value="ADMIN" />
+				</service>
+				<set field="hasAdminPermission" from-field="permResult.hasPermission" />
+				<set field="partyId" from-field="parameters.userLogin.partyId" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HROLBIUS"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<decorator-screen name="FindScreenDecorator"
+									location="component://common/widget/CommonScreens.xml">
+									<decorator-section name="search-options">
+										<include-form name="FindApprovals"
+											location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+									</decorator-section>
+									<decorator-section name="search-results">
+										<include-form name="ListApprovals"
+											location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+									</decorator-section>
+								</decorator-screen>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="EditApprovalStatus">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleEditApprovalStatus" />
+				<set field="tabButtonItemTop" value="FindApprovals" />
+				<set field="candidateRequestId" from-field="parameters.candidateRequestId" />
+				<entity-one entity-name="EmploymentApp" value-field="employmentApp" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet id="EditApprovalStatus" title="${uiLabelMap.HROlbiusEditApprovalStatus}"
+							collapsible="true">
+							<include-form name="EditApprovalStatus"
+								location="component://humanres/widget/forms/RecruitmentForms.xml" />
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<!-- ================================End of Approval============================================================ -->
+
+	<!-- ================================Applicant================================================================== -->
+	<screen name="FindApplicant">
+		<section>
+			<condition>
+				<if-has-permission permission="HR_APPLICANT" action="_VIEW"/>
+			</condition>
+			<actions>
+				<set field="selectedSubMenuItem" value="FindApplicant" />
+				<set field="titleProperty" value="Applicant" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<widgets>
+								<section>
+									<widgets>
+										<platform-specific>
+											<html>
+												<html-template location="component://hrolbius/webapp/hrolbius/ftl/recruitment/jqxListApplicant.ftl"></html-template>
+											</html>
+										</platform-specific>
+									</widgets>
+								</section>
+							</widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+			<fail-widgets>
+				<container style="header smaller lighter red">
+					<label style="h3">${uiLabelMap.PartyMgrViewPermissionError}
+					</label>
+				</container>
+			</fail-widgets>
+		</section>
+	</screen>
+
+	<screen name="EditApplicant">
+		<section>
+			<actions>
+				<set field="tabButtonItem" value="Applicant" />
+				<set field="tabSubButtonItem" value="EditApplicant" />
+				<set field="selectedMenuItem" value="recruitment" />
+				<set field="titleProperty" value="PageTitleEditApplicant" />
+				<property-to-field field="defaultCountryGeoId"
+					resource="general" property="country.geo.id.default" default="USA" />
+
+				<script
+					location="component://party/webapp/partymgr/WEB-INF/actions/party/EditContactMech.groovy" />
+				<set field="dependentForm" value="editApplicant" />
+
+				<set field="paramKey" value="countryGeoId" />
+				<set field="paramKey_district" value="provinceGeoId" />
+				<set field="paramKey_ward" value="districtGeoId" />
+
+				<set field="PermtRes_mainId" value="permanentResidence_countryGeoId" />
+				<set field="PermtRes_stateProvinceGeoId" value="permanentResidence_stateProvinceGeoId" />
+				<set field="PermtRes_distGeoId" value="permanentResidence_districtGeoId" />
+				<set field="PermtRes_wardGeoId" value="permanentResidence_wardGeoId" />
+				<set field="currRes_mainId" value="currResidence_countryGeoId" />
+				<set field="currRes_stateProvinceGeoId" value="currResidence_stateProvinceGeoId" />
+				<set field="currRes_distGeoId" value="currResidence_districtGeoId" />
+				<set field="currRes_wardGeoId" value="currResidence_wardGeoId" />
+
+				<set field="requestName" value="getAssociatedStateList" />
+				<set field="requestName_district" value="getAssociatedDistList" />
+				<set field="requestName_ward" value="getAssociatedWardList" />
+
+				<set field="responseName" value="stateList" />
+				<set field="responseName_district" value="districtList" />
+				<set field="responseName_ward" value="wardList" />
+
+				<set field="dependentKeyName" value="geoId" />
+				<set field="descName" value="geoName" />
+				<set field="selectedDependentOption" from-field="mechMap.postalAddress.stateProvinceGeoId"
+					default-value="_none_" />
+				<entity-condition list="nationality" entity-name="Nationality">
+				</entity-condition>	
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet icon-style="icon-user" title="${uiLabelMap.PageTitleEditApplicant}">
+							<section>
+								<widgets>
+									<platform-specific>
+										<html>
+											<html-template
+												location="component://hrolbius/webapp/hrolbius/ftl/setDependentDropdownProvinceDistWard.ftl" />
+											<html-template
+												location="component://hrolbius/webapp/hrolbius/ftl/editApplicant.ftl" />
+										</html>
+									</platform-specific>
+								</widgets>
+							</section>
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="FindEmploymentApps">
+		<section>
+			<actions>
+				<set field="tabButtonItemTop" value="EmploymentApp" />
+				<set field="navMenuName" value="FindEmploymentAppsSubTabBar" />
+				<set field="navMenuLocation"
+					value="component://hrolbius/widget/menus/RecruitmentMenus.xml" />
+				<set field="titleProperty" value="HumanResFindEmploymentApp" />
+				<set field="employmentAppCtx" from-field="parameters" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<decorator-screen name="FindScreenDecorator"
+							location="component://common/widget/CommonScreens.xml">
+							<decorator-section name="search-options">
+								<include-form name="FindEmploymentApps"
+									location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+							</decorator-section>
+							<decorator-section name="search-results">
+								<container id="table-container">
+									<include-form name="ListEmploymentApps"
+										location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+								</container>
+							</decorator-section>
+						</decorator-screen>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="NewEmploymentApp">
+		<section>
+			<actions>
+				<set field="titleProperty" value="HumanResNewEmploymentApp" />
+				<set field="headerItem" value="EmploymentApp" />
+				<set field="applicationId" from-field="parameters.applicationId" />
+				<entity-one entity-name="EmploymentApp" value-field="employmentApp" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonEmploymentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet title="${uiLabelMap.HumanResNewEmploymentApp}">
+							<section>
+								<widgets>
+									<include-form name="AddEmploymentApp"
+										location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+								</widgets>
+							</section>
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="EditEmploymentApps">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleViewEmploymentApp" />
+				<set field="headerItem" value="Employee" />
+				<set field="tabButtonItem" value="EditEmploymentApps" />
+				<set field="referredByPartyId" from-field="parameters.partyId" />
+				<set field="employmentAppCtx.applicationId" from-field="parameters.applicationId" />
+				<set field="parameters.insideEmployee" value="true" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonPartyDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<include-form name="ListEmploymentApps"
+							location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+						<screenlet id="AddEmploymentAppPanel"
+							title="${uiLabelMap.CommonAdd} ${uiLabelMap.HumanResEmploymentApp}"
+							collapsible="true">
+							<include-form name="AddEmploymentApp"
+								location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="ApplicantProfile">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleViewPartyProfile" />
+				<set field="tabButtonItem" value="EmployeeProfile" />
+				<set field="selectedMenuItem" value="profile" />
+				<set field="labelTitleProperty" value="PartyTaxAuthInfos" />
+				<set field="partyId" from-field="parameters.partyId" />
+				<set field="layoutSettings.javaScripts[]" value="/partymgr/js/PartyProfileContent.js"
+					global="true" />
+				<script
+					location="component://party/webapp/partymgr/WEB-INF/actions/party/ViewProfile.groovy" />
+				<script
+					location="component://party/webapp/partymgr/WEB-INF/actions/party/GetUserLoginPrimaryEmail.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<not>
+									<if-empty field="party" />
+								</not>
+							</condition>
+							<widgets>
+								<section>
+									<condition>
+										<if-compare field="showOld" operator="equals"
+											value="true" type="Boolean" />
+									</condition>
+									<widgets>
+										<container>
+											<link
+												style="btn btn-small btn-primary margin-top5 icon-eye-open open-sans"
+												target="ApplicantProfile" text="${uiLabelMap.PartyHideOld}">
+												<parameter param-name="partyId" from-field="party.partyId" />
+											</link>
+										</container>
+									</widgets>
+									<fail-widgets>
+										<container>
+											<link
+												style="btn btn-small btn-primary margin-top5 icon-eye-open open-sans"
+												target="ApplicantProfile" text="${uiLabelMap.PartyShowOld}">
+												<parameter param-name="partyId" from-field="party.partyId" />
+												<parameter param-name="SHOW_OLD" value="true" />
+											</link>
+										</container>
+									</fail-widgets>
+								</section>
+								<section>
+									<widgets>
+										<container style="row-fluid">
+											<container style="span12">
+												<include-screen name="Party" location="component://hrolbius/widget/EmployeeScreens.xml"/>
+											</container>
+											<container style="span12 no-left-margin">
+												<container style="span6 no-left-margin">
+													<include-screen name="CurrentEmploymentData"
+														location="component://hrolbius/widget/EmployeeScreens.xml" />
+													<include-screen name="UserLogin" location="component://hrolbius/widget/EmployeeScreens.xml"/>
+													<include-screen name="Attributes" location="component://hrolbius/widget/EmployeeScreens.xml" />
+													<include-screen name="Content" location="component://hrolbius/widget/EmployeeScreens.xml"/>
+												</container>
+												<container style="span6">
+													<include-screen name="Notes" location="component://hrolbius/widget/EmployeeScreens.xml"/>
+													<include-screen name="Contact" location="component://hrolbius/widget/EmployeeScreens.xml"/>
+													<include-screen name="trainingsList" location="component://hrolbius/widget/EmployeeScreens.xml"/>
+													<screenlet collapsible="true" id="contactsAndAccounts" title="${uiLabelMap.PartyListRelatedAccounts}" initially-collapsed="true" >
+														<include-screen name="contactsAndAccounts" location="component://hrolbius/widget/EmployeeScreens.xml"/>
+													</screenlet>
+												</container>
+											</container>
+										</container>
+									</widgets>
+								</section>
+							</widgets>
+							<fail-widgets>
+								<container>
+									<label style="h3">${uiLabelMap.PartyNoPartyFoundWithPartyId}:
+										${parameters.partyId}
+									</label>
+								</container>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="ApplicantProfile11">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleViewPartyProfile" />
+				<set field="tabButtonItem" value="FindApplicant" />
+				<set field="labelTitleProperty" value="PartyTaxAuthInfos" />
+				<set field="partyId" from-field="parameters.partyId" />
+				<set field="layoutSettings.javaScripts[]" value="/partymgr/js/PartyProfileContent.js"
+					global="true" />
+				<script
+					location="component://party/webapp/partymgr/WEB-INF/actions/party/ViewProfile.groovy" />
+				<script
+					location="component://party/webapp/partymgr/WEB-INF/actions/party/GetUserLoginPrimaryEmail.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<not>
+									<if-empty field="party" />
+								</not>
+							</condition>
+							<widgets>
+								<section>
+									<condition>
+										<if-compare field="showOld" operator="equals"
+											value="true" type="Boolean" />
+									</condition>
+									<widgets>
+										<container>
+											<link
+												style="btn bnt-mini btn-primary margin-top5 icon-eye-open open-sans"
+												target="viewprofile" text="${uiLabelMap.PartyHideOld}">
+												<parameter param-name="partyId" from-field="party.partyId" />
+											</link>
+										</container>
+									</widgets>
+									<fail-widgets>
+										<container>
+											<link
+												style="btn btn-mini btn-primary margin-top5 icon-eye-open open-sans"
+												target="viewprofile" text="${uiLabelMap.PartyShowOld}">
+												<parameter param-name="partyId" from-field="party.partyId" />
+												<parameter param-name="SHOW_OLD" value="true" />
+											</link>
+										</container>
+									</fail-widgets>
+								</section>
+								<section>
+									<widgets>
+										<container style="row-fluid">
+											<container style="span6">
+												<include-screen name="Party"
+													location="component://party/widget/partymgr/ProfileScreens.xml" />
+												<include-screen name="Contact"
+													location="component://party/widget/partymgr/ProfileScreens.xml" />
+												<include-screen name="contactsAndAccounts"
+													location="component://party/widget/partymgr/ProfileScreens.xml" />
+												<include-screen name="trainingsList" />
+											</container>
+											<container style="span6">
+												<include-screen name="CurrentEmploymentData"
+													location="component://hrolbius/widget/EmployeeScreens.xml" />
+												<include-screen name="UserLogin"
+													location="component://party/widget/partymgr/ProfileScreens.xml" />
+												<include-screen name="Attributes"
+													location="component://party/widget/partymgr/ProfileScreens.xml" />
+												<include-screen name="Content"
+													location="component://party/widget/partymgr/ProfileScreens.xml" />
+												<include-screen name="Notes"
+													location="component://party/widget/partymgr/ProfileScreens.xml" />
+											</container>
+										</container>
+									</widgets>
+								</section>
+							</widgets>
+							<fail-widgets>
+								<container>
+									<label style="h3">${uiLabelMap.PartyNoPartyFoundWithPartyId}:
+										${parameters.partyId}
+									</label>
+								</container>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="trainingsList">
+		<section>
+			<widgets>
+				<screenlet icon-style="icon-bar-chart" title="${uiLabelMap.HumanResTrainings}">
+					<include-form name="simpleListTrainingStatus"
+						location="component://hrolbius/widget/forms/PersonTrainingForms.xml" />
+				</screenlet>
+			</widgets>
+		</section>
+	</screen>
+	<!-- ================================/Applicant================================================================== -->
+
+
+	<!-- ==================================Job Question ============================================================ -->
+
+	<screen name="FindJobInterviewQuestion">
+		<section>
+			<actions>
+				<set field="navMenuName" value="FindJobInterviewQuestionSubTabBar" />
+				<set field="navMenuLocation"
+					value="component://hrolbius/widget/menus/RecruitmentMenus.xml" />
+				<set field="titleProperty" value="PageTitleFindJobInterviewQuestionDetails" />
+				<set field="tabButtonItem" value="FindJobInterviewQuestion" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HROLBIUS"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<decorator-screen name="FindScreenDecorator"
+									location="component://common/widget/CommonScreens.xml">
+									<decorator-section name="search-options">
+										<include-form name="FindJobInterviewQuestion"
+											location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+									</decorator-section>
+									<decorator-section name="search-results">
+										<include-form name="ListInterviewQuestion"
+											location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+									</decorator-section>
+								</decorator-screen>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="EditQuestion">
+		<section>
+			<actions>
+				<set field="tabButtonItem" value="FindJobInterviewQuestion" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HROLBIUS"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<section>
+									<condition>
+										<not>
+											<if-empty field="parameters.questionId" />
+										</not>
+									</condition>
+									<widgets>
+										<screenlet title="${uiLabelMap.EditInterviewQuestion}"
+											navigation-menu-name="FindJobInterviewQuestionSubTabBar">
+											<include-menu
+												location="component://hrolbius/widget/menus/RecruitmentMenus.xml"
+												name="FindJobInterviewQuestionSubTabBar" />
+											<include-form
+												location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+												name="EditQuestion" />
+										</screenlet>
+									</widgets>
+									<fail-widgets>
+										<screenlet title="${uiLabelMap.NewQuestion}"
+											navigation-menu-name="FindJobInterviewQuestionSubTabBar">
+											<include-menu
+												location="component://hrolbius/widget/menus/RecruitmentMenus.xml"
+												name="FindJobInterviewQuestionSubTabBar" />
+											<include-form
+												location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+												name="EditQuestion" />
+										</screenlet>
+									</fail-widgets>
+								</section>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="AddInterviewQuestion">
+		<section>
+			<actions>
+				<set field="tabButtonItem" value="FindJobInterview" />
+				<set field="jobInterviewId" from-field="parameters.jobInterviewId" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<widgets>
+								<container style="smaller blue header lighter">
+									<label style="h4"
+										text="${uiLabelMap.jobInterview} [${jobInterviewId}]"></label>
+								</container>
+								<include-form
+									location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+									name="ListAddQuestionMap" />
+								<screenlet title="${uiLabelMap.AddQuestion}">
+									<include-form name="AddQuestionInterviewMap"
+										location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+								</screenlet>
+							</widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="FindRecruitmentPlan">
+		<section>
+			<condition>
+				<if-has-permission permission="HR_RECRUITMENT_PLAN" action="_VIEW" />
+			</condition>
+			<actions>
+				<set field="selectedSubMenuItem" value="RecruitmentPlan"></set>
+				<set field="titleProperty" value="PageTitleListRecruitmentPlan" />
+				<set field="tabButtonItem" value="FindRecruitmentPlan" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="tabBar">
+						<include-menu location="component://hrolbius/widget/menus/RecruitmentMenus.xml" name="RecruitmentPlanTabBar"/>
+					</decorator-section>
+					<decorator-section name="body">
+						<section>
+							<widgets>
+								<platform-specific>
+									<html>
+										<html-template location="component://hrolbius/webapp/hrolbius/ftl/recruitment/jqxListRecruitmentPlanHeader.ftl"></html-template>
+									</html>
+								</platform-specific>
+							</widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+			<fail-widgets>
+				<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+				</label>
+			</fail-widgets>
+		</section>
+	</screen>
+	
+	<screen name="FindAboveRecruitmentPlan">
+		<section>
+			<actions>
+				<set field="selectedMenuItem" value="recruitment"></set>
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/util/getDeptName.groovy" />
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/util/DateUtil.groovy" />
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/util/checkRole.groovy" />
+				<set field="partyId" value="${internalOrgId}" />
+				<set field="year" value="${currentYear}" type="Long"/>
+				<set field="titleProperty" value="PageTitleFindAboveRecruitmentPlan" />
+				<set field="tabSubButtonItem" value="FindAboveRecruitmentPlan" />
+				<set field="tabButtonItem" value="AboveRecruitmentPlan" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_RECRUITMENT_PLAN"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<decorator-screen name="FindScreenDecorator"
+									location="component://common/widget/CommonScreens.xml">
+									<decorator-section name="search-options">
+										<include-form name="FindAboveRecruitmentPlan"
+											location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+									</decorator-section>
+									<decorator-section name="search-results">
+										<include-form name="ListAboveRecruitmentPlan"
+											location="component://hrolbius/widget/forms/RecruitmentForms.xml" />
+									</decorator-section>
+								</decorator-screen>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="EditRecruitmentPlan">
+		<section>
+			<actions>
+				<set field="selectedMenuItem" value="EditRecruitmentPlan"></set>
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/util/getDeptName.groovy" />
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/util/DateUtil.groovy" />
+				<!-- <script location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/util/getHeadOfHr.groovy" /> -->
+				<script location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/recruitment/getEmplApprRecruitmentPlan.groovy"/>
+				<set field="tabButtonItem" value="RecruitmentPlan" />
+				<set field="tabSubButtonItem" value="EditRecruitmentPlan" />
+				<set field="titleProperty" value="CreateRecruitmentPlan" />
+				<set field="header"
+					value="Kiểm tra kế hoạch tuyển dụng [${internalOrgName} - ${currentYear}]" />
+				<set field="action" value="CheckRecruitmentPlan" />
+				<set field="state" value="open" />
+				<set field="dateTime" value="${currentTime}" />
+				<set field="partyId" value="${partyNtfId}" />
+				<set field="targetLink" value="partyId=${internalOrgId};year=${currentYear}" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_RECRUITMENT_PLAN"
+									action="_CREATE" />
+							</condition>
+							<widgets>
+								<screenlet
+									title="${uiLabelMap.CreateRecruitmentPlan} [${internalOrgName}-${currentYear}]">
+									<container><include-form
+										location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+										name="EditRecruitmentPlan" />
+									</container>
+								</screenlet>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	
+	
+	
+	<screen name="CheckRecruitmentPlan">
+		<section>
+			<actions>
+				<set field="tabButtonItem" value="CheckRecruitmentPlan" />
+				<set field="ntfId" from-field="parameters.ntfId" />
+				<set field="partyId" from-field="parameters.partyId" />
+				<set field="year" from-field="parameters.year"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_RECRUITMENT_PLAN"
+									action="_CHECK" />
+							</condition>
+							<widgets>
+								<screenlet title="${uiLabelMap.CheckRecruitmentPlan} ${year}">
+									<include-form
+										location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+										name="CheckRecruitmentPlan" />
+								</screenlet>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="ProposeRecruitmentPlan">
+		<section>
+			<condition>
+				<if-has-permission permission="HR_RECRUITMENT_PLAN" action="_PROPOSE" />
+			</condition>
+			<actions>
+				<set field="tabButtonItem" value="ProposeRecruitmentPlan" />
+				<set field="selectedSubMenuItem" value="RecruitmentPlan"></set>
+				<set field="titleProperty" value="ProposeRecruitmentPlan" />				
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="tabBar">
+						<include-menu location="component://hrolbius/widget/menus/RecruitmentMenus.xml" name="RecruitmentPlanTabBar"/>
+					</decorator-section>
+					<decorator-section name="body">
+						<section>
+							<widgets>
+								<platform-specific>
+									<html>
+										<html-template location="component://hrolbius/webapp/hrolbius/ftl/recruitment/jqxListRecruitmentPlanProposal.ftl"></html-template>
+									</html>
+								</platform-specific>
+							</widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+			<fail-widgets>
+				<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+				</label>
+			</fail-widgets>
+		</section>
+	</screen>
+
+	<screen name="ApproveRecruitmentPlan">
+		<section>
+			<actions>
+				<set field="tabButtonItem" value="ApproveRecruitmentPlan" />
+				<set field="ntfId" from-field="parameters.ntfId" />
+				<set field="state" value="close" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_RECRUITMENT_PLAN"
+									action="_APPR" />
+							</condition>
+							<widgets>
+								<screenlet title="${uiLabelMap.ApproveRecruitmentPlan}">
+									<include-form
+										location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+										name="ApproveRecruitmentPlan" />
+								</screenlet>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="FindJobRequest">
+		<section>
+			<actions>
+				<set field="selectedSubMenuItem" value="JobRequest" />
+				<set field="titleProperty" value="PageTitleFindJobRequest" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_JOB_REQUEST"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<platform-specific>
+									<html>
+										<html-template location="component://hrolbius/webapp/hrolbius/ftl/recruitment/jqxListJobRequest.ftl"></html-template>
+									</html>
+								</platform-specific>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="EditJobRequest">
+		<section>
+			<actions>
+				<set field="selectedMenuItem" value="recruitment" />
+				<set field="tabButtonItem" value="JobRequest" />
+				<set field="tabSubButtonItem" value="EditJobRequest" />
+				<set field="titleProperty" value="EditJobRequest" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_JOB_REQUEST"
+									action="_CREATE" />
+							</condition>
+							<widgets>
+								<screenlet title="${uiLabelMap.EditJobRequest}">
+									<include-form
+										location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+										name="EditJobRequest" />
+								</screenlet>
+								<platform-specific>
+									<html>
+										<html-template location="component://hrolbius/webapp/hrolbius/ftl/JobRequestValidate.ftl"/>
+									</html>
+								</platform-specific>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="CheckJobRequest">
+		<section>
+			<actions>
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/recruitment/prepareRecruitmentData.groovy" />
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/util/getHeadOfCom.groovy" />
+				<set field="jobRequestId" from-field="parameters.jobRequestId" />
+				<set field="targetLink" value="jobRequestId=${jobRequestId}" />
+				<set field="ntfId" from-field="parameters.ntfId" />
+				<set field="header" value="Phê duyệt yêu cầu tuyển dụng [${jobRequestId}]" />
+				<set field="notiToId" value="${ceoId}" />
+				<set field="tabButtonItem" value="FindNewJobRequest" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_JOB_REQUEST"
+									action="_CHECK" />
+							</condition>
+							<widgets>
+								<platform-specific>
+									<html>
+										<html-template
+											location="component://hrolbius/webapp/hrolbius/ftl/checkJobRequest.ftl" />
+									</html>
+								</platform-specific>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="ApproveJobRequest">
+		<section>
+			<actions>
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/recruitment/prepareRecruitmentData.groovy" />
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/util/getHeadOfHr.groovy" />
+				<set field="jobRequestId" from-field="parameters.jobRequestId" />
+				<set field="targetLink" value="jobRequestId=${jobRequestId}" />
+				<set field="ntfId" from-field="parameters.ntfId" />
+				<set field="header"
+					value="Kết quả phê duyệt yêu cầu tuyển dụng [${jobRequestId}]" />
+				<set field="notiToId1" value="${headHRId}" />
+				<set field="notiToId2" value="${managerId}" />
+
+				<set field="tabButtonItem" value="FindJobRequest" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_JOB_REQUEST"
+									action="_APPR" />
+							</condition>
+							<widgets>
+								<platform-specific>
+									<html>
+										<html-template
+											location="component://hrolbius/webapp/hrolbius/ftl/approveJobRequest.ftl" />
+									</html>
+								</platform-specific>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<!-- ================================================Job Test Plan============================== -->
+	<screen name="FindRecruitmentTestPlan">
+		<section>
+			<actions>
+				<set field="selectedMenuItem" value="recruitment" />
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/recruitment/getRecruitmentTestPlan.groovy" />
+<!-- 				<set field="navMenuName" value="FindRecruitmentTestPlanSubTabBar" /> -->
+<!-- 				<set field="navMenuLocation" -->
+<!-- 					value="component://hrolbius/widget/menus/RecruitmentMenus.xml" /> -->
+				<set field="titleProperty" value="PageTitleFindRecruitmentTestPlan" />
+				<set field="tabButtonItem" value="RecruitmentTest" />
+				<set field="tabSubButtonItem" value="FindRecruitmentTestPlan" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_JOB_TEST_PLAN"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<screenlet navigation-menu-name="FindRecruitmentTestPlanSubTabBar" title="${uiLabelMap.RecruitmentTestPlan}">
+									<include-menu location="component://hrolbius/widget/menus/RecruitmentMenus.xml" name="FindRecruitmentTestPlanSubTabBar"/>
+									<platform-specific>
+											<html>
+												<html-template
+													location="component://hrolbius/webapp/hrolbius/ftl/findRecruitmentTestPlan.ftl" />
+											</html>
+									</platform-specific>
+								</screenlet>
+<!-- 								<decorator-screen name="FindScreenDecorator" -->
+<!-- 									location="component://common/widget/CommonScreens.xml"> -->
+<!-- 									<decorator-section name="search-results"> -->
+<!-- 									</decorator-section> -->
+<!-- 								</decorator-screen> -->
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="EditRecruitmentTestPlan">
+		<section>
+			<actions>
+				<set field="tabButtonItem" value="RecruitmentTest" />
+				<set field="tabSubButtonItem" value="CreateNewRecruitmentTestPlan" />
+				<set field="selectedMenuItem" value="recruitment"></set>
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/recruitment/getRecruitmentTestPlan.groovy" />
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/recruitment/getApplicant.groovy" />
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/util/getEmployee.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_JOB_TEST_PLAN"
+									action="_CREATE" />
+							</condition>
+							<widgets>
+								<screenlet title="${uiLabelMap.EditRecruitmentTestPlan}">
+									<platform-specific>
+										<html>
+											<html-template
+												location="component://hrolbius/webapp/hrolbius/ftl/editRecruitmentTestPlan.ftl" />
+										</html>
+									</platform-specific>
+								</screenlet>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="FindRecruitmentTest">
+		<section>
+			<actions>
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/recruitment/getRecruitmentTestPlan.groovy" />
+				<set field="titleProperty" value="PageTitleFindRecruitmentTest" />
+				<set field="tabButtonItem" value="FindRecruitmentTest" />
+				<set field="tabSubButtonItem" value="ApplicantSelection" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_JOB_TEST_PLAN"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<decorator-screen name="FindScreenDecorator"
+									location="component://common/widget/CommonScreens.xml">
+									<decorator-section name="search-results">
+										<platform-specific>
+											<html>
+												<html-template
+													location="component://hrolbius/webapp/hrolbius/ftl/findRecruitmentTest.ftl" />
+											</html>
+										</platform-specific>
+									</decorator-section>
+								</decorator-screen>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="ListRatedApplicant">
+		<section>
+			<actions>
+				<set field="workEffortId" from-field="parameters.workEffortId" />
+				<entity-one value-field="workEffort" entity-name="WorkEffort">
+					<field-map field-name="workEffortId" value="${workEffortId}" />
+				</entity-one>
+			</actions>
+			<widgets>
+				<section>
+					<condition>
+						<if-compare field="workEffort.workEffortTypeId"
+							operator="equals" value="RECR_EXAM" type="String"></if-compare>
+					</condition>
+					<widgets>
+						<decorator-screen name="ListExamApplicant"></decorator-screen>
+					</widgets>
+					<fail-widgets>
+						<decorator-screen name="ListInterviewApplicant"></decorator-screen>
+					</fail-widgets>
+				</section>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="ListExamApplicant">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_APPLICANT_SEL"
+									action="_RATE" />
+							</condition>
+							<actions>
+								<set field="description" from-field="workEffort.description" />
+							</actions>
+							<widgets>
+								<screenlet title="${uiLabelMap.RateExam} [${description}]">
+									<include-form
+										location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+										name="ListExamApplicant" />
+								</screenlet>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="ListInterviewApplicant">
+		<section>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_APPLICANT_SEL"
+									action="_RATE" />
+							</condition>
+							<actions>
+								<set field="workEffortId" from-field="parameters.workEffortId" />
+								<entity-one value-field="workEffort" entity-name="WorkEffort">
+									<field-map field-name="workEffortId" value="${workEffortId}" />
+								</entity-one>
+								<set field="description" from-field="workEffort.description" />
+							</actions>
+							<widgets>
+								<screenlet title="${uiLabelMap.RateInterview} [${description}]">
+									<include-form
+										location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+										name="ListInterviewApplicant" />
+								</screenlet>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="RateInterviewApplicant">
+		<section>
+			<actions>
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/recruitment/getEmplPositionType.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_APPLICANT_SEL"
+									action="_RATE" />
+							</condition>
+							<actions>
+								<set field="workEffortId" from-field="parameters.workEffortId" />
+								<set field="partyId" from-field="parameters.partyId" />
+								<set field="roleTypeId" from-field="parameters.roleTypeId" />
+								<set field="fromDate" from-field="parameters.fromDate" />
+								<set field="parentRoleTypeId" from-field="parameters.parentRoleTypeId" />
+								<set field="parentFromDate" from-field="parameters.parentFromDate" />
+								<set field="parentWorkEffortId" from-field="parameters.parentWorkEffortId" />
+								<entity-one value-field="workEffort" entity-name="WorkEffort">
+									<field-map field-name="workEffortId" value="${workEffortId}" />
+								</entity-one>
+								<set field="description" from-field="workEffort.description" />
+							</actions>
+							<widgets>
+								<screenlet title="${uiLabelMap.RateInterview} [${description}]">
+									<include-form
+										location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+										name="RateInterviewApplicant" />
+								</screenlet>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<!-- ================================================/Job Test Plan============================== -->
+
+	<!-- ================================================Work Trial================================== -->
+
+	<screen name="FindWorkTrialReport">
+		<section>
+			<actions>
+				<set field="navMenuName" value="FindWorkTrialReportSubTabBar" />
+				<set field="navMenuLocation"
+					value="component://hrolbius/widget/menus/RecruitmentMenus.xml" />
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/recruitment/getRecruitmentTestPlan.groovy" />
+				<set field="titleProperty" value="PageTitleFindWorkTrialReport" />
+				<set field="tabButtonItem" value="FindWorkTrialReport" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_TRIAL_REPORT"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<decorator-screen name="FindScreenDecorator"
+									location="component://common/widget/CommonScreens.xml">
+									<decorator-section name="search-results">
+
+									</decorator-section>
+								</decorator-screen>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="EditWorkTrialReport">
+		<section>
+			<actions>
+				<set field="selectedMenuItem" value="WorkTrialReport"/>
+				<set field="titleProperty" value="PageTitleCreateWorkTrialReport" />
+				<set field="tabButtonItem" value="FindWorkTrialReport" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_TRIAL_REPORT"
+									action="_CREATE" />
+							</condition>
+							<widgets>
+								<screenlet title="${uiLabelMap.CreateWorkTrialReport}">
+									<include-form
+										location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+										name="EditWorkTrialReport" />
+								</screenlet>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<!-- ===============================================/Work Trial Report============================= -->
+	<!-- ================================================Work Trial================================== -->
+	<screen name="ListWorkTrialProposal">
+		<section>
+			<actions>
+				<set field="selectedMenuItem" value="recruitment" />
+				<set field="navMenuName" value="FindWorkTrialProposalSubTabBar" />
+				<set field="navMenuLocation"
+					value="component://hrolbius/widget/menus/RecruitmentMenus.xml" />
+				<set field="titleProperty" value="FindWorkTrialProposal" />
+				<set field="tabSubButtonItem" value="WorkTrialProposal" />
+				<set field="tabButtonItem" value="WorkTrial" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_WORK_TRIAL_PROPOSAL"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<decorator-screen name="FindScreenDecorator"
+									location="component://common/widget/CommonScreens.xml">
+									<decorator-section name="search-options">
+										<include-form location="component://hrolbius/widget/forms/RecruitmentForms.xml" name="FindWorkTrialProposal"/>
+									</decorator-section>
+									<decorator-section name="search-results">
+											<include-form
+												location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+												name="ListWorkTrialProposal" />
+									</decorator-section>
+								</decorator-screen>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="ListCompletedRecruitment">
+		<section>
+			<actions>
+				<set field="selectedMenuItem" value="recruitment" />
+				<set field="titleProperty" value="ListCompletedRecruitment" />
+				<set field="tabSubButtonItem" value="CreateWorkTrialProposal" />
+				<set field="tabButtonItem" value="WorkTrial" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_WORK_TRIAL_PROPOSAL"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<screenlet title="${uiLabelMap.ListCompletedRecruitment}">
+									<include-form name="listCompletedRecruitment"
+										location="component://hrolbius/widget/forms/RecruitmentForms.xml"></include-form>
+								</screenlet>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="EditWorkTrialProposal">
+		<section>
+			<actions>
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/recruitment/getJobRequestByWorkEffortId.groovy"></script>
+				<set field="workEffortId" from-field="parameters.workEffortId" />
+				<set field="emplPositionTypeId" from-field="workEffortRequest.emplPositionTypeId" />
+				<set field="workingPartyId" from-field="workEffortRequest.partyId" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_WORK_TRIAL_PROPOSAL"
+									action="_CREATE" />
+							</condition>
+							<widgets>
+								<screenlet title="${uiLabelMap.CreateNewWorkTrialProposal}">
+									<include-form
+										location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+										name="CreateWorkTrialProposal" />
+								</screenlet>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="ApproveWorkTrialProposal">
+		<section>
+			<actions>
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/recruitment/prepareWorkTrialApprovalData.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_WORK_TRIAL_PROPOSAL"
+									action="_APPR" />
+							</condition>
+							<widgets>
+								<platform-specific>
+									<html>
+										<html-template
+											location="component://hrolbius/webapp/hrolbius/ftl/approveWorkTrialProposal.ftl" />
+									</html>
+								</platform-specific>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<!-- ================================================/Work Trial================================== -->
+	<!-- ===============================================Work Trial Report============================= -->
+	<screen name="FindWorkTrialReport">
+		<section>
+			<actions>
+				<set field="navMenuName" value="FindWorkTrialReportSubTabBar" />
+				<set field="navMenuLocation"
+					value="component://hrolbius/widget/menus/RecruitmentMenus.xml" />
+				<script
+					location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/recruitment/getRecruitmentTestPlan.groovy" />
+				<set field="titleProperty" value="PageTitleFindWorkTrialReport" />
+				<set field="tabButtonItem" value="WorkTrialReport" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_TRIAL_REPORT"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<decorator-screen name="FindScreenDecorator"
+									location="component://common/widget/CommonScreens.xml">
+									<decorator-section name="search-results">
+
+									</decorator-section>
+								</decorator-screen>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="EditWorkTrialReport">
+		<section>
+			<actions>
+				<set field="selectedMenuItem" value="WorkTrialReport" />
+				<set field="titleProperty" value="PageTitleCreateWorkTrialReport" />
+				<set field="tabButtonItem" value="FindWorkTrialReport" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_TRIAL_REPORT"
+									action="_CREATE" />
+							</condition>
+							<widgets>
+								<screenlet title="${uiLabelMap.CreateWorkTrialReport}">
+									<platform-specific>
+										<html>
+											<html-template location="component://hrolbius/webapp/hrolbius/ftl/recruitment/WorkTrialReport.ftl"/>
+										</html>
+									</platform-specific>
+									<include-form
+										location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+										name="EditWorkTrialReport" />
+									
+									<platform-specific>
+										<html>
+											<html-template location="component://hrolbius/webapp/hrolbius/ftl/EditWorkTrialReportValidate.ftl"/>
+										</html>
+									</platform-specific>
+								</screenlet>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="RateLeaderWorkTrial">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleRateWorkTrial" />
+				<set field="tabButtonItem" value="FindWorkTrialReport" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_WORK_TRIAL"
+									action="_RATE" />
+							</condition>
+							<widgets>
+								<section>
+									<condition>
+										<not>
+											<if-empty field="parameters.workTrialReportId"></if-empty>
+										</not>
+									</condition>
+									<widgets>
+										<screenlet title="${uiLabelMap.PageTitleRateWorkTrial}">
+											<include-form
+												location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+												name="RateLeaderWorkTrial" />
+										</screenlet>
+									</widgets>
+									<fail-widgets>
+										<label style="h3">${uiLabelMap.AccessByNotification}
+										</label>
+									</fail-widgets>
+								</section>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="RateHRMWorkTrial">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleRateWorkTrial" />
+				<set field="tabButtonItem" value="FindWorkTrialReport" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_WORK_TRIAL"
+									action="_RATE" />
+							</condition>
+							<widgets>
+								<section>
+									<condition>
+										<not>
+											<if-empty field="parameters.workTrialReportId"></if-empty>
+										</not>
+									</condition>
+									<widgets>
+										<screenlet title="${uiLabelMap.PageTitleRateWorkTrial}">
+											<include-form
+												location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+												name="RateHRMWorkTrial" />
+										</screenlet>
+									</widgets>
+									<fail-widgets>
+										<label style="h3">${uiLabelMap.AccessByNotification}
+										</label>
+									</fail-widgets>
+								</section>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="RateCEOWorkTrial">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleRateWorkTrial" />
+				<set field="tabButtonItem" value="FindWorkTrialReport" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_WORK_TRIAL"
+									action="_RATE" />
+							</condition>
+							<widgets>
+								<section>
+									<condition>
+										<not>
+											<if-empty field="parameters.workTrialReportId"></if-empty>
+										</not>
+									</condition>
+									<widgets>
+										<screenlet title="${uiLabelMap.PageTitleRateWorkTrial}">
+											<include-form
+												location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+												name="RateCEOWorkTrial" />
+										</screenlet>
+									</widgets>
+									<fail-widgets>
+										<label style="h3">${uiLabelMap.AccessByNotification}
+										</label>
+									</fail-widgets>
+								</section>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="WorkTrialLeaderRateResult">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleWorkTrialRateResult" />
+				<set field="tabButtonItem" value="FindWorkTrialReport" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_TRIAL_REPORT"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<section>
+									<condition>
+										<not>
+											<if-empty field="parameters.workTrialReportId"></if-empty>
+										</not>
+									</condition>
+									<widgets>
+										<screenlet title="${uiLabelMap.PageTitleWorkTrialRateResult}">
+											<include-form
+												location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+												name="WorkTrialLeaderRateResult" />
+										</screenlet>
+									</widgets>
+									<fail-widgets>
+										<label style="h3">${uiLabelMap.AccessByNotification}
+										</label>
+									</fail-widgets>
+								</section>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="ConfirmExtTimeResult">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleConfirmExtTimeResult" />
+				<set field="tabButtonItem" value="FindWorkTrialReport" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_TRIAL_REPORT"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<section>
+									<condition>
+										<not>
+											<if-empty field="parameters.workTrialReportId"></if-empty>
+										</not>
+									</condition>
+									<widgets>
+										<screenlet title="${uiLabelMap.PageTitleConfirmExtTimeResult}">
+											<include-form
+												location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+												name="ConfirmExtTimeResult" />
+										</screenlet>
+									</widgets>
+									<fail-widgets>
+										<label style="h3">${uiLabelMap.AccessByNotification}
+										</label>
+									</fail-widgets>
+								</section>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="WorkTrialHRMRateResult">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleWorkTrialRateResult" />
+				<set field="tabButtonItem" value="FindWorkTrialReport" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_TRIAL_REPORT"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<section>
+									<condition>
+										<not>
+											<if-empty field="parameters.workTrialReportId"></if-empty>
+										</not>
+									</condition>
+									<widgets>
+										<screenlet title="${uiLabelMap.PageTitleWorkTrialRateResult}">
+											<include-form
+												location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+												name="WorkTrialHRMRateResult" />
+										</screenlet>
+									</widgets>
+									<fail-widgets>
+										<label style="h3">${uiLabelMap.AccessByNotification}
+										</label>
+									</fail-widgets>
+								</section>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="WorkTrialCeoRateResult">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleWorkTrialRateResult" />
+				<set field="tabButtonItem" value="FindWorkTrialReport" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_TRIAL_REPORT"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<section>
+									<condition>
+										<not>
+											<if-empty field="parameters.workTrialReportId"></if-empty>
+										</not>
+									</condition>
+									<widgets>
+										<screenlet title="${uiLabelMap.PageTitleWorkTrialRateResult}">
+											<include-form
+												location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+												name="WorkTrialCeoRateResult" />
+										</screenlet>
+									</widgets>
+									<fail-widgets>
+										<label style="h3">${uiLabelMap.AccessByNotification}
+										</label>
+									</fail-widgets>
+								</section>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<!-- ===============================================/Work Trial Report============================= -->
+
+	<!-- ===============================================Recruiment Employee PG============================= -->
+	<screen name="EditSalesmanPG">
+		<section>
+			<actions>
+				<!-- <script location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/recruitment/getEmplApplicant.groovy"/> -->
+				<set field="selectedMenuItem" value="recruitment" />
+				<set field="tabButtonItem" value="RecruimentPg" />
+				<set field="tabSubButtonItem" value="CreateNewProfile" />
+				<set field="titleProperty" value="AddNewEmployeePgProfile" />
+				<set field="orgId" value="${groovy: com.olbius.util.PartyUtil.getDepartmentOfEmployee(delegator, userLogin.partyId).getString(&quot;partyIdFrom&quot;)}"/>
+				<property-to-field resource="general" 
+					property="country.geo.id.default" field="countryGeoId" default="VNM"/>
+				
+				<set field="dependentForm" value="editSalesmanPG" />
+
+				<set field="paramKey" value="countryGeoId" />
+				<set field="paramKey_district" value="provinceGeoId" />
+				<set field="paramKey_ward" value="districtGeoId" />
+
+				<set field="PermtRes_mainId" value="permanentResidence_countryGeoId" />
+				<set field="PermtRes_stateProvinceGeoId" value="permanentResidence_stateProvinceGeoId" />
+				<set field="PermtRes_distGeoId" value="permanentResidence_districtGeoId" />
+				<set field="PermtRes_wardGeoId" value="permanentResidence_wardGeoId" />
+				<set field="currRes_mainId" value="currResidence_countryGeoId" />
+				<set field="currRes_stateProvinceGeoId" value="currResidence_stateProvinceGeoId" />
+				<set field="currRes_distGeoId" value="currResidence_districtGeoId" />
+				<set field="currRes_wardGeoId" value="currResidence_wardGeoId" />
+
+				<set field="requestName" value="getAssociatedStateList" />
+				<set field="requestName_district" value="getAssociatedDistList" />
+				<set field="requestName_ward" value="getAssociatedWardList" />
+
+				<set field="responseName" value="stateList" />
+				<set field="responseName_district" value="districtList" />
+				<set field="responseName_ward" value="wardList" />
+
+				<set field="dependentKeyName" value="geoId" />
+				<set field="descName" value="geoName" />
+				<set field="selectedDependentOption" from-field="mechMap.postalAddress.stateProvinceGeoId"
+					default-value="_none_" />
+				
+				<set field="formName" value="editSalesmanPG" />
+				<set field="parentDropdownField" value="bankId" />
+				<set field="dependentDropDownField" value="bankBrandId" />
+				<set field="parentCountry" value="countryGeoId" />
+				<set field="cityName" value="city" />
+				<entity-condition list="nationality" entity-name="Nationality"></entity-condition>
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="HR_SALESMANPG"
+									action="_VIEW" />
+							</condition>
+							<actions>
+								<script location="component://hrolbius/webapp/hrolbius/WEB-INF/actions/com/olbius/recruitment/getTitleScreens.groovy"/>
+								<entity-condition list="emplPositionTypeList" entity-name="EmplPositionType">
+									<condition-expr field-name="emplPositionTypeId" operator="in" value="SALESMAN,PROMOTION_GIRL"/>
+								</entity-condition>
+								<entity-condition list="employmentAppSourceType" entity-name="EmploymentAppSourceType"></entity-condition>
+								<entity-condition list="recruitmentTypeList" entity-name="RecruitmentType"></entity-condition>
+							</actions>
+							<widgets>
+								<platform-specific>
+									<html>
+										<html-template
+											location="component://hrolbius/webapp/hrolbius/ftl/getBankBrandName.ftl" />
+										<html-template
+											location="component://hrolbius/webapp/hrolbius/ftl/getCityName.ftl" />
+										<html-template
+												location="component://hrolbius/webapp/hrolbius/ftl/setDependentDropdownProvinceDistWard.ftl"/>	
+									</html>
+								</platform-specific>
+								<container style="row-fluid">
+									<container style="span12">
+										<screenlet title="${uiLabelMap.CreateNewSalesmanPG}"
+											navigation-menu-name="ProfileEmployeePGSubTabBar">										
+											<platform-specific>
+												<html>
+													<html-template location="component://hrolbius/webapp/hrolbius/ftl/recruitment/editSalesmanPGRecruitment.ftl"/>
+												</html>
+											</platform-specific>	
+										</screenlet>
+									</container>
+								</container>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="NewRecruitmentSalesmanPG">
+		<section>
+			<actions>
+				<set field="selectedMenuItem" value="recruitment" />
+				<set field="tabButtonItem" value="RecruimentPg" />
+				<set field="tabSubButtonItem" value="NewRecruitmentSalesmanPG" />
+				<set field="titleProperty" value="NewRecruitmentSalesmanPG" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<and>
+									<if-has-permission permission="HR_SALESMANPG"
+										action="_VIEW" />
+								</and>
+							</condition>
+							<widgets>
+								<screenlet title="${uiLabelMap.NewRecruitmentSalesmanPG}">
+									<include-form
+										location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+										name="NewRecruitmentSalesmanPG"/>
+								</screenlet>
+							</widgets>
+						</section>
+					</decorator-section>	
+				</decorator-screen>	
+			</widgets>
+		</section>
+	</screen>
+	<screen name="SummaryListSalesmanPGInMonth">
+		<section>
+			<actions>
+				<set field="selectedMenuItem" value="recruitment" />
+				<set field="tabButtonItem" value="RecruimentPg" />
+				<set field="tabSubButtonItem" value="SummaryListSalesmanPGInMonth" />
+				<set field="titleProperty" value="SummaryListSalesmanPGInMonth" />
+				<set field="layoutSettings.javaScripts[]" value="/hrolbius/js/bootbox.min.js"
+					global="true" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet navigation-menu-name="ReportRecruitmentSalesmanPG" title="${uiLabelMap.SummaryListSalesmanPGInMonth}">
+							<platform-specific>
+								<html>
+									<html-template location="component://hrolbius/webapp/hrolbius/ftl/js/ReportNtfRecruitment.ftl"/>
+								</html>
+							</platform-specific>						
+							<include-menu location="component://hrolbius/widget/menus/RecruitmentMenus.xml" name="ReportRecruitmentSalesmanPG"/>
+							<include-form location="component://hrolbius/widget/forms/RecruitmentForms.xml" 
+								name="SummaryListSalesmanPGInMonth"/>
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>	
+			</widgets>
+		</section>
+	</screen>
+	<screen name="WarningRecruitmentDisable">
+		<section>
+			<actions>
+				<set field="selectedMenuItem" value="recruitment" />
+				<set field="tabButtonItem" value="RecruimentPg" />
+				<set field="tabSubButtonItem" value="WarningRecruitmentDisable"/>
+				<set field="titleProperty" value="WarningRecruitmentDisable"/>
+				<set field="layoutSettings.styleSheets[]" value="/aceadmin/assets/css/chosen.css" global="true"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet title="${uiLabelMap.WarningRecruitmentDisable}">
+							
+							<include-form location="component://hrolbius/widget/forms/RecruitmentForms.xml" 
+								name="WarningRecruitmentDisable"/>
+							<platform-specific>
+								<html>
+									<html-template location="component://hrolbius/webapp/hrolbius/ftl/ConfigMessageChosen.ftl"/>
+								</html>
+							</platform-specific>
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>	
+			</widgets>
+		</section>
+	</screen>
+	<!-- ===============================================/Recruiment Employee PG============================= -->
+	<screen name="ListEmployeePGSalesMan">
+		<section>
+			<actions>
+				<set field="selectedMenuItem" value="recruitment" />
+				<set field="tabButtonItem" value="RecruimentPg" />
+				<set field="tabSubButtonItem" value="ListEmployeePGSalesMan" />
+				<set field="titleProperty" value="ListEmployeePGSalesMan" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonRecruitmentDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<and>
+									<if-has-permission permission="HR_SALESMANPG"
+										action="_VIEW" />
+								</and>
+							</condition>							
+							<widgets>
+								<container>
+									<screenlet title="${uiLabelMap.ListEmployeePGSalesMan}">
+										<include-form
+											location="component://hrolbius/widget/forms/RecruitmentForms.xml"
+											name="ListEmployeePGSalesMan" />
+									</screenlet>
+								</container>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.HROlbiusViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+
+	<!-- HUNGNC START EDIT -->
+	
+	<screen name="PurchaseInternally">
+		<section>
+            <actions>
+            	<property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+
+            	<set field="requirementTypeId" from-field="parameters.requirementTypeId" />
+                <set field="selectedMenuItem" value="${groovy: if(requirementTypeId==&quot;INTERNAL_SALES_REQ&quot;) return &quot;PurchaseInternally&quot;; if(requirementTypeId==&quot;GIFT_REQ&quot;) return &quot;GiftRequirement&quot;;}" />
+
+                <entity-one value-field="requirement" entity-name="Requirement">
+                	<field-map field-name="requirementId" from-field="parameters.requirementId"/>
+                </entity-one>
+                <set field="requirementTypeId"  from-field="parameters.requirementTypeId" />
+                <set field="requirementId" from-field="parameters.requirementId"/>
+                <entity-condition entity-name="RequirementRole" list="listRequestor">
+	        		<condition-list>
+	        			<condition-expr field-name="requirementId" from-field="parameters.requirementId"/>
+	        			<condition-expr field-name="roleTypeId" value="OWNER"/>
+	       			</condition-list>
+       				<order-by field-name="-fromDate"/>
+        		</entity-condition>
+        		<entity-condition entity-name="RequirementRole" list="listReceivers">
+	        		<condition-list>
+	        			<condition-expr field-name="requirementId" from-field="parameters.requirementId"/>
+	        			<condition-expr field-name="roleTypeId" value="RECEIVER"/>
+	        		</condition-list>
+	        		<order-by field-name="-fromDate"/>
+        		</entity-condition>
+        		<entity-condition entity-name="RequirementRole" list="listCustomer">
+	        		<condition-list>
+	        			<condition-expr field-name="requirementId" from-field="parameters.requirementId"/>
+	        			<condition-expr field-name="roleTypeId" value="CUSTOMER"/>
+	       			</condition-list>
+       				<order-by field-name="-fromDate"/>
+        		</entity-condition>
+    			<set field="layoutSettings.javaScripts[+0]" value="/hrolbius/js/test.js" global="true"/>
+    			<entity-condition list="listRequirementItems" entity-name="RequirementItem">
+    				<condition-expr field-name="requirementId" from-field="parameters.requirementId"/>
+    			</entity-condition>
+    			<set field="statusId" value="${requirement.statusId}"/>
+    			<!-- <set field="selectedMenuItem" value="PurchaseInternally" /> -->
+    			<set field="titleProperty" value="HRPurchaseInternally"/>
+    			<set field="tabSubButtonItem" value="PurchaseInternally" />
+			</actions>
+			<widgets>
+				<section>
+					<condition>
+						<not>
+							<if-compare operator="equals" value="REQ_ORDERED" field="statusId"/>
+						</not>
+					</condition>
+					<widgets>
+						<decorator-screen name="main-decorator"
+							location="${parameters.mainDecoratorLocation}">
+							<decorator-section name="body">
+								<screenlet title="${uiLabelMap.HREditRequirement}">
+									<include-form name="EditRequirementInHR"
+										location="component://hrolbius/widget/forms/PurchaseInternallyForm.xml"/>
+								</screenlet>
+								<section>
+									<condition>
+										<not>
+											<if-empty field="parameters.requirementId"/>
+										</not>
+									</condition>
+									<widgets>
+										<screenlet title="${uiLabelMap.ProductListProduct}">
+											<include-form name="ListRequirementItems"
+												location="component://hrolbius/widget/forms/PurchaseInternallyForm.xml"/>
+										</screenlet>							
+									</widgets>
+								</section>
+							</decorator-section>
+						</decorator-screen>
+					</widgets>
+				</section>
+			</widgets>
+       </section>
+	</screen>
+	<!-- HUNGNC END EDIT -->
+	
+</screens>

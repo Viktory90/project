@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<!-- Delete this file -->
+<title>Delete-Delete-Delete-Delete-Delete</title>
+<meta name="description" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- basic styles -->
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+
+<!-- page specific plugin styles -->
+
+
+<!-- ace styles -->
+<link rel="stylesheet" href="assets/css/ace.min.css" />
+<link rel="stylesheet" href="assets/css/ace-responsive.min.css" />
+<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+<!--[if lt IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+<style>
+.test{
+	display: inline-block;
+	width: 100px;
+}
+.test1{
+	display: inline-block;
+	margin-left: 10px;
+} 
+</style>
+</head>
+
+<body>
+	<span id="navbar"> </span>
+	<div class="main-container container-fluid">
+		<div class="main-container-inner">
+			<div class="main-content">
+				<div class="page-content">
+					<div class="row-fluid">
+						<div class="span6">
+							<div class="widget-box transparent">
+								<div class="widget-header">
+									<h5 class="bigger lighter">Thông tin khuyến mãi</h5>
+								</div>
+								<div class="widget-body">
+									<div class="widget-main no-padding">
+										<ul class="unstyled list-striped pricing-table-header">
+											<li>												
+												<label class="test"><b>Tên</b></label>
+												<label  class="test1">: Chương trình KM cho kem vani</label>
+											</li>
+											<li>
+												<label class="test"><b>Ngày bắt đầu</b></label>
+												<label class="test1">: 01/06/2014</label>
+											</li>
+											<li>
+												<label class="test"><b>Ngày kết thúc</b></label>
+												<label class="test1">: 01/07/2014</label>
+											</li>
+											<li>
+												<label class="test"><b>Chi tiết</b></label>
+												<label class="test1">: mua 5 kem vani tặng 1</label>
+											</li>
+											<li></li>
+											
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		window.jQuery
+				|| document
+						.write("<script src='assets/js/jquery-2.0.3.min.js'>"
+								+ "<"+"/script>");
+	</script>
+	<script src="assets/js/bootstrap.min.js"></script>
+
+	<!-- page specific plugin scripts -->
+
+
+	<!-- ace scripts -->
+	<!-- basic scripts -->
+	
+	<script src="assets/js/ace-elements.min.js"></script>
+	<script src="assets/js/ace.min.js"></script>
+
+
+	<!-- inline scripts related to this page -->
+
+	<script type="text/javascript">
+		$(function() {
+			$.get("header.html", function(data) {
+				$('#navbar').html(data);
+			}, 'html').fail(function() {
+				console.log('arge', arguments)
+			});
+		});
+	</script>
+</body>
+</html>

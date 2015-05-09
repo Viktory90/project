@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>CRM Services</description>
+	<vendor></vendor>
+	<version>1.0</version>
+
+	<service name="getListContacts" engine="java" invoke="getListContacts"
+		location="com.olbius.delys.crm.Contact">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="opts" mode="IN"
+			type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map"
+			optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="java.util.List"
+			optional="false"></attribute>
+	</service>
+	<service name="getListGroupContacts" engine="java"
+		invoke="getListGroupContacts" location="com.olbius.delys.crm.Contact">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="opts" mode="IN"
+			type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map"
+			optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="java.util.List"
+			optional="false"></attribute>
+	</service>
+	<service name="getListAccounts" engine="java" invoke="getListAccounts"
+		location="com.olbius.delys.crm.Account">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="opts" mode="IN"
+			type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map"
+			optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="java.util.List"
+			optional="false"></attribute>
+	</service>
+	<service name="getListLeads" engine="java" invoke="getListLeads"
+		location="com.olbius.delys.crm.Lead">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="opts" mode="IN"
+			type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map"
+			optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="java.util.List"
+			optional="false"></attribute>
+	</service>
+	<service name="getListOpportunities" engine="java"
+		invoke="getListOpportunities" location="com.olbius.delys.crm.Opportunity">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="opts" mode="IN"
+			type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map"
+			optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="java.util.List"
+			optional="false"></attribute>
+	</service>
+	<service name="getListEventAssignByMe" engine="java"
+		invoke="getListEventAssignByMe" location="com.olbius.delys.crm.Event">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="opts" mode="IN"
+			type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map"
+			optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="java.util.List"
+			optional="false"></attribute>
+	</service>
+	<service name="getListEventAssignToMe" engine="java"
+		invoke="getListEventAssignToMe" location="com.olbius.delys.crm.Event">
+		<attribute name="listAllConditions" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="listSortFields" mode="IN" type="java.util.List"
+			optional="false"></attribute>
+		<attribute name="opts" mode="IN"
+			type="org.ofbiz.entity.util.EntityFindOptions" optional="false"></attribute>
+		<attribute name="parameters" mode="IN" type="java.util.Map"
+			optional="false"></attribute>
+		<attribute name="listIterator" mode="OUT" type="java.util.List"
+			optional="false"></attribute>
+	</service>
+	<service name="raiseCustomerIssue" engine="java" invoke="raiseCustomerIssue"
+		location="com.olbius.delys.crm.Communication">
+		<attribute name="partyId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="support" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="content" mode="IN" type="String" optional="false"
+			allow-html="safe"></attribute>
+		<attribute name="status" mode="OUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="changeCustomerState" engine="java"
+		invoke="changeCustomerState" location="com.olbius.delys.crm.Communication">
+		<attribute name="listParty" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="state" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="previous" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="status" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="message" mode="OUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="sendEmailSupport" engine="java" invoke="sendListEmail"
+		location="com.olbius.delys.crm.Communication">
+		<attribute name="listEmail" mode="IN" type="String"
+			optional="false"></attribute>
+		<attribute name="subject" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="content" mode="IN" type="String" optional="false"
+			allow-html="safe"></attribute>
+		<attribute name="status" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="message" mode="OUT" type="String" optional="true"></attribute>
+	</service>
+	<service name="sendEmailToContact" engine="java"
+		location="org.ofbiz.party.communication.CommunicationEventServices"
+		invoke="sendEmailToContactList" use-transaction="true"
+		transaction-timeout="300" max-retry="3">
+		<attribute name="contactListId" type="String" mode="IN"
+			optional="false" />
+		<attribute name="communicationEventId" type="String" mode="IN"
+			optional="false" />
+	</service>
+	<service name="getCommunicationTypes" engine="java"
+		invoke="getCommunicationTypes" location="com.olbius.delys.crm.Communication">
+		<attribute name="status" mode="OUT" type="String" optional="false"></attribute>
+		<attribute name="results" mode="OUT" type="java.util.List"
+			optional="true"></attribute>
+	</service>
+	<service name="getAllCommunicationOfCustomer" engine="java"
+		invoke="getAllCommunicationOfCustomer" location="com.olbius.delys.crm.Communication">
+		<attribute name="partyId" mode="IN" type="String" optional="false"></attribute>
+		<attribute name="startDate" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="endDate" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="status" mode="OUT" type="String" optional="false"></attribute>
+		<attribute name="message" mode="OUT" type="String" optional="true"></attribute>
+		<attribute name="results" mode="OUT" type="java.util.List"
+			optional="true"></attribute>
+	</service>
+</services>

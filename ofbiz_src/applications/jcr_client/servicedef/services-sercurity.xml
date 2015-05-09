@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>jcr Services</description>
+	<vendor></vendor>
+	<version>1.0</version>
+
+	<service name="jackrabbitSetPermision" engine="java"
+		location="com.olbius.jackrabbit.client.services.JackrabbitOlbiusSecurityServices" invoke="jackrabbitSetPermision">
+		<implements service="jackrabbitRemoteLogin" optional="true" />
+		<attribute name="JCR_SESSION" type="javax.jcr.Session" mode="IN" optional="false" />
+		<attribute name="curPath" type="String" mode="IN" optional="false" />
+		<attribute name="userId" type="String" mode="IN" optional="true" />
+		<attribute name="groupId" type="String" mode="IN" optional="true" />
+		<attribute name="permision" type="String" mode="IN" optional="false" />
+		<attribute name="allow" type="Boolean" mode="IN" optional="false" />
+	</service>
+	
+	<service name="jackrabbitRemovePermision" engine="java"
+		location="com.olbius.jackrabbit.client.services.JackrabbitOlbiusSecurityServices" invoke="jackrabbitRemovePermision">
+		<implements service="jackrabbitRemoteLogin" optional="true" />
+		<attribute name="JCR_SESSION" type="javax.jcr.Session" mode="IN" optional="false" />
+		<attribute name="curPath" type="String" mode="IN" optional="false" />
+		<attribute name="userId" type="String" mode="IN" optional="true" />
+		<attribute name="groupId" type="String" mode="IN" optional="true" />
+		<attribute name="permision" type="String" mode="IN" optional="false" />
+	</service>
+
+</services>

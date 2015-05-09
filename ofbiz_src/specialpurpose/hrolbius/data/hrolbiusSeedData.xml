@@ -1,0 +1,1706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	
+	<!-- Set up sequence -->
+	<SequenceValueItem seqName="RecruitmentTestResult" seqId="12000" />
+	<SequenceValueItem seqName="WorkTrialProposal" seqId="12000" />
+	<SequenceValueItem seqName="WorkTrialReport" seqId="12000"></SequenceValueItem>
+	<SequenceValueItem seqName="WorkTrialRating" seqId="12000"></SequenceValueItem>
+	<SequenceValueItem seqName="TrainingPlan" seqId="12000" />
+	<SequenceValueItem seqName="ContactMech" seqId="12000" />
+	<SequenceValueItem seqName="EmploymentApplication" seqId="12000" />
+	<SequenceValueItem seqName="TrainingPlan" seqId="12000" />
+	<!-- /Set up sequence -->
+	
+	<!-- Set up HR global setting -->
+	
+	<AloneWork aloneWorkId="GIOI" description="Gi&#7887;i" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <AloneWork aloneWorkId="KHA" description="Kh&#225;" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <AloneWork aloneWorkId="TRUNGBINH" description="Trung b&#236;nh" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <AloneWork aloneWorkId="XUATSAC" description="Xu&#7845;t s&#7855;c" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    
+    <ChildBackground childBackgroundId="CONGNHANVIEN" description="C&#244;ng nh&#226;n vi&#234;n" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <ChildBackground childBackgroundId="NONGDAN" description="N&#244;ng d&#226;n" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+	
+	<EngCertificate engCertificateId="GIOI" description="Gi&#7887;i" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <EngCertificate engCertificateId="KHA" description="Kh&#225;" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <EngCertificate engCertificateId="TRUNGBINH" description="Trung b&#236;nh" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <EngCertificate engCertificateId="XUATSAC" description="Xu&#7845;t s&#7855;c" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    
+    <Evaluation evalId="KEM"  sequenceId="5" description="K&#233;m" lastUpdatedStamp="2014-11-21 16:08:42.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:42.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <Evaluation evalId="KHA" sequenceId="3" description="Kh&#225;" lastUpdatedStamp="2014-11-21 16:08:42.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:42.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <Evaluation evalId="TOT" sequenceId="2" description="T&#7889;t" lastUpdatedStamp="2014-11-21 16:08:42.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:42.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <Evaluation evalId="TRUNGBINH"  sequenceId="4" description="Trung b&#236;nh" lastUpdatedStamp="2014-11-21 16:08:42.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:42.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <Evaluation evalId="XUATSAC"  sequenceId="1" description="Xu&#7845;t s&#7855;c" lastUpdatedStamp="2014-11-21 16:08:42.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:42.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    
+    <ItCertificate itCertificateId="GIOI" description="Gi&#7887;i" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <ItCertificate itCertificateId="KHA" description="Kh&#225;" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <ItCertificate itCertificateId="TRUNGBINH" description="Trung b&#236;nh" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <ItCertificate itCertificateId="XUATSAC" description="Xu&#7845;t s&#7855;c" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    
+    <ParentBackground parentBackgroundId="CONGNHANVIEN" description="C&#244;ng nh&#226;n vi&#234;n" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <ParentBackground parentBackgroundId="NONGDAN" description="N&#244;ng d&#226;n" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    
+    <SiblingBackground siblingBackgroundId="CONGNHANVIEN" description="C&#244;ng nh&#226;n vi&#234;n" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <SiblingBackground siblingBackgroundId="NONGDAN" description="N&#244;ng d&#226;n" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    
+    <SpousesBackground spousesBackgroundId="CONGNHANVIEN" description="C&#244;ng nh&#226;n vi&#234;n" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <SpousesBackground spousesBackgroundId="NONGDAN" description="N&#244;ng d&#226;n" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    
+    <TeamWork teamWorkId="GIOI" description="Gi&#7887;i" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <TeamWork teamWorkId="KHA" description="Kh&#225;" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <TeamWork teamWorkId="TRUNGBINH" description="Trung b&#236;nh" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <TeamWork teamWorkId="XUATSAC" description="Xu&#7845;t s&#7855;c" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    
+    <UniCertificate uniCertificateId="GIOI" description="Gi&#7887;i" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <UniCertificate uniCertificateId="KHA" description="Kh&#225;" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <UniCertificate uniCertificateId="TRUNGBINH" description="Trung b&#236;nh" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <UniCertificate uniCertificateId="XUATSAC" description="Xu&#7845;t s&#7855;c" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    
+    <WorkChange workChangeId="FOUR_CHANGE" description="B&#7889;n l&#7847;n" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <WorkChange workChangeId="ONE_CHANGE" description="M&#7897;t l&#7847;n" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <WorkChange workChangeId="THREE_CHANGE" description="Ba l&#7847;n" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+    <WorkChange workChangeId="TWO_CHANGE" description="Hai l&#7847;n" lastUpdatedStamp="2014-11-21 16:08:41.0" lastUpdatedTxStamp="2014-11-21 16:08:40.0" createdStamp="2014-11-21 16:08:41.0" createdTxStamp="2014-11-21 16:08:40.0"/>
+	
+	<PunishmentType punishmentTypeId="RULE_VIOLATION" description="vi phạm kỷ luật" numberRemindToWarning="2"></PunishmentType>
+	<PunishmentType punishmentTypeId="WORK_INEFFECTIVE" description="Làm việc không hiệu quả" numberRemindToWarning="3"></PunishmentType>
+	
+	<TerminationReason terminationReasonId="SACKING" description="sa thải"/>
+	<TerminationReason terminationReasonId="RESIGN" description="Thôi việc"/>
+	<TerminationReason terminationReasonId="AGE_RETIRE" description="Đến tuổi nghỉ hưu"/>
+	<TerminationReason terminationReasonId="VIOLATED_TOO_MUCH" description="Vi phạm kỷ luật quá số lần quy định" parentTypeId="SACKING"/>
+	<TerminationReason terminationReasonId="TOOK_NEW_JOB" description="Tìm việc mới" />
+	<TerminationReason terminationReasonId="NONP_PERFORMANCE" description="Làm việc không hiệu quả" parentTypeId="SACKING"/>
+	
+	<WorkTrialRatingType workTrialRatingTypeId = "SELF_RATING" description="Tự đánh giá"/>
+	<WorkTrialRatingType workTrialRatingTypeId = "LEADER_RATING" description="Đánh giá lãnh đạo trực tiếp"/>
+	<WorkTrialRatingType workTrialRatingTypeId = "HRM_RATING" description="Đánh giá của phòng HCNS"/>
+	<WorkTrialRatingType workTrialRatingTypeId = "CEO_RATING" description="Đánh giá của giám đốc điều hành"/>
+	
+	<WorkEffortType workEffortTypeId="RECR_TEST_PLAN" description="Kế hoạch kiểm tra đầu vào" />
+	<WorkEffortType workEffortTypeId="RECR_EXAM" description="Kiểm tra đầu vào" parrentTypeId = "RECR_TEST_PLAN"/>
+	<WorkEffortType workEffortTypeId="RECR_REVIEW1" description="Phỏng vấn lần 1" parrentTypeId = "RECR_TEST_PLAN"/>
+	<WorkEffortType workEffortTypeId="RECR_REVIEW2" description="Phỏng vấn lần 2" parrentTypeId = "RECR_TEST_PLAN"/>
+	
+	<RecruitmentTestResultType recruitmentTestResultTypeId="RESULT_EXAM" description="Kết quả kiểm tra giấy" />
+	<RecruitmentTestResultType recruitmentTestResultTypeId="RESULT_INTERVIEW" description="Kết quả phỏng vấn" />
+	
+	<WorkChange workChangeId = "ONE_CHANGE" description="Một lần"></WorkChange>
+	<WorkChange workChangeId = "TWO_CHANGE" description="Hai lần"></WorkChange>
+	<WorkChange workChangeId = "THREE_CHANGE" description="Ba lần"></WorkChange>
+	<WorkChange workChangeId = "FOUR_CHANGE" description="Bốn lần"></WorkChange>
+	
+	<ParentBackground parentBackgroundId="NONGDAN" description="Nông dân"></ParentBackground>
+	<ParentBackground parentBackgroundId="CONGNHANVIEN" description="Công nhân viên"></ParentBackground>
+	
+	<SiblingBackground siblingBackgroundId="NONGDAN" description="Nông dân"></SiblingBackground>
+	<SiblingBackground siblingBackgroundId="CONGNHANVIEN" description="Công nhân viên"></SiblingBackground>
+	
+	<SpousesBackground spousesBackgroundId="NONGDAN" description="Nông dân"></SpousesBackground>
+	<SpousesBackground spousesBackgroundId="CONGNHANVIEN" description="Công nhân viên"></SpousesBackground>
+	
+	<ChildBackground childBackgroundId="NONGDAN" description="Nông dân"></ChildBackground>
+	<ChildBackground childBackgroundId="CONGNHANVIEN" description="Công nhân viên"></ChildBackground>
+	
+	<UniCertificate uniCertificateId="TRUNGBINH" description="Trung bình"></UniCertificate>
+	<UniCertificate uniCertificateId="KHA" description="Khá"></UniCertificate>
+	<UniCertificate uniCertificateId="GIOI" description="Giỏi"></UniCertificate>
+	<UniCertificate uniCertificateId="XUATSAC" description="Xuất sắc"></UniCertificate>
+	
+	<ItCertificate itCertificateId="TRUNGBINH" description="Trung bình"></ItCertificate>
+	<ItCertificate itCertificateId="KHA" description="Khá"></ItCertificate>
+	<ItCertificate itCertificateId="GIOI" description="Giỏi"></ItCertificate>
+	<ItCertificate itCertificateId="XUATSAC" description="Xuất sắc"></ItCertificate>
+	
+	<EngCertificate engCertificateId="TRUNGBINH" description="Trung bình"></EngCertificate>
+	<EngCertificate engCertificateId="KHA" description="Khá"></EngCertificate>
+	<EngCertificate engCertificateId="GIOI" description="Giỏi"></EngCertificate>
+	<EngCertificate engCertificateId="XUATSAC" description="Xuất sắc"></EngCertificate>
+	
+	<TeamWork teamWorkId="TRUNGBINH" description="Trung bình"></TeamWork>
+	<TeamWork teamWorkId="KHA" description="Khá"></TeamWork>
+	<TeamWork teamWorkId="GIOI" description="Giỏi"></TeamWork>
+	<TeamWork teamWorkId="XUATSAC" description="Xuất sắc"></TeamWork>
+	
+	<AloneWork aloneWorkId="TRUNGBINH" description="Trung bình"></AloneWork>
+	<AloneWork aloneWorkId="KHA" description="Khá"></AloneWork>
+	<AloneWork aloneWorkId="GIOI" description="Giỏi"></AloneWork>
+	<AloneWork aloneWorkId="XUATSAC" description="Xuất sắc"></AloneWork>
+	
+	<ResultType resultTypeId = "RECR_TEST_RESULT" description="Kết quả kiểm tra"/>
+	<ResultItem resultId="PASS" description="Đạt" resultTypeId = "RECR_TEST_RESULT"></ResultItem>
+	<ResultItem resultId="FAIL" description="Không đạt" resultTypeId = "RECR_TEST_RESULT"></ResultItem>
+	
+	<ResultType resultTypeId = "WORK_TRIAL_RESULT" description="Kết quả thử việc"/>
+	<ResultItem resultId="WTR_ACCEPTED" description="Tiếp nhận" resultTypeId = "WORK_TRIAL_RESULT"></ResultItem>
+	<ResultItem resultId="WTR_REJECT" description="Không tiếp nhận" resultTypeId = "WORK_TRIAL_RESULT"></ResultItem>
+	<ResultItem resultId="WTR_EXTTIME" description="Thêm thời gian thử việc" resultTypeId = "WORK_TRIAL_RESULT"></ResultItem>
+	
+	<Evaluation evalId="KEM" description="Kém" ></Evaluation>
+	<Evaluation evalId="TRUNGBINH" description="Trung bình" ></Evaluation>
+	<Evaluation evalId="KHA" description="Khá" ></Evaluation>
+	<Evaluation evalId="TOT" description="Tốt" ></Evaluation>
+	<Evaluation evalId="XUATSAC" description="Xuất sắc" ></Evaluation>
+	
+	<PeriodType periodTypeId="HOURLY" description = "Hàng giờ" periodLength="1" uomId="TF_hr" />
+	<PeriodType periodTypeId="DAILY" description = "Hàng ngày" periodLength="8" uomId="TF_hr" />
+	<PeriodType periodTypeId="WEEKLY" description = "Hàng tuần" periodLength="48" uomId="TF_hr" />
+	<PeriodType periodTypeId="MONTHLY" description = "Hàng tháng" periodLength="192" uomId="TF_hr" />
+	<PeriodType periodTypeId="QUARTERLY" description = "Hàng quý" periodLength="576" uomId="TF_hr" />
+	<PeriodType periodTypeId="YEARLY" description = "Hàng Năm" periodLength="2304" uomId="TF_hr" />
+	<PeriodType periodTypeId="NA" description = "Hằng số" />
+	<!-- /Set up HR global setting -->
+	
+	<StatusType statusTypeId = "JOB_TRANS_PROPOSAL" description = "Đề xuất chuyển công việc"/>
+	
+	<StatusItem statusId = "WOTR_CREATED" statusTypeId = "WOT_REGISTER" statusCode = "created" sequenceId = "01" description = "Đã tạo"/>
+	<StatusItem statusId = "WOTR_ACCEPTED" statusTypeId = "WOT_REGISTER" statusCode = "accepted" sequenceId = "02" description = "Chấp nhận"/>	
+	<StatusItem statusId = "WOTR_REJECTED" statusTypeId = "WOT_REGISTER" statusCode = "rejected" sequenceId = "03" description = "Từ chối"/>
+	
+	
+	<StatusType statusTypeId="TER_PPSL_STATUS" description="Trạng thái đề xuất thôi việc"></StatusType>
+	<StatusItem statusId = "TER_PPSL_CREATED" statusTypeId = "" statusCode = "created" sequenceId = "01" description = "Đề xuất thôi việc đã được tạo"/>
+	<StatusItem statusId="TER_PPSL_IN_PROCESS" statusTypeId="TER_PPSL_STATUS" description="Đang xử lý" sequenceId="02"></StatusItem>
+	<StatusItem statusId="TER_PPSL_ACCEPTED" statusTypeId="TER_PPSL_STATUS" description="Đề xuất được chấp nhận" sequenceId="03"></StatusItem>
+	<StatusItem statusId="TER_PPSL_REJECTED" statusTypeId="TER_PPSL_STATUS" description="Đề xuất bị từ chối" sequenceId="04"></StatusItem>
+	
+	<StatusType statusTypeId="TER_APPRL_STATUS" description="Trạng thái xét duyêt đề xuất thôi việc"></StatusType>
+	<StatusItem statusId="TER_APPR_ACCEPTED" description="Chấp nhận" sequenceId="01" statusTypeId="TER_APPRL_STATUS"></StatusItem>
+	<StatusItem statusId="TER_APPR_REJECTED" description="Từ chối" sequenceId="02" statusTypeId="TER_APPRL_STATUS"></StatusItem>
+	
+	<RoleType roleTypeId="TERM_PPSL_VIEWER" parentTypeId="" hasTable="N" description="Xem đề xuất nghỉ việc"></RoleType>
+	<RoleType roleTypeId="TERM_PPSL_APPROVER" parentTypeId="" hasTable="N" description="Phê duyệt đề xuất nghỉ việc"></RoleType>
+	<RoleType roleTypeId="TERM_PPSL_CONFIRMER" parentTypeId="" hasTable="N" description="Xác nhận kiểm soát"></RoleType>
+	<RoleType roleTypeId="TERM_PPSL_DECIDER" parentTypeId="" hasTable="N" description="Quyết định đề xuất nghỉ việc"></RoleType>
+	<!-- ./ -->
+	
+	<StatusType statusTypeId = "RPH_STATUS" description = "Trạng thái kế hoạch tuyển dụng"/>
+	<StatusItem statusId = "RPH_INIT" statusTypeId = "RPH_STATUS" statusCode = "RPH_INIT" sequenceId = "01" description = "Khởi tạo"/>
+	<StatusItem statusId = "RPH_SCHEDULED" statusTypeId = "RPH_STATUS" statusCode = "RPH_SCHEDULED" sequenceId = "01" description = "Lên kế hoạch"/>
+	<StatusItem statusId = "RPH_ACCEPTED" statusTypeId = "RPH_STATUS" statusCode = "RPH_ACCEPTED" sequenceId = "01" description = "Đồng ý"/>
+	<StatusItem statusId = "RPH_PROPOSED" statusTypeId = "RPH_STATUS" statusCode = "RPH_PROPOSED" sequenceId = "01" description = "Đề xuất"/>
+	<StatusItem statusId = "RPH_APPROVED" statusTypeId = "RPH_STATUS" statusCode = "RPH_APPROVED" sequenceId = "01" description = "Phê duyệt"/>
+	<StatusItem statusId = "RPH_REJECTED" statusTypeId = "RPH_STATUS" statusCode = "RPH_REJECTED" sequenceId = "02" description = "Từ chối"/>
+	<StatusItem statusId = "RPH_CANCELED" statusTypeId = "RPH_STATUS" statusCode = "RPH_CANCELED" sequenceId = "02" description = "Hủy bỏ"/>
+	
+	<StatusType statusTypeId = "JR_STATUS" description = "Trạng thái yêu cầu tuyển dụng"/>
+	<StatusType statusTypeId = "INPLAN_JR_STATUS" description = "Trạng thái nằm trong kế hoạch của yêu cầu tuyển dụng"/>
+	<StatusItem statusId = "JR_INIT" statusTypeId = "JR_STATUS" statusCode = "JR_INIT" sequenceId = "01" description = "Khởi tạo"/>
+	<StatusItem statusId = "JR_SCHEDULED" statusTypeId = "JR_STATUS" statusCode = "JR_SCHEDULED" sequenceId = "01" description = "Lên kế hoạch"/>
+	<StatusItem statusId = "JR_PROPOSED" statusTypeId = "JR_STATUS" statusCode = "JR_PROPOSED" sequenceId = "01" description = "Đề xuất"/>
+	<StatusItem statusId = "JR_ACCEPTED" statusTypeId = "JR_STATUS" statusCode = "JR_ACCEPTED" sequenceId = "01" description = "Đồng ý"/>
+	<StatusItem statusId = "JR_REJECTED" statusTypeId = "JR_STATUS" statusCode = "JR_REJECTED" sequenceId = "02" description = "Từ chối"/>
+	<StatusItem statusId = "JR_APPROVED" statusTypeId = "JR_STATUS" statusCode = "JR_APPROVED" sequenceId = "01" description = "Phê duyệt"/>
+	<StatusItem statusId = "JR_CANCELED" statusTypeId = "JR_STATUS" statusCode = "JR_CANCELED" sequenceId = "01" description = "Hủy bỏ"/>
+	<StatusItem statusId = "IJR_INPLAN" statusTypeId = "INPLAN_JR_STATUS" statusCode = "IJR_INPLAN" sequenceId = "01" description = "Trong kế hoạch"/>
+	<StatusItem statusId = "IJR_NINPLAN" statusTypeId = "INPLAN_JR_STATUS" statusCode = "IJR_NINPLAN" sequenceId = "02" description = "Không trong kế hoạch"/>
+	
+	<StatusType statusTypeId="INIT_TP_STATUS" description="Training plan status for initialization"/>
+	<StatusType statusTypeId="CHK_TP_STATUS" description="Training plan status for check"/>
+	<StatusType statusTypeId="APPR_TP_STATUS" description="Training plan status for approval"/>
+	
+	<StatusItem statusId="ITP_INIT" statusTypeId="INIT_TP_STATUS" description="Khởi tạo"/>
+	<StatusItem statusId="CTP_ACCEPTED" statusTypeId="CHK_TP_STATUS" description="Đồng ý"/>
+	<StatusItem statusId="CTP_REJECTED" statusTypeId="CHK_TP_STATUS" description="Từ chối"/>
+	<StatusItem statusId="ATP_APPROVED" statusTypeId="APPR_TP_STATUS" description="Phê duyệt"/>
+	<StatusItem statusId="ATP_CANCELED" statusTypeId="APPR_TP_STATUS" description="Hủy bỏ"/>
+	
+	<StatusType statusTypeId = "APPLICANT_STATUS" description = "Applicant status"/>
+	<StatusItem statusId = "APPLI_ROUND1" statusTypeId = "APPLICANT_STATUS" statusCode = "APPLI_ROUND1" sequenceId = "01" description = "Vòng 1"/>
+	<StatusItem statusId = "APPLI_ROUND2" statusTypeId = "APPLICANT_STATUS" statusCode = "APPLI_ROUND2" sequenceId = "02" description = "Vòng 2"/>
+	<StatusItem statusId = "APPLI_ROUND3" statusTypeId = "APPLICANT_STATUS" statusCode = "APPLI_ROUND3" sequenceId = "03" description = "Vòng 3"/>
+	
+	<StatusType statusTypeId = "RECR_TEST_PLAN_ST" description = "Job Test Plan status"/>
+	<StatusItem statusId = "RTP_IN_PROGRESS" statusTypeId = "RECR_TEST_PLAN_ST" statusCode = "RTP_IN_PROGRESS" sequenceId = "01" description = "Đang thực hiện"/>
+	<StatusItem statusId = "RTP_CLOSED" statusTypeId = "RECR_TEST_PLAN_ST" statusCode = "RTP_CLOSED" sequenceId = "02" description = "Kết thúc"/>
+	<StatusItem statusId = "RTP_COMPLETED" statusTypeId = "RECR_TEST_PLAN_ST" statusCode = "RTP_COMPLETED" sequenceId = "03" description = "Hoàn thành"/>
+	
+	
+	<StatusType statusTypeId = "RATE_STATUS" description = "Rate status"/>
+	<StatusItem statusId = "RATE_IN_PROGRESS" statusTypeId = "RATE_STATUS" statusCode = "RATE_IN_PROGRESS" sequenceId = "01" description = "Đang đánh giá"/>
+	<StatusItem statusId = "RATE_COMPLETED" statusTypeId = "RATE_STATUS" statusCode = "RATE_COMPLETED" sequenceId = "02" description = "Đã đánh giá"/>
+	
+	<StatusType statusTypeId = "INIT_WT_STATUS" description = "Work trial status for init"></StatusType>
+	<StatusType statusTypeId = "APPR_WT_STATUS" description = "Work trial status for approval"></StatusType>
+	
+	<StatusItem statusId = "IWT_INIT" statusTypeId = "INIT_WT_STATUS" statusCode = "IWT_INIT" sequenceId = "01" description = "Khởi tạo"/>
+	<StatusItem statusId = "AWT_APPROVED" statusTypeId = "APPR_WT_STATUS" statusCode = "AWT_APPROVED" sequenceId = "02" description = "Phê duyệt"/>
+	<StatusItem statusId = "AWT_CANCELED" statusTypeId = "APPR_WT_STATUS" statusCode = "AWT_CANCELED" sequenceId = "03" description = "Không phê duyệt"/>
+	
+	<StatusType statusTypeId="INIT_TRP_STATUS" description="Training proposal status for init"/>
+	<StatusType statusTypeId="CHECK_TRP_STATUS" description="Training proposal status for check"/>
+	<StatusType statusTypeId="APPR_TRP_STATUS" description="Training proposal training for approval"/>
+	<StatusItem statusId="ITS_INIT" statusTypeId="INIT_TRP_STATUS" description="Khởi tạo"/>
+	<StatusItem statusId="CTS_ACCEPTED" statusTypeId="CHECK_TRP_STATUS" description="Đồng ý"/>
+	<StatusItem statusId="CTS_REJECT" statusTypeId="CHECK_TRP_STATUS" description="Từ chối"/>
+	<StatusItem statusId="CTS_APPROVED" statusTypeId="APPR_TRP_STATUS" description="Phê duyệt"/>
+	<StatusItem statusId="CTS_CANCELED" statusTypeId="APPR_TRP_STATUS" description="Hủy bỏ"/>
+	
+	<StatusType statusTypeId="PAYROLL_INIT_STTS" description="Payroll initial status"></StatusType>
+	<StatusType statusTypeId="PAYROLL_APP_STTS" description="Payroll approval status"></StatusType>
+	<StatusType statusTypeId="PAYROLL_PAID_STTS" description="Payroll paid status"></StatusType>
+	<StatusItem statusId = "PAYR_INIT" statusTypeId="PAYROLL_INIT_STTS" description="Khởi tạo" sequenceId="03"></StatusItem>
+	<StatusItem statusId = "PAYR_UNAPP" statusTypeId="PAYROLL_APP_STTS" description="Không phê duyệt" sequenceId="02"></StatusItem>
+	<StatusItem statusId = "PAYR_APP" statusTypeId="PAYROLL_APP_STTS" description="Phê duyệt" sequenceId="01"></StatusItem>
+	<StatusItem statusId = "PAYR_PAID" statusTypeId="PAYROLL_PAID_STTS" description="Đã thanh toán" sequenceId="04"> </StatusItem>
+	
+	<StatusType statusTypeId="WEFF_PA_STTS" description="Work Effort Party Assignment status"></StatusType>
+	<StatusItem statusId = "PA_ASSIGNED" statusTypeId="WEFF_PA_STTS" description="Được gán" sequenceId="03"></StatusItem>
+	<StatusItem statusId = "PA_PASS" statusTypeId="WEFF_PA_STTS" description="Đạt" sequenceId="02"></StatusItem>
+	<StatusItem statusId = "PA_FAIL" statusTypeId="WEFF_PA_STTS" description="Không đạt" sequenceId="01"></StatusItem>
+	
+	<StatusType statusTypeId="EMPL_APP_STATUS" description="Employment status"></StatusType>
+	<StatusItem statusId="EMPL_APP_CREATED" statusTypeId="EMPL_APP_STATUS" statusCode="created" description="created" sequenceId="01"></StatusItem>
+	<StatusItem statusId="EMPL_APP_RECEIVED" statusTypeId="EMPL_APP_STATUS" statusCode="received" description="received" sequenceId="02"></StatusItem>
+	<StatusItem statusId="EMPL_APP_REVIEWED" statusTypeId="EMPL_APP_STATUS" statusCode="reviewed" description="reviewed" sequenceId="03"></StatusItem>
+	<StatusItem statusId="EMPL_APP_FILED" statusTypeId="EMPL_APP_STATUS" statusCode="filed" description="filed" sequenceId="04"></StatusItem>
+	<StatusItem statusId="EMPL_APP_REJECTED" statusTypeId="EMPL_APP_STATUS" statusCode="rejected" description="rejected" sequenceId="05"></StatusItem>
+	<StatusItem statusId="NOT_INTEREST" statusTypeId="EMPL_APP_STATUS" statusCode="not interested" 
+		description="notified candidate of non-interest" sequenceId="06"></StatusItem>
+	
+	<StatusType statusTypeId="ASM_APPR_SMPG" parentTypeId="EMPL_APP_STATUS" description="ASM xét duyệt tuyển dụng salesman, PG"></StatusType>
+	<StatusItem statusId="ASM_REJECTED" statusTypeId="ASM_APPR_SMPG" statusCode="rejected" description="Không đồng ý" sequenceId="02"></StatusItem>
+	<StatusItem statusId="ASM_ACCEPTED" statusTypeId="ASM_APPR_SMPG" statusCode="accepted" description="Đồng ý" sequenceId="01"></StatusItem>
+	
+	<StatusType statusTypeId="RSM_APPR_SMPG" parentTypeId="EMPL_APP_STATUS" description="RSM xét duyệt tuyển dụng salesman, PG"></StatusType>
+	<StatusItem statusId="RSM_REJECTED" statusTypeId="RSM_APPR_SMPG" statusCode="rejected" description="Không đồng ý" sequenceId="02"></StatusItem>
+	<StatusItem statusId="RSM_ACCEPTED" statusTypeId="RSM_APPR_SMPG" statusCode="accepted" description="Đồng ý" sequenceId="01"></StatusItem>
+	
+	<StatusType statusTypeId="CSM_APPR_SMPG" parentTypeId="EMPL_APP_STATUS" description="CSM xét duyệt tuyển dụng salesman, PG"></StatusType>
+	<StatusItem statusId="CSM_REJECTED" statusTypeId="CSM_APPR_SMPG" statusCode="rejected" description="Không đồng ý" sequenceId="02"></StatusItem>
+	<StatusItem statusId="CSM_ACCEPTED" statusTypeId="CSM_APPR_SMPG" statusCode="accepted" description="Đồng ý" sequenceId="01"></StatusItem>
+	
+	<StatusItem statusId="ASM_APPROVAL_WAIT" statusTypeId="ASM_APPR_SMPG" statusCode="waiting" description="Đang chờ ASM phê duyệt" sequenceId="01"></StatusItem>
+	<StatusItem statusId="RSM_APPROVAL_WAIT" statusTypeId="RSM_APPR_SMPG" statusCode="waiting" description="Đang chờ RSM phê duyệt" sequenceId="01"></StatusItem>
+	<StatusItem statusId="CSM_APPROVAL_WAIT" statusTypeId="CSM_APPR_SMPG" statusCode="waiting" description="Đang chờ CSM phê duyệt" sequenceId="01"></StatusItem>
+	
+	<StatusType statusTypeId="CREATE_TPLAN" description="create tp"/>
+	<StatusType statusTypeId="CHECK_TP" description="check tp"/>
+	<StatusItem statusId="OUT_PLAN" statusTypeId="CREATE_TPLAN" description="Khởi tạo"/>
+	<StatusItem statusId="CREATE_TP" statusTypeId="CREATE_TPLAN" description="Khởi tạo"/>
+	<StatusItem statusId="REJECT_TP" statusTypeId="CHECK_TP" description="Hủy bỏ"/>
+	<StatusItem statusId="AGRE_TP" statusTypeId="CHECK_TP" description="Đồng Ý"/>
+	
+	<StatusType statusTypeId="TRAINING_STATUS" description="Trạng thái đào tạo"></StatusType>
+	<StatusItem statusId="TRS_PROGRESS" statusTypeId="TRAINING_STATUS" description="Đang được đào tạo" />
+	<StatusItem statusId="END_TRAINING_CLASS" statusTypeId="TRAINING_CLASS" description="Kết thúc đào tạo" />
+	
+	<StatusType statusTypeId="RESULT_TRAINING" description="training"></StatusType>
+	<StatusItem statusId="PASS_TRAINING" statusTypeId="RESULT_TRAINING" description="Đạt" />
+	<StatusItem statusId="FAILED_TRAINING" statusTypeId="RESULT_TRAINING" description="Không đạt" />
+	
+	<StatusType statusTypeId="TRAIN_COURS_REGIS" description="Trạng thái nhân viên đăng ký đào tạo"></StatusType>
+	<StatusItem statusId="COURS_REGIS_WAIT_CON" statusTypeId="TRAIN_COURS_REGIS" description="Đang chờ xác nhận" sequenceId="03" statusCode="wait confirm"></StatusItem>
+	<StatusItem statusId="COURS_REGIS_PARTCE" statusTypeId="TRAIN_COURS_REGIS" description="Đăng ký tham gia" sequenceId="01" statusCode="participate"></StatusItem>
+	<StatusItem statusId="COURS_REGIS_REJECT" statusTypeId="TRAIN_COURS_REGIS" description="Từ chối tham gia" sequenceId="02" statusCode="reject participate"></StatusItem>
+	<StatusItem statusId="COURS_REGIS_CANCEL" statusTypeId="TRAIN_COURS_REGIS" description="Đăng ký bị hủy bỏ" sequenceId="04" statusCode="cancle register participate"></StatusItem>
+	<StatusItem statusId="COURS_REGIS_ADDED" statusTypeId="TRAIN_COURS_REGIS" description="Đã thêm vào danh sách tham gia" sequenceId="05" statusCode="add to training course"></StatusItem>
+	
+	<StatusType statusTypeId="TRAIN_COURS_ATT" description="Trạng thái nhân viên tham gia đào tạo"></StatusType>
+	<StatusItem statusId="COURS_ATT_WAIT_CON" statusTypeId="TRAIN_COURS_ATT" description="Đang chờ xác nhận" sequenceId="03" statusCode="wait confirm"></StatusItem>
+	<StatusItem statusId="COURS_ATT_PARTCE" statusTypeId="TRAIN_COURS_ATT" description="Đồng ý tham gia" sequenceId="01" statusCode="participate"></StatusItem>
+	<StatusItem statusId="COURS_ATT_REJECT" statusTypeId="TRAIN_COURS_ATT" description="Từ chối tham gia" sequenceId="02" statusCode="reject participate"></StatusItem>
+	
+	
+	<StatusType statusTypeId="TRAING_COURS_STT" description="Trạng thái khóa học"></StatusType>
+	<StatusItem statusId="TRAINING_PLANNED" statusTypeId="TRAING_COURS_STT" description="Lên kế hoạch" />
+	<StatusItem statusId="TRAINING_PLANNED_PPS" statusTypeId="TRAING_COURS_STT" description="Kế hoạch đã được đề xuất" />
+	<StatusItem statusId="TRAINING_PLANNED_ACC" statusCode="accept"  statusTypeId="TRAING_COURS_STT" description="Kế hoạch được chấp nhận" />
+	<StatusItem statusId="TRAINING_PLANNED_REJ" statusCode="reject" statusTypeId="TRAING_COURS_STT" description="Kế hoạch bị từ chối" />
+	
+	<StatusType statusTypeId="TRAIN_COURS_SKILL" description="Trạng thái yêu cầu về kỹ năng trong khóa học"></StatusType>
+	<StatusItem statusId="COUR_SKILL_GOOD" statusTypeId="TRAIN_COURS_SKILL" description="Khá" sequenceId="02" statusCode="good"></StatusItem>
+	<StatusItem statusId="COUR_SKILL_PASS" statusTypeId="TRAIN_COURS_SKILL" description="Đạt" sequenceId="01" statusCode="pass"></StatusItem>
+	<StatusItem statusId="COUR_SKILL_VERY_GOOD" statusTypeId="TRAIN_COURS_SKILL" description="Giỏi" sequenceId="03" statusCode="very good"></StatusItem>
+	<StatusItem statusId="COUR_SKILL_EXCELLENT" statusTypeId="TRAIN_COURS_SKILL" description="Xuất sắc" sequenceId="04" statusCode="excellent"></StatusItem>
+	<StatusItem statusId="COUR_SKILL_NOT_PASS" statusTypeId="TRAIN_COURS_SKILL" description="Không đạt" sequenceId="04" statusCode="not pass"></StatusItem>
+	
+	<!-- delete -->
+	<StatusType statusTypeId="INIT_TRPL_STATUS" description="Trạng thái khởi tạo kế hoạch đào tạo"/>
+	<StatusType statusTypeId="CHECK_TRPL_STATUS" description="Trạng thái kiểm tra kế hoạch đào tạo"/>
+	<StatusType statusTypeId="APPR_TRPL_STATUS" description="Trạng thái phê duyệt kế hoạch đào tạo"/>
+	<!-- ./ -->
+	
+	<StatusItem statusId="ITRS_INIT" statusTypeId="INIT_TRPL_STATUS" description="Khởi tạo"/>
+	<StatusItem statusId="CTRS_ACCEPTED" statusTypeId="CHECK_TRPL_STATUS" description="Đồng ý"/>
+	<StatusItem statusId="CTRS_REJECTED" statusTypeId="CHECK_TRPL_STATUS" description="Hủy bỏ"/>
+	<StatusItem statusId="ATRS_APPROVED" statusTypeId="APPR_TRPL_STATUS" description="Phê duyệt"/>
+	<StatusItem statusId="ATRS_CANCELED" statusTypeId="APPR_TRPL_STATUS" description="Hủy bỏ"/>
+
+	<StatusType statusTypeId="TRAINING" description="pass"/>
+	<StatusType statusTypeId="TRAINING" description="fail"/>
+	<StatusItem statusId="CREATE_TRAINING" statusTypeId="TRAINING" description="Đạt"/>
+	<StatusItem statusId="APPRO_TRAINING" statusTypeId="TRAINING" description="Không đạt"/>
+	
+	<StatusType statusTypeId="BUSS_TRIP_STT" description="Trạng thái đề xuất đi công tác"></StatusType>
+	<StatusItem statusId="BUSS_TRIP_CREATED" statusTypeId="BUSS_TRIP_STT" description="Đã tạo" statusCode="created"></StatusItem>
+	<StatusItem statusId="BUSS_TRIP_IN_PROCESS" statusTypeId="BUSS_TRIP_STT" description="Đang xử lý" statusCode="created"></StatusItem>
+	<StatusItem statusId="BUSS_TRIP_APPROVAL" statusTypeId="BUSS_TRIP_STT" description="Đồng ý" statusCode="approval"></StatusItem>
+	<StatusItem statusId="BUSS_TRIP_REJECT" statusTypeId="BUSS_TRIP_STT" description="Từ chối" statusCode="reject"></StatusItem>
+	
+	<StatusType statusTypeId="PAYROLL_TABLE" description="Trạng thái bảng lưởng"></StatusType>
+	<StatusItem statusId="PYRLL_TABLE_CREATED" statusTypeId="PAYROLL_TABLE" description="Đã tạo" statusCode="created"></StatusItem>
+	<StatusItem statusId="PYRLL_TABLE_CALC" statusTypeId="PAYROLL_TABLE" description="Đã được tính" statusCode="calculated"></StatusItem>
+	<StatusItem statusId="PYRLL_TABLE_INVOICED" statusTypeId="PAYROLL_TABLE" description="Đã được tạo hóa đơn" statusCode="invoiced"></StatusItem>
+	<!-- <StatusItem statusId="PYRLL_TABLE_CREATED" statusTypeId="PAYROLL_TABLE" description="Đã tạo" statusCode="created"></StatusItem> -->
+	
+	<StatusValidChange statusId="EMPL_APP_CREATED" statusIdTo="ASM_APPROVAL_WAIT" transitionName="Đang xét duyệt"></StatusValidChange>
+	<StatusValidChange statusId="ASM_ACCEPTED" statusIdTo="RSM_APPROVAL_WAIT" transitionName="Đang xét duyệt"></StatusValidChange>
+	<StatusValidChange statusId="RSM_ACCEPTED" statusIdTo="CSM_APPROVAL_WAIT" transitionName="Đang xét duyệt"></StatusValidChange>
+	<StatusValidChange statusId="ASM_APPROVAL_WAIT" statusIdTo="ASM_REJECTED" transitionName="Đang xét duyệt"></StatusValidChange>
+	<StatusValidChange statusId="ASM_APPROVAL_WAIT" statusIdTo="ASM_ACCEPTED" transitionName="Đang xét duyệt"></StatusValidChange>
+	<StatusValidChange statusId="RSM_APPROVAL_WAIT" statusIdTo="RSM_REJECTED" transitionName="Đang xét duyệt"></StatusValidChange>
+	<StatusValidChange statusId="RSM_APPROVAL_WAIT" statusIdTo="RSM_ACCEPTED" transitionName="Đang xét duyệt"></StatusValidChange>
+	<StatusValidChange statusId="CSM_APPROVAL_WAIT" statusIdTo="CSM_ACCEPTED" transitionName="Đang xét duyệt"></StatusValidChange>
+	<StatusValidChange statusId="CSM_APPROVAL_WAIT" statusIdTo="CSM_REJECTED" transitionName="Đang xét duyệt"></StatusValidChange>
+	<StatusValidChange statusId="CSM_REJECTED" statusIdTo="EMPL_APP_REJECTED" transitionName="từ chối"></StatusValidChange>
+	<StatusValidChange statusId="RSM_REJECTED" statusIdTo="EMPL_APP_REJECTED" transitionName="từ chối"></StatusValidChange>
+	<StatusValidChange statusId="ASM_REJECTED" statusIdTo="EMPL_APP_REJECTED" transitionName="từ chối"></StatusValidChange>
+	
+	<StatusValidChange statusId="CSM_ACCEPTED" statusIdTo="EMPL_APP_RECEIVED" transitionName="accpeted"></StatusValidChange>
+	<!-- /Set up status -->
+	
+	<!-- Set up email template setting -->
+	<EmailTemplateSetting emailTemplateSettingId="APPLICANT_INVIT" bodyScreenLocation="component://hrolbius/widget/EmailScreens.xml#EmailInvitionExam"/>
+	<EmailTemplateSetting emailTemplateSettingId="APP_NOTI" bodyScreenLocation="component://hrolbius/widget/EmailScreens.xml#EmailApplicantNotification"/>
+	<EmailTemplateSetting emailTemplateSettingId="TESTER_INVIT" bodyScreenLocation="component://hrolbius/widget/EmailScreens.xml#EmailInvitionTester"/>
+	<EmailTemplateSetting emailTemplateSettingId="TRIAL_INVIT" bodyScreenLocation="component://hrolbius/widget/EmailScreens.xml#TrialInvition"/>
+	<EmailTemplateSetting emailTemplateSettingId="USERLOGIN_NOTI" bodyScreenLocation="component://hrolbius/widget/EmailScreens.xml#UserLoginNotification"/>
+	<EmailTemplateSetting emailTemplateSettingId="PARTY_PAYROLL_NOTIFY" bodyScreenLocation="component://hrolbius/widget/EmailScreens.xml#EmailPartyPayroll" subject="Thông tin phiếu lương" ></EmailTemplateSetting>
+	<!-- /Set up email template setting -->
+	
+	<!-- Set up security group -->
+
+	<!-- Organizational Levels -->
+	<RoleType roleTypeId = "GROUP" parentTypeId = "ORGANIZATION_UNIT" hasTable = "N" description="Tập đoàn"/>
+	<RoleType roleTypeId = "CORPORATION" parentTypeId = "ORGANIZATION_UNIT" hasTable = "N" description="Tổng công ty"/>
+	<RoleType roleTypeId = "SUBSIDIARY" parentTypeId = "ORGANIZATION_UNIT" hasTable = "N" description="Công ty con"/>
+	<RoleType roleTypeId = "AGENCY" parentTypeId = "ORGANIZATION_UNIT" hasTable = "N" description="Đại lý"/>
+	<RoleType roleTypeId = "OFFICE" parentTypeId = "ORGANIZATION_UNIT" hasTable = "N" description="Văn phòng"/>
+	<RoleType roleTypeId = "CENTER" parentTypeId = "ORGANIZATION_UNIT" hasTable = "N" description="Trung tâm"/>
+	<RoleType roleTypeId = "DEPARTMENT" parentTypeId = "ORGANIZATION_UNIT" hasTable = "N" description="Phòng ban"/>
+	<RoleType roleTypeId = "HR_DEPARTMENT" parentTypeId = "DEPARTMENT" hasTable = "N" description="Phòng nhân sự"/>
+	<RoleType roleTypeId = "ACC_DEPARTMENT" parentTypeId = "DEPARTMENT" hasTable = "N" description="Phòng kế toán"/>
+	<RoleType roleTypeId = "MAR_DEPARTMENT" parentTypeId = "DEPARTMENT" hasTable = "N" description="Phòng marketing"/>
+	<RoleType roleTypeId = "LOG_DEPARTMENT" parentTypeId = "DEPARTMENT" hasTable = "N" description="Phòng Logistics"/>
+	<RoleType roleTypeId = "BI_DEPARTMENT" parentTypeId = "DEPARTMENT" hasTable = "N" description="Phòng kinh doanh"/>
+	<RoleType roleTypeId = "DR_DEPARTMENT" parentTypeId = "DEPARTMENT" hasTable = "N" description="Phòng giám đốc"/>
+	<RoleType roleTypeId = "SALES_DEPARTMENT" parentTypeId = "DEPARTMENT" hasTable = "N" description="Phòng Sales"/>
+	
+	<RoleType roleTypeId = "APPROVER"  hasTable = "N" description="Người phê duyệt"/>
+	<!-- Applicant Role -->
+	<RoleType roleTypeId="APPLICANT" parentTypeId="PERSON_ROLE" description="Ứng viên"></RoleType>
+	<!-- /Applicant Role -->
+	
+	<RoleType roleTypeId = "MANAGER"  hasTable = "N" description="Trưởng phòng"/>
+	<RoleType roleTypeId = "CEO" parentTypeId = "MANAGER" hasTable = "N" description="Giám đốc điều hành"/>
+	<RoleType roleTypeId="HRMADMIN" parentTypeId="MANAGER" hasTable = "N" description="Quản trị hệ thống"></RoleType>
+	<PartyRelationshipType partyRelationshipTypeId = "MANAGEMENT" partyRelationshipName = "Manage"/>
+	<!-- 	 Setup security group -->
+	<SecurityGroup groupId="HEADOFDEPT" description="Trưởng phòng"/>
+    <SecurityGroup groupId="HEADOFCOM" description="Giám đốc điều hành"/>
+    <SecurityGroup groupId="EMPLOYEE" description="Nhân viên"/>
+    <SecurityGroup groupId="HRMADMIN" description="Quản trị hệ thống"/>
+    <SecurityGroup groupId="SALESUP" description="Giám sát bán hàng"/>
+    <SecurityGroup groupId="ASM" description="ASM"/>
+    <SecurityGroup groupId="RSM" description="RSM"/>
+    <SecurityGroup groupId="CSM" description="CSM"/>
+   
+    <!-- /Set up security group -->
+    
+  	 <!--  Set up permission -->
+	<!--     	Setup HR Permission -->
+    <SecurityPermission description="View operations in the hrolbius Component." permissionId="HROLBIUS_VIEW"/>
+    <SecurityPermission description="Create operations in the hrolbius Component." permissionId="HROLBIUS_CREATE"/>
+    <SecurityPermission description="Update operations in the hrolbius Component." permissionId="HROLBIUS_UPDATE"/>
+    <SecurityPermission description="Delete operations in the hrolbius Component." permissionId="HROLBIUS_DELETE"/>
+    <SecurityPermission description="ALL operations in the hrolbius Component." permissionId="HROLBIUS_ADMIN"/>
+    
+    <!-- Payroll -->
+    <SecurityPermission description="View operations in the hrms-payroll functions." permissionId="HR_PAYROLL_VIEW"/>
+    <SecurityPermission description="Create operations in the hrms-payroll functions." permissionId="HR_PAYROLL_CREATE"/>
+    <SecurityPermission description="Update operations in the hrms-payroll functions." permissionId="HR_PAYROLL_UPDATE"/>
+    <SecurityPermission description="Delete operations in the hrms-payroll functions." permissionId="HR_PAYROLL_DELETE"/>
+    <SecurityPermission description="ALL operations in the hrms-payroll functions." permissionId="HR_PAYROLL_ADMIN"/>
+	<!-- End of Payroll -->
+	
+	<!-- Directory -->
+	<SecurityPermission description="View operations in the hrms-directory functions." permissionId="HR_DIRECTORY_VIEW"/>
+	<SecurityPermission description="View operations in the hrms-directory functions." permissionId="HR_DIRECTORY_CREATE"/>
+	<SecurityPermission description="Update operations in the hrms-directory functions." permissionId="HR_DIRECTORY_UPDATE"/>
+    <SecurityPermission description="Delete operations in the hrms-directory functions." permissionId="HR_DIRECTORY_DELETE"/>
+    <SecurityPermission description="ALL operations in the hrms-directory functions." permissionId="HR_DIRECTORY_ADMIN"/>
+	<!-- End of Directory -->
+	
+	<!-- /Directory -->
+	
+	<!-- Recruiment Salesman/Pg -->
+	<SecurityPermission description="View operations in the salesman-pg functions" permissionId="HR_SALESMANPG_VIEW"/>
+	<SecurityPermission description="Create operations in the salesman-pg functions" permissionId="HR_SALESMANPG_CREATE"/>
+	<SecurityPermission description="Update operations in the salesman-pg functions" permissionId="HR_SALESMANPG_UPDATE"/>
+	<SecurityPermission description="Delete operations in the salesman-pg functions" permissionId="HR_SALESMANPG_DELETE"/>
+	<SecurityPermission description="All operations in the salesman-pg functions" permissionId="HR_SALESMANPG_ADMIN"/>
+	<SecurityPermission description="Propose a employee salsman/Pg in the salesman-pg functions" permissionId="HR_SALESMANPG_PROPOSE"/>
+	<SecurityPermission description="Check  a employee salsman/Pg in the salesman-pg functions" permissionId="HR_SALESMANPG_CHECK"/>
+	<SecurityPermission description="Approve a employee salsman/Pg in the salesman-pg functions" permissionId="HR_SALESMANPG_APPROVE"/>
+	<SecurityPermission description="Report list salsman/Pg in the salesman-pg functions" permissionId="HR_SALESMANPG_REPORT"/>
+	<SecurityPermission description="View Report list salsman/Pg in the salesman-pg functions" permissionId="HR_SALESMANPG_VIEWREPORT"/>
+	<!-- /Recruiment Salesman/Pg -->
+	
+	
+	<!-- Recruitment -->
+    <SecurityPermission description="View operations in the hrms-recruitment functions." permissionId="HR_RECRUITMENT_VIEW"/>
+    <SecurityPermission description="Create operations in the hrms-recruitment functions." permissionId="HR_RECRUITMENT_CREATE"/>
+    <SecurityPermission description="Update operations in the hrms-recruitment functions." permissionId="HR_RECRUITMENT_UPDATE"/>
+    <SecurityPermission description="Delete operations in the hrms-recruitment functions." permissionId="HR_RECRUITMENT_DELETE"/>
+    <SecurityPermission description="ALL operations in the hrms-recruitment functions." permissionId="HR_RECRUITMENT_ADMIN"/>
+    
+	<SecurityPermission description="ALL operations in the hrms-recruitment-Plan functions." permissionId="HR_RECRUITMENT_PLAN_ADMIN"/>
+	<SecurityPermission description="View operations in the hrms-recruitment-Plan functions." permissionId="HR_RECRUITMENT_PLAN_VIEW"/>
+	<SecurityPermission description="Create operations in the hrms-recruitment-Plan functions." permissionId="HR_RECRUITMENT_PLAN_CREATE"/>
+	<SecurityPermission description="Check operations in the hrms-recruitment-Plan functions." permissionId="HR_RECRUITMENT_PLAN_CHECK"/>
+	<SecurityPermission description="Propose operations in the hrms-recruitment-Plan functions." permissionId="HR_RECRUITMENT_PLAN_PROPOSE"/>
+	<SecurityPermission description="Approve operations in the hrms-recruitment-Plan functions." permissionId="HR_RECRUITMENT_PLAN_APPR"/>
+	
+	<SecurityPermission description="Create operations in the hrms-job-request functions." permissionId="HR_JOB_REQUEST_CREATE"/>
+	<SecurityPermission description="View operations in the hrms-job-request functions." permissionId="HR_JOB_REQUEST_VIEW"/>
+	<SecurityPermission description="Check operations in the hrms-job-request functions." permissionId="HR_JOB_REQUEST_UPDATE"/>
+	<SecurityPermission description="Check operations in the hrms-job-request functions." permissionId="HR_JOB_REQUEST_DELETE"/>
+	<SecurityPermission description="Check operations in the hrms-job-request functions." permissionId="HR_JOB_REQUEST_ADMIN"/>
+	
+	<SecurityPermission description="View operations in the hrms-applicant functions." permissionId="HR_APPLICANT_VIEW"/>
+	<SecurityPermission description="Create operations in the hrms-applicant functions." permissionId="HR_APPLICANT_CREATE"/>
+	<SecurityPermission description="Update operations in the hrms-applicant functions." permissionId="HR_APPLICANT_UPDATE"/>
+	<SecurityPermission description="Delete operations in the hrms-applicant functions." permissionId="HR_APPLICANT_DELETE"/>
+	<SecurityPermission description="All operations in the hrms-applicant functions." permissionId="HR_APPLICANT_ADMIN"/>
+	
+	<SecurityPermission description="View operations in the hrms-job test functions." permissionId="HR_JOB_TEST_VIEW"/>
+	<SecurityPermission description="Create operations in the hrms-job test functions." permissionId="HR_JOB_TEST_ADMIN"/>
+	
+	<SecurityPermission description="View operations in the hrms-job test plan functions." permissionId="HR_JOB_TEST_PLAN_VIEW"/>
+	<SecurityPermission description="Create operations in the hrms-job test plan functions." permissionId="HR_JOB_TEST_PLAN_CREATE"/>
+	<SecurityPermission description="Update operations in the hrms-job test plan functions." permissionId="HR_JOB_TEST_PLAN_UPDATE"/>
+	<SecurityPermission description="Delete operations in the hrms-job test plan functions." permissionId="HR_JOB_TEST_PLAN_DELETE"/>
+	<SecurityPermission description="All operations in the hrms-job test plan functions." permissionId="HR_JOB_TEST_PLAN_ADMIN"/>
+	
+	<SecurityPermission description="View operations in the hrms-job test plan functions." permissionId="HR_APPLICANT_SEL_VIEW"/>
+	<SecurityPermission description="View operations in the hrms-job test plan functions." permissionId="HR_APPLICANT_SEL_RATE"/>
+	
+	<SecurityPermission description="View operations in the hrms Work Trial functions." permissionId="HR_WORK_TRIAL_VIEW"/>
+	<SecurityPermission description="Admin operations in the hrms Work Trial functions." permissionId="HR_WORK_TRIAL_ADMIN"/>
+	
+	<SecurityPermission description="Create operations in the hrms Work Trial Proposal functions." permissionId="HR_WORK_TRIAL_PROPOSAL_CREATE"/>
+	<SecurityPermission description="View operations in the hrms Work Trial Proposal functions." permissionId="HR_WORK_TRIAL_PROPOSAL_VIEW"/>
+	<SecurityPermission description="View operations in the hrms Work Trial Proposal functions." permissionId="HR_WORK_TRIAL_PROPOSAL_APPR"/>
+	<SecurityPermission description="Rate operations in the hrms Work Trial functions." permissionId="HR_WORK_TRIAL_RATE"/>
+	
+	<SecurityPermission description="Admin operations in the hrms recruitment report functions." permissionId="HR_RECRUITMENT_REPORT_ADMIN"/>
+	
+	<!-- End of Recruitment -->
+	
+	<!-- Performance Review -->
+	<SecurityPermission description="View operations in the hrms-performance review functions." permissionId="HR_PERFREVIEW_VIEW" />
+	<SecurityPermission description="Create operations in the hrms-performance review functions." permissionId="HR_PERFREVIEW_CREATE" />
+	<SecurityPermission description="Delete operations in the hrms-performance review functions." permissionId="HR_PERFREVIEW_DELETE" />
+	<SecurityPermission description="ALL operations in the hrms-performance review functions." permissionId="HR_PERFREVIEW_ADMIN" />
+	
+	<SecurityPermission description="View operations in the hrms-performance review KPI functions." permissionId="HR_PERFREVIEW_KPI_VIEW" />
+	<SecurityPermission description="Create operations in the hrms-performance review KPI functions." permissionId="HR_PERFREVIEW_KPI_CREATE" />
+	<SecurityPermission description="Check operations in the hrms-performance review KPI functions." permissionId="HR_PERFREVIEW_KPI_CHECK" />
+	<SecurityPermission description="Propose operations in the hrms-performance review KPI functions." permissionId="HR_PERFREVIEW_KPI_PROPOSE" />
+	<SecurityPermission description="Delete operations in the hrms-performance review KPI functions." permissionId="HR_PERFREVIEW_KPI_DELETE" />
+	<SecurityPermission description="Update operations in the hrms-performance review KPI functions." permissionId="HR_PERFREVIEW_KPI_UPDATE" />
+	<SecurityPermission description="ALL operations in the hrms-performance review KPI functions." permissionId="HR_PERFREVIEW_KPI_ADMIN" />
+	
+	<SecurityPermission description="View operations in the hrms-performance review general job rating functions." permissionId="HR_PERFREVIEW_GENERALJOBRATING_VIEW" />
+	<SecurityPermission description="Create operations in the hrms-performance review general job rating functions." permissionId="HR_PERFREVIEW_GENERALJOBRATING_CREATE" />
+	<SecurityPermission description="Delete operations in the hrms-performance review general job rating functions." permissionId="HR_PERFREVIEW_GENERALJOBRATING_DELETE" />
+	<SecurityPermission description="ALL operations in the hrms-performance review general job rating functions." permissionId="HR_PERFREVIEW_GENERALJOBRATING_ADMIN" />
+	
+	<SecurityPermission description="View operations in the hrms-performance review personal job rating functions." permissionId="HR_PERFREVIEW_PERSONALJOBRATING_VIEW" />
+	<SecurityPermission description="Create operations in the hrms-performance review personal job rating functions." permissionId="HR_PERFREVIEW_PERSONALJOBRATING_CREATE" />
+	<SecurityPermission description="Delete operations in the hrms-performance review personal job rating functions." permissionId="HR_PERFREVIEW_PERSONALJOBRATING_DELETE" />
+	<SecurityPermission description="ALL operations in the hrms-performance review personal job rating functions." permissionId="HR_PERFREVIEW_PERSONALJOBRATING_ADMIN" />
+	
+	<SecurityPermission description="View operations in the hrms-performance review rating employee functions." permissionId="HR_PERFREVIEW_RATING_VIEW" />
+	<SecurityPermission description="Create operations in the hrms-performance review rating employee functions." permissionId="HR_PERFREVIEW_RATING_CREATE" />
+	<SecurityPermission description="Check operations in the hrms-performance review rating employee functions." permissionId="HR_PERFREVIEW_RATING_CHECK" />
+	<SecurityPermission description="ALL operations in the hrms-performance review rating employee functions." permissionId="HR_PERFREVIEW_RATING_ADMIN" />
+	
+	<!-- End of Performance Review -->
+	
+	<!-- Training -->
+	<SecurityPermission description="View operations in the training module" permissionId="HR_TRAINING_VIEW"/>
+	<SecurityPermission description="View operations in the training plan functions" permissionId="HR_TRAINING_PLAN_VIEW"/>
+	<SecurityPermission description="Create operations in the training plan functions" permissionId="HR_TRAINING_PLAN_CREATE"/>
+	<SecurityPermission description="Check operations in the training plan functions" permissionId="HR_TRAINING_PLAN_CHECK"/>
+	<SecurityPermission description="Propose operations in the training plan functions" permissionId="HR_TRAINING_PLAN_PROPOSE"/>
+	<SecurityPermission description="Approve operations in the training plan functions" permissionId="HR_TRAINING_PLAN_APPR"/>
+	<SecurityPermission description="All operations in the training plan functions" permissionId="HR_TRAINING_PLAN_ADMIN"/>
+	
+	
+	<SecurityPermission description="View operations in the propose training functions" permissionId="HR_PROP_TRAINING_VIEW"/>
+	<SecurityPermission description="View operations in the propose training functions" permissionId="HR_PROP_TRAINING_CREATE"/>
+	<SecurityPermission description="View operations in the propose training functions" permissionId="HR_PROP_TRAINING_CHECK"/>
+	<SecurityPermission description="View operations in the propose training functions" permissionId="HR_PROP_TRAINING_APPR"/>
+	<SecurityPermission description="All operations in the propose training functions" permissionId="HR_PROP_TRAINING_ADMIN"/>
+	
+	
+	<SecurityPermission description="View operations in the training and rating training functions" permissionId="HR_TRAINING_RATING_VIEW"/>
+	<SecurityPermission description="View operations in the training and rating training functions" permissionId="HR_TRAINING_CLASS_CREATE"/>
+	<SecurityPermission description="View operations in the training and rating training functions" permissionId="HR_TRAINING_RATING"/>
+	<SecurityPermission description="View operations in the training and rating training functions" permissionId="HR_TRAINING_VOTES_VIEW"/>
+	<SecurityPermission description="View operations in the training and rating training functions" permissionId="HR_TRAINING_VOTES_UPDATE"/>
+	<SecurityPermission description="View operations in the training and rating training functions" permissionId="HR_TRAINING_REPORT"/>
+	<SecurityPermission description="All operations in the training and rating training functions" permissionId="HR_TRAINING_RATING_ADMIN"/>
+	
+	
+	<!-- End of Training -->
+	
+	<SecurityPermission description="View operation in time manager component functions" permissionId="HR_TIMEMGR_VIEW"/>
+	
+	<SecurityPermission description="View operation in employee leave functions" permissionId="HR_EMPLEAVE_VIEW"/>		
+	<SecurityPermission description="Create operation in employee leave functions" permissionId="HR_EMPLEAVE_CREATE"/>
+	<SecurityPermission description="Update operation in employee leave functions" permissionId="HR_EMPLEAVE_UPDATE"/>
+	<SecurityPermission description="Delete operation in employee leave functions" permissionId="HR_EMPLEAVE_DELETE"/>
+	<SecurityPermission description="ALL operation in employee leave functions" permissionId="HR_EMPLEAVE_ADMIN"/>
+	
+	<SecurityPermission description="View operation in employee leave list functions" permissionId="HR_EMPLEAVE_MGR_VIEW"/>
+	<SecurityPermission description="create operation in employee leave list functions" permissionId="HR_EMPLEAVE_MGR_CREATE"/>
+	<SecurityPermission description="delete operation in employee leave list functions" permissionId="HR_EMPLEAVE_MGR_DELETE"/>
+	<SecurityPermission description="update operation in employee leave list functions" permissionId="HR_EMPLEAVE_MGR_UPDATE"/>
+	<SecurityPermission description="ALL operation in employee leave list functions" permissionId="HR_EMPLEAVE_MGR_ADMIN"/>
+
+	<SecurityPermission description="View operation in working overtime functions" permissionId="HR_WORK_OVERTIME_VIEW"/>	
+	<SecurityPermission description="Create operation in working overtime functions" permissionId="HR_WORK_OVERTIME_CREATE"/>
+	<SecurityPermission description="Update operation in working overtime functions" permissionId="HR_WORK_OVERTIME_UPDATE"/>
+	<SecurityPermission description="Delete operation in working overtime functions" permissionId="HR_WORK_OVERTIME_DELETE"/>
+	<SecurityPermission description="ALL operation in working overtime functions" permissionId="HR_WORK_OVERTIME_ADMIN"/>
+	<SecurityPermission description="View operation in working overtime of manager functions" permissionId="HR_WORK_OVERTIME_MGR_VIEW"/>
+	
+	<SecurityPermission description="View operation in working late functions" permissionId="HR_WORK_LATE_VIEW"/>	
+	<SecurityPermission description="Create operation in working late functions" permissionId="HR_WORK_LATE_CREATE"/>
+	<SecurityPermission description="Update operation in working late functions" permissionId="HR_WORK_LATE_UPDATE"/>
+	<SecurityPermission description="Delete operation in working late functions" permissionId="HR_WORK_LATE_DELETE"/>
+	<SecurityPermission description="ALL operation in working late functions" permissionId="HR_WORK_LATE_ADMIN"/>
+	
+	<SecurityPermission description="View operation in working late by manager functions" permissionId="HR_WORK_LATE_MGR_VIEW"/>
+	<!-- ============= End Time manager permission ================== -->
+	
+	<!-- ========================= working manager permission ============================= -->
+	<SecurityPermission description="View operation in working manager functions" permissionId="HR_WORK_MGR_VIEW"/>	
+	
+	<SecurityPermission description="View operation in job transfer proposal functions" permissionId="HR_JOB_TRANS_VIEW"/>	
+	<SecurityPermission description="Create operation in job transfer proposal functions" permissionId="HR_JOB_TRANS_CREATE"/>
+	<SecurityPermission description="Update operation in job transfer proposal functions" permissionId="HR_JOB_TRANS_UPDATE"/>
+	<SecurityPermission description="Delete operation in job transfer proposal functions" permissionId="HR_JOB_TRANS_DELETE"/>
+	<SecurityPermission description="ALL operation in job transfer proposal functions" permissionId="HR_JOB_TRANS_ADMIN"/>
+	
+	<SecurityPermission description="View operation in job transfer proposal by manager functions" permissionId="HR_JOB_TRANS_MGR_VIEW"/>	
+	
+	<SecurityPermission description="View operation in sacking proposal by manager functions" permissionId="HR_SACKING_VIEW"/>	
+	
+	<SecurityPermission description="View operation in termination proposal by manager functions" permissionId="HR_TERMINATION_VIEW"/>	
+	<SecurityPermission description="Create operation in termination proposal by manager functions" permissionId="HR_TERMINATION_CREATE"/>
+	<SecurityPermission description="Update operation in termination proposal by manager functions" permissionId="HR_TERMINATION_UPDATE"/>
+	<SecurityPermission description="Delete operation in termination proposal by manager functions" permissionId="HR_TERMINATION_DELETE"/>
+	<SecurityPermission description="ALL operation in termination proposal by manager functions" permissionId="HR_TERMINATION_ADMIN"/>
+	<!-- ============= End working manager permission ================== -->
+	
+	<!-- ========================================================Document manager permission=========================================== -->
+	<SecurityPermission description="Quyền xem trên chức năng quản lý tài liệu" permissionId="HR_DOCMGR_VIEW"/>
+	<SecurityPermission description="Quyền tạo trên chức năng quản lý tài liệu" permissionId="HR_DOCMGR_CREATE"/>
+	<SecurityPermission description="Quyền sửa trên chức năng quản lý tài liệu" permissionId="HR_DOCMGR_UPDATE"/>
+	<SecurityPermission description="Quyền xóa trên chức năng quản lý tài liệu" permissionId="HR_DOCMGR_DELETE"/>
+	<SecurityPermission description="Quyền quản tri trên chức năng quản lý tài liệu" permissionId="HR_DOCMGR_ADMIN"/>
+	
+	<!-- ========================================================/Document manager permission========================================== -->
+	
+	<!-- ========================= Punishment permission ============================= -->
+	<SecurityPermission description="View operation in punishment functions" permissionId="HR_PUNISHMENT_VIEW"/>	
+	<SecurityPermission description="Create operation punishment functions" permissionId="HR_PUNISHMENT_CREATE"/>
+	<SecurityPermission description="Update operation punishment functions" permissionId="HR_PUNISHMENT_UPDATE"/>
+	<SecurityPermission description="Delete operation punishment functions" permissionId="HR_PUNISHMENT_DELETE"/>
+	<SecurityPermission description="ALL operation in punishment functions" permissionId="HR_PUNISHMENT_ADMIN"/>
+	
+	<SecurityPermission description="View operation in punishment manager functions" permissionId="HR_PUNISHMENT_MGR_VIEW"/>	
+	<SecurityPermission description="Create operation punishment manager functions" permissionId="HR_PUNISHMENT_MGR_CREATE"/>
+	<SecurityPermission description="Update operation punishment manager functions" permissionId="HR_PUNISHMENT_MGR_UPDATE"/>
+	<SecurityPermission description="Delete operation punishment manager functions" permissionId="HR_PUNISHMENT_MGR_DELETE"/>
+	<SecurityPermission description="ALL operation in punishment manager functions" permissionId="HR_PUNISHMENT_MGR_ADMIN"/>	
+	
+	<TrainingClassType trainingClasTypeId="ADVAN_TRAINING" description="advance training"></TrainingClassType>
+	<TrainingClassType trainingClasTypeId="BASIC_TRAINING" description="basic training"></TrainingClassType>
+	
+	
+	<TrainingDeptPosition trainingDeptId="11680" trainingClassTypeId="ADVAN_TRAINING"></TrainingDeptPosition>
+	<TrainingDeptPosition trainingDeptId="11680" trainingClassTypeId="BASIC_TRAINING"></TrainingDeptPosition>
+	
+	<!-- training data -->
+	<TrainingFormType trainingFormTypeId="DAO_TAO_NOI_BO" description="Đào tạo nội bộ"></TrainingFormType>
+	<TrainingFormType trainingFormTypeId="DAO_TAO_BEN_NGOAI" description="Đào tạo bên ngoài"></TrainingFormType>
+	
+	<TrainingType trainingTypeId="DAO_TAO_MOI" description="Đào tạo mới"></TrainingType>
+	<TrainingType trainingTypeId="DAO_TAO_NANG_CAO" description="Đào tạo nâng cao"></TrainingType>
+	
+	<TrainingPurposeType trainingPurposeTypeId="NC_NGHIEP_VU" description="Nâng cao chuyên môn, nghiệp vụ"></TrainingPurposeType>
+	<TrainingPurposeType trainingPurposeTypeId="KI_NANG_MEM" description="Nâng cao kỹ năng mềm"></TrainingPurposeType>
+	<!-- ./ -->
+	<TrainingContent trainingContent="trainingContent1" description="FINANCIAL_ANALYSIS_TRAINING"></TrainingContent>
+	<TrainingContent trainingContent="trainingContent2" description="TECHNIQUE_ANALYSIS_TRAINING"></TrainingContent>
+	
+	<TrainingClassType trainingClassTypeId="10002" description="Đào tạo phân tích tài chính phòng HR" ></TrainingClassType>
+	<TrainingClassType trainingClassTypeId="10003" description="Đào tạo nghiệp vụ nhân sự phòng HR" ></TrainingClassType>
+	
+	
+	<TrainingDeptPosition trainingClassTypeId="10002" trainingDeptId="DHR"></TrainingDeptPosition>
+	<TrainingDeptPosition trainingClassTypeId="10003" trainingDeptId="DHR"></TrainingDeptPosition>
+	
+	<TrainingClassType trainingClassTypeId="10000" description="Đào tạo phân tích tài chính" ></TrainingClassType>
+	<TrainingClassType trainingClassTypeId="10001" description="Đào tạo nghiệp vụ nhân sự" ></TrainingClassType>
+	
+	
+	<TrainingDeptPosition trainingClassTypeId="10000" trainingDeptId="DAC"></TrainingDeptPosition>
+	<TrainingDeptPosition trainingClassTypeId="10001" trainingDeptId="DAC"></TrainingDeptPosition>
+	
+	<!-- End -->
+	<!-- Profile by kieuanhvu -->
+	<SecurityPermission description="Create employee leave" permissionId="HR_EMPLEAVE_CREATE"/>
+	<SecurityPermission description="View employee leave" permissionId="HR_EMPLEAVE_VIEW"/>
+	<!-- End profile -->
+	
+	<!-- Payroll -->
+	<SecurityPermission description="View operations in the payroll module" permissionId="HR_PAYROLL_VIEW"/>
+	<SecurityPermission description="Create operations in the payroll module" permissionId="HR_PAYROLL_CREATE"/>
+	<SecurityPermission description="Update operations in the payroll module" permissionId="HR_PAYROLL_UPDATE"/>
+	<SecurityPermission description="Delete operations in the payroll module" permissionId="HR_PAYROLL_DELETE"/>
+	<SecurityPermission description="Admin operations in the payroll module" permissionId="HR_PAYROLL_ADMIN"/>
+	<!-- /Payroll -->
+	
+	<!-- Employment -->
+	<SecurityPermission description="View operations in the employment module" permissionId="HR_EMPLOYEMENT_VIEW"/>
+	<SecurityPermission description="Create operations in the employment module" permissionId="HR_EMPLOYEMENT_CREATE"/>
+	<SecurityPermission description="Update operations in the employment module" permissionId="HR_EMPLOYEMENT_UPDATE"/>
+	<SecurityPermission description="Delete operations in the employment module" permissionId="HR_EMPLOYEMENT_DELETE"/>
+	<SecurityPermission description="Admin operations in the employment module" permissionId="HR_EMPLOYEMENT_ADMIN"/>
+	
+	<SecurityPermission description="Admin operations in the employment agreement module" permissionId="HR_AGREEMENT_ADMIN"/>
+	<SecurityPermission description="View operations in the employment agreement module" permissionId="HR_AGREEMENT_VIEW"/>
+	<!-- /Employment -->
+	
+	<!-- Employee Position -->
+	<SecurityPermission description="View operations in the employee position" permissionId="HR_EMPLPOSITION_VIEW"/>
+	<SecurityPermission description="Create operations in the employee position" permissionId="HR_EMPLPOSITION_CRETAE"/>
+	<SecurityPermission description="update operations in the employee position" permissionId="HR_EMPLPOSITION_UPDATE"/>
+	<SecurityPermission description="deletae operations in the employee position" permissionId="HR_EMPLPOSITION_DELETE"/>
+	<SecurityPermission description="all operations in the employee position" permissionId="HR_EMPLPOSITION_ADMIN"/>
+	<!-- ./Employee Position -->
+	
+	<!-- Employee Skill -->
+	<SecurityPermission description="View operations in the employee skill" permissionId="HR_EMPLSKILLS_VIEW"/>
+	<SecurityPermission description="Create operations in the employee skill" permissionId="HR_EMPLSKILLS_CRETAE"/>
+	<SecurityPermission description="update operations in the employee skill" permissionId="HR_EMPLSKILLS_UPDATE"/>
+	<SecurityPermission description="deletae operations in the employee skill" permissionId="HR_EMPLSKILLS_DELETE"/>
+	<SecurityPermission description="all operations in the employee skill" permissionId="HR_EMPLSKILLS_ADMIN"/>
+	<!-- ./Employee Skill -->
+	
+	<!-- Employee Quals -->
+	<SecurityPermission description="View operations in the employee qualification" permissionId="HR_EMPLQUALS_VIEW"/>
+	<SecurityPermission description="Create operations in the employee qualification" permissionId="HR_EMPLQUALS_CRETAE"/>
+	<SecurityPermission description="update operations in the employee qualification" permissionId="HR_EMPLQUALS_UPDATE"/>
+	<SecurityPermission description="deletae operations in the employee qualification" permissionId="HR_EMPLQUALS_DELETE"/>
+	<SecurityPermission description="all operations in the employee qualification" permissionId="HR_EMPLQUALS_ADMIN"/>
+	<!-- ./Employee Quals -->
+	<SecurityPermission description="all operations in the employee qualification" permissionId="HR_DASHBOARD_ADMIN"/>
+	<!--  /Set up permission -->
+    
+	<!-- Set up personnel for Delys company -->
+	<StatusType statusTypeId = "RELA_STATUS" description = "Party relationship status"/>
+	<StatusItem statusId = "RELA_ENABLED" statusTypeId = "RELA_STATUS" statusCode = "RELA_ENABLED" sequenceId = "01" description = "Enabled"/>
+	<!-- ===================================Organizational Unit================================ -->
+	<!-- Employee position -->
+	<EmplPositionType emplPositionTypeId="DHRQTM" description="Phụ trách IT" dayLeaveRegulation="12"/>
+	<EmplPositionType emplPositionTypeId="DHRQTH" description="Quản trị hệ thống" dayLeaveRegulation="12"/>
+	<EmplPositionType emplPositionTypeId="DHRPM" description="Trưởng dự án" dayLeaveRegulation="12"/>
+	<EmplPositionType emplPositionTypeId="DHRLVT" description="Lập trình viên" dayLeaveRegulation="12"/>
+	<EmplPositionType emplPositionTypeId="DHRNVK" description="Nhân viên kinh doanh" dayLeaveRegulation="12"/>
+	<EmplPositionType emplPositionTypeId="DHRHCT" description="Nhân viên hành chính tổng hợp" dayLeaveRegulation="12"/>
+	<EmplPositionType emplPositionTypeId="DHRTHC" description="Trưởng phòng hành chính tổng hợp" dayLeaveRegulation="14"/>
+	<EmplPositionType emplPositionTypeId="DHRTPN" description="Trưởng phòng nhân sự" dayLeaveRegulation="14"/>
+	<EmplPositionType emplPositionTypeId="DACPKT" description="Phụ trách kế toán" dayLeaveRegulation="12"/>
+	<EmplPositionType emplPositionTypeId="DACTPK" description="Trưởng phòng kế toán" dayLeaveRegulation="14"/>
+	<EmplPositionType emplPositionTypeId="DACNKT" description="Nhân viên kế toán" dayLeaveRegulation="12"/>
+	<EmplPositionType emplPositionTypeId="DMTNVM" description="Nhân viên Marketing" dayLeaveRegulation="12"/>
+	<EmplPositionType emplPositionTypeId="DMTTPM" description="Trưởng phòng marketing" dayLeaveRegulation="14"/>
+	<EmplPositionType emplPositionTypeId="DLGNVL" description="Nhân viên Logistic" dayLeaveRegulation="12"/>
+	<EmplPositionType emplPositionTypeId="DLGTPL" description="Trưởng phòng logistic" dayLeaveRegulation="14"/>
+	<EmplPositionType emplPositionTypeId="DELCEO" description="Giám đốc điều hành" dayLeaveRegulation="16"/>
+	<EmplPositionType emplPositionTypeId="DBINVK" description="Nhân viên kinh doanh" dayLeaveRegulation="12"/>
+	<EmplPositionType emplPositionTypeId="DBITPK" description="Trưởng phòng kinh doanh" dayLeaveRegulation="14"/>
+	<EmplPositionType emplPositionTypeId="PROMOTION_GIRL" description="Nhân viên quảng cáo, tiếp thị" /> 
+	<EmplPositionType emplPositionTypeId="PROGRAMMER" description="Lập trình viên" dayLeaveRegulation="12"/>
+	
+	<EmplPositionType emplPositionTypeId="SALESMAN" description="Nhân viên bán hàng" />
+	<EmplPositionType emplPositionTypeId="SALESSUP" description="Giám sát bán hàng" dayLeaveRegulation="12"/>
+	<EmplPositionType emplPositionTypeId="ASM" description="Giám đốc kinh doanh vùng" dayLeaveRegulation="12"/>
+	<EmplPositionType emplPositionTypeId="RSM" description="Giám đóc kinh doanh miền" dayLeaveRegulation="12"/>
+	<EmplPositionType emplPositionTypeId="CSM" description="Giám đốc kênh" dayLeaveRegulation="12"/>
+	<!-- /Employee position -->
+	
+	<!-- setup salarystep -->	
+	<PayGrade payGradeId="PG1" payGradeName="grade 1"></PayGrade>
+	<SalaryStep salaryStepSeqId="1" payGradeId="PG1" amount="10000000"></SalaryStep>			 
+	<SalaryStep salaryStepSeqId="2" payGradeId="PG1" amount="20000000"></SalaryStep>
+	<SalaryStep salaryStepSeqId="3" payGradeId="PG1" amount="30000000"></SalaryStep>
+	<SalaryStep salaryStepSeqId="4" payGradeId="PG1" amount="40000000"></SalaryStep>
+	<SalaryStep salaryStepSeqId="5" payGradeId="PG1" amount="50000000"></SalaryStep>
+	<!-- ./setup salarystep -->
+
+			
+	<!-- setup emplPositionTypeRate step -->
+	<EmplPositionTypeRate emplPositionTypeId="DHRQTM" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="2" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>
+	<EmplPositionTypeRate emplPositionTypeId="DHRQTH" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="2" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>
+	<EmplPositionTypeRate emplPositionTypeId="DHRPM" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="2" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>
+	<EmplPositionTypeRate emplPositionTypeId="DHRLVT" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="1" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>
+	<EmplPositionTypeRate emplPositionTypeId="DHRNVK" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="1" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>
+	<EmplPositionTypeRate emplPositionTypeId="DHRHCT" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="1" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>				
+	<EmplPositionTypeRate emplPositionTypeId="DHRTHC" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="2" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>
+	<EmplPositionTypeRate emplPositionTypeId="DHRTPN" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="2" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>
+	<EmplPositionTypeRate emplPositionTypeId="DACPKT" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="1" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>
+	<EmplPositionTypeRate emplPositionTypeId="DACTPK" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="2" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>
+	<EmplPositionTypeRate emplPositionTypeId="DACNKT" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="1" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>
+	<EmplPositionTypeRate emplPositionTypeId="DMTNVM" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="1" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>
+	<EmplPositionTypeRate emplPositionTypeId="DMTTPM" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="2" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>
+	<EmplPositionTypeRate emplPositionTypeId="DLGNVL" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="1" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>
+	<EmplPositionTypeRate emplPositionTypeId="DLGTPL" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="2" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>
+	<EmplPositionTypeRate emplPositionTypeId="DELCEO" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="4" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>
+	<EmplPositionTypeRate emplPositionTypeId="DBITPK" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="2" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>
+	<EmplPositionTypeRate emplPositionTypeId="PROMOTION_GIRL" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="1" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>
+	<EmplPositionTypeRate emplPositionTypeId="SALESMAN" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="1" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>
+	<EmplPositionTypeRate emplPositionTypeId="PROGRAMMER" rateTypeId="AVERAGE_PAY_RATE" payGradeId="PG1" salaryStepSeqId="1" 
+		fromDate="2009-01-30 17:58:56.000"></EmplPositionTypeRate>				
+	<!-- ./setup emplPositionTypeRate step -->
+	
+	<!-- Time Job Rating -->
+	<TimeJobRating timeJobRatingId="HNG" description="Hàng ngày" sequenceId="01"/>
+	<TimeJobRating timeJobRatingId="HTU" description="Hàng tuần" sequenceId="02"/>
+	<TimeJobRating timeJobRatingId="HTH" description="Hàng tháng" sequenceId="03"/>
+	<TimeJobRating timeJobRatingId="HQY" description="Hàng quý" sequenceId="04"/>
+	<TimeJobRating timeJobRatingId="HNA" description="Hàng năm" sequenceId="05"/>
+	<!-- End of Time Job Rating -->
+	
+	<!-- Gender Employee -->
+	<Gender genderId="M" description="MALE" />
+	<Gender genderId="F" description="FEMALE"  />
+	<!-- End of Gender Employee -->
+	
+	<!-- Marital Status -->
+	<MaritalStatus maritalStatusId="SINGLE" description="Chưa có vợ/chồng" />
+	<MaritalStatus maritalStatusId="MARRIED" description="Đã có vợ/chồng" />
+	<MaritalStatus maritalStatusId="NOCHILD" description="Chưa có con" />
+	<MaritalStatus maritalStatusId="HADCHILD" description="Đã có con" />
+	<!-- End of Marital Status -->
+	
+	<!-- EmploymentAppSourceType -->
+	<EmploymentAppSourceType employmentAppSourceTypeId="BAOCHI" description="Báo chí" />
+	<EmploymentAppSourceType employmentAppSourceTypeId="INTERNET" description="Qua Internet" />
+	<EmploymentAppSourceType employmentAppSourceTypeId="NGUOIQUEN" description="Người quen trong công ty" />
+	<EmploymentAppSourceType employmentAppSourceTypeId="KHAC" description="Khác" />
+	<!-- /EmploymentAppSourceType -->
+	
+	<!-- Ethnic Origin -->
+	<EthnicOrigin ethnicOriginId="KINH" description="Kinh" />
+	<EthnicOrigin ethnicOriginId="TAY" description="Tày" />
+	<EthnicOrigin ethnicOriginId="THAI" description="Thái" />
+	<EthnicOrigin ethnicOriginId="MUONG" description="Mường" />
+	<EthnicOrigin ethnicOriginId="KHOME" description="Khơ Me" />
+	<EthnicOrigin ethnicOriginId="HMONG" description="Hmông" />
+	<EthnicOrigin ethnicOriginId="NUNG" description="Nùng" />
+	<EthnicOrigin ethnicOriginId="HOA" description="Hoa" />
+	<EthnicOrigin ethnicOriginId="DAO" description="Dao" />
+	<EthnicOrigin ethnicOriginId="GIARAI" description="Gia Rai" />
+	<EthnicOrigin ethnicOriginId="EDE" description="Ê Đê" />
+	<EthnicOrigin ethnicOriginId="BANA" description="Ba Na" />
+	<EthnicOrigin ethnicOriginId="XODANG" description="Xơ Đăng" />
+	<EthnicOrigin ethnicOriginId="SANCHAY" description="Sán Chay" />
+	<EthnicOrigin ethnicOriginId="COHO" description="Cơ Ho" />
+	<EthnicOrigin ethnicOriginId="CHAM" description="Chăm" />
+	<EthnicOrigin ethnicOriginId="SANDIU" description="Sán Dìu" />
+	<EthnicOrigin ethnicOriginId="HRE" description="Hrê" />
+	<EthnicOrigin ethnicOriginId="RAGIAI" description="Ra Giai" />
+	<EthnicOrigin ethnicOriginId="MNONG" description="Mnông" />
+	<EthnicOrigin ethnicOriginId="XTIENG" description="Xtiêng" />
+	<EthnicOrigin ethnicOriginId="BRU-VANKIEU" description="Bru-Vân Kiều" />
+	<EthnicOrigin ethnicOriginId="THO" description="Thổ" />
+	<EthnicOrigin ethnicOriginId="KHOMU" description="Khơ Mú" />
+	<EthnicOrigin ethnicOriginId="COTU" description="Cơ Tu" />
+	<EthnicOrigin ethnicOriginId="GIAY" description="Giáy" />
+	<EthnicOrigin ethnicOriginId="GIE-TRIENG" description="Giẻ-Triêng" />
+	<EthnicOrigin ethnicOriginId="TAOI" description="Tà Ôi" />
+	<EthnicOrigin ethnicOriginId="MA" description="Mạ" />
+	<EthnicOrigin ethnicOriginId="CO" description="Co" />
+	<EthnicOrigin ethnicOriginId="CH" description="Chơ Ro" />
+	<EthnicOrigin ethnicOriginId="XINHMUN" description="Xinh Mun" />
+	<EthnicOrigin ethnicOriginId="HANHI" description="Hà Nhì" />
+	<EthnicOrigin ethnicOriginId="CHURU" description="Chu Ru" />
+	<EthnicOrigin ethnicOriginId="LAO" description="Lào" />
+	<EthnicOrigin ethnicOriginId="KHANG" description="Kháng" />
+	<EthnicOrigin ethnicOriginId="LACHI" description="La Chí" />
+	<EthnicOrigin ethnicOriginId="PHULA" description="Phú lá" />
+	<EthnicOrigin ethnicOriginId="LAHU" description="La Hủ" />
+	<EthnicOrigin ethnicOriginId="LAHA" description="La Ha" />
+	<EthnicOrigin ethnicOriginId="PHATHEN" description="Phà Thẻn" />
+	<EthnicOrigin ethnicOriginId="CHUT" description="Chứt" />
+	<EthnicOrigin ethnicOriginId="LU" description="Lự" />
+	<EthnicOrigin ethnicOriginId="LOLO" description="Lô Lô" />
+	<EthnicOrigin ethnicOriginId="MANG" description="Mảng" />
+	<EthnicOrigin ethnicOriginId="COLAO" description="Cờ Lao" />
+	<EthnicOrigin ethnicOriginId="BOY" description="Bố Y" />
+	<EthnicOrigin ethnicOriginId="CONG" description="Cống" />
+	<EthnicOrigin ethnicOriginId="NGAI" description="Ngái" />
+	<EthnicOrigin ethnicOriginId="SILA" description="Si La" />
+	<EthnicOrigin ethnicOriginId="PUPEO" description="Pu Péo" />
+	<EthnicOrigin ethnicOriginId="ROMAM" description="Rơ Măm" />
+	<EthnicOrigin ethnicOriginId="BRAU" description="Brâu" />
+	<EthnicOrigin ethnicOriginId="ODU" description="Ơ Đu" />
+	
+	<!-- End of Marital Status -->
+	
+	<Party partyId="OLBIUS" partyTypeId="LEGAL_ORGANIZATION" preferredCurrencyUomId="VND" statusId="PARTY_ENABLED" createdDate="2014-03-21 15:37:23"/>
+	
+	<PartyGroup partyId="OLBIUS" groupName="OLBIUS Company" groupNameLocal="CÔNG TY CỔ PHẦN OLBIUS VIỆT NAM" officeSiteName="www.olbius.com"/>
+	
+	<PartyRole partyId="OLBIUS" roleTypeId="INTERNAL_ORGANIZATIO" />
+	<PartyRole partyId="OLBIUS" roleTypeId="CORPORATION" />
+	<PartyRole partyId="OLBIUS" roleTypeId="PARENT_ORGANIZATION" />
+	
+	<Party partyId="company" partyTypeId="PARTY_GROUP"/>
+	<PartyGroup partyId="company" groupName="Delys"/>
+	<PartyRole partyId="company" roleTypeId="INTERNAL_ORGANIZATIO" />
+	<PartyRole partyId="company" roleTypeId="CORPORATION" />
+	<PartyRole partyId="company" roleTypeId="PARENT_ORGANIZATION" />
+	
+	<SecurityGroupPermission groupId="SUPER" permissionId="HUMANRES_ADMIN"/>
+	
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_SETTING_ADMIN"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_DIRECTORY_ADMIN"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="PARTYMGR_ADMIN"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HUMANRES_ADMIN"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_SETTING_ADMIN"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_PERFREVIEW_RATING_CHECK"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_PERFREVIEW_GENERALJOBRATING_VIEW"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_PERFREVIEW_GENERALJOBRATING_CREATE"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_PERFREVIEW_GENERALJOBRATING_DELETE"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_RECRUITMENT_PLAN_CHECK"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_RECRUITMENT_PLAN_PROPOSE"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_JOB_REQUEST_ADMIN"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_APPLICANT_ADMIN"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_JOB_TEST_VIEW"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_JOB_TEST_PLAN_ADMIN"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_DIRECTORY_VIEW"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_DIRECTORY_UPDATE"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_DIRECTORY_CREATE"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="PARTYMGR_CREATE"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="PARTYMGR_UPDATE"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="PARTYMGR_DELETE"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="PARTYMGR_VIEW"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_WORK_TRIAL_PROPOSAL_VIEW"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_WORK_TRIAL_PROPOSAL_CREATE"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_WORK_TRIAL_VIEW"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_TRAINING_PLAN_CHECK" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_TRAINING_PLAN_PROPOSE" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_PAYROLL_ADMIN" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="ACCTG_PREF_VIEW" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_SALESMANPG_VIEW"/>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_EMPLOYMENT_ADMIN" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="ACCOUNTING_ADMIN" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_AGREEMENT_ADMIN" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="ACCOUNTING_ROLE_ADMIN" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="PROJECTMGR_ADMIN" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="ASSETMAINT_ADMIN" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="PARTYMGR_PCM_CREATE" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_PROP_TRAINING_CHECK" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_TRAINING_RATING_VIEW" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_TRAINING_CLASS_CREATE" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_TRAINING_RATING" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_TRAINING_VOTES_VIEW" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_TRAINING_VOTES_UPDATE" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_TRAINING_REPORT" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_SALESMANPG_VIEWREPORT" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_SALESMANPG_REPORT" />
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_SALESMANPG_UPDATE"></SecurityGroupPermission>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_DOCMGR_ADMIN"></SecurityGroupPermission>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="CONTENTMGR_ADMIN"></SecurityGroupPermission>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="ACCTG_ATX_CREATE"></SecurityGroupPermission>
+	<SecurityGroupPermission groupId="HRMADMIN" permissionId="HR_RECRUITMENT_REPORT_ADMIN" />
+	
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HUMANRES_CREATE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="PARTYMGR_CREATE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_DIRECTORY_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HUMANRES_ADMIN"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_TRAINING_PLAN"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PROP_TRAINING_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PROP_TRAINING_CREATE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PERFREVIEW_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PERFREVIEW_KPI_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PERFREVIEW_KPI_CREATE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PERFREVIEW_KPI_DELETE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PERFREVIEW_KPI_PROPOSE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PERFREVIEW_PERSONALJOBRATING_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PERFREVIEW_PERSONALJOBRATING_CREATE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PERFREVIEW_PERSONALJOBRATING_DELETE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_RECRUITMENT_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_RECRUITMENT_PLAN_CREATE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_RECRUITMENT_PLAN_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_JOB_REQUEST_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_JOB_REQUEST_CREATE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_TRAINING_VIEW"></SecurityGroupPermission>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_TRAINING_PLAN_VIEW"></SecurityGroupPermission>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_TRAINING_PLAN_CREATE"></SecurityGroupPermission>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_EMPLEAVE_MGR_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_JOB_TRANS_MGR_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PUNISHMENT_MGR_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_SACKING_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_WORK_LATE_MGR_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PUNISHMENT_MGR_ADMIN"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PUNISHMENT_CREATE"/>	
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_WORK_LATE_CREATE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_JOB_TRANS_UPDATE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_EMPLEAVE_UPDATE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_WORK_OVERTIME_UPDATE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_WORK_LATE_UPDATE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_TERMINATION_UPDATE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PUNISHMENT_UPDATE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_WORK_OVERTIME_MGR_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_EMPLPOSITION_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_EMPLPOSITION_CRETAE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_EMPLPOSITION_UPDATE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_EMPLPOSITION_DELETE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_EMPLPOSITION_ADMIN"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_EMPLSKILLS_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_EMPLSKILLS_CRETAE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_EMPLSKILLS_UPDATE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_EMPLSKILLS_DELETE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_EMPLSKILLS_ADMIN"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_EMPLQUALS_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_EMPLQUALS_CRETAE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_EMPLQUALS_UPDATE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_EMPLQUALS_DELETE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_EMPLQUALS_ADMIN"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PROJMGR_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PROJMGR_CRETAE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PROJMGR_UPDATE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PROJMGR_DELETE"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_PROJMGR_ADMIN"/>
+	<SecurityGroupPermission groupId="HEADOFDEPT" permissionId="HR_JOB_REQUEST_UPDATE"/>
+	<SecurityGroupPermission groupId="HEADOFCOM" permissionId="HR_PERFREVIEW_KPI_CHECK"/>
+	<SecurityGroupPermission groupId="HEADOFCOM" permissionId="HR_RECRUITMENT_PLAN_APPR"/>
+	<SecurityGroupPermission groupId="HEADOFCOM" permissionId="HR_JOB_REQUEST_UPDATE"/>
+	<SecurityGroupPermission groupId="HEADOFCOM" permissionId="HR_WORK_TRIAL_PROPOSAL_APPR"/>
+	<SecurityGroupPermission groupId="HEADOFCOM" permissionId="HR_WORK_TRIAL_PROPOSAL_VIEW"/>
+	<SecurityGroupPermission groupId="HEADOFCOM" permissionId="HR_TRAINING_PLAN_APPR"/>
+	<SecurityGroupPermission groupId="HEADOFCOM" permissionId="HR_PROP_TRAINING_APPR"/>
+	
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_TRIAL_REPORT_VIEW"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_TRIAL_REPORT_CREATE"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_WORK_TRIAL_RATE"></SecurityGroupPermission>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HROLBIUS_VIEW"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_PROFILE_VIEW"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="OFBTOOLS_VIEW"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_EMPLEAVE_CREATE"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_PERFREVIEW_RATING_VIEW"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_PERFREVIEW_RATING_CREATE"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_JOB_TRANS_CREATE"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_TERMINATION_CREATE"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_WORK_OVERTIME_CREATE"/>	
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_WORK_OVERTIME_VIEW"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_TIMEMGR_VIEW"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_WORK_MGR_VIEW"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_JOB_TRANS_PPSL_VIEW"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_TERMINATION_PPSL_VIEW"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_PUNISHMENT_VIEW"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_WORK_LATE_VIEW"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_EMPLEAVE_VIEW"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_JOB_TRANS_VIEW"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_TERMINATION_VIEW"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_APPLICANT_SEL_VIEW"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_APPLICANT_SEL_RATE"/>
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="WORKEFFORTMGR_ADMIN" />
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HUMANRES_CREATE" />
+	<SecurityGroupPermission groupId="EMPLOYEE" permissionId="HR_DASHBOARD_ADMIN"/>
+	
+	<!-- ===================================/Set up userlogin=============================== -->
+	
+	<!-- Set up empl_postion for recruiment PG -->
+	<TrainingLevel trainingLevelId="JOB" description="Nghề"/>
+	<TrainingLevel trainingLevelId="ELEMENT" description="Tiểu học"/>
+	<TrainingLevel trainingLevelId="HIGHTSCHOOL" description="Trung học phổ thông"/>
+	<TrainingLevel trainingLevelId="SECONDARY" description="Trung học cơ sở"/>
+	<TrainingLevel trainingLevelId="VOCATIONAL" description="Trung cấp"/>
+	<TrainingLevel trainingLevelId="COLLEGE" description="Cao đẳng"/>
+	<TrainingLevel trainingLevelId="UNIVERCITY" description="Đại học"/>
+	<TrainingLevel trainingLevelId="MASTER" description="Thạc sĩ"/>
+	
+	<StatusType statusTypeId = "CHECK_PROPOSE_PG" description = "Check propose Recruiment Employee PG"/>
+	<StatusItem statusId = "CREATE_PG" statusTypeId = "CHECK_PROPOSE_PG" description = "Khởi tạo"/>
+	<StatusItem statusId = "CHECKED_PG" statusTypeId = "CHECK_PROPOSE_PG" description = "Đồng ý"/>
+	<StatusItem statusId = "REJECT_PG" statusTypeId = "CHECK_PROPOSE_PG" description = "Hủy bỏ"/>
+	
+	<StatusType statusTypeId = "APP_PROPOSE_PG" description = "Check propose Recruiment Employee PG"/>
+	<StatusItem statusId = "INPR_PG" statusTypeId = "APP_PROPOSE_PG" description = "Chờ duyệt"/>
+	<StatusItem statusId = "APPR_PG" statusTypeId = "APP_PROPOSE_PG" description = "Phê duyệt"/>
+	<StatusItem statusId = "DISAPP_PG" statusTypeId = "APP_PROPOSE_PG" description = "Huỷ bỏ "/>
+	
+	<StatusType statusTypeId="ASM_APPR_SMPG" parentTypeId="EMPL_APP_STATUS" description="ASM xét duyệt tuyển dụng salesman, PG"></StatusType>
+	<StatusItem statusId="ASM_REJECTED" statusTypeId="ASM_APPR_SMPG" statusCode="rejected" description="Không phê duyệt" sequenceId="02"></StatusItem>
+	<StatusItem statusId="ASM_ACCEPTED" statusTypeId="ASM_APPR_SMPG" statusCode="accepted" description="Phê duyệt" sequenceId="01"></StatusItem>
+	
+	<StatusType statusTypeId="RSM_APPR_SMPG" parentTypeId="EMPL_APP_STATUS" description="RSM xét duyệt tuyển dụng salesman, PG"></StatusType>
+	<StatusItem statusId="RSM_REJECTED" statusTypeId="RSM_APPR_SMPG" statusCode="rejected" description="Không phê duyệt" sequenceId="02"></StatusItem>
+	<StatusItem statusId="RSM_ACCEPTED" statusTypeId="RSM_APPR_SMPG" statusCode="accepted" description="Phê duyệt" sequenceId="01"></StatusItem>
+	
+	<StatusType statusTypeId="CSM_APPR_SMPG" parentTypeId="EMPL_APP_STATUS" description="CSM xét duyệt tuyển dụng salesman, PG"></StatusType>
+	<StatusItem statusId="CSM_REJECTED" statusTypeId="CSM_APPR_SMPG" statusCode="rejected" description="Không phê duyệt" sequenceId="02"></StatusItem>
+	<StatusItem statusId="CSM_ACCEPTED" statusTypeId="CSM_APPR_SMPG" statusCode="accepted" description="Phê duyệt" sequenceId="01"></StatusItem>
+	
+	<!-- <StatusItem statusId="WAIT_HRM_APPROVAL" statusTypeId="LEAVE_STATUS"  description="Đang chờ HCNS phê duyệt"/> -->
+	<StatusType statusTypeId="LEAVE_STATUS" description="Employee Leave Status"/>
+    <StatusItem statusId="LEAVE_APPROVED" statusTypeId="LEAVE_STATUS"  description="Chấp nhận"/>
+    <StatusItem statusId="LEAVE_CREATED" statusTypeId="LEAVE_STATUS"  description="Đã tạo"/>
+    <StatusItem statusId="LEAVE_REJECTED" statusTypeId="LEAVE_STATUS"  description="Từ chối"/>
+	
+	<RoleType roleTypeId="EMPL_LEAVE_APPR" description="Xét duyệt đơn xin nghỉ"></RoleType>
+	<RoleType roleTypeId="ELA_APPROVER" parentTypeId="EMPL_LEAVE_APPR" description="Người phê duyệt đơn xin nghỉ" hasTable="N"></RoleType>
+	<RoleType roleTypeId="ELA_VIEWER" parentTypeId="EMPL_LEAVE_APPR" description="Người xác nhận" hasTable="N"></RoleType>
+	<RoleType roleTypeId="ELA_DECIDER" parentTypeId="EMPL_LEAVE_APPR" description="Người quyết định" hasTable="N"></RoleType>
+	<StatusType statusTypeId="EMPL_LEAVE_APPR" description="Trạng thái phê duyệt đơn xin nghỉ"></StatusType>
+	<StatusItem statusTypeId="EMPL_LEAVE_APPR" statusId="EMPL_LEAVE_ACCEPTED" description="Đồng ý" statusCode="accpeted" sequenceId="01"></StatusItem>
+	<StatusItem statusTypeId="EMPL_LEAVE_APPR" statusId="EMPL_LEAVE_REJECTED" description="Từ chối" statusCode="rejected" sequenceId="02"></StatusItem>
+	
+	
+	<BankVn bankId="Agribank" description="Ngân hàng Nông nghiệp và Phát triển Nông thôn Việt Nam" />
+	<BankVn bankId="Vietinbank" description="Ngân hàng Công thương Việt Nam " />
+	<BankVn bankId="Vietcombank" description="Ngân hàng Ngoại thương Việt Nam " />
+	<BankVn bankId="BIDV" description="Ngân hàng Đầu tư và Phát triển Việt Nam" />
+	<BankVn bankId="DongABank" description="Ngân hàng TMCP Đông Á " />
+	<BankVn bankId="Techcombank" description="Ngân hàng TMCP Kỹ thương Việt Nam " />
+	<BankVn bankId="Sacombank" description="Ngân hàng TMCP Sài Gòn Thương Tín" />
+	<BankVn bankId="ACB" description="Ngân hàng TMCP Á Châu" />
+	<BankVn bankId="Saigonbank" description="Ngân hàng TMCP Sài Gòn Công thương  Saigonbank" />
+	<BankVn bankId="MHB" description="Ngân hàng Phát triển Nhà đồng bằng sông Cửu Long" />
+	<BankVn bankId="ABBank" description="Ngân hàng TMCP An Bình " />
+	<BankVn bankId="OceanBank" description="Ngân hàng TMCP Đại Dương " />
+	<BankVn bankId="SeABank" description="Ngân hàng TMCP Đông Nam Á " />
+	<BankVn bankId="VRB" description="Ngân hàng Liên doanh Việt Nga " />
+	<BankVn bankId="PGBank" description="Ngân hàng TMCP Xăng Dầu Petrolimex " />
+	<BankVn bankId="VNCB" description="Ngân hàng TMCP Xây dựng Việt Nam" />
+	<BankVn bankId="NamABank" description="Ngân hàng TMCP Nam Á" />
+	<BankVn bankId="Co-opBank" description="Ngân hàng Hợp tác xã Việt Nam" />
+	<BankVn bankId="GPBank" description="Ngân hàng TMCP Dầu khí Toàn cầu" />
+	<BankVn bankId="DaiABank" description="Ngân hàng TMCP Đại Á" />
+	<BankVn bankId="SCB" description="Ngân hàng TMCP Sài Gòn" />
+	<BankVn bankId="Navibank" description="Ngân hàng TMCP Nam Việt" />
+	<BankVn bankId="VietABank" description="Ngân hàng TMCP Việt Á " />
+	<BankVn bankId="TienPhongBank" description="Ngân hàng TMCP Tiên Phong" />
+	<BankVn bankId="PhuongNamBank" description="Ngân hàng TMCP Phương Nam " />
+	<BankVn bankId="VIBank" description="Ngân hàng TMCP Quốc tế" />
+	<BankVn bankId="VPBank" description="Ngân hàng TMCP Thịnh Vượng " />
+	<BankVn bankId="MB" description="Ngân hàng TMCP Quân đội" />
+	<BankVn bankId="EIB" description="Ngân hàng TMCP Xuất nhập khẩu" />
+	<BankVn bankId="MSB" description="Ngân hàng TMCP Hàng Hải" />
+	<BankVn bankId="HDBank" description="Ngân hàng TMCP Phát triển nhà TP. Hồ Chí Minh" />
+	<BankVn bankId="BaoVietBank" description="Ngân hàng TMCP Bảo Việt " />
+	<BankVn bankId="IVB" description="Ngân hàng TNHH Indo Vina Bank" />
+	<BankVn bankId="SHB" description="Ngân hàng TMCP Sài Gòn Hà Nội " />
+	<BankVn bankId="VIDPublic" description="Ngân hàng Liên doanh VID Public" />
+	<BankVn bankId="Nasbank" description="Ngân hàng TMCP Bắc Á" />
+	<BankVn bankId="OCB" description="Ngân hàng TMCP Phương Đông" />
+	<BankVn bankId="SCVN" description="Ngân hàng TNHH MTV Standard Chartered" />
+	<BankVn bankId="HLBVN" description="Ngân hàng TNHH MTV Hong Leong VN" />
+	<BankVn bankId="LVB" description="Ngân hàng TMCP Liên Việt " />
+	<BankVn bankId="Shinhanvina" description="Ngân hàng TNHH một thành viên Shinhanvina" />
+	<BankVn bankId="VietCapitalBank" description="Ngân hàng TMCP Bản Việt" />
+	<BankVn bankId="Kienlongbank" description="Ngân hàng TMCP Kiên Long" />
+	<BankVn bankId="MDB" description="Ngân hàng TMCP Phát triển Mê Kông" />
+	
+	<BankBrandVn bankBrandId="Agri1" bankId="Agribank" brandName="An Giang"/>
+	<BankBrandVn bankBrandId="Agri2" bankId="Agribank" brandName="Hải Phòng"/>
+	<BankBrandVn bankBrandId="Agri3" bankId="Agribank" brandName="Hà Nội"/>
+	<BankBrandVn bankBrandId="Vietin1" bankId="Vietinbank" brandName="An Giang"/>
+	<BankBrandVn bankBrandId="Vietin2" bankId="Vietinbank" brandName="Hải Phòng"/>
+	<BankBrandVn bankBrandId="Vietin3" bankId="Vietinbank" brandName="Hà Nội"/>
+	<BankBrandVn bankBrandId="MDB1" bankId="MDB" brandName="An Giang"/>
+	<BankBrandVn bankBrandId="MDB2" bankId="MDB" brandName="Hải Phòng"/>
+	<BankBrandVn bankBrandId="MDB3" bankId="MDB" brandName="Hà Nội"/>
+		<!-- /Set up empl_postion for recruiment PG -->
+	
+	<!-- Set up payroll -->
+	<PayrollFormulaType code="COMPLEX" name="Complex" description="Function can use for complex purposes" lastUpdatedStamp="2014-05-20 11:25:42.893" lastUpdatedTxStamp="2014-05-20 11:25:42.875" createdStamp="2014-05-20 11:25:42.893" createdTxStamp="2014-05-20 11:25:42.875"/>
+    <PayrollFormulaType code="LIMITVALUE" name="Limit Value" description="Function with limit value" lastUpdatedStamp="2014-06-03 18:12:40.293" lastUpdatedTxStamp="2014-06-03 18:12:40.261" createdStamp="2014-06-03 18:12:40.293" createdTxStamp="2014-06-03 18:12:40.261"/>
+    <PayrollFormulaType code="NORMAL" name="Normal" description="Function can use parameters and functions" lastUpdatedStamp="2014-05-20 11:25:42.888" lastUpdatedTxStamp="2014-05-20 11:25:42.875" createdStamp="2014-05-20 11:25:42.888" createdTxStamp="2014-05-20 11:25:42.875"/>
+	
+	<PayrollEmplParameterType code="CONST" name="Constant" description="Use when value is constant" lastUpdatedStamp="2014-05-20 11:25:42.88" lastUpdatedTxStamp="2014-05-20 11:25:42.875" createdStamp="2014-05-20 11:25:42.88" createdTxStamp="2014-05-20 11:25:42.875"/>
+    <PayrollEmplParameterType code="CONSTPERCENT" name="Constant" description="Use when value is percent" lastUpdatedStamp="2014-05-30 16:43:50.998" lastUpdatedTxStamp="2014-05-30 16:43:50.967" createdStamp="2014-05-30 16:43:50.998" createdTxStamp="2014-05-30 16:43:50.967"/>
+    <PayrollEmplParameterType code="GENERAL" name="General" description="Rules apply for all employees" lastUpdatedStamp="2014-05-29 14:50:24.886" lastUpdatedTxStamp="2014-05-29 14:50:24.88" createdStamp="2014-05-29 14:50:24.886" createdTxStamp="2014-05-29 14:50:24.88"/>
+    <PayrollEmplParameterType code="REF" name="Reference" description="Use when value is given from other field" lastUpdatedStamp="2014-05-20 11:25:42.884" lastUpdatedTxStamp="2014-05-20 11:25:42.875" createdStamp="2014-05-20 11:25:42.884" createdTxStamp="2014-05-20 11:25:42.875"/>
+	<PayrollEmplParameterType code="INSURANCE_REF" parentTypeId="REF" name="insurance reference" description="Sử dụng cho công thức tính bảo hiểm" lastUpdatedStamp="2014-05-20 11:25:42.884" lastUpdatedTxStamp="2014-05-20 11:25:42.875" createdStamp="2014-05-20 11:25:42.884" createdTxStamp="2014-05-20 11:25:42.875"/>
+	<PayrollEmplParameterType code="QUOTA" description="Định mức"></PayrollEmplParameterType>
+	<!-- <PayrollParameters code="AccDuTra" name="Accident du travail" defaultValue="1.2" type="CONSTPERCENT" actualValue="0" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-06 14:02:05.911" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-06-03 10:39:29.0" createdTxStamp="2014-06-03 10:39:29.0"/>
+    <PayrollParameters code="AGFFTA" name="AGFF TA" defaultValue="2" type="CONSTPERCENT" actualValue="0.8" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-06 14:02:05.904" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-06-03 10:45:05.0" createdTxStamp="2014-06-03 10:45:05.0"/>
+    <PayrollParameters code="AGFFTB" name="AGFF TB" defaultValue="2.2" type="CONSTPERCENT" actualValue="0.9" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-06 14:02:05.905" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-06-03 10:46:22.0" createdTxStamp="2014-06-03 10:46:22.0"/>
+    <PayrollParameters code="AGS" name="A.G.S" defaultValue="0.3" type="CONSTPERCENT" actualValue="0" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-06 14:02:05.907" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-06-03 10:44:45.0" createdTxStamp="2014-06-03 10:44:45.0"/>
+    <PayrollParameters code="AllFam" name="Allocations familiales" defaultValue="5.4" type="CONSTPERCENT" actualValue="0" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-06 14:02:05.912" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-06-03 10:39:59.0" createdTxStamp="2014-06-03 10:39:59.0"/>
+    <PayrollParameters code="APECTA" name="APEC TA" defaultValue="0.06" type="CONSTPERCENT" actualValue="0.024" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-06 14:02:05.908" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-06-03 10:49:41.0" createdTxStamp="2014-06-03 10:49:41.0"/>
+    <PayrollParameters code="APECTB" name="APEC TB" defaultValue="0.06" type="CONSTPERCENT" actualValue="0.024" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-06 14:02:05.909" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-06-03 10:51:06.0" createdTxStamp="2014-06-03 10:51:06.0"/>
+    <PayrollParameters code="AssChoAC" name="Assurance chomage AC" defaultValue="6.4" type="CONSTPERCENT" actualValue="2.4" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-06 14:02:05.913" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-06-03 10:44:24.0" createdTxStamp="2014-06-03 10:44:24.0"/>
+    <PayrollParameters code="AssuranceMaladle" name="Assurance Maladle" defaultValue="13.55" type="CONSTPERCENT" actualValue="0.75" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-06 14:02:05.918" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-06-02 15:30:17.0" createdTxStamp="2014-06-02 15:30:17.0"/>
+    <PayrollParameters code="AssVieiDep" name="Assurance vieillesse d&#233;plafonn&#233;e" defaultValue="1.7" type="CONSTPERCENT" actualValue="0.1" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-06 14:02:05.914" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-06-03 10:36:55.0" createdTxStamp="2014-06-03 10:36:55.0"/>
+    <PayrollParameters code="AssVieilPlafon" name="Assurance vieillesse plafonn&#233;eonn&#233;e" defaultValue="14.95" type="CONSTPERCENT" actualValue="6.65" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-06 14:02:05.916" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-06-03 10:33:30.0" createdTxStamp="2014-06-03 10:33:30.0"/> -->
+    <!-- <PayrollParameters code="BAO_HIEM_THAT_NGHIEP" name="B&#7843;o hi&#7875;m th&#7845;t nghi&#7879;p" defaultValue="1" type="CONSTPERCENT" actualValue="1" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-15 09:32:11.27" lastUpdatedTxStamp="2014-12-15 09:32:11.268" createdStamp="2014-12-15 09:31:27.781" createdTxStamp="2014-12-15 09:31:27.779"/>
+    <PayrollParameters code="BAO_HIEM_XA_HOI" name="B&#7843;o hi&#7875;m x&#227; h&#7897;i" defaultValue="8" type="CONSTPERCENT" actualValue="8" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-15 09:54:06.935" lastUpdatedTxStamp="2014-12-15 09:54:06.933" createdStamp="2014-05-30 16:33:56.0" createdTxStamp="2014-05-30 16:33:56.0"/>
+    <PayrollParameters code="BAO_HIEM_Y_TE" name="B&#7843;o hi&#7875;m y t&#7871;" defaultValue="1.5" type="CONSTPERCENT" actualValue="0" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-15 09:12:49.705" lastUpdatedTxStamp="2014-12-15 09:12:49.699" createdStamp="2014-05-26 16:04:03.0" createdTxStamp="2014-05-26 16:04:03.0"/>
+    <PayrollParameters code="BHTN_CTY" name="B&#7843;o hi&#7875;m th&#7845;t nghi&#7879;p cty tr&#7843;" defaultValue="1" type="CONSTPERCENT" actualValue="1" description="B&#7843;o hi&#7875;m th&#7845;t nghi&#7879;p c&#244;ng ty tr&#7843;" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-15 09:57:29.933" lastUpdatedTxStamp="2014-12-15 09:57:29.932" createdStamp="2014-12-15 09:57:29.933" createdTxStamp="2014-12-15 09:57:29.932"/>
+    <PayrollParameters code="BHXH_CTY" name="B&#7843;o hi&#7875;m x&#227; h&#7897;i c&#244;ng ty" defaultValue="18" type="CONSTPERCENT" actualValue="18" description="B&#7843;o hi&#7875;m x&#227; h&#7897;i c&#244;ng ty ph&#7843;i tr&#7843;" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-15 09:54:25.595" lastUpdatedTxStamp="2014-12-15 09:54:25.593" createdStamp="2014-12-15 09:53:44.322" createdTxStamp="2014-12-15 09:53:44.318"/>
+    <PayrollParameters code="BHYT_CTY" name="b&#7843;o hi&#7875;m y t&#7871; c&#244;ng ty tr&#7843;" defaultValue="3" type="CONSTPERCENT" actualValue="3" description="b&#7843;o hi&#7875;m y t&#7871; c&#244;ng ty tr&#7843;" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-15 09:56:19.87" lastUpdatedTxStamp="2014-12-15 09:56:19.868" createdStamp="2014-12-15 09:56:19.87" createdTxStamp="2014-12-15 09:56:19.868"/> -->
+    
+    <PayrollParameters code="GTGC_BT" name="giam tru ban than" defaultValue="9000000" type="CONST" actualValue="9000000" periodTypeId="NA" lastUpdatedStamp="2014-12-06 14:02:05.956" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-06-03 10:43:32.0" createdTxStamp="2014-06-03 10:43:32.0"/>
+    <PayrollParameters code="GTGC_PT" name="giam tru phu thuoc" defaultValue="3600000" type="CONST" actualValue="3600000" periodTypeId="NA" lastUpdatedStamp="2014-12-06 14:02:05.958" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-06-03 10:43:32.0" createdTxStamp="2014-06-03 10:43:32.0"/>
+    
+    <PayrollParameters code="KINH_PHI_CONG_DOAN" name="kinh ph&#237; c&#244;ng &#273;o&#224;n" defaultValue="1" type="CONSTPERCENT" actualValue="1" description="Kinh ph&#237; c&#244;ng &#273;o&#224;n" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-15 09:32:19.404" lastUpdatedTxStamp="2014-12-15 09:32:19.401" createdStamp="2014-12-15 09:15:03.005" createdTxStamp="2014-12-15 09:15:03.002"/>
+    <PayrollParameters code="KPCD_CTY" name="kinh ph&#237; c&#244;ng &#273;o&#224;n c&#244;ng ty tr&#7843;" defaultValue="1" type="CONSTPERCENT" actualValue="1" description="Kinh ph&#237; c&#244;ng &#273;o&#224;n cty tr&#7843;" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-15 09:59:34.135" lastUpdatedTxStamp="2014-12-15 09:59:34.133" createdStamp="2014-12-15 09:59:34.135" createdTxStamp="2014-12-15 09:59:34.133"/>
+	    
+    <PayrollParameters code="PHU_CAP_AN_TRUA" type="CONST" actualValue="0" name="Ph&#7909; c&#7845;p &#259;n tr&#432;a" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-06 14:02:05.967" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-05-30 12:16:07.0" createdTxStamp="2014-05-30 12:16:07.0"/>
+    <PayrollParameters code="PHU_CAP_CHUC_VU" type="CONST" actualValue="0" name="Ph&#7909; c&#7845;p ch&#7913;c v&#7909;" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-06 14:02:05.968" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-05-27 16:06:52.0" createdTxStamp="2014-05-27 16:06:52.0"/>
+    <!-- <PayrollParameters code="SALARY_BASE_FLAT" name="Salary base flat" defaultValue="2946" type="CONST" actualValue="2946" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-06 14:02:05.972" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-06-03 15:12:33.0" createdTxStamp="2014-06-03 15:12:33.0"/> -->
+    <PayrollParameters code="SO_NGUOI_PHU_THUOC" name="so nguoi phu thuoc" defaultValue="0" type="CONST" actualValue="0" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-06 14:02:05.973" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-06-03 10:43:32.0" createdTxStamp="2014-06-03 10:43:32.0"/>
+    
+    <PayrollParameters code="THUE_THU_NHAP" name="Thu&#7871; thu nh&#7853;p c&#225; nh&#226;n" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-06 14:02:05.975" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-05-29 14:29:03.0" createdTxStamp="2014-05-29 14:29:03.0"/>
+    <PayrollParameters code="TRO_CAP_DI_LAI" type="CONST" actualValue="0" name="Tr&#7907; c&#7845;p &#273;i l&#7841;i" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-06 14:02:05.976" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-05-26 09:07:52.0" createdTxStamp="2014-05-26 09:07:52.0"/>
+    <!-- <PayrollParameters code="VerTran" name="Verserment transport" defaultValue="1.75" type="CONST" actualValue="0" periodTypeId="MONTHLY" lastUpdatedStamp="2014-12-06 14:02:05.98" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-06-03 10:43:32.0" createdTxStamp="2014-06-03 10:43:32.0"/> -->
+	
+	<PayrollParameters code="NGAY_CONG_THUC_TE" name="Ngày công thực tế" periodTypeId="NA" type="REF" description="Ngày công thực tế"></PayrollParameters>
+	<PayrollParameters code="NGAY_CONG_CHUAN" name="Ngày công chuẩn" periodTypeId="NA" type="REF" description="Ngày công chuẩn"></PayrollParameters>
+	<PayrollParameters code="LUONG_CO_BAN" name="Lương cơ bản" periodTypeId="NA" type="REF" description="Lương cơ bản" lastUpdatedStamp="2014-12-06 14:02:05.966" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-05-20 12:18:32.0" createdTxStamp="2014-05-20 12:18:32.0"/>
+	<PayrollParameters code="MUC_LUONG_DONG_BH" name="mức lương đóng bảo hiểm" type="REF"></PayrollParameters>
+	<PayrollParameters code="LAM_THEM_NGAY_THUONG" name="Số giờ làm thêm ngày thường" type="REF" periodTypeId="NA"></PayrollParameters>
+	<PayrollParameters code="LAM_THEM_NGAY_NGHI" name="Số giờ làm thêm ngày nghỉ" type="REF" periodTypeId="NA"></PayrollParameters>
+	<PayrollParameters code="LAM_THEM_NGAY_LE" name="Số giờ làm thêm ngày lễ" type="REF" periodTypeId="NA"></PayrollParameters>
+	<PayrollParameters code="BHXH" name="BHXH" type="INSURANCE_REF" />
+	<PayrollParameters code="BHYT" name="BHYT" type="INSURANCE_REF" />
+	<PayrollParameters code="BHTN" name="BHTN" type="INSURANCE_REF" />
+	<!-- <PayrollEmplParameterType code="NOT_MODIFIED" description="Not modifier directory"></PayrollEmplParameterType> -->	
+	
+	<TaxAuthorityRatePayroll taxAuthorityRateSeqId="10000" taxAuthGeoId="AHUST" taxAuthPartyId="10010" name="M&#7913;c 1" fromValue="800" thruValue="1000" taxPercentage="12.5" lastUpdatedStamp="2014-05-30 11:24:11.436" lastUpdatedTxStamp="2014-05-30 11:24:11.42" createdStamp="2014-05-28 22:16:33.937" createdTxStamp="2014-05-28 22:16:33.845"/>
+    <TaxAuthorityRatePayroll taxAuthorityRateSeqId="10010" taxAuthGeoId="AHUST" taxAuthPartyId="10010" name="M&#7913;c 2" fromValue="10001" thruValue="2000" taxPercentage="25" lastUpdatedStamp="2014-05-29 14:24:57.598" lastUpdatedTxStamp="2014-05-29 14:24:57.559" createdStamp="2014-05-29 12:16:53.939" createdTxStamp="2014-05-29 12:16:53.876"/>
+    <TaxAuthorityRatePayroll taxAuthorityRateSeqId="10020" taxAuthGeoId="AHUST" taxAuthPartyId="10010" name="M&#7913;c 3" fromValue="2001" taxPercentage="35" lastUpdatedStamp="2014-05-29 14:26:29.55" lastUpdatedTxStamp="2014-05-29 14:26:29.509" createdStamp="2014-05-29 12:24:46.503" createdTxStamp="2014-05-29 12:24:46.066"/>
+	
+	<PayrollFormula code="MUC_LUONG_DONG_BH" name="Mức lương đóng bảo hiểm" function="MUC_LUONG_DONG_BH" functionType="NORMAL"></PayrollFormula>    
+    <PayrollFormula code="CAC_KHOAN_GIAM_TRU" name="c&#225;c kho&#7843;n gi&#7843;m tr&#7915;" function="GTGC_BT+GTGC_PT*SO_NGUOI_PHU_THUOC+BHYT()+BHXH()+TU_THIEN" functionType="NORMAL" lastUpdatedStamp="2014-12-06 14:02:05.865" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-05-30 11:35:43.0" createdTxStamp="2014-05-30 11:35:43.0"/>
+    <PayrollFormula code="BHYT" name="Bảo hiểm y tế" function="BHYT*MUC_LUONG_DONG_BH()" functionType="NORMAL"></PayrollFormula>
+    <PayrollFormula code="BHXH" name="Bảo hiểm xã hội" function="BHXH*MUC_LUONG_DONG_BH()" functionType="NORMAL"></PayrollFormula>
+    <PayrollFormula code="BHTN" name="Bảo hiểm thất nghiệp" function="BHTN*MUC_LUONG_DONG_BH()" functionType="NORMAL"></PayrollFormula>
+    
+    <PayrollFormula code="KINH_PHI_CONG_DOAN" name="kinh ph&#237; c&#244;ng &#273;o&#224;n" function="KINH_PHI_CONG_DOAN*LUONG_CO_BAN()" functionType="NORMAL" lastUpdatedStamp="2014-12-15 09:48:41.134" lastUpdatedTxStamp="2014-12-15 09:48:41.132" createdStamp="2014-12-15 09:48:41.134" createdTxStamp="2014-12-15 09:48:41.132"/>
+    <PayrollFormula code="KPCD_CTY" name="kinh ph&#237; c&#244;ng &#273;o&#224;n c&#244;ng ty tr&#7843;"  function="KPCD_CTY*LUONG_CO_BAN()" functionType="NORMAL" description="Kinh ph&#237; c&#244;ng &#273;o&#224;n c&#244;ng ty tr&#7843;" lastUpdatedStamp="2014-12-15 10:03:49.458" lastUpdatedTxStamp="2014-12-15 10:03:49.455" createdStamp="2014-12-15 10:03:49.458" createdTxStamp="2014-12-15 10:03:49.455"/>
+    <PayrollFormula code="LUONG" name="L&#432;&#417;ng cu&#7889;i c&#249;ng"  function="LUONG_CO_BAN() - THUE_THU_NHAP() - BHXH() - BHYT() - BHTN() - KINH_PHI_CONG_DOAN() - KPCD_CTY()" functionType="NORMAL" lastUpdatedStamp="2014-12-12 14:16:06.54" lastUpdatedTxStamp="2014-12-12 14:16:06.536" createdStamp="2014-05-29 14:35:45.0" createdTxStamp="2014-05-29 14:35:45.0"/>
+    <PayrollFormula code="LUONG_CHIU_THUE" name="L&#432;&#417;ng ch&#7883;u thu&#7871; thu nh&#7853;p c&#225; nh&#226;n" function="0" functionType="NORMAL" lastUpdatedStamp="2014-12-06 14:02:05.896" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-05-29 14:31:24.0" createdTxStamp="2014-05-29 14:31:24.0"/>
+    <PayrollFormula code="LUONG_CO_BAN" name="L&#432;&#417;ng c&#417; b&#7843;n"  function="LUONG_CO_BAN" functionType="NORMAL" lastUpdatedStamp="2014-12-12 09:26:22.958" lastUpdatedTxStamp="2014-12-12 09:26:22.956" createdStamp="2014-05-20 12:08:41.0" createdTxStamp="2014-05-20 12:08:41.0"/>
+    <PayrollFormula code="LUONG_SAU_THUE" name="L&#432;&#417;ng sau thu&#7871;" function="0" functionType="NORMAL" lastUpdatedStamp="2014-12-06 14:02:05.899" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-05-29 16:20:43.0" createdTxStamp="2014-05-29 16:20:43.0"/>
+    <PayrollFormula code="THUE_THU_NHAP" name="Thu&#7871; thu nh&#7853;p c&#225; nh&#226;n" function="THU_NHAP_TINH_THUE()*THUE_SUAT" functionType="NORMAL" lastUpdatedStamp="2014-12-11 15:44:10.564" lastUpdatedTxStamp="2014-12-11 15:44:10.559" createdStamp="2014-05-30 11:35:43.0" createdTxStamp="2014-05-30 11:35:43.0"/>
+    <PayrollFormula code="THU_NHAP_CHIU_THUE" name="thu nh&#7853;p chiu thue thu nhap c&#225; nh&#226;n" function="LUONG_CO_BAN()" functionType="NORMAL" lastUpdatedStamp="2014-12-06 14:02:05.901" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-05-30 11:35:43.0" createdTxStamp="2014-05-30 11:35:43.0"/>
+    <PayrollFormula code="THU_NHAP_TINH_THUE" name="thu nh&#7853;p t&#237;nh thu&#7871; thu nh&#7853;p c&#225; nh&#226;n" function="THU_NHAP_CHIU_THUE() - CAC_KHOAN_GIAM_TRU()" functionType="NORMAL" lastUpdatedStamp="2014-12-06 14:02:05.903" lastUpdatedTxStamp="2014-12-06 14:02:02.435" createdStamp="2014-05-30 11:35:43.0" createdTxStamp="2014-05-30 11:35:43.0"/>					
+	
+	<PartyPayrollFormulaInvoiceItemType partyId="DAC" invoiceItemTypeId="PAYROL_SALARY_GENADM" code="LUONG" fromDate="2015-03-10 00:00:00.000" lastUpdatedStamp="2015-03-10 15:27:09.906" lastUpdatedTxStamp="2015-03-10 15:27:09.825" createdStamp="2015-03-10 15:27:09.906" createdTxStamp="2015-03-10 15:27:09.825"/>
+    <PartyPayrollFormulaInvoiceItemType partyId="DDR" invoiceItemTypeId="PAYROL_SALARY_GENADM" code="LUONG" fromDate="2015-03-10 00:00:00.000" lastUpdatedStamp="2015-03-10 15:27:09.907" lastUpdatedTxStamp="2015-03-10 15:27:09.825" createdStamp="2015-03-10 15:27:09.907" createdTxStamp="2015-03-10 15:27:09.825"/>
+    <PartyPayrollFormulaInvoiceItemType partyId="DHR" invoiceItemTypeId="PAYROL_SALARY_GENADM" code="LUONG" fromDate="2015-03-10 00:00:00.000" lastUpdatedStamp="2015-03-10 15:27:09.852" lastUpdatedTxStamp="2015-03-10 15:27:09.825" createdStamp="2015-03-10 15:27:09.852" createdTxStamp="2015-03-10 15:27:09.825"/>
+    <PartyPayrollFormulaInvoiceItemType partyId="DLG" invoiceItemTypeId="PAYROL_SALARY_GENADM" code="LUONG" fromDate="2015-03-10 00:00:00.000" lastUpdatedStamp="2015-03-10 15:27:09.908" lastUpdatedTxStamp="2015-03-10 15:27:09.825" createdStamp="2015-03-10 15:27:09.908" createdTxStamp="2015-03-10 15:27:09.825"/>
+    <PartyPayrollFormulaInvoiceItemType partyId="DMT" invoiceItemTypeId="PAYROL_SALARY_SALE" code="LUONG" fromDate="2015-03-10 00:00:00.000" lastUpdatedStamp="2015-03-10 15:27:50.826" lastUpdatedTxStamp="2015-03-10 15:27:50.824" createdStamp="2015-03-10 15:27:50.826" createdTxStamp="2015-03-10 15:27:50.824"/>
+    <PartyPayrollFormulaInvoiceItemType partyId="DSA" invoiceItemTypeId="PAYROL_SALARY_SALE" code="LUONG" fromDate="2015-03-10 00:00:00.000" lastUpdatedStamp="2015-03-10 15:27:50.825" lastUpdatedTxStamp="2015-03-10 15:27:50.824" createdStamp="2015-03-10 15:27:50.825" createdTxStamp="2015-03-10 15:27:50.824"/>
+				 
+	<!-- /Set up payroll -->
+	
+	<!-- Setup geoId for district, ward -->
+	<GeoType geoTypeId="DISTRICT"  hasTable="N" description="District"/>
+	<GeoType geoTypeId="WARD"  hasTable="N" description="Ward"/>
+	
+	<Geo abbreviation="VNM" geoCode="VN" geoId="VNM" geoName="Việt Nam" geoTypeId="COUNTRY" codeNumber="84" />
+
+	<Geo abbreviation="VN-HN" geoCode="VN-HN" geoId="VN-HN" geoName="Hà Nội" geoTypeId="PROVINCE" codeNumber="4"/>
+	<Geo abbreviation="VN-HCM" geoCode="VN-HCM" geoId="VN-HCM" geoName="TP Hồ Chí Minh" geoTypeId="PROVINCE" codeNumber="8"/>
+	<Geo abbreviation="VN-AG" geoCode="VN-AG" geoId="VN-AG" geoName="An Giang" geoTypeId="PROVINCE" codeNumber="76"/>
+	<Geo abbreviation="VN-BC" geoCode="VN-BC" geoId="VN-BC" geoName="Bắc Cạn" geoTypeId="PROVINCE" codeNumber="281"/>
+	<Geo abbreviation="VN-BD" geoCode="VN-BD" geoId="VN-BD" geoName="Bình Dương" geoTypeId="PROVINCE" codeNumber="65"/>
+	<Geo abbreviation="VN-BĐ" geoCode="VN-BĐ" geoId="VN-BĐ" geoName="Bình Định" geoTypeId="PROVINCE" codeNumber="56"/>
+	<Geo abbreviation="VN-BG" geoCode="VN-BG" geoId="VN-BG" geoName="Bắc Giang" geoTypeId="PROVINCE" codeNumber="240"/>
+	<Geo abbreviation="VN-BL" geoCode="VN-BL" geoId="VN-BL" geoName="Bạc Liêu" geoTypeId="PROVINCE" codeNumber="781"/>
+	<Geo abbreviation="VN-BN" geoCode="VN-BN" geoId="VN-BN" geoName="Bắc Ninh" geoTypeId="PROVINCE" codeNumber="241"/>
+	<Geo abbreviation="VN-BP" geoCode="VN-BP" geoId="VN-BP" geoName="Bình Ph­ước" geoTypeId="PROVINCE" codeNumber="651"/>
+	<Geo abbreviation="VN-BT" geoCode="VN-BT" geoId="VN-BT" geoName="Bến Tre" geoTypeId="PROVINCE" codeNumber="62"/>
+	<Geo abbreviation="VN-BTh" geoCode="VN-BTh" geoId="VN-BTh" geoName="Bình Thuận" geoTypeId="PROVINCE" codeNumber="62"/>
+	<Geo abbreviation="VN-BV" geoCode="VN-BV" geoId="VN-BV" geoName="Bà Rịa – Vũng Tàu" geoTypeId="PROVINCE" codeNumber="64"/>
+	<Geo abbreviation="VN-CB" geoCode="VN-CB" geoId="VN-CB" geoName="Cao Bằng" geoTypeId="PROVINCE" codeNumber="26"/>
+	<Geo abbreviation="VN-CM" geoCode="VN-CM" geoId="VN-CM" geoName="Cà Mau" geoTypeId="PROVINCE" codeNumber="780"/>
+	<Geo abbreviation="VN-CT" geoCode="VN-CT" geoId="VN-CT" geoName="Cần Thơ" geoTypeId="PROVINCE" codeNumber="71"/>
+	<Geo abbreviation="VN-ĐNa" geoCode="VN-ĐNa" geoId="VN-ĐNa" geoName="Đà Nẵng" geoTypeId="PROVINCE" codeNumber="51"/>
+	<Geo abbreviation="VN-ĐL" geoCode="VN-ĐL" geoId="VN-ĐL" geoName="Đắc Lắc" geoTypeId="PROVINCE" codeNumber="50"/>
+	<Geo abbreviation="VN-ĐNô" geoCode="VN-ĐNô" geoId="VN-ĐNô" geoName="Đắc Nông" geoTypeId="PROVINCE"/>
+	<Geo abbreviation="VN-ĐB" geoCode="VN-ĐB" geoId="VN-ĐB" geoName="Điện Biên" geoTypeId="PROVINCE"/>
+	<Geo abbreviation="VN-ĐN" geoCode="VN-ĐN" geoId="VN-ĐN" geoName="Đồng Nai" geoTypeId="PROVINCE" codeNumber="61"/>
+	<Geo abbreviation="VN-ĐT" geoCode="VN-ĐT" geoId="VN-ĐT" geoName="Đồng Tháp" geoTypeId="PROVINCE" codeNumber="67"/>
+	<Geo abbreviation="VN-GL" geoCode="VN-GL" geoId="VN-GL" geoName="Gia Lai" geoTypeId="PROVINCE" codeNumber="59"/>
+	<Geo abbreviation="VN-HG" geoCode="VN-HG" geoId="VN-HG" geoName="Hà Giang" geoTypeId="PROVINCE" codeNumber="19"/>
+	<Geo abbreviation="VN-HNa" geoCode="VN-HNa" geoId="VN-HNa" geoName="Hà Nam" geoTypeId="PROVINCE" codeNumber="351"/>
+	<Geo abbreviation="VN-HT" geoCode="VN-HT" geoId="VN-HT" geoName="Hà Tĩnh" geoTypeId="PROVINCE" codeNumber="39"/>
+	<Geo abbreviation="VN-HD" geoCode="VN-HD" geoId="VN-HD" geoName="Hải Dương" geoTypeId="PROVINCE" codeNumber="320"/>
+	<Geo abbreviation="VN-HP" geoCode="VN-HP" geoId="VN-HP" geoName="Hải Phòng" geoTypeId="PROVINCE" codeNumber="31"/>
+	<Geo abbreviation="VN-HGi" geoCode="VN-HGi" geoId="VN-HGi" geoName="Hậu Giang" geoTypeId="PROVINCE"/>
+	<Geo abbreviation="VN-HB" geoCode="VN-HB" geoId="VN-HB" geoName="Hoà Bình" geoTypeId="PROVINCE" codeNumber="18"/>
+	<Geo abbreviation="VN-HY" geoCode="VN-HY" geoId="VN-HY" geoName="Hưng Yên" geoTypeId="PROVINCE" codeNumber="321"/>
+	<Geo abbreviation="VN-KG" geoCode="VN-KG" geoId="VN-KG" geoName="Kiên Giang" geoTypeId="PROVINCE" codeNumber="77"/>
+	<Geo abbreviation="VN-KH" geoCode="VN-KH" geoId="VN-KH" geoName="Khánh Hoà" geoTypeId="PROVINCE" codeNumber="58"/>
+	<Geo abbreviation="VN-KT" geoCode="VN-KT" geoId="VN-KT" geoName="Kon Tum" geoTypeId="PROVINCE" codeNumber="60"/>
+	<Geo abbreviation="VN-LC" geoCode="VN-LC" geoId="VN-LC" geoName="Lai Châu" geoTypeId="PROVINCE" codeNumber="23"/>
+	<Geo abbreviation="VN-LĐ" geoCode="VN-LĐ" geoId="VN-LĐ" geoName="Lâm Đồng" geoTypeId="PROVINCE" codeNumber="63"/>
+	<Geo abbreviation="VN-LS" geoCode="VN-LS" geoId="VN-LS" geoName="Lạng Sơn" geoTypeId="PROVINCE" codeNumber="25"/>
+	<Geo abbreviation="VN-LCa" geoCode="VN-LCa" geoId="VN-LCa" geoName="Lào Cai" geoTypeId="PROVINCE" codeNumber="20"/>
+	<Geo abbreviation="VN-LA" geoCode="VN-LA" geoId="VN-LA" geoName="Long An" geoTypeId="PROVINCE" codeNumber="72"/>
+	<Geo abbreviation="VN-NĐ" geoCode="VN-NĐ" geoId="VN-NĐ" geoName="Nam Định" geoTypeId="PROVINCE" codeNumber="350"/>
+	<Geo abbreviation="VN-NA" geoCode="VN-NA" geoId="VN-NA" geoName="Nghệ An" geoTypeId="PROVINCE" codeNumber="38"/>
+	<Geo abbreviation="VN-NB" geoCode="VN-NB" geoId="VN-NB" geoName="Ninh Bình" geoTypeId="PROVINCE" codeNumber="30"/>
+	<Geo abbreviation="VN-NT" geoCode="VN-NT" geoId="VN-NT" geoName="Ninh Thuận" geoTypeId="PROVINCE" codeNumber="68"/>
+	<Geo abbreviation="VN-PT" geoCode="VN-PT" geoId="VN-PT" geoName="Phú Thọ" geoTypeId="PROVINCE" codeNumber="210"/>
+	<Geo abbreviation="VN-PY" geoCode="VN-PY" geoId="VN-PY" geoName="Phú Yên" geoTypeId="PROVINCE" codeNumber="57"/>
+	<Geo abbreviation="VN-QB" geoCode="VN-QB" geoId="VN-QB" geoName="Quảng Bình" geoTypeId="PROVINCE" codeNumber="52"/>
+	<Geo abbreviation="VN-QNa" geoCode="VN-QNa" geoId="VN-QNa" geoName="Quảng Nam" geoTypeId="PROVINCE" codeNumber="510"/>
+	<Geo abbreviation="VN-QNg" geoCode="VN-QNg" geoId="VN-QNg" geoName="Quảng Ngãi" geoTypeId="PROVINCE" codeNumber="55"/>
+	<Geo abbreviation="VN-QN" geoCode="VN-QN" geoId="VN-QN" geoName="Quảng Ninh" geoTypeId="PROVINCE" codeNumber="33"/>
+	<Geo abbreviation="VN-QT" geoCode="VN-QT" geoId="VN-QT" geoName="Quảng Trị" geoTypeId="PROVINCE" codeNumber="53"/>
+	<Geo abbreviation="VN-SL" geoCode="VN-SL" geoId="VN-SL" geoName="Sơn La" geoTypeId="PROVINCE" codeNumber="22"/>
+	<Geo abbreviation="VN-ST" geoCode="VN-ST" geoId="VN-ST" geoName="Sóc Trăng" geoTypeId="PROVINCE" codeNumber="79"/>
+	<Geo abbreviation="VN-TN" geoCode="VN-TN" geoId="VN-TN" geoName="Tây Ninh" geoTypeId="PROVINCE" codeNumber="66"/>
+	<Geo abbreviation="VN-TB" geoCode="VN-TB" geoId="VN-TB" geoName="Thái Bình" geoTypeId="PROVINCE" codeNumber="36"/>
+	<Geo abbreviation="VN-TNg" geoCode="VN-TNg" geoId="VN-TNg" geoName="Thái Nguyên" geoTypeId="PROVINCE" codeNumber="280"/>
+	<Geo abbreviation="VN-TH" geoCode="VN-TH" geoId="VN-TH" geoName="Thanh Hoá" geoTypeId="PROVINCE" codeNumber="37"/>
+	<Geo abbreviation="VN-TTH" geoCode="VN-TTH" geoId="VN-TTH" geoName="Thừa Thiên Huế" geoTypeId="PROVINCE" codeNumber="54"/>
+	<Geo abbreviation="VN-TG" geoCode="VN-TG" geoId="VN-TG" geoName="Tiền Giang" geoTypeId="PROVINCE" codeNumber="73"/>
+	<Geo abbreviation="VN-TQ" geoCode="VN-TQ" geoId="VN-TQ" geoName="Tuyên Quang" geoTypeId="PROVINCE" codeNumber="27"/>
+	<Geo abbreviation="VN-TV" geoCode="VN-TV" geoId="VN-TV" geoName="Trà Vinh" geoTypeId="PROVINCE" codeNumber="74"/>
+	<Geo abbreviation="VN-VL" geoCode="VN-VL" geoId="VN-VL" geoName="Vĩnh Long" geoTypeId="PROVINCE" codeNumber="70"/>
+	<Geo abbreviation="VN-VP" geoCode="VN-VP" geoId="VN-VP" geoName="Vĩnh Phúc" geoTypeId="PROVINCE" codeNumber="211"/>
+	<Geo abbreviation="VN-YB" geoCode="VN-YB" geoId="VN-YB" geoName="Yên Bái" geoTypeId="PROVINCE" codeNumber="29"/>
+    
+    <Geo abbreviation="HN-BD" geoCode="HN-BD" geoId="HN-BD" geoName="Ba Đình" geoTypeId="DISTRICT"/>
+    <Geo abbreviation="HN-HK" geoCode="HN-HK" geoId="HN-HK" geoName="Hoàn Kiếm" geoTypeId="DISTRICT"/>
+    <Geo abbreviation="HN-TH" geoCode="HN-TH" geoId="HN-TH" geoName="Tây Hồ" geoTypeId="DISTRICT"/>
+    <Geo abbreviation="HN-CG" geoCode="HN-CG" geoId="HN-CG" geoName="Cầu Giấy" geoTypeId="DISTRICT"/>
+
+    <Geo abbreviation="HN-BD-00001" geoCode="HN-BD-00001" geoId="HN-BD-00001" geoName="Phúc Xá" geoTypeId="WARD"/>
+    <Geo abbreviation="HN-BD-00013" geoCode="HN-BD-00013" geoId="HN-BD-00013" geoName="Quán Thánh" geoTypeId="WARD"/>
+    <Geo abbreviation="HN-BD-00016" geoCode="HN-BD-00016" geoId="HN-BD-00016" geoName="Ngọc Hà" geoTypeId="WARD"/>
+
+ 	<Geo abbreviation="HN-CG-00157" geoCode="HN-CG-00157" geoId="HN-CG-00157" geoName="Nghĩa Đô" geoTypeId="WARD"/>
+    <Geo abbreviation="HN-CG-00160" geoCode="HN-CG-00160" geoId="HN-CG-00160" geoName="Ngĩa Tân" geoTypeId="WARD"/>
+    <Geo abbreviation="HN-CG-00172" geoCode="HN-CG-00172" geoId="HN-CG-00172" geoName="Yên Hòa" geoTypeId="WARD"/>
+    <Geo abbreviation="HN-CG-169" geoCode="HN-CG-169" geoId="HN-CG-169" geoName="Quan Hoa" geoTypeId="WARD"/>
+
+    <Geo abbreviation="HP-AL" geoCode="HP-AL" geoId="HP-AL" geoName="An Lão" geoTypeId="DISTRICT"/>
+    <Geo abbreviation="HP-KA" geoCode="HP-KA" geoId="HP-KA" geoName="Kiến An" geoTypeId="DISTRICT"/>
+    <Geo abbreviation="HP-HB" geoCode="HP-HB" geoId="HP-HB" geoName="Hồng Bàng" geoTypeId="DISTRICT"/>
+
+  	<Geo abbreviation="HP-AL-11638" geoCode="HP-AL-11638" geoId="HP-AL-11638" geoName=" Trường Thành" geoTypeId="WARD"/>
+  	<Geo abbreviation="HP-AL-11635" geoCode="HP-AL-11635" geoId="HP-AL-11635" geoName=" Trường Thọ" geoTypeId="WARD"/>
+ 	<Geo abbreviation="HP-HB-11326" geoCode="HP-HB-11326" geoId="HP-HB-11326" geoName="Phạm Hồng Thái" geoTypeId="WARD"/>
+ 	<Geo abbreviation="HP-HB-11329" geoCode="HP-HB-11329" geoId="HP-HB-11329" geoName="Máy Chai" geoTypeId="WARD"/>
+
+ 	<Geo abbreviation="HP-KA-11431" geoCode="HP-KA-11431" geoId="HP-KA-11431" geoName="Đồng Hòa" geoTypeId="WARD"/>
+ 	<Geo abbreviation="HP-KA-11434" geoCode="HP-KA-11434" geoId="HP-KA-11434" geoName="Bắc Sơn" geoTypeId="WARD"/>
+
+	<Geo abbreviation="HCM-GV" geoCode="HCM-GV" geoId="HCM-GV" geoName="Gò Vấp" geoTypeId="DISTRICT"/>
+	<Geo abbreviation="HCM-BT" geoCode="HCM-BT" geoId="HCM-BT" geoName="Bình Thạnh" geoTypeId="DISTRICT"/>
+
+	<Geo abbreviation="HCM-BT-26905" geoCode="HCM-BT-26905" geoId="HCM-BT-26905" geoName="Phường 13" geoTypeId="WARD"/>
+	<Geo abbreviation="HCM-BT-26908" geoCode="HCM-BT-26908" geoId="HCM-BT-26908" geoName="Phường 11" geoTypeId="WARD"/>
+	<Geo abbreviation="HCM-GV-26869" geoCode="HCM-GV-26869" geoId="HCM-GV-26869" geoName="Phường 15" geoTypeId="WARD"/>
+	<Geo abbreviation="HCM-GV-26872" geoCode="HCM-GV-26872" geoId="HCM-GV-26872" geoName="Phường 13" geoTypeId="WARD"/>
+
+ 	<GeoAssoc geoIdTo="HN-BD" geoId="VN-HN" geoAssocTypeId="REGIONS"/>
+ 	<GeoAssoc geoIdTo="HN-CG" geoId="VN-HN" geoAssocTypeId="REGIONS"/>
+ 	<GeoAssoc geoIdTo="HN-TH" geoId="VN-HN" geoAssocTypeId="REGIONS"/>
+ 	<GeoAssoc geoIdTo="HN-HK" geoId="VN-HN" geoAssocTypeId="REGIONS"/>
+  	<GeoAssoc geoIdTo="HN-BD-00001" geoId="HN-BD" geoAssocTypeId="REGIONS"/>
+  	<GeoAssoc geoIdTo="HN-BD-00013" geoId="HN-BD" geoAssocTypeId="REGIONS"/>
+  	<GeoAssoc geoIdTo="HN-BD-00016" geoId="HN-BD" geoAssocTypeId="REGIONS"/>
+  	<GeoAssoc geoIdTo="HN-CG-169" geoId="HN-CG" geoAssocTypeId="REGIONS"/>
+  	<GeoAssoc geoIdTo="HN-CG-00172" geoId="HN-CG" geoAssocTypeId="REGIONS"/>
+  	<GeoAssoc geoIdTo="HN-CG-00160" geoId="HN-CG" geoAssocTypeId="REGIONS"/>
+  	<GeoAssoc geoIdTo="HN-CG-00157" geoId="HN-CG" geoAssocTypeId="REGIONS"/>
+ 	<GeoAssoc geoIdTo="HCM-BT" geoId="VN-HCM" geoAssocTypeId="REGIONS"/>           
+ 	<GeoAssoc geoIdTo="HCM-GV" geoId="VN-HCM" geoAssocTypeId="REGIONS"/>  
+ 	<GeoAssoc geoIdTo="HCM-BT-26908" geoId="HCM-BT" geoAssocTypeId="REGIONS"/> 
+ 	<GeoAssoc geoIdTo="HCM-BT-26905" geoId="HCM-BT" geoAssocTypeId="REGIONS"/> 
+ 	<GeoAssoc geoIdTo="HCM-GV-26872" geoId="HCM-GV" geoAssocTypeId="REGIONS"/> 
+ 	<GeoAssoc geoIdTo="HCM-GV-26869" geoId="HCM-GV" geoAssocTypeId="REGIONS"/> 
+ 	<GeoAssoc geoIdTo="HP-HB" geoId="VN-HP" geoAssocTypeId="REGIONS"/> 
+ 	<GeoAssoc geoIdTo="HP-AL" geoId="VN-HP" geoAssocTypeId="REGIONS"/> 
+ 	<GeoAssoc geoIdTo="HP-KA" geoId="VN-HP" geoAssocTypeId="REGIONS"/> 
+ 	<GeoAssoc geoIdTo="HP-KA-11434" geoId="HP-KA" geoAssocTypeId="REGIONS"/>
+ 	<GeoAssoc geoIdTo="HP-KA-11431" geoId="HP-KA" geoAssocTypeId="REGIONS"/>
+ 	<GeoAssoc geoIdTo="HP-AL-11635" geoId="HP-AL" geoAssocTypeId="REGIONS"/>
+ 	<GeoAssoc geoIdTo="HP-AL-11638" geoId="HP-AL" geoAssocTypeId="REGIONS"/>
+ 	<GeoAssoc geoIdTo="HP-HB-11329" geoId="HP-HB" geoAssocTypeId="REGIONS"/>
+ 	<GeoAssoc geoIdTo="HP-HB-11326" geoId="HP-HB" geoAssocTypeId="REGIONS"/>
+
+    <GeoAssoc geoIdTo="VN-HN" geoId="VNM" geoAssocTypeId="REGIONS"/>
+    <GeoAssoc geoIdTo="VN-HCM" geoId="VNM" geoAssocTypeId="REGIONS"/>           
+	<GeoAssoc geoIdTo="VN-AG" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-BC" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-BD" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-BĐ" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-BG" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-BL" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-BN" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-BP" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-BT" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-BTh" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-BV" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-CB" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-CM" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-CT" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-ĐNa" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-ĐL" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-ĐNô" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-ĐB" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-ĐN" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-ĐT" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-GL" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-HG" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-HNa" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-HT" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-HD" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-HP" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-HGi" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-HB" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-HY" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-KG" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-KH" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-KT" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-LC" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-LĐ" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-LS" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-LCa" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-LA" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-NĐ" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-NA" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-NB" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-NT" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-PT" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-PY" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-QB" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-QNa" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-QNg" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-QN" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-QT" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-SL" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-ST" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-TN" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-TB" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-TNg" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-TH" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-TTH" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-TG" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-TQ" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-TV" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-VL" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-VP" geoId="VNM" geoAssocTypeId="REGIONS"/>
+	<GeoAssoc geoIdTo="VN-YB" geoId="VNM" geoAssocTypeId="REGIONS"/>
+
+	<CountryAddressFormat geoId="VNM" geoAssocTypeId="REGIONS" requireStateProvinceId="" requirePostalCode="" postalCodeRegex="" hasPostalCodeExt="" requirePostalCodeExt="" addressFormat=""/>
+	<!-- end Setup geoId for district, ward -->
+	
+	<ContactMechPurposeType contactMechPurposeTypeId="CURRENT_RESIDENCE" description="Current Residence"/> 
+	<ContactMechPurposeType contactMechPurposeTypeId="PERMANENT_RESIDENCE" description="Permanent Residence"/>
+	<ContactMechPurposeType contactMechPurposeTypeId="PERSONAL_EMAIL" description="personal email"/>
+	
+	<ContactMechTypePurpose contactMechTypeId="EMAIL_ADDRESS" contactMechPurposeTypeId="PERSONAL_EMAIL"/>
+	<ContactMechTypePurpose contactMechTypeId="POSTAL_ADDRESS" contactMechPurposeTypeId="CURRENT_RESIDENCE"/>
+	<ContactMechTypePurpose contactMechTypeId="POSTAL_ADDRESS" contactMechPurposeTypeId="PERMANENT_RESIDENCE"/>
+
+	<RoleType roleTypeId="DELYS_CSM_GT" description="Giám đốc bán hàng kênh GT"/>
+	<RoleType roleTypeId="DELYS_RSM_GT" description="Giám đốc bán hàng vùng thuộc kênh GT"/>
+	<RoleType roleTypeId="DELYS_CUSTOMER_GT" description="Khách hàng kênh GT"/>
+	<RoleType roleTypeId="DELYS_ROUTE" description="Tuyến đường"/>
+	<RoleType roleTypeId="DELYS_SALESSUP_GT" description="Giám sát bán hàng kênh GT"/>
+	<RoleType roleTypeId="DELYS_ASM_GT" description="Giám đốc kinh doanh miền kênh GT"/>
+	<RoleType roleTypeId="DELYS_DISTRIBUTOR" description="Nhà phân phối"/>
+	<RoleType roleTypeId="DELYS_ADMIN" description="Quản trị"/>
+	<RoleType roleTypeId="DELYS_SALESMAN_GT" description="Nhân viên bán hàng kênh GT"/>
+	<RoleType roleTypeId="DELYS_SALESSUP_GT" description="Giám sát bán hàng kênh GT"/>
+	
+	
+	<SecurityGroupPermission groupId="SALESUP" permissionId="PARTYMGR_CREATE"/>
+	<SecurityGroupPermission groupId="SALESUP" permissionId="PARTYMGR_UPDATE"/>
+	<SecurityGroupPermission groupId="SALESUP" permissionId="PARTYMGR_DELETE"/>
+	<SecurityGroupPermission groupId="SALESUP" permissionId="PARTYMGR_VIEW"/>
+	<SecurityGroupPermission groupId="SALESUP" permissionId="HR_SALESMANPG_VIEW"/>
+	<SecurityGroupPermission groupId="SALESUP" permissionId="HR_SALESMANPG_PROPOSE"/>
+	<SecurityGroupPermission groupId="SALESUP" permissionId="PARTYMGR_PCM"/>
+	<SecurityGroupPermission groupId="SALESUP" permissionId="HR_SALESMANPG_UPDATE"/>
+	<SecurityGroupPermission groupId="SALESUP" permissionId="HR_SALESMANPG_CREATE"/>
+	<SecurityGroupPermission groupId="SALESUP" permissionId="HR_RECRUITMENT_VIEW"/>
+	<SecurityGroupPermission groupId="SALESUP" permissionId="HR_JOB_REQUEST_VIEW"/>
+	<SecurityGroupPermission groupId="SALESUP" permissionId="HR_JOB_REQUEST_CREATE"/>
+	<SecurityGroupPermission groupId="SALESUP" permissionId="HR_JOB_TEST_PLAN_CREATE"/>
+	<SecurityGroupPermission groupId="SALESUP" permissionId="HR_WORK_TRIAL_PROPOSAL_VIEW"/>
+	<SecurityGroupPermission groupId="SALESUP" permissionId="HR_APPLICANT_CREATE"/>
+	
+	<SecurityGroupPermission groupId="SALESUP" permissionId="HR_JOB_REQUEST_CREATE"/>
+	
+	<SecurityGroupPermission groupId="SALESUP" permissionId="HR_RECRUITMENT_PLAN_CREATE"/>
+	<SecurityGroupPermission groupId="SALESUP" permissionId="HR_RECRUITMENT_PLAN_VIEW"/>
+	<SecurityGroupPermission groupId="SALESUP" permissionId="HR_SALESMANPG_REPORT"/>
+	<SecurityGroupPermission groupId="SALESUP" permissionId="PARTYMGR_ADMIN"/>
+	
+	<SecurityGroupPermission groupId="ASM" permissionId="PARTYMGR_CREATE"/>
+	<SecurityGroupPermission groupId="ASM" permissionId="HR_SALESMANPG_CHECK"/>
+	<SecurityGroupPermission groupId="ASM" permissionId="HR_SALESMANPG_APPROVE"/>
+	<SecurityGroupPermission groupId="ASM" permissionId="HR_SALESMANPG_UPDATE"/>
+	<SecurityGroupPermission groupId="ASM" permissionId="HR_SALESMANPG_VIEW"/>	
+	<SecurityGroupPermission groupId="ASM" permissionId="HR_RECRUITMENT_VIEW"/>
+	
+	
+	<SecurityGroupPermission groupId="RSM" permissionId="HR_RECRUITMENT_VIEW"/>
+	<SecurityGroupPermission groupId="RSM" permissionId="HR_SALESMANPG_VIEW"/>
+	
+	<!-- setup menu display role-->
+	<RoleType roleTypeId="EMPLOYEE_HR" parentTypeId="" hasTable="N" description="Nhân viên đăng nhập hệ thống"/>
+    <RoleTypeAttr roleTypeId="EMPLOYEE_HR" attrName="BusinessMenu" attrValue="HrmAppBar"/>
+ 	<RoleTypeAttr roleTypeId="EMPLOYEE_HR" attrName="BusinessHomePage" attrValue="main"/>
+ 	<RoleTypeAttr roleTypeId="EMPLOYEE_HR" attrName="BusinessTitle" attrValue="mainTitle"/>
+ 	
+ 	<TerminationType terminationTypeId="FIRE" hasTable="N" description="Fired" lastUpdatedStamp="2014-10-03 10:26:37.0" lastUpdatedTxStamp="2014-10-03 10:26:36.0" createdStamp="2014-10-03 10:26:37.0" createdTxStamp="2014-10-03 10:26:36.0"/>
+    <TerminationType terminationTypeId="OFFWORK" hasTable="N" description="leave work" lastUpdatedStamp="2014-11-25 18:07:28.0" lastUpdatedTxStamp="2014-11-25 18:07:28.0" createdStamp="2014-11-25 18:07:28.0" createdTxStamp="2014-11-25 18:07:28.0"/>
+    <TerminationType terminationTypeId="RESIGN" parentTypeId="OFFWORK" hasTable="N" description="Nghỉ việc" lastUpdatedStamp="2014-11-25 18:07:28.0" lastUpdatedTxStamp="2014-11-25 18:07:28.0" createdStamp="2014-10-03 10:26:37.0" createdTxStamp="2014-10-03 10:26:36.0"/>
+    <TerminationType terminationTypeId="RETIRE" parentTypeId="OFFWORK" hasTable="N" description="Nghỉ hưu" lastUpdatedStamp="2014-11-25 18:07:28.0" lastUpdatedTxStamp="2014-11-25 18:07:28.0" createdStamp="2014-10-03 10:26:37.0" createdTxStamp="2014-10-03 10:26:36.0"/> 	
+	
+	<!-- Create hr admin -->
+	<Party partyId="hrmadmin" partyTypeId="PERSON" preferredCurrencyUomId="VND" description="HRM Admin" statusId="PARTY_ENABLED" createdDate="2014-03-21 15:37:23"/>
+	<Person partyId="hrmadmin" />
+	<PartyRole partyId="hrmadmin" roleTypeId="EMPLOYEE_HR"/>
+	<PartyRole partyId="hrmadmin" roleTypeId="HRMADMIN"/>
+	<PartyRole partyId="hrmadmin" roleTypeId="EMPLOYEE" />
+	<PartyRole partyId="hrmadmin" roleTypeId="MANAGER" />
+	
+	<EmplPosition emplPositionId="ADMIN" partyId="company" emplPositionTypeId="DHRQTH" actualFromDate="2013-01-30 17:58:02.000"/>
+	<EmplPositionFulfillment emplPositionId="ADMIN" partyId="hrmadmin" fromDate="2013-01-30 17:58:02.000"></EmplPositionFulfillment>
+<!-- 	<Employment partyIdFrom="DHR" roleTypeIdFrom="INTERNAL_ORGANIZATIO" partyIdTo="hrmadmin" roleTypeIdTo="EMPLOYEE" fromDate="2014-05-17 12:35:17"/> -->
+<!-- 	<PartyRelationship partyIdFrom="DHR" roleTypeIdFrom="INTERNAL_ORGANIZATIO" partyIdTo="hrmadmin" roleTypeIdTo="EMPLOYEE" fromDate="2014-05-17 12:35:17" partyRelationshipTypeId="EMPLOYMENT" /> -->
+<!-- 	 <PartyRelationship partyIdFrom="hrmadmin" roleTypeIdFrom="MANAGER" partyIdTo="DHR" roleTypeIdTo="HR_DEPARTMENT" fromDate="2014-05-17 12:35:17" partyRelationshipTypeId="MANAGER" /> -->
+	
+    <UserLogin userLoginId="hrmadmin" currentPassword="{SHA}47ca69ebb4bdc9ae0adec130880165d2cc05db1a" requirePasswordChange="Y" partyId="hrmadmin" lastLocale="vi"/>
+	<UserLoginSecurityGroup userLoginId = "hrmadmin" groupId="HRMADMIN" fromDate="2014-04-23 14:41:25"/>
+	<UserLoginSecurityGroup userLoginId = "hrmadmin" groupId="HEADOFDEPT" fromDate="2014-04-23 14:41:25"/>
+	<UserLoginSecurityGroup userLoginId = "hrmadmin" groupId="HEADOFCOM" fromDate="2014-04-23 14:41:25"/>
+	<UserLoginSecurityGroup userLoginId = "hrmadmin" groupId="EMPLOYEE" fromDate="2014-04-23 14:41:25"/>
+	<!-- /Create hr admin -->
+	
+	<PayrollParameters code="TI_LE_THU_VIEC" name="Ti le thu viec"  defaultValue="100" type="CONSTPERCENT" periodTypeId="MONTHLY" lastUpdatedStamp="2014-11-22 09:12:36.0" lastUpdatedTxStamp="2014-11-22 09:12:19.0" createdStamp="2014-06-03 10:43:32.0" createdTxStamp="2014-06-03 10:43:32.0"/>
+	<AgreementType agreementTypeId="EMPLOYMENT_AGREEMENT" description="Hợp đồng lao động" hasTable="N" parentTypeId=""/>
+	<AgreementType agreementTypeId="TRIAL_AGREEMENT" description="Thỏa thuận thử việc" hasTable="N" parentTypeId="EMPLOYMENT_AGREEMENT"/>
+	
+	<TermType description="Điều khoản lao động" hasTable="N" parentTypeId="" termTypeId="EMPLOYEMENT_TERM"/>
+	<TermType termTypeId="PROBATION_TERM" description="điều khoản thỏa thuận thử việc" hasTable="N"></TermType>
+	<!-- <TermType description="Điều khoản vị trí công việc" hasTable="N" parentTypeId="EMPLOYEMENT_TERM" termTypeId="EMPL_POSITION_TERM"/> -->
+	
+	<!-- set term for PROBATION_TERM -->
+	<!-- <TermType termTypeId="SALARY_PROBA_TERM" parentTypeId="PROBATION_TERM" description="Tiền lương, tiền công"></TermType> -->
+	<TermType description="Tiền lương, tiền công" hasTable="N" parentTypeId="PROBATION_TERM" termTypeId="TRIAL_SALARY_TERM"/>
+	<TermType termTypeId="OBLI_RIGHT_PROBA_ER" parentTypeId="PROBATION_TERM" description="Quyền và nghĩa vụ của Công ty"></TermType>
+	<TermType termTypeId="OBLI_RIGHT_PROBA_EE" parentTypeId="PROBATION_TERM" description="Quyền và nghĩa vụ của Người lao động"></TermType>
+	<TermType termTypeId="PROBA_EE_NOT_ALLOWED" parentTypeId="OBLI_RIGHT_PROBA_EE" description="Trong thời gian hiệu lực Thỏa thuận và trong vòng 24 (hai mươi bốn) tháng kể từ khi nghỉ việc tại Công ty Người lao động không được phép"></TermType>
+	<TermType termTypeId="GENERAL_PROBA" parentTypeId="PROBATION_TERM" description="Điều khoản chung"></TermType>
+	<!-- ./ -->
+		
+	<!-- set default value for termTypeId PROBATION_TERM -->
+	<TermTypeAttr termTypeId="TRIAL_SALARY_TERM" attrName="defaultValue" attrValue="<p>Người lao động sẽ được hưởng lương thử việc trong thời gian thử việc bằng lương của mức lương thỏa thuận theo quy định hiện hành của Công ty.</p>"></TermTypeAttr>
+	<TermTypeAttr termTypeId="OBLI_RIGHT_PROBA_ER" attrName="defaultValue" attrValue="<ul><li>Được quyền thuyên chuyển địa điểm làm việc, vị trí làm việc, tạm hoãn, chấm dứt trước hạn Thỏa thuận theo quy định của Pháp luật.</li><li>Trả lương theo đúng quy định tại Điều 2 nêu trên trong suốt thời gian thực hiện Thỏa thuận này.</li><li>Ký kết Hợp đồng lao động chính thức với Người lao động sau khi Thời gian thử việc kết thúc và Người lao động đã hoàn thành tốt công việc được giao và đạt các tiêu chuẩn, yêu cầu của vị trí công việc do Công ty đề ra.</li></ul>"></TermTypeAttr>
+	<TermTypeAttr termTypeId="OBLI_RIGHT_PROBA_EE" attrName="defaultValue" attrValue="<ul><li>Chấp hành nghiêm chỉnh nội quy, quy chế làm việc của Công ty.</li><li>Hoàn thành tốt nhất công việc được giao.</li><li>Trong quá trình làm việc nếu gây thiệt hại cho Công ty thì phải bồi thường theo quy định của Pháp luật.</li></ul>"></TermTypeAttr>
+	<TermTypeAttr termTypeId="PROBA_EE_NOT_ALLOWED" attrName="defaultValue" attrValue="<ul><li>Cung cấp thông tin, tiết lộ bí mật kinh doanh của Công ty cho bất kỳ bên thứ ba nào;</li><li>Hợp tác, sản xuất kinh doanh, làm đại lý sử dụng, cung cấp, tiết lộ thông tin về khách hàng, bí mật kinh doanh, sản phẩm của Công ty cho bất kỳ, tổ chức, cá nhân nào, trừ trường hợp có sự đồng ý trước bằng văn bản của Công ty. Trường hợp Người lao động vi phạm các cam kết nêu trên đó sẽ phải chịu trách nhiệm hoàn toàn trước Pháp luật.</li></ul>"></TermTypeAttr>
+	<TermTypeAttr termTypeId="GENERAL_PROBA" attrName="defaultValue" attrValue="<ul><li>Khi hết thời gian thử việc, Công ty sẽ tiến hành xem xét, đánh giá quá trình làm việc, kết quả công việc của Người lao động để quyết định ký kết Hợp đồng lao động chính thức với Người lao động. Trường hợp kết quả làm việc của Người lao động không đạt yêu cầu, Công ty sẽ ra thông báo chấm dứt Thỏa thuận thử việc với Người lao động.</li><li>Thỏa thuận thử việc có hiệu lực từ ngày ký và được lập thành 02 (hai) bản có giá trị như nhau, Công ty giữ 01(một) bản, Người lao động giữ 01(một) bản để lưu trữ và thực hiện</li></ul>"></TermTypeAttr>
+	<!-- ./ -->
+	
+	<!-- set term for EMPLOYEMENT_TERM -->
+	<TermType termTypeId="CONTRACT_WORK" parentTypeId="EMPLOYEMENT_TERM" description="Công việc hợp đồng"></TermType>
+	<TermType termTypeId="POLICY_WORK" parentTypeId="EMPLOYEMENT_TERM" description="Chế độ làm việc"></TermType>
+	<TermType termTypeId="OBLI_RIGHT_EMPE" parentTypeId="EMPLOYEMENT_TERM" description="Nghĩa vụ và quyền hạn người lao động"></TermType>
+	<TermType termTypeId="OBLI_RIGHT_EMPR" parentTypeId="EMPLOYEMENT_TERM" description="Nghĩa vụ và quyền hạn người sử dụng lao động"></TermType>
+	<TermType termTypeId="IMPL_PROVISION" parentTypeId="EMPLOYEMENT_TERM" description="Điều khoản thi thành"></TermType>
+	
+	<TermType termTypeId="PLACE_WORK" parentTypeId="CONTRACT_WORK" description="Địa điểm làm việc"></TermType>
+	<TermType termTypeId="EMPL_POSITION" parentTypeId="CONTRACT_WORK" description="Chức danh chuyên môn"></TermType>
+	<TermType termTypeId="WORK_DONE" parentTypeId="CONTRACT_WORK" description="Công việc phải làm"></TermType>
+	
+	<TermType termTypeId="WORKING_TIME" parentTypeId="POLICY_WORK" description="Thời gian làm việc"></TermType>
+	<TermType termTypeId="WORKING_EQUIP" parentTypeId="POLICY_WORK" description="Được cấp phát những dụng cụ làm việc"></TermType>
+	
+	<TermType termTypeId="BENEFIT_EMPE" parentTypeId="OBLI_RIGHT_EMPE" description="Quyền lợi"></TermType>
+	<TermType termTypeId="OBLIGATION_EMPE" parentTypeId="OBLI_RIGHT_EMPE" description="Nghĩa vụ"></TermType>
+	<TermType termTypeId="RIGHT_EMPE" parentTypeId="OBLI_RIGHT_EMPE" description="Quyền hạn"></TermType>
+	
+	<TermType termTypeId="MEAN_BUSS" parentTypeId="BENEFIT_EMPE" description="Phương tiện đi lại"></TermType>
+	<TermType termTypeId="WAY_PAYMENT" parentTypeId="BENEFIT_EMPE" description="Hình thức trả lương"></TermType>
+	<TermType termTypeId="ALLOWENCE" parentTypeId="BENEFIT_EMPE" description="Phụ cấp"></TermType>
+	<TermType termTypeId="PAID_ON" parentTypeId="BENEFIT_EMPE" description="Được trả lương"></TermType>
+	<TermType termTypeId="BONUS" parentTypeId="BENEFIT_EMPE" description="Tiền thưởng"></TermType>
+	<TermType termTypeId="SALARY_INCREMENT" parentTypeId="BENEFIT_EMPE" description="Chế độ nâng lương"></TermType>
+	<TermType termTypeId="ANNUAL_FULL_PAID" parentTypeId="BENEFIT_EMPE" description="Chế độ nghỉ ngơi"></TermType>
+	<TermType termTypeId="COMPULSORY_INSURANCE" parentTypeId="BENEFIT_EMPE" description="Bảo hiểm bắt buộc"></TermType>
+	<TermType termTypeId="TRAINNING" parentTypeId="BENEFIT_EMPE" description="Chế độ đào tạo"></TermType>
+	<TermType termTypeId="OTHER_AGREEMENT" parentTypeId="BENEFIT_EMPE" description="Các thỏa thuận khác"></TermType>
+	
+	<TermType termTypeId="OBLIGATION_EMPR" parentTypeId="OBLI_RIGHT_EMPR" description="Nghĩa vụ"></TermType>
+	<TermType termTypeId="RIGHT_EMPR" parentTypeId="OBLI_RIGHT_EMPR" description="Quyền hạn"></TermType>
+	<!-- ./ -->
+	<!-- set default value for termTypeId EMPLOYEMENT_TERM -->
+	<TermTypeAttr termTypeId="PLACE_WORK" attrName="defaultValue" attrValue="Theo sự phân công của Công ty"></TermTypeAttr>
+	<TermTypeAttr termTypeId="WORK_DONE" attrName="defaultValue" attrValue="Theo mô tả công việc cho vị trí được phân công"></TermTypeAttr>
+	<TermTypeAttr termTypeId="PLACE_WORK" attrName="defaultValue" attrValue="Theo sự phân công của Công ty"></TermTypeAttr>
+	<TermTypeAttr termTypeId="WORKING_EQUIP" attrName="defaultValue" attrValue="Trang bị bảo hộ lao động, dụng cụ lao động theo yêu cầu của công việc được giao"></TermTypeAttr>
+	<TermTypeAttr termTypeId="MEAN_BUSS" attrName="defaultValue" attrValue="Tự túc"></TermTypeAttr>
+	<TermTypeAttr termTypeId="WAY_PAYMENT" attrName="defaultValue" attrValue="Tiền mặt hoặc chuyển khoản"></TermTypeAttr>
+	<TermTypeAttr termTypeId="ALLOWENCE" attrName="defaultValue" attrValue="Theo quy định của Công ty hàng năm"></TermTypeAttr>
+	<TermTypeAttr termTypeId="PAID_ON" attrName="defaultValue" attrValue="Vào đầu tháng theo quy định của Công ty"></TermTypeAttr>
+	<TermTypeAttr termTypeId="BONUS" attrName="defaultValue" attrValue="Theo qui định của Công ty"></TermTypeAttr>
+	<TermTypeAttr termTypeId="SALARY_INCREMENT" attrName="defaultValue" attrValue="Theo qui định của Công ty"></TermTypeAttr>
+	<TermTypeAttr termTypeId="ANNUAL_FULL_PAID" attrName="defaultValue" attrValue="Theo quy định của luật lao động và theo quy định của Công ty"></TermTypeAttr>
+	<TermTypeAttr termTypeId="COMPULSORY_INSURANCE" attrName="defaultValue" attrValue="Theo quy định của luật lao động và quy chế của Công ty"></TermTypeAttr>
+	<TermTypeAttr termTypeId="TRAINNING" attrName="defaultValue" attrValue="Theo qui định của Công ty"></TermTypeAttr>
+	<TermTypeAttr termTypeId="OTHER_AGREEMENT" attrName="defaultValue" attrValue="Theo quy định của Công ty"></TermTypeAttr>
+	
+	<TermTypeAttr termTypeId="OBLIGATION_EMPE" attrName="defaultValue" 
+			attrValue="<ul><li>Thực hiện công việc theo mô tả công việc cho vị trí công tác</li><li>Hoàn thành những cam kết đã ký trong hợp đồng lao động (HĐLĐ).</li><li>Chịu trách hiệm đóng các khoản thuế liên quan</li><li>Chấp hành lệnh điều động và phân công công việc của Công ty.</li><li>Chấp hành đầy đủ quy định về giờ công, ngày công, trang phục và các nội dung khác trong nội quy Công ty.</li><li>Chấp hành tốt các quy chế, quy trình, hướng dẫn thực hiện công việc của Công ty</li><li>Chấp hành các bồi thường vi phạm và vật chất: Theo quy định của Công ty và Pháp luật</li><li>Hoàn tất toàn bộ các khoản công nợ liên quan ngay khi và sau khi chấm dứt HĐLĐ.</li><li>Chấm dứt HĐLĐ: Theo Bộ luật lao động được ban hành và quy chế xử lý kỷ luật, hướng dẫn chấm dứt HĐLĐ của Công ty.</li></ul>"></TermTypeAttr>
+	<TermTypeAttr termTypeId="OBLIGATION_EMPR" attrName="defaultValue" 
+		attrValue="<ul><li>Bảo đảm việc làm và thực hiện đầy đủ những điều đã cam kết trong hợp đồng lao động.</li><li>Thanh toán đầy đủ, đúng thời hạn các chế độ và quyền lợi cho người lao động theo hợp đồng lao động.</li><li>Trong trường hợp Công ty chấm dứt hợp đồng người lao động trước thời hạn: Báo cho người lao động trước ba mươi (30) ngày. Nhưng trong trường hợp vi phạm qui định của công ty ở mức độ nặng, công ty có quyền ra quyết định kỷ luật buộc thôi việc ngay sau khi ra quyết định kỷ luật.</li></ul>"></TermTypeAttr>
+	<TermTypeAttr termTypeId="RIGHT_EMPR" attrName="defaultValue" 
+		attrValue="<ul><li>Điều hành người lao động hoàn thành công việc theo hợp đồng (bố trí, điều chuyển, tạm ngừng việc...).</li><li>Tạm hoãn, chấm dứt hợp đồng lao động, kỷ luật người lao động theo quy định của pháp luật, thỏa ước lao động tập thể (nếu có) và nội quy lao động của Công ty.</li></ul>"></TermTypeAttr>
+	<TermTypeAttr termTypeId="IMPL_PROVISION" attrName="defaultValue" 
+		attrValue="<ul><li>Những vấn đề về lao động không ghi trong hợp đồng này thì áp dụng quy định của thỏa ước lao động tập thể, trường hợp chưa có thỏa ước lao động tập thể thì áp dụng quy định của pháp luật lao động.</li><li>Tất cả các quyết định, quy định của Công ty liên quan đến các điều khoản của hợp đồng lao động này được xem như là phụ lục không thể tách rời của hợp đồng lao động này và đương nhiên các điều khoản tương tự trong hợp đồng lao động sẽ hết hiệu lực.</li><li>Hợp đồng lao động được lập thành hai (02) bản có giá trị như nhau, mỗi bên giữ một (01) bản và có hiệu lực kể từ ngày ký. Nếu khi hai bên ký kết phụ lục hợp đồng lao động thì nội dung phụ lục hợp đồng lao động cũng có giá trị như các nội dung của bản hợp đồng lao động này.</li></ul>"></TermTypeAttr>			
+	<!-- ./ -->
+	
+	<DayOfWeek dayOfWeek="SUNDAY" description="Chủ nhật"></DayOfWeek>
+	<DayOfWeek dayOfWeek="MONDAY" description="Thứ 2"></DayOfWeek>
+	<DayOfWeek dayOfWeek="TUESDAY" description="Thứ 3"></DayOfWeek>
+	<DayOfWeek dayOfWeek="WEDNESDAY" description="Thứ 4"></DayOfWeek>
+	<DayOfWeek dayOfWeek="THURSDAY" description="Thứ 5"></DayOfWeek>
+	<DayOfWeek dayOfWeek="FRIDAY" description="Thứ 6"></DayOfWeek>
+	<DayOfWeek dayOfWeek="SATURDAY" description="Thứ 7"></DayOfWeek>
+	
+	<RateType rateTypeId="_NA_"></RateType>
+	<VehicleType vehicleTypeId="AIRLINE" description="Máy bay" lastUpdatedStamp="2015-01-13 14:39:52.226" lastUpdatedTxStamp="2015-01-13 14:39:52.223" createdStamp="2015-01-13 14:39:52.226" createdTxStamp="2015-01-13 14:39:52.223"/>
+	<VehicleType vehicleTypeId="CARS" description="Ô tô" lastUpdatedStamp="2015-01-13 14:39:52.24" lastUpdatedTxStamp="2015-01-13 14:39:52.223" createdStamp="2015-01-13 14:39:52.24" createdTxStamp="2015-01-13 14:39:52.223"/>
+	<VehicleType vehicleTypeId="TAXI" description="Taxi" lastUpdatedStamp="2015-01-13 14:39:52.241" lastUpdatedTxStamp="2015-01-13 14:39:52.223" createdStamp="2015-01-13 14:39:52.241" createdTxStamp="2015-01-13 14:39:52.223"/>
+	<VehicleType vehicleTypeId="TRUCK" description="Xe tải" lastUpdatedStamp="2015-01-13 14:39:52.241" lastUpdatedTxStamp="2015-01-13 14:39:52.223" createdStamp="2015-01-13 14:39:52.241" createdTxStamp="2015-01-13 14:39:52.223"/>
+	
+	<InsuranceParticipateType insuranceParticipateTypeId="PARTICIPATE" parentTypeId="" description="Tăng lao động" ></InsuranceParticipateType>
+	<InsuranceParticipateType insuranceParticipateTypeId="REPARTICIPATE" parentTypeId="PARTICIPATE" description="Tăng lại"></InsuranceParticipateType>
+	<InsuranceParticipateType insuranceParticipateTypeId="NEW_PARTICIPATE" parentTypeId="PARTICIPATE" description="Tăng mới"></InsuranceParticipateType>
+	<InsuranceParticipateType insuranceParticipateTypeId="REDUCE_PARTICIPATE" parentTypeId="" description="Giảm lao động" ></InsuranceParticipateType>
+	<InsuranceParticipateType insuranceParticipateTypeId="SUSPEND_PARTICIPATE" parentTypeId="REDUCE_PARTICIPATE" description="Giảm tạm thời"></InsuranceParticipateType>
+	<InsuranceParticipateType insuranceParticipateTypeId="STOP_PARTICIPATE" parentTypeId="REDUCE_PARTICIPATE" description="Giảm hẳn"></InsuranceParticipateType>
+	<InsuranceType insuranceTypeId="BHXH" description="BHXH" employeeRate="0.08" employerRate="0.18" isCompulsory="Y"/>
+	<InsuranceType insuranceTypeId="BHYT" description="BHYT" employeeRate="0.02" employerRate="0.025" isCompulsory="Y"/>
+	<InsuranceType insuranceTypeId="BHTN" description="BHTN" employeeRate="0.01" employerRate="0.01" isCompulsory="Y"/>
+	<StatusType statusTypeId="INSURANE_STATUS" description="Trạng thái tham gia đóng bảo hiểm nhân viên"></StatusType>
+	<StatusItem statusId="PARTICIPATING" statusTypeId="INSURANE_STATUS" description="Đang tham gia"></StatusItem>
+	<StatusItem statusId="SUSPEND_PARTICIPATE" statusTypeId="INSURANE_STATUS" description="Giảm tạm thời"></StatusItem>
+	<StatusItem statusId="STOP_PARTICIPATE" statusTypeId="INSURANE_STATUS" description="Giảm hẳn"></StatusItem>	
+	
+	<InsuranceParameterType insuranceParameterTypeId="DEFAULT" description="Mặc định, không sửa đổi"></InsuranceParameterType>		
+	<InsuranceParameters insuranceParameterId="SO_NGAY_NGHI_HUONG_CHE_DO" description="Số ngày nghỉ việc hưởng chế độ" insuranceParameterTypeId="DEFAULT" periodTypeId="DAILY"></InsuranceParameters>
+	<InsuranceParameters insuranceParameterId="SO_THANG_NGHI_HUONG_CHE_DO" description="Số tháng nghỉ hưởng chế độ" insuranceParameterTypeId="DEFAULT" periodTypeId="MONTHLY"></InsuranceParameters>
+	
+	<InsuranceFormula code="BQL_SO_THANG_TRUOC_NGHI" description="Bình quân lương X tháng trước khi nghỉ"></InsuranceFormula>
+	<InsuranceFormulaParameters code="BQL_SO_THANG_TRUOC_NGHI" sequenceId="01" parameterName="so_thang"></InsuranceFormulaParameters>
+	<InsuranceFormula code="MUC_HUONG_OM_DAU_THONG_THUONG" function="(BQL_SO_THANG_TRUOC_NGHI(1)/26)*0.75*SO_NGAY_NGHI_HUONG_CHE_DO" description="Mức hưởng ốm đau thông thường, tai nạn, rủi ro, con ốm"></InsuranceFormula>
+	<InsuranceFormula code="MUC_HUONG_THAI_SAN_KHI_SINH" function="BQL_SO_THANG_TRUOC_NGHI(6)*SO_THANG_NGHI_HUONG_CHE_DO" description="Mức hưởng khi sinh"></InsuranceFormula>
+	<InsuranceFormula code="MUC_HUONG_THAI_SAN_KHAC" function="(BQL_SO_THANG_TRUOC_NGHI(6)/26)*1*SO_NGAY_NGHI_HUONG_CHE_DO" description="Mức hưởng thai sản khác"></InsuranceFormula>
+	
+	<SuspendParticipateInsuranceReason suspendReasonId="NGHI_OM" functionCalcBenefit="MUC_HUONG_OM_DAU_THONG_THUONG" insuranceParticipateTypeId="SUSPEND_PARTICIPATE"  description="Nghỉ ốm"></SuspendParticipateInsuranceReason>
+	<SuspendParticipateInsuranceReason suspendReasonId="NGHI_THAI_SAN" functionCalcBenefit="MUC_HUONG_THAI_SAN_KHI_SINH" insuranceParticipateTypeId="SUSPEND_PARTICIPATE" description="Nghỉ thai sản"></SuspendParticipateInsuranceReason>
+	<SuspendParticipateInsuranceReason suspendReasonId="NGHI_KHONG_LUONG" insuranceParticipateTypeId="SUSPEND_PARTICIPATE" description="Nghỉ không lương"></SuspendParticipateInsuranceReason>
+	<SuspendParticipateInsuranceReason suspendReasonId="NGHI_VIEC" insuranceParticipateTypeId="STOP_PARTICIPATE" description="Nghỉ việc"></SuspendParticipateInsuranceReason>
+	
+	<StatusType statusTypeId="PAYMENT_INS_STT" description="trạng thái thanh toán bảo hiểm"></StatusType>
+	<StatusItem statusId="INS_PAYMENT_CREATED" statusTypeId="PAYMENT_INS_STT" statusCode="created" sequenceId="01" description="Đã tạo"></StatusItem>
+	<StatusItem statusId="WAIT_APPROVAL" statusTypeId="PAYMENT_INS_STT"  sequenceId="02" description="Đang chờ xét duyệt"></StatusItem>
+	<StatusItem statusId="INSURANCE_PAID" statusTypeId="PAYMENT_INS_STT" sequenceId="03" description="Đã thanh toán"></StatusItem>
+	<StatusItem statusId="WAITING_PAYMENT" statusTypeId="PAYMENT_INS_STT" sequenceId="04" description="Đang chờ thanh toán"></StatusItem>
+	<StatusItem statusId="INELIGIBLE_PAYMENT" statusTypeId="PAYMENT_INS_STT" sequenceId="05" description="Không đủ điều kiện thanh toán"></StatusItem>
+	
+	<RoleType roleTypeId="HEALTH_CARE_PROVIDER" parentTypeId="" description="health care provider oganization" hasTable="N"></RoleType>
+	<ClaimType claimTypeId="KHIEU_NAI_LUONG" description="Khiếu nại lương"></ClaimType>
+	<ClaimType claimTypeId="KHIEU_NAI_LAI" description="Khiếu nại lại"></ClaimType>
+	
+	<StatusItem statusId="EMPL_CLAIM_CREATED" description="Đã tạo khiếu nại" statusTypeId="EMPL_CLAIM_STATUS" sequenceId="01"></StatusItem>
+	<StatusItem statusId="EMPL_CLAIM_RESPONED" description="Đã phản hồi" statusTypeId="EMPL_CLAIM_STATUS" sequenceId="02"></StatusItem>
+	<StatusItem statusId="EMPL_CLAIM_REJECTED" description="Bác bỏ đơn khiếu nại" statusTypeId="EMPL_CLAIM_STATUS" sequenceId="03"></StatusItem>
+	<StatusItem statusId="EMPL_CLAIM_COMPLETED" description="Đã giải quyết" statusTypeId="EMPL_CLAIM_STATUS" sequenceId="04"></StatusItem>
+	
+	<RoleType roleTypeId="CLAIM_SETTLEMENT" description="Người xử lý khiếu nại"></RoleType>
+	<RoleType roleTypeId="CLAIM_VIEWER" description="Người xem khiếu nại"></RoleType>
+	
+	<!-- role for employment agreement -->
+	<RoleType roleTypeId="REPRESENT_PARTY_FROM" description="Đại diện bên A" hasTable="N"></RoleType>
+	<RoleType roleTypeId="REPRESENT_PARTY_TO" description="Đại diện bên B" hasTable="N"></RoleType>
+	
+	<StatusType statusTypeId="AGREEMENT_STATUS" description="Trạng thái hợp đồng"></StatusType>
+	<StatusItem statusId="AGREEMENT_CANCELLED" statusTypeId="AGREEMENT_STATUS" description="hợp đồng bị hủy bỏ" sequenceId="" statusCode="cancel"></StatusItem>
+	
+	<!-- setting attribute for HR -->
+	<GlobalHrSetting attrId="NBR_DAY_LEAVE" attrName="Số ngày nghỉ khi tạo đơn sẽ gửi thông báo đến BGĐ" attrValue="2"></GlobalHrSetting>
+	<!-- ./ -->
+	<!-- EmplProposalType data -->
+	<RoleType roleTypeId="PROPOSAL_ROLE" description="Vai trò trong đề xuất"></RoleType>
+	<RoleType roleTypeId="PPSL_APPROVER" parentTypeId="PROPOSAL_ROLE" description="Xét duyệt"></RoleType>
+	<RoleType roleTypeId="PPSL_VIEWER" parentTypeId="PROPOSAL_ROLE" description="Giám sát"></RoleType>
+	<RoleType roleTypeId="PPSL_CONFIRMER" parentTypeId="PROPOSAL_ROLE" description="Xác nhận"></RoleType>
+	<RoleType roleTypeId="PPSL_DECIDER" parentTypeId="PROPOSAL_ROLE" description="Quyết định"></RoleType>
+	<RoleType roleTypeId="PPSL_DISCIPLINED" description="Bị kỷ luật"></RoleType>
+	<RoleType roleTypeId="PPSL_PROPOSED" description="người được đề xuất"></RoleType>
+	<EmplProposalType emplProposalTypeId="REQUEST_DISCIPLINE" description="Đề xuất tạo yêu cầu xem xét kỷ luật"></EmplProposalType>
+	<EmplProposalType emplProposalTypeId="TERMINATION_PROPOSAL" hasTable="Y" description="Đề xuất nghỉ viêc"></EmplProposalType>		
+	<EmplProposalType emplProposalTypeId="JOB_TRANSFER_PPSL" hasTable="Y" description="Đề xuất chuyển công tác"></EmplProposalType>
+	<EmplProposalType emplProposalTypeId="SACKING_PROPOSAL" hasTable="Y" parentTypeId="TERMINATION_PROPOSAL" description="Đề xuất sa thải"></EmplProposalType>
+	<EmplProposalType emplProposalTypeId="RETIRE_PROPOSAL" hasTable="Y" parentTypeId="TERMINATION_PROPOSAL" description="Đề xuất nghỉ hưu"></EmplProposalType>
+	<EmplProposalType emplProposalTypeId="RESIGN_PROPOSAL" hasTable="Y" parentTypeId="TERMINATION_PROPOSAL" description="Đề xuất thôi việc"></EmplProposalType>
+	<EmplProposalType emplProposalTypeId="TRAIN_PLAN_PPSL" hasTable="Y" parentTypeId="" description="Đề xuất kế hoạch đào tạo"></EmplProposalType>
+		
+	<StatusType statusTypeId="PROPOSAL_STATUS" description="Trạng thái của đề xuất"></StatusType>
+	<StatusItem statusId="PPSL_CREATED" description="Vừa tạo" sequenceId="01" statusCode="created" statusTypeId="PROPOSAL_STATUS"></StatusItem>
+	<StatusItem statusId="PPSL_IN_PROCESS" description="Đang xử lý" statusCode="process" statusTypeId="PROPOSAL_STATUS" sequenceId="02"></StatusItem>
+	<StatusItem statusId="PPSL_ACCEPTED" description="Chấp nhận" statusCode="accepted" statusTypeId="PROPOSAL_STATUS" sequenceId="03"></StatusItem>
+	<StatusItem statusId="PPSL_REJECTED" description="Từ chối" statusCode="rejected" statusTypeId="PROPOSAL_STATUS" sequenceId="04"></StatusItem>
+	
+	<StatusType statusTypeId="APPL_PPSL_STT" description="Trạng thái phê duyệt"></StatusType>
+	<StatusItem statusId="APPL_PPSL_ACCEPTED" statusTypeId="APPL_PPSL_STT" statusCode="accept" sequenceId="01" description="Chấp nhận"></StatusItem>
+	<StatusItem statusId="APPL_PPSL_REJECTED" statusTypeId="APPL_PPSL_STT" statusCode="reject" sequenceId="02" description="Từ chối"></StatusItem>
+	<!-- ./end -->
+</entity-engine-xml>

@@ -1,0 +1,214 @@
+Signature-Version: 1.0
+Created-By: 1.0 (Android)
+SHA1-Digest-Manifest: AN97MEiVt6ltN9qxLQR3enmHrEc=
+
+Name: assets/www/dist/all.css
+SHA1-Digest: b9fYNA6SG4KPF/C2xB/fa6vAMtU=
+
+Name: assets/www/images/map.png
+SHA1-Digest: 71EoyvxAwAETXxDYJlWMaF6ojhg=
+
+Name: assets/www/components/com.terra.code.tapevent/TapEventPlugin.js
+SHA1-Digest: VLZQ8+jwlwSUIggiGsuRxi1xRXU=
+
+Name: assets/www/static/app/js/services/QuickSearchService.js
+SHA1-Digest: 8OfcF52ksq5tlwdQukzrhHSM+eI=
+
+Name: assets/www/images/ordercreation.png
+SHA1-Digest: ipPCHoEuH+hZ08IV9TpjbE8pInU=
+
+Name: res/xml/config.xml
+SHA1-Digest: eE/NNHsWYmgbnRw6tf36JryKXyg=
+
+Name: assets/www/static/app/microtemplating/views/obj/Message.htm
+SHA1-Digest: KpWriWHKDgbHNQr9UwFozB3tYhM=
+
+Name: assets/www/static/app/js/views/obj/LoginForm.js
+SHA1-Digest: nCfFc9yb7eBHTcBFRMAFAaP5Y0s=
+
+Name: assets/www/static/app/js/views/obj/ListOrder.js
+SHA1-Digest: erepYEWvkmoKkM8GdEN6k0YSydc=
+
+Name: assets/www/static/app/microtemplating/views/obj/Main.htm
+SHA1-Digest: O+W5binuvLqTMAPuqjeoDBTi9rM=
+
+Name: assets/www/static/app/js/views/obj/Order.js
+SHA1-Digest: lKEqzhaLRKlnE2OIv7bN8EaNgfU=
+
+Name: assets/www/static/app/microtemplating/views/obj/OpponentInfo.htm
+SHA1-Digest: LlGhjhIaCFgn3LvP/qU4SyUUzGQ=
+
+Name: res/drawable-ldpi/icon.png
+SHA1-Digest: pgEItzOCOvcy4M22wawzdn8AvEc=
+
+Name: assets/www/images/synchronize.png
+SHA1-Digest: +ZL265KbiQVwD8zyNEZruXqBZsE=
+
+Name: res/drawable-mdpi/icon.png
+SHA1-Digest: I+SEqsBnwMDqxwQwabdUcjyZR9o=
+
+Name: assets/www/static/thirdparty/js/ajax.js
+SHA1-Digest: AbiI7bnDaxKTMTil7797N3HVLiw=
+
+Name: assets/www/images/logo.png
+SHA1-Digest: 2DoX45zCAkWZruzg2172QPO0Us8=
+
+Name: assets/www/static/app/css/main.css
+SHA1-Digest: ijth/yRWjlFXSbYwW6UiwEUDdLA=
+
+Name: assets/www/images/producer.png
+SHA1-Digest: KkiKYkUmfRRPZ46dJAfCxHB/rRw=
+
+Name: assets/www/images/nav-down.png
+SHA1-Digest: cKMrbIIZW4fpjd+bxrxNeNvz/2k=
+
+Name: assets/www/static/framework/js/jquery.js
+SHA1-Digest: o5zQ/JUlxShWQDO6Ef98tUWxvqA=
+
+Name: assets/www/static/framework/js/joo-2.0.3r32.js
+SHA1-Digest: qGmK6miyDW8jvG3+2Vz6QnAtSnY=
+
+Name: assets/www/images/back.png
+SHA1-Digest: 5KzAwXISWaQh9MZ14vLX8l0Zbrw=
+
+Name: assets/www/static/app/microtemplating/layout.htm
+SHA1-Digest: rO7AkUGh8+1w1ipIXvqESVjcEKk=
+
+Name: assets/_where-is-www.txt
+SHA1-Digest: XyoRHUmqQWhFqkB6tnerFbQr+4I=
+
+Name: assets/www/static/app/microtemplating/views/stage/MainStage.htm
+SHA1-Digest: AL0Nn2NVVEiy9msS/hQNpg/2F1I=
+
+Name: assets/www/static/app/css/login.css
+SHA1-Digest: 6mDx7Kvio9XWQsjjog4em7JP17o=
+
+Name: assets/www/cordova.js
+SHA1-Digest: g1vb+mmSW+d01DRrZO6rOKG/FXE=
+
+Name: assets/www/images/user.png
+SHA1-Digest: HONglUuLXMpTWgcPovF5KJ3sUh4=
+
+Name: assets/www/static/framework/js/class-name-injection.js
+SHA1-Digest: jrw/J2hCEHAAeK5JUhZ8rCyMhlc=
+
+Name: assets/www/static/app/microtemplating/plugin.htm
+SHA1-Digest: AKoYmzMQOoeKQVFaFrXBgIqBQr0=
+
+Name: assets/www/dist/all.js
+SHA1-Digest: 1K5gHNrf1MkANKYVsGMUE/sn250=
+
+Name: assets/www/index.html
+SHA1-Digest: oYn2/jBDk5xRejARnipsEoWspvM=
+
+Name: assets/www/static/app/js/views/obj/OpponentInfo.js
+SHA1-Digest: nNjJbOlRAEMCaptiurcFDgfyflI=
+
+Name: assets/www/images/order.png
+SHA1-Digest: M1yEO9Z8KnTazCGxSdGzNBYNWzc=
+
+Name: assets/www/components/com.terra.code.tapevent/tap.js
+SHA1-Digest: KrvpHyUQC99ZIyf16RqarSD+dok=
+
+Name: assets/www/static/app/js/views/obj/Main.js
+SHA1-Digest: q8kd0R3MQIo8FbV/2ndg2gnqM/s=
+
+Name: assets/www/static/app/js/appconfigs.js
+SHA1-Digest: TCL2zjSp2wuEQJa+l9TNVvRBf9Q=
+
+Name: assets/www/static/framework/css/joo-2.0.3.css
+SHA1-Digest: FYLEo7sz+WJNSv89EWpDMLSXhvc=
+
+Name: assets/www/static/app/js/views/obj/ListCustomer.js
+SHA1-Digest: PWevcuXvnezYqMRaWezL7cgAsgw=
+
+Name: assets/www/static/app/js/views/obj/Message.js
+SHA1-Digest: FqrWnQ+Ok9OSmILWZ2ulVIVAicI=
+
+Name: resources.arsc
+SHA1-Digest: tS9RtL7Ny36DMZgT2XF7gkOf5Sw=
+
+Name: assets/www/static/app/js/portlets/MainPortlet.js
+SHA1-Digest: TkFEnWAP6edqNfZ7iFOcFGlcAtw=
+
+Name: assets/www/static/thirdparty/js/iscroll.js
+SHA1-Digest: CnDG3ALv4b6d2B9nPmAldWkhRDk=
+
+Name: assets/www/static/app/microtemplating/views/obj/LoginForm.htm
+SHA1-Digest: OjG00u10YwgcYzei0taNswiF+TA=
+
+Name: assets/www/index.copy.html
+SHA1-Digest: 4cJtcoyxnrjsO5hUQUxHUKQ7x8w=
+
+Name: assets/www/images/search.png
+SHA1-Digest: Fs7DtvcSwdaM0ERalTjpqxTcrDk=
+
+Name: assets/www/static/app/microtemplating/views/obj/ListInfo.htm
+SHA1-Digest: AtUqBNA9FstNc82zGAup2w70ndA=
+
+Name: assets/www/static/thirdparty/js/jquery.finger.js
+SHA1-Digest: uvu2yyfSPfmC17zvDT1QGdvVjiM=
+
+Name: assets/www/static/app/js/utils.js
+SHA1-Digest: DrJWlSsCWjHmjS2QFz9cjc6KMNI=
+
+Name: AndroidManifest.xml
+SHA1-Digest: fUanwQH5DGNoKwEjzemmSC6q/hc=
+
+Name: assets/www/static/app/js/views/obj/Synchronize.js
+SHA1-Digest: SYVcYn23gYQsX4z+Hv57+r81AIE=
+
+Name: assets/www/images/syn.png
+SHA1-Digest: xBx1jnbG5YaXIshkxFJv3ADiOV4=
+
+Name: assets/www/static/app/microtemplating/views/obj/ListCustomer.htm
+SHA1-Digest: 4rSgyNMqE6eFNMyK/J6MsZ4jLrg=
+
+Name: assets/www/static/framework/js/jquery-ui.js
+SHA1-Digest: rsB2lEaY+ZV6ohopHaXz86348I4=
+
+Name: res/drawable-xhdpi/icon.png
+SHA1-Digest: ILtevW7iM+NOQc5r/erwvaQ8m9U=
+
+Name: assets/www/static/app/microtemplating/views/obj/ListOrder.htm
+SHA1-Digest: WdCUFik4UlV1M9XeC/OPe55v1Mk=
+
+Name: assets/www/static/app/js/views/stage/MainStage.js
+SHA1-Digest: yFUNzHJ96lvUDAiIBB9UEfZG5Y4=
+
+Name: assets/www/dist/all.txt
+SHA1-Digest: R6sRHsW/QM+JWgQXdc2DFhgxzxE=
+
+Name: assets/www/cordova_plugins.js
+SHA1-Digest: ZM5PVlGoekixyf32H//XVAMjE5Y=
+
+Name: classes.dex
+SHA1-Digest: ZL+rRk989/x8no/CMKHYQG3sT+E=
+
+Name: assets/www/static/app/js/views/obj/ListInfo.js
+SHA1-Digest: 9XOn7y/ZW3uejL+q1SnUMwVHPmw=
+
+Name: assets/www/images/infomation.png
+SHA1-Digest: aTHulVTMvOqdN859CvTfNSlIsZQ=
+
+Name: assets/www/static/thirdparty/css/jquery-ui.css
+SHA1-Digest: sHEJdSGhs1vf5kBcMluMKnlzmgI=
+
+Name: assets/www/static/app/microtemplating/views/obj/Synchronize.htm
+SHA1-Digest: 0rQm+lZyYcFdKzZEAme/B9m1AME=
+
+Name: assets/www/static/app/js/main.js
+SHA1-Digest: MCOragEBo+db1W+lmp9Dpzj3aHQ=
+
+Name: res/drawable/icon.png
+SHA1-Digest: uvuielAB8iUnMLObHEXVenPOa+o=
+
+Name: assets/www/static/app/microtemplating/template.htm
+SHA1-Digest: XGqi2ngzz1GM74VZb+aUiMTFrS0=
+
+Name: assets/www/static/app/microtemplating/views/obj/Order.htm
+SHA1-Digest: i2CRL7Fl0HqJhDmwrLBr1d2Sq2E=
+
+Name: res/drawable-hdpi/icon.png
+SHA1-Digest: XfAbtw3zuMWQbGTvbbw/KIngfT0=
+

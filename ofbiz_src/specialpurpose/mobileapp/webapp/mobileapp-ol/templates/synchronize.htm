@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<div id="notification">{{notification}}</div>
+		<div>
+			<div class="sync-icon" ng-click="synchronize()" ng-if="!hide"></div>
+			<div class="percentage" ng-if="hide">
+				<div ang:round:progress
+					data-round-progress-model="roundProgressData"
+					data-round-progress-width="300" data-round-progress-height="300"
+					data-round-progress-inner-circle-color=""
+					data-round-progress-label-color="#006599"
+					data-round-progress-label-font="500 35px open sans"
+					data-round-progress-outer-circle-background-color="#f5f5f5"
+					data-round-progress-outer-circle-foreground-color="#006599"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<form name="myForm">
+  Number: <input type="number" name="input" ng-model="example.value"
+                 min="0" max="99" required>
+  <span class="error" ng-show="myForm.input.$error.required">
+    Required!</span>
+  <span class="error" ng-show="myForm.input.$error.number">
+    Not valid number!</span>
+ </form>

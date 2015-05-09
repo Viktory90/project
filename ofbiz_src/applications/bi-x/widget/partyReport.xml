@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="party-report-bar">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<screenlet id="center">
+					<container id="centerView">
+						<platform-specific>
+							<html>
+								<html-template location="component://bi-x/widget/ftl/party-report-popup.ftl" />
+								<html-template location="component://bi-x/widget/ftl/party-report-bar-view.ftl" />
+							</html>
+						</platform-specific>
+					</container>
+				</screenlet>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="party-report-pie-gender">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<screenlet id="center">
+					<container id="centerView">
+						<platform-specific>
+							<html>
+								<html-template location="component://bi-x/widget/ftl/party-report-popup.ftl" />
+								<html-template location="component://bi-x/widget/ftl/party-report-pie-gender-view.ftl" />
+							</html>
+						</platform-specific>
+					</container>
+				</screenlet>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="party-report-pie-age">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<screenlet id="center">
+					<container id="centerView">
+						<platform-specific>
+							<html>
+								<html-template location="component://bi-x/widget/ftl/party-report-popup.ftl" />
+								<html-template location="component://bi-x/widget/ftl/party-report-pie-age-view.ftl" />
+							</html>
+						</platform-specific>
+					</container>
+				</screenlet>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="party-report">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<screenlet id="center">
+					<container id="centerView">
+						<platform-specific>
+							<html>
+								<html-template location="component://bi-x/widget/ftl/party-report-popup.ftl" />
+								<html-template location="component://bi-x/widget/ftl/party-report-view.ftl" />
+							</html>
+						</platform-specific>
+					</container>
+				</screenlet>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="party-report-member">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<screenlet id="center">
+					<container id="centerView">
+						<platform-specific>
+							<html>
+								<html-template location="component://bi-x/widget/ftl/party-report-popup.ftl" />
+								<html-template location="component://bi-x/widget/ftl/party-report-member-view.ftl" />
+							</html>
+						</platform-specific>
+					</container>
+				</screenlet>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="party-report-ii">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<screenlet id="center">
+					<container id="centerView">
+						<platform-specific>
+							<html>
+								<html-template location="component://bi-x/widget/ftl/party-report-popup.ftl" />
+								<html-template location="component://bi-x/widget/ftl/party-report-ii-view.ftl" />
+							</html>
+						</platform-specific>
+					</container>
+				</screenlet>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="party-report-pie-school">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<screenlet id="center">
+					<container id="centerView">
+						<platform-specific>
+							<html>
+								<html-template location="component://bi-x/widget/ftl/party-report-popup.ftl" />
+								<html-template location="component://bi-x/widget/ftl/party-report-pie-school-view.ftl" />
+							</html>
+						</platform-specific>
+					</container>
+				</screenlet>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="party-report-pie-position">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<screenlet id="center">
+					<container id="centerView">
+						<platform-specific>
+							<html>
+								<html-template location="component://bi-x/widget/ftl/party-report-popup.ftl" />
+								<html-template location="component://bi-x/widget/ftl/party-report-pie-position-view.ftl" />
+							</html>
+						</platform-specific>
+					</container>
+				</screenlet>
+			</widgets>
+		</section>
+	</screen>
+</screens>

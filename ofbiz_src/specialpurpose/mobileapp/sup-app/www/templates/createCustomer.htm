@@ -1,0 +1,137 @@
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<form class="form-horizontal" id="createCustomer" name="createCustome" novalidate>
+			<div class="form-group" id="groupName">
+				<label class="col-sm-4 col-xs-4 control-label no-padding-right"
+					for="groupName"> <span>Tên khách hàng</span>(*):
+				</label>
+				<div class="col-sm-8 col-xs-8">
+					<input class="col-lg-6 col-sm-12 col-md-6 col-xs-12" type="text"
+						name="groupName" ng-model="customer.groupName" placeholder="Tên khách hàng..." required>
+					<span style="color:red" ng-show="createCustome.groupName.$dirty && createCustome.groupName.$invalid">
+						<span ng-show="createCustome.groupName.$error.required" style="color:red">Yêu cầu nhập tên khách hàng (*)</span>
+					</span>
+				</div>
+			</div>
+			<div class="form-group" id="address1">
+				<label class="col-sm-4 col-xs-4 control-label no-padding-right"
+					for="address1"> <span>Địa chỉ khách hàng</span> (*):
+				</label>
+				<div class="col-sm-8 col-xs-8">
+					<input class="col-lg-6 col-sm-12 col-md-6 col-xs-12" type="text"
+						name="address1" ng-model="customer.address1" placeholder="Địa chỉ khách hàng.." required>
+					<span style="color:red" ng-show="createCustome.address1.$dirty && createCustome.address1.$invalid">
+						<span ng-show="createCustome.address1.$error.required" style="color:red">Yêu cầu nhập địa chỉ  khách hàng (*)</span>
+					</span>
+				</div>
+			</div>
+			<div class="form-group" id="city">
+				<label class="col-sm-4 col-xs-4 control-label no-padding-right" for="city"><span>Thành
+						phố</span> (*):</label>
+				<div class="col-sm-8 col-xs-8">
+					<input class="col-lg-6 col-sm-12 col-md-6 col-xs-12" type="text"
+						name="city" ng-model="customer.city" placeholder="Thành phố..." required>
+					<span  ng-show="createCustome.city.$dirty && createCustome.city.$invalid">
+						<span ng-show="createCustome.city.$error.required" style="color:red">Yêu cầu nhập thành phố (*)</span>
+					</span>
+				</div>
+			</div>
+			<div class="form-group" id="mobile">
+				<label class="col-sm-4 col-xs-4 control-label no-padding-right" for="mobile"><span>Số điện thoại
+						</span> (*):</label>
+				<div class="col-sm-8 col-xs-8">
+					<input class="col-lg-6 col-sm-12 col-md-6 col-xs-12" type="text"
+						name="mobile" id="phone" ng-model="customer.mobile" placeholder="Số điện thoại..." required>
+					<span style="color:red" ng-show="createCustome.mobile.$dirty && createCustome.mobile.$invalid">
+						<span ng-show="createCustome.mobile.$error.required" style="color:red">Yêu cầu nhập điện thoại  khách hàng (*)</span>
+						<span ng-show="createCustome.mobile.$error.number" style="color:red">Yêu cầu nhập đúng định dạng số</span>
+					</span>	
+				</div>
+			</div>
+			<div class="form-group" id="sex">
+				<label class="col-sm-4 col-xs-4 control-label no-padding-right" for="sex"><span>Giới tính
+						</span> (*):</label>
+				<div class="col-sm-8 col-xs-8">
+<!-- 				<select class="col-lg-6 col-sm-12 col-md-6 col-xs-12"> -->
+					<select class="form-control" name="sex" ng-model="customer.sex" 
+						ng-options="obj.value as obj.text for obj in sex" required>
+					</select>
+					<span style="color:red" ng-show="createCustome.sex.$dirty && createCustome.sex.$invalid">
+						<span ng-show="createCustome.sex.$error.required" style="color:red">Yêu cầu nhập giới tính  khách hàng (*)</span>
+					</span>	
+<!-- 				</select> -->
+				</div>
+			</div>
+			<div class="form-group" id="birthDay">
+				<label class="col-sm-4 col-xs-4 control-label no-padding-right" for="birthDay"><span>Ngày sinh
+					</span> (*):</label>
+				<div class="col-sm-8 col-xs-8">
+					<input class="col-lg-6 col-sm-12 col-md-6 col-xs-12" type="date"
+						name="birthDay" ng-model="customer.birthDay" required>
+					<span style="color:red" ng-show="createCustome.birthDay.$dirty && createCustome.birthDay.$invalid">
+						<span ng-show="createCustome.birthDay.$error.required" style="color:red">Yêu cầu nhập ngày sinh khách hàng (*)</span>
+						<span ng-show="createCustome.birthDay.$error.date" style="color:red">Không đúng định dạng</span>
+					</span>	
+				</div>
+			</div>
+			<div class="form-group" id="startDate">
+				<label class="col-sm-4 col-xs-4 control-label no-padding-right" for="startDate"><span>Ngày bắt đầu
+					</span> (*):</label>
+				<div class="col-sm-8 col-xs-8">
+					<input class="col-lg-6 col-sm-12 col-md-6 col-xs-12" type="date"
+						name="startDate" ng-model="customer.startDate" required>
+					<span style="color:red" ng-show="createCustome.startDate.$dirty && createCustome.startDate.$invalid">
+						<span ng-show="createCustome.startDate.$error.required" style="color:red">Yêu cầu nhập ngày bắt đầu của khách hàng (*)</span>
+						<span ng-show="createCustome.startDate.$error.date" style="color:red">Không đúng định dạng</span>
+					</span>		
+				</div>
+			</div>
+			<div class="form-group" id="roadId">
+				<label class="col-sm-4 col-xs-4 control-label no-padding-right" for="roadId">
+					<span>Tuyến đường</span> (*):
+				</label>
+				<div class="col-sm-8 col-xs-8">
+					<select class="form-control" name="roadId" ng-model="customer.roadId" 
+						ng-options="option.roadId as option.name for option in customers.road" required>
+						<option value="" ng-if="false"></option>	
+					</select>
+					<span style="color:red" ng-show="createCustome.roadId.$dirty && createCustome.roadId.$invalid">
+						<span ng-show="createCustome.roadId.$error.required" style="color:red">Yêu cầu nhập tuyến đường của khách hàng</span>
+					</span>		
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-12 col-xs-12 control-label no-padding-right margin-bottom-10"
+					for="postalCode"> <span>Bản đồ</span>(*):
+				</label>
+				<div class="col-sm-12 col-xs-12 customer-maps">
+					<googlemap store="store" marker="marker"></googlemap>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-12 col-xs-12">
+					<center>
+						<camera></camera>
+					</center>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="row margin-bottom-10">
+	<div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
+		<button class="btn btn-info btn-small right" ng-disabled="(createCustome.groupName.$dirty && createCustome.groupName.$invalid) 
+		|| (createCustome.address1.$dirty && createCustome.address1.$invalid) || (createCustome.city.$dirty && createCustome.city.$invalid) || (createCustome.mobile.$dirty && createCustome.mobile.$invalid)
+		|| (createCustome.startDate.$dirty && createCustome.startDate.$invalid) || (createCustome.birthDay.$dirty && createCustome.birthDay.$invalid) || (createCustome.sex.$dirty && createCustome.sex.$invalid)
+		|| (createCustome.roadId.$dirty && createCustome.roadId.$invalid) "
+			ng-click="createCustomer()">
+			<i class="fa fa-send"></i>  <span>Tạo mới</span>
+		</button>
+	</div>
+	<div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
+		<button class="btn btn-small" data-last="Finish">
+			<i class="glyphicon glyphicon-chevron-left"></i> <a href="javascript:void(0)"
+				ng-click="back()" style="color: #FFF">Quay lại</a>
+		</button>
+	</div>
+</div>

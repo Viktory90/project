@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+	<!-- The controller elements that are common to all OFBiz components can 
+		be found in the following xml file. A component can override the elements 
+		found in the common-controller.xml file. -->
+	<include location="component://common/webcommon/WEB-INF/common-controller.xml" />
+	<include location="component://product/webapp/facility/WEB-INF/controller.xml" />
+	<description>Delys sales Component Site Configuration File</description>
+
+	<request-map uri="findSalesman">
+		<security https="true" auth="true" />
+		<!-- <event type="service" invoke="findSalesmanByRoute" /> -->
+		<response name="success" type="view" value="FindSalesmanByRoute" />
+		<response name="error" type="view" value="FindSalesmanByRoute" />
+	</request-map>
+	
+	<request-map uri="customerInformation">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="createCustomerInfo" />
+	</request-map>
+
+	<request-map uri="getRouteOfParty">
+		<security auth="true" https="true" />
+		<event type="service" invoke="getRouteOfParty"></event>
+		<response name="success" type="request" value="json"></response>
+	</request-map>
+	
+	<request-map uri="getListInventory">	
+	    <security auth="true" https="true"/>
+	    <response name="success" type="view" value="StatisticInventory"></response>
+	    <response name="error" type="view" value="StatisticInventory"></response>
+	</request-map>
+	<request-map uri="inventoryList">	
+	    <security auth="true" https="true"/>
+	    <response name="success" type="view" value="InventoryList"></response>
+	    <response name="error" type="view" value="InventoryList"></response>
+	</request-map>
+	<request-map uri="inventoryByProducts">	
+	    <security auth="true" https="true"/>
+	    <response name="success" type="view" value="InventoryByProducts"></response>
+	    <response name="error" type="view" value="InventoryByProducts"></response>
+	</request-map>
+	
+	
+	<view-map name="StatisticInventory" type="screen"  
+	    page="component://delys/widget/sup/SupScreen.xml#StatisticInventory"/>
+	<view-map name="InventoryList" type="screen"  
+	    page="component://delys/widget/sup/SupScreen.xml#InventoryList"/>
+	<view-map name="InventoryByProducts" type="screen"  
+	    page="component://delys/widget/sup/SupScreen.xml#InventoryByProducts"/>
+	<view-map name="FindSalesmanByRoute" type="screen"
+		page="component://delys/widget/sup/SupScreen.xml#FindSalesmanByRoute" />
+		
+	<view-map name="createCustomerInfo" type="screen"
+		page="component://delys/widget/sup/SupScreen.xml#createCustomerInfo"></view-map>
+</site-conf>    

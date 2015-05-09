@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Kiểm tra hàng</title>
+<meta name="description" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- basic styles -->
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+<!-- page specific plugin styles -->
+
+<link rel="stylesheet" href="assets/css/jquery-ui-1.10.3.full.min.css" />
+<link rel="stylesheet" href="assets/css/datepicker.css" />
+
+<!-- fonts -->
+
+<link rel="stylesheet" href="assets/css/ace-fonts.css" />
+<link rel="stylesheet" href="assets/css/datepicker.css" />
+<link rel="stylesheet" href="assets/css/ui.jqgrid.css" />
+<!-- ace styles -->
+
+<!-- fonts -->
+
+<link rel="stylesheet" href="assets/css/ace-fonts.css" />
+
+<!-- jstree -->
+<link rel="stylesheet" href="assets/jstree/dist/themes/default/style.min.css">
+<!-- end jsTree -->
+
+<link rel="stylesheet" href="assets/css/ace.min.css" />
+<link rel="stylesheet" href="assets/css/ace-responsive.min.css" />
+<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+<link rel="stylesheet" href="assets/css/custom/loading.css">
+
+<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+<!-- inline styles related to this page -->
+
+<!-- ace settings handler -->
+
+<script src="assets/js/ace-extra.min.js"></script>
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+
+		<!-- <script src="assets/js/ace-extra.min.js"></script> -->
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+
+</head>
+
+<body>
+	<span id="navbar"> </span>
+	<div class="main-container container-fluid">
+		<div class="main-container-inner">
+			<div class="sidebar" id="sidebar">
+			</div>
+			<div class="main-content">
+				<div class="page-content">
+					<div class="page-header">
+						<h1>Khách hàng
+						<small>
+							<i class="icon-double-angle-right"></i>
+							<span id="">Kiểm tra hàng tồn kho tại cửa hàng</span>
+						</small>
+						</h1>
+					</div>
+					<!-- <div class="row-fluid">
+						<div class="span2">
+							<label class="control-label" for="categories">Chọn danh mục</label>
+						</div>
+						<div class="span4">
+							<div class="controls">
+								<select id="categories" data-placeholder="Choose a categories..." onchange="javascript:changeCat()">
+									<option value="">&nbsp;&nbsp;&nbsp;&nbsp;test</option>
+								</select>
+							</div>
+						</div>
+					
+					</div> -->
+					<div class="row-fluid">
+						
+						<form id="createOrderForm">
+							<div class="row-fluid">							
+								<div class="span2">
+									<label class="control-label" for="road"><span id="createOrderAdvance_road">Chọn tuyến đường</span></label>
+								</div>
+								<div class="span8">
+									<div class="controls">
+										<select id="road" name="road" data-placeholder="Choose a road...">
+											
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="row-fluid">
+								<div class="span2">
+									<label class="control-label" for="customers"><span id="createOrderAdvance_store">Chọn cửa hàng</span></label>
+								</div>
+								<div class="span8">
+									<div class="controls">
+										<select id="customers_order" name="customers_order">									
+										</select>
+									</div>
+								</div>
+							</div>
+								<div class="widget-box">
+								<div class="widget-header widget-header-flat widget-header-small">
+									<h5 id="dashboard_rateNumberProductSold">Đánh giá POSM, quảng cáo</h5>
+								</div>	
+								<div class="widget-body">
+									<div class="widget-main">
+										<div class="control-group">
+											<label class="control-label bolder blue">POSM</label>
+											<div class="controls">
+												<label >
+													<input name="POSM" type="radio" class="ace"/><span class="lbl" style="margin-right: 10px"> Đạt</span>
+												</label>
+												<label >
+													<input name="POSM" type="radio" class="ace"/><span class="lbl"> Không đạt</span>
+												</label>
+											
+																													
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label bolder blue">Marketing</label>
+											<div class="controls">
+												<label >
+													<input name="Marketing" type="radio" class="ace"/><span class="lbl" style="margin-right: 10px"> Đạt</span>
+												</label>
+												<label>	
+													<input name="Marketing" type="radio" class="ace"/><span class="lbl"> Không đạt</span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								</div>	
+								
+						</form>
+					
+					</div>
+					<div class="row-fluid">
+						<div class="span5">
+							<div class="widget-box">
+								<div class="widget-header header-color-blue2">
+									<h4><span id="createOrderAdvance_categories">Danh mục</span></h4>
+									<div class="widget-toolbar">
+										<a href="#" data-action="collapse">
+											<i class="icon-chevron-up"></i></a>
+										<a href="#" data-action="reload">
+											<i class="icon-refresh"></i></a>		
+									</div>
+								</div>
+								<div class="widget-body">									
+									<div class="widget-main padding-3">
+										<div class="slim-scroll" >																																					
+											<div class="content">
+												<div id="testCat" class="tree"></div>
+												<!-- <div id="listCategories"></div> -->													
+											</div>													
+										</div>
+									</div>									
+								</div>
+							</div>
+						</div>
+						<div class="span7">
+							<div class="widget-box">
+								<div class="widget-header header-color-blue2">
+									<h4><span id="createOrderAdvance_product">Sản phẩm</span></h4>
+									<div class="widget-toolbar">
+										<a href="#" data-action="collapse">
+											<i class="icon-chevron-up"></i></a>
+										<a href="#" data-action="reload">
+											<i class="icon-refresh"></i></a>		
+									</div>
+								</div>
+								<div class="widget-body">
+									<div class="widget-body-inner" style="display: block;">
+										<div class="widget-main padding-3">
+											<div class="slim-scroll" >													
+													<div class="content">
+														<div>
+															<ul class="unstyled spaced"  id="listProduct">
+															
+															</ul>
+														</div>
+													</div>																																				
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="space-6"></div>
+					<div class="row-fluid">
+						
+						<div id="createOrder" style="width: 100%; ">
+							<div id="loading">								
+									<i class="icon-spinner icon-spin orange bigger-250" id="loading_image"></i>														
+							</div>
+							<hr class="hr hr32 hr-dotted"/>
+						
+						<div class="row-fluid">
+							<div class="span10">
+								<!-- PAGE CONTENT BEGINS -->
+								
+								<table id="grid-table"></table>
+		
+								<div id="grid-pager"></div>
+		
+								<script type="text/javascript">
+									var $path_base = "/";//this will be used in gritter alerts containing images
+								</script>
+		
+								<!-- PAGE CONTENT ENDS -->
+							</div>
+							<!-- /.span -->
+						</div>
+						<div class="space-6"></div>
+						<div class="row-fluid">
+							<button id="send" class="btn btn-small btn-primary radius-2"><i class="icon-ok"></i>Gửi</button>
+							<button id="createOrder" class="btn btn-small btn-success radius-2"><i class="icon-shopping-cart"></i>Tạo đơn hàng</button>												
+						</div>
+					</div>
+						<script type="text/javascript">
+							var $path_base = "/";//this will be used in gritter alerts containing images
+						</script>
+						
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>											
+		<script type="text/javascript">
+		window.jQuery
+				|| document
+						.write("<script src='assets/js/jquery-2.0.3.min.js'>"
+								+ "<"+"/script>");
+	</script>
+
+	<!-- <![endif]-->
+
+	<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+	<script type="text/javascript">
+		if ("ontouchend" in document)
+			document
+					.write("<script src='assets/js/jquery.mobile.custom.min.js'>"
+							+ "<"+"/script>");
+	</script>
+	<script src="assets/js/bootstrap.min.js"></script>
+		<!-- page specific plugin scripts -->
+		
+	<script type="text/javascript" src="assets/js/jquery.validate.min.js"></script>	
+	<script type="text/javascript" src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+	
+	<script src="assets/js/fuelux/data/fuelux.tree-sampledata.js"></script>
+	<script src="assets/js/fuelux/fuelux.tree.min.js"></script>
+	
+	<script type="text/javascript" src="assets/js/jquery.ui.touch-punch.min.js"></script>
+
+	<script type="text/javascript" src="assets/js/jquery.slimscroll.min.js"></script>
+
+	<script src="assets/js/date-time/bootstrap-datepicker.min.js"></script>
+	
+	<script src="assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+	<script src="assets/js/jqGrid/i18n/grid.locale-en.js"></script>
+	<script src="assets/js/bootbox.min.js"></script>
+	
+	<!-- ace scripts -->
+
+	<script src="assets/js/ace-elements.min.js"></script>
+	<script src="assets/js/ace.min.js"></script>
+	<!-- jstree script -->
+	<script type="text/javascript" src="assets/jstree/dist/jstree.min.js"></script>
+	
+	<!-- inline scripts related to this page -->
+
+	<script type="text/javascript">
+	var languageObject = null;
+	var lang = null;
+	function language_select(language){
+		//var mySelect = document.getElementById("select_language");
+		//lang = language;
+		//languageObject = changeLanguage('config/createOrderAdvance.json', lang);	
+	}
+	
+	lastsel2 = -1;
+	var grid_selector = "#grid-table";
+	var pager_selector = "#grid-pager";
+	jQuery(function($) {
+		$.get("header.html", function(data) {
+			$('#navbar').html(data);
+		}, 'html').fail(function() {
+			console.log('arge', arguments)
+		});
+		
+		$.get("sidebar.html", function (data) {
+        	$('#sidebar').html(data);  
+        }, 'html').fail(function(){
+            console.log('arge', arguments)
+        });								
+		$("#loading").hide();
+		// scrollables
+		/* $('.slim-scroll').each(function () {
+			var $this = $(this);
+			$this.slimScroll({
+				height: $this.data('height') || 100,
+				railVisible:true
+			});
+	      }); */
+		/* <a href="#" data-action="reload">
+		<i class="icon-refresh"></i></a>	 */
+		
+		/* $.widget(".widget-toolbar", {
+			reload	: function(){
+				alert("ref");
+			}
+		}); */ 
+		$('#send').prop('disabled', false);
+		
+		if(localStorage.currentCatId){
+			//alert(localStorage.currentCatId);
+			getProductOfCat(localStorage.currentCatId);
+		}
+		
+		$("#loading").show();
+		$.ajax({
+			url : localStorage.serverUrl + 'mobileservices/control/getAllCategories',
+			crossDomain: true,
+			type:'POST',
+			dataType: 'json',
+			success: function(data){
+				//$("#test").html(JSON.stringify(data["completedTreeCat"]));
+				localStorage.completedTreeCat = JSON.stringify(data["completedTreeCat"]); 
+				drawTreeCat(data["completedTreeCat"]);
+			},
+			error : function(textStatus, errorThrown){
+				drawTreeCat(JSON.parse(localStorage.completedTreeCat));
+				//$("#test").html(textStatus);
+			},
+			complete: function(jqXHR, textStatus){
+				$("#loading").hide();
+			}
+		});
+		
+		$.ajax({ // ajax call starts
+			url : localStorage.serverUrl
+					+ 'mobileservices/control/getSalesmanRoads', // JQuery loads serverside.php
+			crossDomain : true,
+			type : "POST",
+			dataType : 'json', // Choosing a JSON datatype
+			success : function(data) // Variable data contains the data we get from serverside
+			{
+				localStorage.salesmanRoads = JSON.stringify(data);
+				for ( var item in data.roads) {
+					$("#road").append(
+							new Option(data.roads[item].name,
+									data.roads[item].roadId));
+				}
+				
+				if (localStorage.lastRoad) {
+					$("#road").val(localStorage.lastRoad);
+					//$("#road").change();
+				}
+				$("#road").change();
+			},
+			error : function(textStatus, errorThrown) {				
+				var roads = JSON.parse(localStorage.salesmanRoads).roads;
+				for ( var item in roads) {
+					$("#road").append(new Option(roads[item].name, roads[item].roadId));
+				}
+
+				if (localStorage.lastRoad) {
+					$("#road").val(localStorage.lastRoad);
+					$("#road").change()
+				}
+
+			}
+		});
+		
+		var createOrderFormValidator = $("#createOrderForm").validate({			
+			focusInvalid: true,
+			rules: {					
+				road:{
+					required: true
+				},
+				customers_order:{
+					required: true
+				}
+			},
+
+			messages: {
+				road:{
+					required: "Hãy chọn tuyến đường!!!!"
+				},
+				customers_order:{
+					required: "Chưa chọn cửa hàng"
+				}
+			},
+
+			/* invalidHandler: function (event, validator) { //display error alert on form submit   
+				$('.alert-error', $('.login-form')).show();
+				console.log(event);
+				console.log(validator);
+			}, */
+
+			highlight: function (e) {
+				$(e).closest('.control-group').removeClass('info').addClass('error');
+			},
+
+			success: function (e) {
+				$(e).closest('.control-group').removeClass('error').addClass('info');
+				$(e).remove();
+			},
+
+			errorPlacement: function (error, element) {
+				if(element.is(':checkbox') || element.is(':radio')) {
+					var controls = element.closest('.controls');
+					if(controls.find(':checkbox,:radio').length > 1) controls.append(error);
+					else error.insertAfter(element.nextAll('.lbl').eq(0));
+				} 
+				else if(element.is('.chzn-select')) {
+					error.insertAfter(element.nextAll('[class*="chzn-container"]').eq(0));
+				}
+				else error.insertAfter(element);
+			},
+
+			submitHandler: function (form) {
+				//alert("submit");
+			},
+			invalidHandler: function (form, validator) {
+				//alert("invalid");
+				//console.log(validator);
+				var message = validator.errorList[0].message;						
+				bootbox.dialog(message, 
+								[{
+									"label":"Đóng",
+									"class": "btn-small btn-danger"
+								}]);
+			},
+			showErrors: function(errorMap, errorList){
+				//console.log(errorList);
+				/* if(errorList.length > 0){
+					var message = errorList[0].message;						
+					bootbox.dialog(message, 
+								[{
+									"label":"Đóng",
+									"class": "btn-small btn-danger"
+								}]);					
+				} */
+			}
+		});
+		
+		$("#createOrder").click(function(){
+			
+		});
+		
+		$("#send").click(function() {										
+					localStorage.lastRoad = $("#road").val();
+
+					if (lastsel2 != -1) {
+						jQuery(grid_selector).jqGrid('saveRow', lastsel2);
+					}
+
+					var data = jQuery(grid_selector).jqGrid(
+							'getGridParam', 'data');
+
+					var postData = {};
+					for ( var item in data) {
+						postData["productId_" + data[item].productId] = {"product_id": data[item].productId,"quantity" : data[item].quantity, "expireDate" : data[item].expiry_date};
+					}
+					
+					
+					if($("#createOrderForm").valid()){
+						$('#send').attr("disabled", true);
+						//$('#send').text("Đang gửi thông tin.....");
+						$("#loading").show();
+						$.ajax({ // ajax call starts
+							url : localStorage.serverUrl
+									+ 'mobileservices/control/updateInventoryCus', // JQuery loads serverside.php
+							crossDomain : true,
+							type : "POST",
+							data :{
+								inventory_checkInventory: JSON.stringify(postData),
+								party_id: $("#customers_order").val()
+							},
+							dataType : 'json', // Choosing a JSON datatype
+							success : function(data) // Variable data contains the data we get from serverside
+							{
+								$("#loading").hide();	
+								if (data.retMsg.indexOf("error_update_inventory") > -1) {
+									
+									bootbox.dialog(
+													"Xảy ra lỗi trong lúc cập nhật. Hãy kiểm tra lại.",
+													[ {
+														"label" : "Đóng",
+														"class" : "btn-small btn-primary",
+													} ]);
+								} else if (data.retMsg.indexOf("update_success") > -1){
+									var orders = [];
+									if (localStorage.orders) {
+										orders = JSON.parse(localStorage.orders);
+									}
+									
+									postData.orderId = data.orderId;
+									postData.cusName = $("#customers option:selected").text();
+
+									//orders.push(postData); 
+									
+									//localStorage.orders = JSON.stringify(orders);
+									//localStorage.viewOrderId = data.orderId;
+									
+									bootbox.dialog(
+										"Đã cập nhật thành công ",
+										[{
+											"label":"Tạo đơn hàng",
+											"class": "btn-small btn-primary",
+											"callback": function(){
+												location = "createOrderAdvance.html";
+											}
+										},{
+												"label": "Đóng",
+												"class": "btn-small btn-danger",
+												"callback":function(){
+													location.reload();
+												}
+											}]);
+									
+								}else if(data.retMsg.indexOf("login_required")){
+									location = "index.html";
+								}
+								
+								$('#send').attr("disabled", false);
+								$('#send').text("Gửi");									
+							},
+							error : function(textStatus, errorThrown) {	
+								$("#loading").hide();
+								bootbox.dialog("Không thể gửi được thông tin",
+												[ {
+													"label" : "Làm lại",
+													"class" : "btn-small btn-primary"
+												}, {
+													"label" : "Gửi sau",
+													"class" : "btn-small btn-primary",
+													callback : function() {
+														var orders = [];
+														if (localStorage.orders) {
+															//orders = JSON.parse(localStorage.orders);
+														}
+														
+														postData.orderId = "Chưa gửi";
+														postData.cusName = $("#customers option:selected").text();
+														orders.push(postData); 
+														localStorage.orders = JSON.stringify(orders); 																														
+														location.reload();
+													}
+												} ]);
+
+							}
+							
+						});
+					}else{
+						return false;
+					}
+				});
+		
+		$("#road").on('change', function() {					
+					var roads = JSON.parse(localStorage.salesmanRoads).roads;
+					for ( var index in roads) {
+						var road = roads[index];
+						if (road.roadId == this.value) {
+							$('#customers_order').find('option').remove()
+									.end().append(new Option("", ""));
+
+							for (var item in road.customers) {
+								$("#customers_order").append(new Option(
+														road.customers[item].name,
+														road.customers[item].customerId));
+							}
+						}
+					}
+		});
+		var gwidth = $("#createOrder").width();		
+		jQuery(grid_selector).jqGrid({
+			//direction: "rtl",			
+			datatype : "local",
+			height : 'auto',
+			colNames : ['act','ID', 'Tên SP','SL', 'HSD'],
+			colModel : [ 
+			    {
+			    	name:'act',
+			    	index:'act', 
+			    	width:20,
+			    	sortable:false, 
+			    	align: 'center'
+			    },
+			    {
+			    	name:'productId',
+			    	index: 'productId',
+			    	width: 0,
+			    	hidden: true,
+			    	sortable: false,
+			    	align:'center'
+			    },
+			    {
+				name : 'productName',
+				index : 'productName',
+				width : 85,
+				editable : false,
+				sorttype : "string"
+				}, 
+				{
+				name : 'quantity',
+				index : 'quantity',
+				width : 15,
+				editable : true,
+				sorttype : "string",
+				edittype : 'text',				
+				editoptions : {
+					size: 2,
+					maxlength: 8,
+					NullIfEmpty: true
+					
+				}, 
+				editrules: {
+					number: true
+				}
+					
+			},
+			{
+				name: 'expiry_date',
+				index: 'expiry_date',
+				editable:true, sorttype:"date",unformat: pickDate,
+				width : 40
+				/* sorttype:"date", */
+				
+			}],
+			'cellEdit': true,
+			'cellsubmit' : 'clientArray',
+		    editurl: 'clientArray',
+			viewrecords : true,	
+			rowList: [4, 8, 12],
+			rowNum : 4,
+			pager : pager_selector,			
+			altRows : true,
+			//toppager: true,
+
+			multiselect : false,
+			//multikey: "ctrlKey",
+			multiboxonly : true,					
+			onCellSelect: function(rowid, iCol, cellcontent, e){
+				//alert(iCol);
+				
+			}, 
+			beforeSubmitCell: function (rowid, cellname, value, iRow, iCol) {
+				//console.log("save");
+				if (rowid && rowid !== lastsel2) {
+					if (lastsel2 != -1) {
+						jQuery(grid_selector).jqGrid('saveRow', lastsel2);
+					}
+					//jQuery(grid_selector).jqGrid('editRow', id, true);
+					lastsel2 = rowid;
+					jQuery(grid_selector).trigger("reloadGrid");	
+				}
+			},
+			loadComplete : function() {
+				var table = this;
+				setTimeout(function() {
+					styleCheckbox(table);
+					updateActionIcons(table);
+					updatePagerIcons(table);
+					enableTooltips(table);
+				}, 0);
+
+			},
+			gridComplete: function(){
+				jQuery(grid_selector).jqGrid("setGridWidth", gwidth);
+				var ids = jQuery(grid_selector).jqGrid('getDataIDs');
+				jQuery(grid_selector).jqGrid("setLabel", "act", "Xóa", {"text-align": "right"});
+				for(var i=0; i < ids.length; i++){
+					var cl = ids[i];
+					del = "<button class='btn btn-small btn-info' data-toggle='button' type='button' onclick=\"deleteRow('"+cl+"');\"><i class=\"icon-trash icon-only\"></i> </button>";
+					jQuery(grid_selector).jqGrid('setRowData',ids[i],{act:del});					
+				}
+			}, 
+			//editurl: $path_base+"/dummy.html",//nothing is saved
+			//caption: "jqGrid with inline editing",
+			autowidth : true,			
+			onSelectRow : function(id, status, e) {				
+				 /* if (id && id !== lastsel2) {
+					if (lastsel2 != -1) {
+						jQuery(grid_selector).jqGrid('saveRow', lastsel2);
+					}
+					//jQuery(grid_selector).jqGrid('editRow', id, true);
+					lastsel2 = id;
+					$("#"+ id + "_quantity").focus(); 
+				}  */
+			}
+		});		
+		//jQuery(grid_selector).navGrid(pager_selector,{edit:false,add:false,del:false});		
+		function beforeDeleteCallback(e) {
+			var form = $(e[0]);
+			if(form.data('styled')) return false;
+			form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
+			style_delete_form(form);
+			form.data('styled', true);
+		}
+		
+		function beforeEditCallback(e) {
+			var form = $(e[0]);
+			form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
+			style_edit_form(form);
+		}
+		function pickDate( cellvalue, options, cell ) {
+					setTimeout(function(){
+						$(cell).find('input[type=text]').datepicker({format:'yyyy-mm-dd' , autoclose:true}); 
+					}, 0);
+				}
+		function styleCheckbox(table) {
+			/**
+				$(table).find('input:checkbox').addClass('ace')
+				.wrap('<label />')
+				.after('<span class="lbl align-top" />')
+			
+			
+				$('.ui-jqgrid-labels th[id*="_cb"]:first-child')
+				.find('input.cbox[type=checkbox]').addClass('ace')
+				.wrap('<label />').after('<span class="lbl align-top" />');
+			 */
+		}
+
+		//unlike navButtons icons, action icons in rows seem to be hard-coded
+		//you can change them like this in here if you want
+		function updateActionIcons(table) {
+			/**
+			var replacement = 
+			{
+				'ui-icon-pencil' : 'icon-pencil blue',
+				'ui-icon-trash' : 'icon-trash red',
+				'ui-icon-disk' : 'icon-ok green',
+				'ui-icon-cancel' : 'icon-remove red'
+			};
+			$(table).find('.ui-pg-div span.ui-icon').each(function(){
+				var icon = $(this);
+				var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
+				if($class in replacement) icon.attr('class', 'ui-icon '+replacement[$class]);
+			})
+			 */
+		}
+
+		//replace icons with FontAwesome icons like above
+		function updatePagerIcons(table) {
+			var replacement = {
+				'ui-icon-seek-first' : 'icon-double-angle-left bigger-140',
+				'ui-icon-seek-prev' : 'icon-angle-left bigger-140',
+				'ui-icon-seek-next' : 'icon-angle-right bigger-140',
+				'ui-icon-seek-end' : 'icon-double-angle-right bigger-140'
+			};
+			$(
+					'.ui-pg-table:not(.navtable) > tbody > tr > .ui-pg-button > .ui-icon')
+					.each(
+							function() {
+								var icon = $(this);
+								var $class = $.trim(icon.attr('class')
+										.replace('ui-icon', ''));
+
+								if ($class in replacement)
+									icon.attr('class', 'ui-icon '
+											+ replacement[$class]);
+							})
+		}
+
+		function enableTooltips(table) {
+			$('.navtable .ui-pg-button').tooltip({
+				container : 'body'
+			});
+			$(table).find('.ui-pg-div').tooltip({
+				container : 'body'
+			});
+		}
+		
+		function drawTreeCat(data){
+			dataTree2 = new DataSourceTree({data:fillTree2(data)});// for fuelux.js
+			
+			$("#testCat").ace_tree({
+				dataSource: dataTree2,
+				loadingHTML:'<div class="tree-loading"><i class="icon-refresh icon-spin blue"></i></div>',
+				'open-icon' : 'icon-minus',
+				'close-icon' : 'icon-plus',
+				'selectable' : true,
+				'selected-icon' : 'icon-ok',
+				'unselected-icon' : 'icon-remove'
+			});
+			
+			
+			/* dataTree = fillTree(data);// for jsTree.js
+			//$("#test").html(JSON.stringify(dataTree));
+			
+			$('#listCategories').jstree({
+				'core':{
+					'data': dataTree,
+					 "state" : {
+						opened: false 
+					 }
+				},
+				"plugins" : [ "dnd", "search", "sort", "state", "types", "wholerow"]
+			}).delegate(".jstree-open>a", "click.jstree", function(event){
+			    $.jstree.reference(this).close_node(this,false,false);
+			}).delegate(".jstree-closed>a", "click.jstree", function(event){
+			    $.jstree.reference(this).open_node(this,false,false);
+			}); */			
+		}
+		
+		function fillTree(data){			
+			var dataTree = new Array();
+			for(var d in data){
+				if(data[d].categoryName !== null && data[d].categoryName !== 'undefined' 
+						&& !($.isEmptyObject(data[d].categoryName))){
+					catName = data[d].categoryName;
+				}else{
+					catName = data[d].productCategoryId;
+				}				
+				var catId = data[d].productCategoryId;
+				var text = "<a href='javascript:void(0)' onclick='getProductOfCat(\"" + catId + "\");'>"+catName+"</a>";			
+				//$("#listCategories").append("<button class='btn btn-light' onclick='getProductOfCat(\"" + catId + "\");'>" + catName +"</button>");
+				if(!jQuery.isEmptyObject(data[d].child)){
+					var children = fillTree(data[d]["child"]);
+					dataTree.push({'text': text, 'children': children, 'state': 'closed'});
+				}else{
+					dataTree.push({'text': text, 'state': 'closed'});
+				}				
+			}
+			return dataTree;
+		}
+		
+		/*
+			use	 fuelux.js
+		*/
+		function fillTree2(data){
+			var retTree = new Object();
+			for(var index in data){
+				if(data[index].categoryName !== null && data[index].categoryName !== 'undefined' 
+					&& !($.isEmptyObject(data[index].categoryName))){
+					catName = data[index].categoryName;
+				}else{
+					catName = data[index].productCategoryId;
+				}				
+				var catId = data[index].productCategoryId;
+				var text = "<a href='javascript:void(0)' onclick='getProductOfCat(\"" + catId + "\");'>"+catName+"</a>";
+				if(!jQuery.isEmptyObject(data[index].child)){
+					var children = fillTree2(data[index]["child"]);
+					retTree[catName] = {name: text, type: 'folder'};							
+					retTree[catName]['additionalParameters'] = {'children': children};
+				}else{
+					retTree[catName] = {name: text, type: 'item'}; 
+				}
+			}
+			return retTree;
+		}
+	});
+			
+	function deleteRow(rowId){
+		bootbox.confirm("Xóa sản phẩm đã chọn?", function(result) {
+			 if(result){
+				 jQuery(grid_selector).delRowData(rowId);
+				 reccount = jQuery(grid_selector).getGridParam('reccount');
+				 if(reccount === 0){
+					 $("#send").prop("disabled", true);
+				 }
+			 }
+		}); 				
+	}
+	
+	function getProductOfCat(catId){
+		//alert(catId);
+		localStorage.currentCatId = catId;
+		$("#loading").show();
+		$.ajax({
+			url: localStorage.serverUrl + 'mobileservices/control/getProductOfCat',
+			crossDomain: true,
+			type: 'POST',
+			dataType: 'json',
+			data:{
+				productCategoryId: catId 
+			},
+			success: function(data){
+				//$("#test").html(JSON.stringify(data));
+				localStorage["product_" + catId] = JSON.stringify(data['listProduct']);
+				fillProductsOfCat(data['listProduct']);
+			},
+			error: function(textStatus, errorThrown){
+				fillProductsOfCat(JSON.parse(localStorage["product_" + catId]));
+				//$("#test").html(textStatus);
+			},
+			complete: function(jqXHR, textStatus ){
+				$("#loading").hide();
+			}
+		});
+	}
+	
+	function fillProductsOfCat(data){
+		$("#listProduct").empty();
+		//var products = new Object();
+		if(jQuery.isEmptyObject(data)){
+			$("#listProduct").append("<p>Chưa có sản phẩm nào cho danh mục này</p>");
+		}else{
+			for(d in data){
+				if(testEmptyValue(data[d].productName)){
+					productName = data[d].productName;
+				}else if(testEmptyValue(data[d].productId)){
+					productName = data[d].productId;
+				}			
+			$("#listProduct").append("<li><i class='icon-caret-right'></i> <button class='btn btn-info btn-mini' onclick=\"showProduct('"+ data[d].productId + "','" + data[d].productName + "');\">" + productName + "</button></li>");
+			/* products[productName] = {name: "<i class='icon-caret-right'></i> <button class='btn btn-info btn-mini' onclick=\"showProduct('"+ data[d].productId + "','" + data[d].productName +"', '"+ data[d].pricePrice +"');\">" + productName + "</button>",
+									type: 'item'}; */
+			
+			}
+			//var productsSource = new  DataSourceTree({data: products});// for fuelux.js		
+			//$("#listProduct").tree('reload');
+			/* $("#listProduct").ace_tree({
+				dataSource: productsSource,
+				loadingHTML:'<div class="tree-loading"><i class="icon-refresh icon-spin blue"></i></div>',
+				multiSelect:true,
+				'open-icon' : 'icon-minus',
+				'close-icon' : 'icon-plus',
+				'selectable' : false,
+				'selected-icon' : null,
+				'unselected-icon' : null
+			}); */
+		}
+	}
+	
+	function showProduct(productId, productName){				
+		if (lastsel2 != -1) {
+			jQuery(grid_selector).jqGrid('saveRow', lastsel2);
+			//jQuery(grid_selector).jqGrid('editRow', lastsel2, true);
+		}
+		dataGrid = jQuery(grid_selector).jqGrid('getGridParam', 'data');
+		for(item in dataGrid){
+			if(hasValue(dataGrid[item], "productId", productId)){
+				dataGrid[item].quantity = parseInt(dataGrid[item].quantity) + 1;				
+				jQuery(grid_selector).trigger("reloadGrid");
+				return;
+			}
+			//if(data[item].productId = data[item].quantity
+		}
+		data = [{"productId": productId, "productName": productName, "quantity": 1, "expiry_date" : ' '}];
+		//$(grid_selector).GridUnload();
+		//fillGridData(data, grid_selector, pager_selector);
+		jQuery(grid_selector).addRowData(data.productId, data);
+		jQuery(grid_selector).trigger("reloadGrid");
+		reccount = jQuery(grid_selector).getGridParam('reccount');
+		if(reccount > 0){
+			$("#send").prop("disabled", false);
+		}
+		//$("#createOrder").css("visibility", "visible");
+	}
+	
+	function hasValue(obj, key, value){
+		return obj.hasOwnProperty(key) && obj[key] === value;
+	}
+	
+	function testEmptyValue(value){
+		if(value || !(jQuery.isEmptyObject(value))){
+			return true;
+		}else{
+			return false;
+		}
+	} 
+	</script>
+</body>
+</html>				

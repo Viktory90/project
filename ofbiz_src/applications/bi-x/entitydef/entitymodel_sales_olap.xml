@@ -65,40 +65,40 @@ under the License.
         <field name="extNetAmount" type="currency-precise">
             <description>Extended net amount: gross amount less discounts.</description>
         </field>
-        <field name="extShippingAmount" type="currency-precise">
-            <description>Extended shipping amount.</description>
-        </field>
+<!--         <field name="extShippingAmount" type="currency-precise"> -->
+<!--             <description>Extended shipping amount.</description> -->
+<!--         </field> -->
         <field name="extTaxAmount" type="currency-precise">
             <description>Extended tax amount.</description>
         </field>
 		<field name="extPromotionAmount" type="currency-precise">
             <description>Extended promotion</description>
         </field>
-        <field name="GS" type="currency-precise">
-            <description>Gross Sales: Gross Amount plus Shipping Amount.</description>
-        </field>
-        <field name="GMS" type="currency-precise">
-            <description>Gross Merchandize Sales: Gross Amount.</description>
-        </field>
-        <field name="GMP" type="currency-precise">
-            <description>Gross Merchandize Profit: Gross Merchandize Sales less Gross Cost.</description>
-        </field>
-        <field name="GSS" type="currency-precise">
-            <description>Gross Shipping Sales: Shipping Amount</description>
-        </field>
-        <field name="GSC" type="currency-precise">
-            <description>Gross Shipping Cost</description>
-        </field>
-        <field name="GSP" type="currency-precise">
-            <description>Gross Shipping Profit: Gross Shipping Sales less Gross Shipping Cost.</description>
-        </field>
-        <field name="GP" type="currency-precise">
-            <description>Gross Profit: Gross Merchandize Profit less Gross Shipping Profit.</description>
-        </field>
+<!--         <field name="GS" type="currency-precise"> -->
+<!--             <description>Gross Sales: Gross Amount plus Shipping Amount.</description> -->
+<!--         </field> -->
+<!--         <field name="GMS" type="currency-precise"> -->
+<!--             <description>Gross Merchandize Sales: Gross Amount.</description> -->
+<!--         </field> -->
+<!--         <field name="GMP" type="currency-precise"> -->
+<!--             <description>Gross Merchandize Profit: Gross Merchandize Sales less Gross Cost.</description> -->
+<!--         </field> -->
+<!--         <field name="GSS" type="currency-precise"> -->
+<!--             <description>Gross Shipping Sales: Shipping Amount</description> -->
+<!--         </field> -->
+<!--         <field name="GSC" type="currency-precise"> -->
+<!--             <description>Gross Shipping Cost</description> -->
+<!--         </field> -->
+<!--         <field name="GSP" type="currency-precise"> -->
+<!--             <description>Gross Shipping Profit: Gross Shipping Sales less Gross Shipping Cost.</description> -->
+<!--         </field> -->
+<!--         <field name="GP" type="currency-precise"> -->
+<!--             <description>Gross Profit: Gross Merchandize Profit less Gross Shipping Profit.</description> -->
+<!--         </field> -->
 
-        <field name="countOrder" type="fixed-point">
-            <description>Count of order.</description>
-        </field>
+<!--         <field name="countOrder" type="fixed-point"> -->
+<!--             <description>Count of order.</description> -->
+<!--         </field> -->
         <field name="productPromoDimension" type="numeric">
             <description>Product promotion Code.</description>
         </field>
@@ -106,9 +106,26 @@ under the License.
         <field name="salesMethodChannelEnumId" type="id-ne">
             <description>sales Method Channel Enum Id.</description>
         </field>
-
+		
         <prim-key field="orderId"/>
         <prim-key field="orderItemSeqId"/>
+    	
+    	<relation rel-entity-name="DateDimension" type="one" fk-name="SalesDateDimensionFK">
+    		<key-map field-name="orderDateDimId" rel-field-name="dimensionId"/>
+    	</relation>
+    	
+    	<relation rel-entity-name="CurrencyDimension" type="one" fk-name="SalesCurrencyDimensionFK">
+    		<key-map field-name="origCurrencyDimId" rel-field-name="dimensionId"/>
+    	</relation>
+    	<relation rel-entity-name="ProductDimension" type="one" fk-name="SalesProductDimensionFK">
+    		<key-map field-name="productDimId" rel-field-name="dimensionId"/>
+    	</relation>
+    	
+    	<relation rel-entity-name="PromotionDimension" type="one" fk-name="SalesPromotionDimensionFK">
+    		<key-map field-name="productPromoDimension" rel-field-name="dimensionId"/>
+    	</relation>
+    	
+    	
     </entity>
 
     <!-- ========================================================= -->

@@ -185,7 +185,7 @@
 		<field name="roleTypeId" type="id-ne"></field>
 		<prim-key field="promotionDimension"/>
 		<prim-key field="roleTypeId"/>
-		<relation rel-entity-name="PromotionDimension" type="one">
+		<relation rel-entity-name="PromotionDimension" type="one" fk-name="PromotionRoleTypeApplyFK">
 			<key-map field-name="promotionDimension" rel-field-name="dimensionId" />
 		</relation>
 	</entity>

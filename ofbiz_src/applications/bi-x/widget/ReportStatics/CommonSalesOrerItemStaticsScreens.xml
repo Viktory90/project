@@ -197,14 +197,12 @@
 				<set field="currentDateTime" value="${groovy: java.util.Calendar.getInstance()}" type="Object"/>
 			</actions>
 			<widgets>
-				<screenlet title="${uiLabelMap.ProductStatic}">
 					<platform-specific>
 						<html>
 							<html-template location="component://bi-x/webapp/reports/IncludeDropdownValuesJs.ftl"/>
 							<html-template location="component://bi-x/webapp/reports/reportProductPromotion.ftl"/>
 						</html>
 					</platform-specific>
-				</screenlet>
 			</widgets>
 			
 		</section>

@@ -411,8 +411,8 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>565</xloc>
-      <yloc>67</yloc>
+      <xloc>576</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

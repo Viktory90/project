@@ -129,8 +129,8 @@
   <notepads>
     <notepad>
       <note>General date from start date input</note>
-      <xloc>308</xloc>
-      <yloc>111</yloc>
+      <xloc>288</xloc>
+      <yloc>32</yloc>
       <width>189</width>
       <heigth>26</heigth>
       <fontname>Segoe UI</fontname>
@@ -150,8 +150,8 @@
     </notepad>
     <notepad>
       <note>Check day if it is weekend&#xd;&#xa;</note>
-      <xloc>427</xloc>
-      <yloc>506</yloc>
+      <xloc>1056</xloc>
+      <yloc>576</yloc>
       <width>147</width>
       <heigth>41</heigth>
       <fontname>Segoe UI</fontname>
@@ -171,8 +171,8 @@
     </notepad>
     <notepad>
       <note>Lookup date in Date dimension table, if it exists then update else insert&#xd;&#xa;</note>
-      <xloc>432</xloc>
-      <yloc>667</yloc>
+      <xloc>480</xloc>
+      <yloc>608</yloc>
       <width>381</width>
       <heigth>41</heigth>
       <fontname>Segoe UI</fontname>
@@ -253,8 +253,8 @@
       <max_value>9999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>238</xloc>
-      <yloc>180</yloc>
+      <xloc>352</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -289,8 +289,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>179</xloc>
-      <yloc>485</yloc>
+      <xloc>800</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -434,8 +434,8 @@
 </calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>239</xloc>
-      <yloc>288</yloc>
+      <xloc>608</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -453,8 +453,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>420</xloc>
-      <yloc>441</yloc>
+      <xloc>960</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -472,8 +472,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>73</xloc>
-      <yloc>403</yloc>
+      <xloc>320</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -522,8 +522,8 @@
     <last_time_field/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>575</xloc>
-      <yloc>353</yloc>
+      <xloc>1152</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -572,8 +572,8 @@
     <last_time_field/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>642</xloc>
-      <yloc>476</yloc>
+      <xloc>1152</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -651,8 +651,8 @@
       <last_update_field/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>178</xloc>
-      <yloc>806</yloc>
+      <xloc>576</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -808,8 +808,8 @@
         <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>181</xloc>
-      <yloc>598</yloc>
+      <xloc>800</xloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -831,8 +831,8 @@
       </remove>      <remove>        <name>day_date</name>
       </remove>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>348</xloc>
-      <yloc>946</yloc>
+      <xloc>288</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -867,8 +867,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>180</xloc>
-      <yloc>689</yloc>
+      <xloc>800</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -974,8 +974,8 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>181</xloc>
-      <yloc>942</yloc>
+      <xloc>416</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1003,8 +1003,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>243</xloc>
-      <yloc>370</yloc>
+      <xloc>608</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

@@ -64,13 +64,13 @@
 		<section>
     		<actions>
     			<set field="selectedMenuItem" value="statisticsAndReport"/>
-    			<set field="selectedSubMenuItem" value="productOrderStatics"/>
+    			<set field="selectedSubMenuItem" value="aggregationSalesIn"/>
     			<set field="tabButtonItem" value="ReprortSalesIn" />
     			<set field="titleProperty" value="BiSalesOrderReport"/>
     			<set field="headerItem" value="salesorder"/>
     		</actions>
     		<widgets>
-    			<decorator-screen name="SalesStaticsDecorator" location="component://delys/widget/ReportStatics/CommonScreens.xml" >
+    			<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
     				<decorator-section name="body">
     					<include-screen name="CommonReprortSalesIn" location="component://bi-x/widget/ReportStatics/CommonSalesOrerItemStaticsScreens.xml"/>
     				</decorator-section>
@@ -83,13 +83,13 @@
 		<section>
     		<actions>
     			<set field="selectedMenuItem" value="statisticsAndReport"/>
-    			<set field="selectedSubMenuItem" value="productOrderStatics"/>
+    			<set field="selectedSubMenuItem" value="salesOrderProducts"/>
     			<set field="tabButtonItem" value="SalesOrderProducts" />
     			<set field="titleProperty" value="BiSalesOrderReport"/>
     			<set field="headerItem" value="salesorder"/>
     		</actions>
     		<widgets>
-    			<decorator-screen name="SalesStaticsDecorator" location="component://delys/widget/ReportStatics/CommonScreens.xml" >
+    			<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
     				<decorator-section name="body">
     					<include-screen name="CommonReportSalesOrderProducts" location="component://bi-x/widget/ReportStatics/CommonSalesOrerItemStaticsScreens.xml"/>
     				</decorator-section>

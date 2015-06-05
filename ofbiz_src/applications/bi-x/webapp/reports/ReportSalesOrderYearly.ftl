@@ -96,8 +96,9 @@
     <div id="oder_year_container" style="margin-top: 10px;">
     </div>
 </div>
+<input type="button" value="Option" id="oder_year_showWindowButton" />
 <div style="width: 100%; height: 650px;display:none;" id="jqxWidget">
-    <input type="button" value="Option" id="oder_year_showWindowButton" />
+
     <div id="mainDemoContainer">
         <div id="oder_year_customWindow">
             <div id="customWindowHeader">

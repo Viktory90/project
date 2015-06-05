@@ -154,15 +154,15 @@
         <menu-item name="profile" title="${uiLabelMap.profile}" widget-style="fa-user open-sans">
 			<sub-menu name="ProfileMenus" location="component://delys/widget/DelysMenus.xml"/>
 		</menu-item>
-<!-- 		<menu-item name="product" title="${uiLabelMap.DAProduct}" widget-style="fa-cube"> -->
-<!-- 			<sub-menu location="component://delys/widget/DelysMenus.xml" name="productSales"/> -->
-<!-- 		</menu-item> -->
-<!-- 		<menu-item name="order" title="${uiLabelMap.order}" widget-style="fa-file-text-o"> -->
-<!--         	<sub-menu location="component://delys/widget/DelysMenus.xml" name="order"/> -->
-<!--         </menu-item> -->
-        <menu-item name="deliveryProposal" title="${uiLabelMap.deliveryRequest}" widget-style="icon-logistics">
-        	<sub-menu location="component://delys/widget/DelysMenus.xml" name="deliveryProposal"/>
+		<menu-item name="product" title="${uiLabelMap.DAProduct}" widget-style="fa-cube">
+			<sub-menu location="component://delys/widget/DelysMenus.xml" name="productSales"/>
+		</menu-item>
+		<menu-item name="order" title="${uiLabelMap.order}" widget-style="fa-file-text-o">
+        	<sub-menu location="component://delys/widget/DelysMenus.xml" name="order"/>
         </menu-item>
+<!--         <menu-item name="deliveryProposal" title="${uiLabelMap.deliveryRequest}" widget-style="icon-logistics"> -->
+<!--         	<sub-menu location="component://delys/widget/DelysMenus.xml" name="deliveryProposal"/> -->
+<!--         </menu-item> -->
 <!--         <menu-item name="inventoryForSales" title="${uiLabelMap.inventory}" widget-style="fa-cubes"> -->
 <!--         	<sub-menu location="component://delys/widget/DelysMenus.xml" name="inventoryForSales"/> -->
 <!--         </menu-item> -->
@@ -221,10 +221,10 @@
 	</menu>
 	
 	<menu name="settingJobPentaho" modelMenu="businessSubMenu" selected-menuitem-context-field-name="selectedSubMenuItem">
-		<menu-item name="DimensionTable" title="Đặt lịch chạy chieu">
+		<menu-item name="DimensionTable" title="Đặt lịch chạy bảng chiều">
 			<link target="loadDimensionTableSales"></link>
 		</menu-item>
-		<menu-item name="FactTable" title="Đặt lịch chạy fact">
+		<menu-item name="FactTable" title="Đặt lịch chạy bảng  Fact">
 			<link target="loadFactTableSales"></link>
 		</menu-item>
 	</menu>
@@ -288,9 +288,9 @@
 			</condition>
         	<link target="newQuotation"/>
         </menu-item>
-		<menu-item name="listQuotation" title="${uiLabelMap.DAQuotationDSList}">
-        	<link target="quotationList"/>
-        </menu-item>
+<!-- 		<menu-item name="listQuotation" title="${uiLabelMap.DAQuotationDSList}"> -->
+<!--         	<link target="quotationList"/> -->
+<!--         </menu-item> -->
         <!-- <menu-item name="listStores" title="${uiLabelMap.ProductStores}">
             <link target="listProductStores"/>
         </menu-item> -->
@@ -360,15 +360,15 @@
 		</menu-item>
 	</menu>
 	<menu name="promosProgramme" modelMenu="businessSubMenu" selected-menuitem-context-field-name="selectedSubMenuItem">
-<!-- 		<menu-item name="newPromo" title="${uiLabelMap.DACreatePromotionProgram}"> -->
-<!--         	<link target="editProductPromotion"/> -->
-<!--         </menu-item> -->
-		<!-- <menu-item name="promosList" title="${uiLabelMap.DAPromosList}">
+		<menu-item name="newPromo" title="${uiLabelMap.DACreatePromotionProgram}"> 
+			<link target="editProductPromotion"/> 
+		</menu-item>
+		 <menu-item name="promosList" title="${uiLabelMap.DAPromosList}">
         	<link target="findProductPromos"/>
-        </menu-item> -->
-<!--         <menu-item name="promosList" title="${uiLabelMap.DAPromosList}"> -->
-<!--         	<link target="productPromoList"/> -->
-<!--         </menu-item> -->
+        </menu-item>
+			<menu-item name="promosList" title="${uiLabelMap.DAPromosList}"> 
+			<link target="productPromoList"/>
+		</menu-item>
 		<menu-item name="reportPromo" title="${uiLabelMap.ReportStaticsPromotion}">
         	<link target="reportProductPromo"/>
         </menu-item>
@@ -406,50 +406,57 @@
 		</menu-item>
 	</menu>
 	<menu name="statisticsAndReport" modelMenu="businessSubMenu" selected-menuitem-context-field-name="selectedSubMenuItem">
-		<menu-item name="orderItems" title="${uiLabelMap.DAOrderItemsReport}">
-        	<link target="orderItemsReport"/>
-        </menu-item>
+<!-- 		<menu-item name="orderItems" title="${uiLabelMap.DAOrderItemsReport}"> -->
+<!--         	<link target="orderItemsReport"/> -->
+<!--         </menu-item> -->
 		<menu-item name="orders" title="${uiLabelMap.orders}">
         	<link target="fictif_target"/>
         </menu-item>
-        <menu-item name="sales" title="${uiLabelMap.sales}">
-        	<link target="fictif_target"/>
-        </menu-item>
-        <menu-item name="aggregation" title="${uiLabelMap.aggregation}">
-        	<link target="fictif_target"/>
-        </menu-item>
-        <menu-item name="bonusAggregation" title="${uiLabelMap.bonusAggregation}">
-        	<link target="fictif_target"/>
-        </menu-item>
+<!--         <menu-item name="sales" title="${uiLabelMap.sales}"> -->
+<!--         	<link target="fictif_target"/> -->
+<!--         </menu-item> -->
+<!--         <menu-item name="aggregation" title="${uiLabelMap.aggregation}"> -->
+<!--         	<link target="fictif_target"/> -->
+<!--         </menu-item> -->
+<!--         <menu-item name="bonusAggregation" title="${uiLabelMap.bonusAggregation}"> -->
+<!--         	<link target="fictif_target"/> -->
+<!--         </menu-item> -->
         <menu-item name="imExStore" title="${uiLabelMap.imExStore}">
         	<link target="fictif_target"/>
         </menu-item>
-        <menu-item name="productOrderStatics" title="${uiLabelMap.ProductStatic}">
+        <menu-item name="productOrderStatics" title="${uiLabelMap.ReportSalesMan}">
         	<link target="productOrderStatics"></link>
         </menu-item>
+        <menu-item name="aggregationSalesIn" title="${uiLabelMap.AggregationSalesIn}">
+        	<link target="reprortSalesIn"></link>
+        </menu-item>
+        
+       <menu-item name="salesOrderProducts" title="${uiLabelMap.ProductStatic}">
+       		<link target="salesOrderProducts"></link>
+       </menu-item>
 	</menu>
 	<menu name="adminReport" modelMenu="businessSubMenu" selected-menuitem-context-field-name="selectedSubMenuItem">
-		<menu-item name="salesForecastListAdvance" title="${uiLabelMap.DASalesForecastByYear}">
-        	<link target="findSalesForecastByYear"/>
-        </menu-item>
-        <menu-item name="createForecastAdvance" title="${uiLabelMap.DACreateEditSalesForecast}">
-        	<link target="initForecastAdvance"/>
-        </menu-item>
+<!-- 		<menu-item name="salesForecastListAdvance" title="${uiLabelMap.DASalesForecastByYear}"> -->
+<!--         	<link target="findSalesForecastByYear"/> -->
+<!--         </menu-item> -->
+<!--         <menu-item name="createForecastAdvance" title="${uiLabelMap.DACreateEditSalesForecast}"> -->
+<!--         	<link target="initForecastAdvance"/> -->
+<!--         </menu-item> -->
 		<menu-item name="reportSalesGrowth" title="${uiLabelMap.reportSalesGrowth}">
         	<link target="commonReportSalesGrowth"/>
         </menu-item>
-        <menu-item name="reportSalestagetPerformance" title="${uiLabelMap.reportSalestagetPerformance}">
-        	<link target="fictif_target"/>
-        </menu-item>
-        <menu-item name="reportCover" title="${uiLabelMap.reportCover}">
-        	<link target="fictif_target"/>
-        </menu-item>
-        <menu-item name="reportKeyOutlet" title="${uiLabelMap.reportKeyOutlet}">
-        	<link target="fictif_target"/>
-        </menu-item>
-        <menu-item name="reportYearplanning" title="${uiLabelMap.reportYearplanning}">
-        	<link target="fictif_target"/>
-        </menu-item>
+<!--         <menu-item name="reportSalestagetPerformance" title="${uiLabelMap.reportSalestagetPerformance}"> -->
+<!--         	<link target="fictif_target"/> -->
+<!--         </menu-item> -->
+<!--         <menu-item name="reportCover" title="${uiLabelMap.reportCover}"> -->
+<!--         	<link target="fictif_target"/> -->
+<!--         </menu-item> -->
+<!--         <menu-item name="reportKeyOutlet" title="${uiLabelMap.reportKeyOutlet}"> -->
+<!--         	<link target="fictif_target"/> -->
+<!--         </menu-item> -->
+<!--         <menu-item name="reportYearplanning" title="${uiLabelMap.reportYearplanning}"> -->
+<!--         	<link target="fictif_target"/> -->
+<!--         </menu-item> -->
 	</menu>
 	<menu name="DELYS_CEO" modelMenu="businessMenu" style="nav nav-list" selected-menuitem-context-field-name="selectedMenuItem">
 		<menu-item name="product" title="${uiLabelMap.DAProduct}" widget-style="fa-cube">
@@ -995,36 +1002,7 @@
         	</link>
         </menu-item>
 
-		<!-- <menu-item name="accPurchaseInvoice" title="${uiLabelMap.accPurchaseInvoice}">
-			<link target="GlAccountPurInvoice">
-				<parameter param-name="organizationPartyId" value="company" />
-			</link>
-		</menu-item> -->
-		<!-- <menu-item name="accPaymentMethod" title="${uiLabelMap.accPaymentMethod}">
-			<link target="editPaymentMethodType">
-			</link>
-		</menu-item> -->
-		<!-- <menu-item name="accCreditCardTypeGLAccount" title="${uiLabelMap.accCreditCardTypeGLAccount}"> 
-			<link target="fictif_target"/> </menu-item> -->
-		<!-- <menu-item name="accAccountVarianceReason" title="${uiLabelMap.accAccountVarianceReason}">
-			<link target="editVarianceReasonGlAccounts">
-				<parameter param-name="organizationPartyId" value="company" />
-			</link>
-		</menu-item> -->
-		<!-- <menu-item name="accTaxAuthority" title="${uiLabelMap.accTaxAuthority}">
-			<link target="FindTaxAuthority">
-				<parameter param-name="organizationPartyId" value="company" />
-			</link>
-		</menu-item> -->
-		<!-- <menu-item name="accTimePeriod" title="${uiLabelMap.accTimePeriod}">
-			<link target="TimePeriods">
-				<parameter param-name="organizationPartyId" value="company" />
-			</link>
-		</menu-item> -->
-		<!-- <menu-item name="accForeignExchangeRates" title="${uiLabelMap.accForeignExchangeRates}">
-			<link target="viewFXConversions">
-			</link>
-		</menu-item> -->
+	
 	</menu>
 
 	<menu name="DELYS_DISTRIBUTOR" modelMenu="businessMenu" style="nav nav-list" default-menu-item-name="distributorHome" selected-menuitem-context-field-name="selectedMenuItem">
@@ -1060,12 +1038,12 @@
         <menu-item name="distributorListSO" title="${uiLabelMap.DAListSalesOrder}" widget-style="fa-file-text-o"><!--  title="${uiLabelMap.distributorListPO}" -->
         	<link target="findSalesOrderListDis"/>
         </menu-item>
-        <menu-item name="returnProductTC" title="${uiLabelMap.DAReturnProductToCompany}" widget-style="fa fa-reply">
-        	<sub-menu location="component://delys/widget/DelysMenus.xml" name="returnProductToCompany"/>
-        </menu-item>
-        <menu-item name="returnProduct" title="${uiLabelMap.DAReturnProductFromMarket}" widget-style="fa fa-reply">
-        	<sub-menu location="component://delys/widget/DelysMenus.xml" name="returnProductSUP"/>
-        </menu-item>
+<!--         <menu-item name="returnProductTC" title="${uiLabelMap.DAReturnProductToCompany}" widget-style="fa fa-reply"> -->
+<!--         	<sub-menu location="component://delys/widget/DelysMenus.xml" name="returnProductToCompany"/> -->
+<!--         </menu-item> -->
+<!--         <menu-item name="returnProduct" title="${uiLabelMap.DAReturnProductFromMarket}" widget-style="fa fa-reply"> -->
+<!--         	<sub-menu location="component://delys/widget/DelysMenus.xml" name="returnProductSUP"/> -->
+<!--         </menu-item> -->
         <menu-item name="findPromoDis" title="${uiLabelMap.DALstPromotion}" widget-style="fa-gift">
         	<link target="findPromoDis"/>
         </menu-item>
@@ -1093,12 +1071,16 @@
         <menu-item name="distributorInventory" title="${uiLabelMap.distributorInventory}" widget-style="fa-bar-chart-o">
         	<link target="fictif_target"/>
         </menu-item> -->
-        <menu-item name="distributorReports" title="${uiLabelMap.distributorReports}" widget-style="fa-bar-chart-o">
-        	<link target="fictif_target"/>
+        <menu-item name="adminReport" title="${uiLabelMap.adminReport}" widget-style="fa-line-chart">
+        	<sub-menu location="component://delys/widget/DelysMenus.xml" name="adminReport"/>
         </menu-item>
+<!--         <menu-item name="distributorReports" title="${uiLabelMap.distributorReports}" widget-style="fa-bar-chart-o"> -->
+<!--         	<link target="fictif_target"/> -->
+<!--         </menu-item> -->
 		<menu-item name="otherDistributor" title="${uiLabelMap.DAOther}" widget-style="fa-cogs">
         	<sub-menu location="component://delys/widget/DelysMenus.xml" name="otherDistributor"/>
         </menu-item>
+        
 	</menu>
 	<menu name="otherDistributor" modelMenu="businessSubMenu" selected-menuitem-context-field-name="selectedSubMenuItem">
 		<menu-item name="agreementList" title="${uiLabelMap.DAAgreementList}">
@@ -1165,6 +1147,12 @@
         </menu-item>
         <menu-item name="salessupReports" title="${uiLabelMap.salessupReports}" widget-style="fa-bar-chart-o">
         	<sub-menu location="component://delys/widget/DelysMenus.xml" name="salessupReports"/>
+        </menu-item>
+        <menu-item name="statisticsAndReport" title="${uiLabelMap.statisticsAndReport}" widget-style="fa-bar-chart-o">
+        	<sub-menu location="component://delys/widget/DelysMenus.xml" name="statisticsAndReport"/>
+        </menu-item>
+        <menu-item name="adminReport" title="${uiLabelMap.adminReport}" widget-style="fa-line-chart">
+        	<sub-menu location="component://delys/widget/DelysMenus.xml" name="adminReport"/>
         </menu-item>
 	</menu>
 	<menu name="returnProductSUP" modelMenu="businessSubMenu" selected-menuitem-context-field-name="selectedSubMenuItem">

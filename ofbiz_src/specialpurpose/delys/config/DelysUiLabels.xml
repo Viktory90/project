@@ -5777,4 +5777,13 @@
     	<value xml:lang="vi">Cấu hình Pentaho</value>
 	</property>
 	
+	<property key="AggregationSalesIn">
+		<value xml:lang="en">Aggregation Sales In</value>
+    	<value xml:lang="vi">Tổng hợp bán hàng nội bộ</value>
+	</property>
+	
+	<property key="ReportSalesMan">
+		<value xml:lang="en">Report Sales Man</value>
+    	<value xml:lang="vi">Bán hàng nhân viên</value>
+	</property>
 </resource>

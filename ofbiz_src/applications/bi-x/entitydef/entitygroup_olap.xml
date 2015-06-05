@@ -8,21 +8,21 @@
 	<!-- ========================================================= -->
 	<entity-group group="org.ofbiz.olap" entity="DateDimension" />
 	<entity-group group="org.ofbiz.olap" entity="ProductDimension" />
-	<entity-group group="org.ofbiz.olap" entity="PartyDimension" />
-	<entity-group group="org.ofbiz.olap" entity="FacilityDimension" />
+<!-- 	<entity-group group="org.ofbiz.olap" entity="PartyDimension" /> -->
+<!-- 	<entity-group group="org.ofbiz.olap" entity="FacilityDimension" /> -->
 	<entity-group group="org.ofbiz.olap" entity="CurrencyDimension" />
-	<entity-group group="org.ofbiz.olap" entity="CurrencyValue" />
-	<entity-group group="org.ofbiz.olap" entity="FacilityFact" />
-	<entity-group group="org.ofbiz.olap" entity="InventoryItemFact" />
+<!-- 	<entity-group group="org.ofbiz.olap" entity="CurrencyValue" /> -->
+<!-- 	<entity-group group="org.ofbiz.olap" entity="FacilityFact" /> -->
+<!-- 	<entity-group group="org.ofbiz.olap" entity="InventoryItemFact" /> -->
 	<entity-group group="org.ofbiz.olap" entity="SchedulePentaho" />
-	<entity-group group="org.ofbiz.olap" entity="PersonFact" />
-	<entity-group group="org.ofbiz.olap" entity="PartyGroupDimension" />
-	<entity-group group="org.ofbiz.olap" entity="PartyRelationshipFact" />
-	<entity-group group="org.ofbiz.olap" entity="PersonGroupFact" />
-	<entity-group group="org.ofbiz.olap" entity="EmplPositionDimension" />
-	<entity-group group="org.ofbiz.olap" entity="EmplPositionFact" />
+<!-- 	<entity-group group="org.ofbiz.olap" entity="PersonFact" /> -->
+<!-- 	<entity-group group="org.ofbiz.olap" entity="PartyGroupDimension" /> -->
+<!-- 	<entity-group group="org.ofbiz.olap" entity="PartyRelationshipFact" /> -->
+<!-- 	<entity-group group="org.ofbiz.olap" entity="PersonGroupFact" /> -->
+<!-- 	<entity-group group="org.ofbiz.olap" entity="EmplPositionDimension" /> -->
+<!-- 	<entity-group group="org.ofbiz.olap" entity="EmplPositionFact" /> -->
 
-	<entity-group group="org.ofbiz.olap" entity="FacilityGeo" />
+<!-- 	<entity-group group="org.ofbiz.olap" entity="FacilityGeo" /> -->
 	
 	<!-- ========================================================= -->
 	<!-- Sales -->

@@ -55,9 +55,17 @@
 			<widgets>
 				<decorator-screen name="DelysCommonDecorator" location="${parameters.mainDecoratorLocation}">
     				<decorator-section name="body">
-						<container id="portalContainerId">
-							<include-portal-page id="${portalPageId}" conf-mode="false" use-private="false"/>
-						</container>
+    					<screenlet>
+							<platform-specific>
+								<html><html-template location="component://bi-x/webapp/reports/libReportHightChart.ftl"/></html>
+							</platform-specific>
+				 	  </screenlet>
+<!-- 						<container id="portalContainerId"> -->
+<!-- 							<include-portal-page id="${portalPageId}" conf-mode="false" use-private="false"/> -->
+<!-- 						</container> -->
+						<include-screen name="CommonReprortSalesYearly" location="component://bi-x/widget/ReportStatics/CommonSalesOrerItemStaticsScreens.xml"/>
+						
+						
 					</decorator-section>
 				</decorator-screen>
 			</widgets>

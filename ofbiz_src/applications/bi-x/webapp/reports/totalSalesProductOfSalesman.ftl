@@ -1,3 +1,5 @@
+
+<@jqGridMinimumLib/>
 <script type="text/javascript">
     var customButtonsDemo = (function () {
         var _collapsed = false;

@@ -14,7 +14,7 @@
 		    		<widgets>
 		    			<section>
 		    				 <actions>
- 							 <set field="printTabBar" value="true" />
+ 							 <set field="printTabBar" value="false" />
 							</actions>
 			  				  <widgets>
 		          

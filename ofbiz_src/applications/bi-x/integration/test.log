@@ -121,3 +121,135 @@
 2015/05/18 09:37:41 - promotion_dimension - Step Insert / Update Olap promotion product  apply.0 ended successfully, processed 3 lines. ( 1 lines/s)
 2015/05/18 09:37:41 - promotion_dimension - Step Insert / Update role type apply.0 ended successfully, processed 3 lines. ( 1 lines/s)
 2015/05/18 09:37:41 - promotion_dimension - Step Get dipscription for promotion type.0 ended successfully, processed 3 lines. ( 1 lines/s)
+2015/06/04 16:51:12 - Pan - Start of run.
+2015/06/04 16:51:12 - promotion_dimension - Dispatching started for transformation [promotion_dimension]
+2015/06/04 16:51:13 - Get data Promotion.0 - Finished reading query, closing connection.
+2015/06/04 16:51:13 - Get data Promotion.0 - Finished processing (I=3, O=0, R=0, W=3, U=0, E=0)
+2015/06/04 16:51:13 - Get mini buget.0 - Finished processing (I=6, O=0, R=3, W=3, U=0, E=0)
+2015/06/04 16:51:13 - Get budget distributor.0 - Finished processing (I=6, O=0, R=3, W=3, U=0, E=0)
+2015/06/04 16:51:13 - Format Date.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2015/06/04 16:51:13 - Get Current Time.0 - Optimization level set to 9.
+2015/06/04 16:51:13 - Get Current Time.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2015/06/04 16:51:13 - Get dipscription for promotion type.0 - Finished processing (I=6, O=0, R=3, W=3, U=0, E=0)
+2015/06/04 16:51:13 - get From Date Dimension.0 - Finished processing (I=3, O=0, R=3, W=3, U=0, E=0)
+2015/06/04 16:51:13 - get Thru Date dimension.0 - Finished processing (I=3, O=0, R=3, W=3, U=0, E=0)
+2015/06/04 16:51:13 - Combination lookup/update.0 - Finished processing (I=3, O=3, R=3, W=3, U=0, E=0)
+2015/06/04 16:51:13 - Update.0 - Finished processing (I=3, O=0, R=3, W=3, U=3, E=0)
+2015/06/04 16:51:13 - Database lookup 2.0 - Finished processing (I=3, O=0, R=3, W=3, U=0, E=0)
+2015/06/04 16:51:14 - Java Filter.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2015/06/04 16:51:14 - Dummy (do nothing) 2.0 - Finished processing (I=0, O=0, R=3, W=6, U=0, E=0)
+2015/06/04 16:51:14 - Insert / Update role type apply.0 - Finished processing (I=3, O=3, R=3, W=3, U=0, E=0)
+2015/06/04 16:51:14 - Insert / Update Olap promotion product  apply.0 - Finished processing (I=3, O=3, R=3, W=3, U=0, E=0)
+2015/06/04 16:51:14 - promotion_dimension - All transaction of database connection 'Ofbiz_conect' where committed at the end of the transformation.
+2015/06/04 16:51:14 - promotion_dimension - All transaction of database connection 'ofbizolap_connect' where committed at the end of the transformation.
+2015/06/04 16:51:14 - Pan - Finished!
+2015/06/04 16:51:14 - Pan - Start=2015/06/04 16:51:12.322, Stop=2015/06/04 16:51:14.364
+2015/06/04 16:51:14 - Pan - Processing ended after 2 seconds.
+2015/06/04 16:51:14 - promotion_dimension -  
+2015/06/04 16:51:14 - promotion_dimension - Step Get data Promotion.0 ended successfully, processed 3 lines. ( 1 lines/s)
+2015/06/04 16:51:14 - promotion_dimension - Step Get mini buget.0 ended successfully, processed 3 lines. ( 1 lines/s)
+2015/06/04 16:51:14 - promotion_dimension - Step Get budget distributor.0 ended successfully, processed 3 lines. ( 1 lines/s)
+2015/06/04 16:51:14 - promotion_dimension - Step Format Date.0 ended successfully, processed 3 lines. ( 1 lines/s)
+2015/06/04 16:51:14 - promotion_dimension - Step get From Date Dimension.0 ended successfully, processed 3 lines. ( 1 lines/s)
+2015/06/04 16:51:14 - promotion_dimension - Step get Thru Date dimension.0 ended successfully, processed 3 lines. ( 1 lines/s)
+2015/06/04 16:51:14 - promotion_dimension - Step Combination lookup/update.0 ended successfully, processed 3 lines. ( 1 lines/s)
+2015/06/04 16:51:14 - promotion_dimension - Step Update.0 ended successfully, processed 3 lines. ( 1 lines/s)
+2015/06/04 16:51:14 - promotion_dimension - Step Get Current Time.0 ended successfully, processed 3 lines. ( 1 lines/s)
+2015/06/04 16:51:14 - promotion_dimension - Step Database lookup 2.0 ended successfully, processed 3 lines. ( 1 lines/s)
+2015/06/04 16:51:14 - promotion_dimension - Step Java Filter.0 ended successfully, processed 3 lines. ( 1 lines/s)
+2015/06/04 16:51:14 - promotion_dimension - Step Dummy (do nothing).0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 16:51:14 - promotion_dimension - Step Dummy (do nothing) 2.0 ended successfully, processed 6 lines. ( 3 lines/s)
+2015/06/04 16:51:14 - promotion_dimension - Step Insert / Update Olap promotion product  apply.0 ended successfully, processed 3 lines. ( 1 lines/s)
+2015/06/04 16:51:14 - promotion_dimension - Step Insert / Update role type apply.0 ended successfully, processed 3 lines. ( 1 lines/s)
+2015/06/04 16:51:14 - promotion_dimension - Step Get dipscription for promotion type.0 ended successfully, processed 3 lines. ( 1 lines/s)
+2015/06/04 17:10:34 - Pan - Start of run.
+2015/06/04 17:10:35 - promotion_dimension - Dispatching started for transformation [promotion_dimension]
+2015/06/04 17:10:39 - Get data Promotion.0 - Finished reading query, closing connection.
+2015/06/04 17:10:39 - promotion_dimension - All transaction of database connection 'Ofbiz_conect' where committed at the end of the transformation.
+2015/06/04 17:10:39 - promotion_dimension - All transaction of database connection 'ofbizolap_connect' where committed at the end of the transformation.
+2015/06/04 17:10:39 - Pan - Finished!
+2015/06/04 17:10:39 - Pan - Start=2015/06/04 17:10:34.919, Stop=2015/06/04 17:10:39.242
+2015/06/04 17:10:39 - Pan - Processing ended after 4 seconds.
+2015/06/04 17:10:39 - promotion_dimension -  
+2015/06/04 17:10:39 - promotion_dimension - Step Get data Promotion.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:10:39 - promotion_dimension - Step Get mini buget.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:10:39 - promotion_dimension - Step Get budget distributor.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:10:39 - promotion_dimension - Step Format Date.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:10:39 - promotion_dimension - Step get From Date Dimension.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:10:39 - promotion_dimension - Step get Thru Date dimension.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:10:39 - promotion_dimension - Step Combination lookup/update.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:10:39 - promotion_dimension - Step Update.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:10:39 - promotion_dimension - Step Get Current Time.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:10:39 - promotion_dimension - Step Database lookup 2.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:10:39 - promotion_dimension - Step Java Filter.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:10:39 - promotion_dimension - Step Dummy (do nothing).0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:10:39 - promotion_dimension - Step Dummy (do nothing) 2.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:10:39 - promotion_dimension - Step Insert / Update Olap promotion product  apply.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:10:39 - promotion_dimension - Step Insert / Update role type apply.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:10:39 - promotion_dimension - Step Get dipscription for promotion type.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:13:21 - Pan - Start of run.
+2015/06/04 17:13:21 - promotion_dimension - Dispatching started for transformation [promotion_dimension]
+2015/06/04 17:13:22 - Get data Promotion.0 - Finished reading query, closing connection.
+2015/06/04 17:13:22 - promotion_dimension - All transaction of database connection 'Ofbiz_conect' where committed at the end of the transformation.
+2015/06/04 17:13:22 - promotion_dimension - All transaction of database connection 'ofbizolap_connect' where committed at the end of the transformation.
+2015/06/04 17:13:22 - Pan - Finished!
+2015/06/04 17:13:22 - Pan - Start=2015/06/04 17:13:21.053, Stop=2015/06/04 17:13:22.208
+2015/06/04 17:13:22 - Pan - Processing ended after 1 seconds.
+2015/06/04 17:13:22 - promotion_dimension -  
+2015/06/04 17:13:22 - promotion_dimension - Step Get data Promotion.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:13:22 - promotion_dimension - Step Get mini buget.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:13:22 - promotion_dimension - Step Get budget distributor.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:13:22 - promotion_dimension - Step Format Date.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:13:22 - promotion_dimension - Step get From Date Dimension.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:13:22 - promotion_dimension - Step get Thru Date dimension.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:13:22 - promotion_dimension - Step Combination lookup/update.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:13:22 - promotion_dimension - Step Update.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:13:22 - promotion_dimension - Step Get Current Time.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:13:22 - promotion_dimension - Step Database lookup 2.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:13:22 - promotion_dimension - Step Java Filter.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:13:22 - promotion_dimension - Step Dummy (do nothing).0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:13:22 - promotion_dimension - Step Dummy (do nothing) 2.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:13:22 - promotion_dimension - Step Insert / Update Olap promotion product  apply.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:13:22 - promotion_dimension - Step Insert / Update role type apply.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:13:22 - promotion_dimension - Step Get dipscription for promotion type.0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:37:32 - Pan - Start of run.
+2015/06/04 17:37:33 - promotion_dimension - Dispatching started for transformation [promotion_dimension]
+2015/06/04 17:37:37 - Get data Promotion.0 - Finished reading query, closing connection.
+2015/06/04 17:37:37 - Get data Promotion.0 - Finished processing (I=3, O=0, R=0, W=3, U=0, E=0)
+2015/06/04 17:37:37 - Get mini buget.0 - Finished processing (I=6, O=0, R=3, W=3, U=0, E=0)
+2015/06/04 17:37:37 - Get budget distributor.0 - Finished processing (I=6, O=0, R=3, W=3, U=0, E=0)
+2015/06/04 17:37:37 - Format Date.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2015/06/04 17:37:37 - Get Current Time.0 - Optimization level set to 9.
+2015/06/04 17:37:37 - Get Current Time.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2015/06/04 17:37:37 - Get dipscription for promotion type.0 - Finished processing (I=6, O=0, R=3, W=3, U=0, E=0)
+2015/06/04 17:37:37 - get From Date Dimension.0 - Finished processing (I=3, O=0, R=3, W=3, U=0, E=0)
+2015/06/04 17:37:37 - get Thru Date dimension.0 - Finished processing (I=3, O=0, R=3, W=3, U=0, E=0)
+2015/06/04 17:37:37 - Combination lookup/update.0 - Finished processing (I=1, O=1, R=3, W=3, U=0, E=0)
+2015/06/04 17:37:37 - Update.0 - Finished processing (I=3, O=0, R=3, W=3, U=3, E=0)
+2015/06/04 17:37:37 - Database lookup 2.0 - Finished processing (I=3, O=0, R=3, W=3, U=0, E=0)
+2015/06/04 17:37:37 - Java Filter.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2015/06/04 17:37:37 - Dummy (do nothing) 2.0 - Finished processing (I=0, O=0, R=3, W=6, U=0, E=0)
+2015/06/04 17:37:37 - Insert / Update role type apply.0 - Finished processing (I=3, O=1, R=3, W=3, U=2, E=0)
+2015/06/04 17:37:37 - Insert / Update Olap promotion product  apply.0 - Finished processing (I=3, O=3, R=3, W=3, U=0, E=0)
+2015/06/04 17:37:37 - promotion_dimension - All transaction of database connection 'Ofbiz_conect' where committed at the end of the transformation.
+2015/06/04 17:37:37 - promotion_dimension - All transaction of database connection 'ofbizolap_connect' where committed at the end of the transformation.
+2015/06/04 17:37:37 - Pan - Finished!
+2015/06/04 17:37:37 - Pan - Start=2015/06/04 17:37:32.800, Stop=2015/06/04 17:37:37.874
+2015/06/04 17:37:37 - Pan - Processing ended after 5 seconds.
+2015/06/04 17:37:37 - promotion_dimension -  
+2015/06/04 17:37:37 - promotion_dimension - Step Get data Promotion.0 ended successfully, processed 3 lines. ( 0 lines/s)
+2015/06/04 17:37:37 - promotion_dimension - Step Get mini buget.0 ended successfully, processed 3 lines. ( 0 lines/s)
+2015/06/04 17:37:37 - promotion_dimension - Step Get budget distributor.0 ended successfully, processed 3 lines. ( 0 lines/s)
+2015/06/04 17:37:37 - promotion_dimension - Step Format Date.0 ended successfully, processed 3 lines. ( 0 lines/s)
+2015/06/04 17:37:37 - promotion_dimension - Step get From Date Dimension.0 ended successfully, processed 3 lines. ( 0 lines/s)
+2015/06/04 17:37:37 - promotion_dimension - Step get Thru Date dimension.0 ended successfully, processed 3 lines. ( 0 lines/s)
+2015/06/04 17:37:37 - promotion_dimension - Step Combination lookup/update.0 ended successfully, processed 3 lines. ( 0 lines/s)
+2015/06/04 17:37:37 - promotion_dimension - Step Update.0 ended successfully, processed 3 lines. ( 0 lines/s)
+2015/06/04 17:37:37 - promotion_dimension - Step Get Current Time.0 ended successfully, processed 3 lines. ( 0 lines/s)
+2015/06/04 17:37:37 - promotion_dimension - Step Database lookup 2.0 ended successfully, processed 3 lines. ( 0 lines/s)
+2015/06/04 17:37:37 - promotion_dimension - Step Java Filter.0 ended successfully, processed 3 lines. ( 0 lines/s)
+2015/06/04 17:37:37 - promotion_dimension - Step Dummy (do nothing).0 ended successfully, processed 0 lines. ( 0 lines/s)
+2015/06/04 17:37:37 - promotion_dimension - Step Dummy (do nothing) 2.0 ended successfully, processed 6 lines. ( 1 lines/s)
+2015/06/04 17:37:37 - promotion_dimension - Step Insert / Update Olap promotion product  apply.0 ended successfully, processed 3 lines. ( 0 lines/s)
+2015/06/04 17:37:37 - promotion_dimension - Step Insert / Update role type apply.0 ended successfully, processed 3 lines. ( 0 lines/s)
+2015/06/04 17:37:37 - promotion_dimension - Step Get dipscription for promotion type.0 ended successfully, processed 3 lines. ( 0 lines/s)

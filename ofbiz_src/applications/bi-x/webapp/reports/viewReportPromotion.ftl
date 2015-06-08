@@ -621,7 +621,8 @@
         },
         series: data.chartpie
     });
-
+	
+	console.log(data.chartpie)
 
     $('#columnLineChart').highcharts({
         title: {
